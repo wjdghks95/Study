@@ -31,7 +31,10 @@ function createItem(text) {
 
     const itemCheckBtn = document.createElement('button');
     setItem(itemCheckBtn, 'checkBtnAndName__checkBtn', itemCheckBtnAndName);
-    itemCheckBtn.innerHTML = '<i class="far fa-square"></i>'
+    itemCheckBtn.addEventListener('click', () => {
+        itemCheckBtn.classList.toggle('checked');
+        itemName.classList.toggle('checked');
+    });
 
     const itemName = document.createElement('span');
     setItem(itemName, 'checkBtnAndName__name', itemCheckBtnAndName);

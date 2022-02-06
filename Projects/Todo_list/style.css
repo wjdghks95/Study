@@ -102,6 +102,12 @@ button {
 .checkBtnAndName__name {
   margin-left: 12px;
   font-size: var(--font-medium);
+  display: inline-block;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
 }
 .checkBtnAndName__name.checked {
   text-decoration: line-through;

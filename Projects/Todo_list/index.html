@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>Todo List</title>
+    <script src="https://kit.fontawesome.com/3070ced770.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="list">
+        <header class="header">Todo List</header>
+        <ul class="items">
+            <li class="item">
+                <div class="item__row">
+                    <div class="item__checkBtnAndName">
+                        <button class="checkBtnAndName__checkBtn">
+                            <i class="far fa-square"></i>
+                        </button>
+                        <span class="checkBtnAndName__name">우유</span>
+                    </div>
+                    <button class="item__deleteBtn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                <div class="item__divider"></div>
+            </li>
+        </ul>
+        <footer class="footer">
+            <input type="text" class="footer__input">
+            <button class="footer__plusBtn">
+                <i class="fas fa-plus"></i>
+            </button>
+        </footer>
+    </section>
+</body>
+</html>

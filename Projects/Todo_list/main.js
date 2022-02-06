@@ -40,6 +40,9 @@ function createItem(text) {
     const itemDeleteBtn = document.createElement('button');
     setItem(itemDeleteBtn, 'item__deleteBtn', item);
     itemDeleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+    itemDeleteBtn.addEventListener('click', () => {
+        itemRow.remove();
+    });
 
     const itemDivider = document.createElement('div');
     setItem(itemDivider, 'item__divider', itemRow);

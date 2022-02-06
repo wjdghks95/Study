@@ -80,11 +80,11 @@ button {
   height: 500px;
 }
 
-.item {
+.item__row {
   margin-bottom: 4px;
 }
 
-.item__row {
+.item {
   display: flex;
   justify-content: space-between;
   padding: 8px 32px;

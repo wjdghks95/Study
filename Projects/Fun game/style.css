@@ -107,6 +107,12 @@ body {
   border-radius: var(--border-radius);
 }
 
+.carrot,
+.bug {
+  position: absolute;
+  cursor: pointer;
+}
+
 .pop-up {
   display: flex;
   flex-direction: column;

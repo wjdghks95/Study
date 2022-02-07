@@ -1,6 +1,10 @@
-CARROT_COUNT = 5;
-BUG_COUNT = 3;
-GAME_DURATION = 3;
+INIT_CARROT_COUNT = 3;
+INIT_BUG_COUNT = 1;
+INIT_GAME_DURATION = 3;
+
+CARROT_COUNT = INIT_CARROT_COUNT;
+BUG_COUNT = INIT_BUG_COUNT;
+GAME_DURATION = INIT_GAME_DURATION;
 
 CARROT_SIZE = 80;
 
@@ -68,11 +72,26 @@ gameBtn.addEventListener('click', () => {
 
 function startGame() {
     started = true;
-    startTimer();
     initGame();
+    startTimer();
     updatePoint();
     showStopBtn();
     showTimerAndScore();
+};
+
+function nextGame() {
+    started = true;
+    GAME_DURATION++;
+    CARROT_COUNT++;
+    BUG_COUNT++;
+    gameField.innerText = '';
+    gameScore.innerText = CARROT_COUNT;
+    startTimer();
+    showStopBtn();
+    score = 0;
+    addItem(CARROT_COUNT, 'carrot', 'img/carrot.png');
+    addItem(BUG_COUNT, 'bug', 'img/bug.png');
+    hidePopUp();
 };
 
 function clearGame() {
@@ -122,6 +141,9 @@ function stopTimer() {
 };
 
 function initGame() {
+    CARROT_COUNT = INIT_CARROT_COUNT;
+    BUG_COUNT = INIT_BUG_COUNT;
+    GAME_DURATION = INIT_GAME_DURATION;
     gameField.innerText = '';
     gameScore.innerText = CARROT_COUNT;
     score = 0;

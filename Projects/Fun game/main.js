@@ -10,6 +10,9 @@ const gameTimer = document.querySelector('.game__timer');
 const gameScore = document.querySelector('.game__score');
 const gamePoint = document.querySelector('.game__point');
 
+const popUp = document.querySelector('.pop-up');
+const popUpText = document.querySelector('.pop-up__message');
+
 let started = false;
 let timer;
 let score = 0;
@@ -28,6 +31,8 @@ function onItemClick(event) {
         updateScore();
         point++;
         updatePoint();
+    } else if (target.matches('.bug')) {
+        finishGame();
     };
 };
 
@@ -56,6 +61,13 @@ function startGame() {
     showTimerAndScore();
 };
 
+function finishGame() {
+    started = false;
+    stopTimer();
+    hideStopBtn();
+    showPopUpWithText(`${point}점`);
+};
+
 function startTimer() {
     let time = GAME_DURATION;
     updateTimer(time);
@@ -63,7 +75,7 @@ function startTimer() {
         time--;
         updateTimer(time);
         if (time <= 0) {
-            clearInterval(timer);
+            finishGame();
             gameTimer.innerText = 'Game over';
             gameTimer.style.fontSize = 'var(--font-medium)';
         };
@@ -74,6 +86,10 @@ function updateTimer(time) {
     let min = Math.floor(time / 60);
     let sec = time % 60;
     gameTimer.innerText = `${min}:${sec}`;
+};
+
+function stopTimer() {
+    clearInterval(timer);
 };
 
 function initGame() {
@@ -113,7 +129,16 @@ function showStopBtn() {
     icon.classList.add('fa-stop');
 };
 
+function hideStopBtn() {
+    gameBtn.style.visibility = 'hidden';
+};
+
 function showTimerAndScore() {
     gameTimer.style.visibility = 'visible';
     gameScore.style.visibility = 'visible';
+};
+
+function showPopUpWithText(text) {
+    popUp.classList.remove('pop-up--hide');
+    popUpText.innerText = text;
 };

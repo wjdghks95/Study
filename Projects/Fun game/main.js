@@ -1,5 +1,6 @@
 CARROUT_COUNT = 5;
 BUG_COUNT = 3;
+GAME_DURATION = 3;
 
 CARROT_SIZE = 80;
 
@@ -9,6 +10,7 @@ const gameTimer = document.querySelector('.game__timer');
 const gameScore = document.querySelector('.game__score');
 
 let started = false;
+let timer;
 
 gameBtn.addEventListener('click', () => {
     if (started === true) {
@@ -21,9 +23,30 @@ gameBtn.addEventListener('click', () => {
 
 function startGame() {
     started = true;
+    startTimer();
     initGame();
     showStopBtn();
     showTimerAndScore();
+};
+
+function startTimer() {
+    let time = GAME_DURATION;
+    updateTimer(time);
+    timer = setInterval(() => {
+        time--;
+        updateTimer(time);
+        if (time <= 0) {
+            clearInterval(timer);
+            gameTimer.innerText = 'Game over';
+            gameTimer.style.fontSize = 'var(--font-medium)';
+        };
+    }, 1000);
+};
+
+function updateTimer(time) {
+    let min = Math.floor(time / 60);
+    let sec = time % 60;
+    gameTimer.innerText = `${min}:${sec}`;
 };
 
 function initGame() {

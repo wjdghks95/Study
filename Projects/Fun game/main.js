@@ -107,6 +107,7 @@ function stopGame() {
     stopTimer();
     hideStopBtn();
     showPopUpWithText(`REPLAY ?`);
+    showPopUpRefreshBtn();
 };
 
 function finishGame() {
@@ -114,6 +115,7 @@ function finishGame() {
     stopTimer();
     hideStopBtn();
     showPopUpWithText(`${point}점`);
+    showPopUpRefreshBtn();
 };
 
 function startTimer() {
@@ -208,4 +210,10 @@ function showPopUpForwardBtn() {
     const icon = popUpRefresh.querySelector('.fas');
     icon.classList.remove('fa-redo');
     icon.classList.add('fa-forward');
+};
+
+function showPopUpRefreshBtn() {
+    const icon = popUpRefresh.querySelector('.fas');
+    icon.classList.add('fa-redo');
+    icon.classList.remove('fa-forward');
 };

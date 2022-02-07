@@ -67,6 +67,13 @@ function startGame() {
     showTimerAndScore();
 };
 
+function stopGame() {
+    started = true;
+    stopTimer();
+    hideStopBtn();
+    showPopUpWithText(`REPLAY ?`);
+};
+
 function finishGame() {
     started = false;
     stopTimer();

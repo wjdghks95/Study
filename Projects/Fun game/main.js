@@ -5,6 +5,8 @@ CARROT_SIZE = 80;
 
 const gameBtn = document.querySelector('.game__button');
 const gameField = document.querySelector('.game__field');
+const gameTimer = document.querySelector('.game__timer');
+const gameScore = document.querySelector('.game__score');
 
 let started = false;
 
@@ -21,6 +23,7 @@ function startGame() {
     started = true;
     initGame();
     showStopBtn();
+    showTimerAndScore();
 };
 
 function initGame() {
@@ -57,4 +60,9 @@ function showStopBtn() {
     const icon = gameBtn.querySelector('.fas');
     icon.classList.remove('fa-play');
     icon.classList.add('fa-stop');
+};
+
+function showTimerAndScore() {
+    gameTimer.style.visibility = 'visible';
+    gameScore.style.visibility = 'visible';
 };

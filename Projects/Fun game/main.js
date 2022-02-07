@@ -8,9 +8,36 @@ const gameBtn = document.querySelector('.game__button');
 const gameField = document.querySelector('.game__field');
 const gameTimer = document.querySelector('.game__timer');
 const gameScore = document.querySelector('.game__score');
+const gamePoint = document.querySelector('.game__point');
 
 let started = false;
 let timer;
+let score = 0;
+let point = 0;
+
+gameField.addEventListener('click', onItemClick);
+
+function onItemClick(event) {
+    if (started === false) {
+        return;
+    };
+    const target = event.target;
+    if (target.matches('.carrot')) {
+        target.remove();
+        score++;
+        updateScore();
+        point++;
+        updatePoint();
+    };
+};
+
+function updateScore() {
+    gameScore.innerText = CARROUT_COUNT - score;
+};
+
+function updatePoint() {
+    gamePoint.innerText = point;
+};
 
 gameBtn.addEventListener('click', () => {
     if (started === true) {
@@ -50,6 +77,7 @@ function updateTimer(time) {
 };
 
 function initGame() {
+    gameScore.innerText = CARROUT_COUNT;
     addItem(CARROUT_COUNT, 'carrot', 'img/carrot.png');
     addItem(BUG_COUNT, 'bug', 'img/bug.png');
 };

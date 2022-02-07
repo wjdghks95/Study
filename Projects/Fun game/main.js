@@ -19,6 +19,13 @@ const popUpText = document.querySelector('.pop-up__message');
 const popUpRefresh = document.querySelector('.pop-up__refreshBtn');
 const popUpIcon = popUpRefresh.querySelector('.fas');
 
+const bgSound = new Audio('sound/bg.mp3');
+const alertSound = new Audio('sound/alert.wav');
+const bugSound = new Audio('sound/bug_pull.mp3');
+const carrotSound = new Audio('sound/carrot_pull.mp3');
+const winSound = new Audio('sound/game_win.mp3');
+
+
 let started = false;
 let timer;
 let score = 0;
@@ -45,10 +52,13 @@ function onItemClick(event) {
         updateScore();
         point++;
         updatePoint();
+        carrotSound.play();
+        carrotSound.currentTime = 0;
         if (score === CARROT_COUNT) {
             clearGame();
         };
     } else if (target.matches('.bug')) {
+        bugSound.play();
         finishGame();
     };
 };
@@ -77,6 +87,8 @@ function startGame() {
     updatePoint();
     showStopBtn();
     showTimerAndScore();
+    bgSound.play();
+    bgSound.currentTime = 0;
 };
 
 function nextGame() {
@@ -92,6 +104,8 @@ function nextGame() {
     addItem(CARROT_COUNT, 'carrot', 'img/carrot.png');
     addItem(BUG_COUNT, 'bug', 'img/bug.png');
     hidePopUp();
+    bgSound.play();
+    bgSound.currentTime = 0;
 };
 
 function clearGame() {
@@ -100,6 +114,8 @@ function clearGame() {
     hideStopBtn();
     showPopUpWithText(`Next Game`);
     showPopUpForwardBtn();
+    winSound.play();
+    bgSound.pause();
 };
 
 function stopGame() {
@@ -108,6 +124,8 @@ function stopGame() {
     hideStopBtn();
     showPopUpWithText(`REPLAY ?`);
     showPopUpRefreshBtn();
+    alertSound.play();
+    bgSound.pause();
 };
 
 function finishGame() {
@@ -116,6 +134,8 @@ function finishGame() {
     hideStopBtn();
     showPopUpWithText(`${point}점`);
     showPopUpRefreshBtn();
+    bugSound.play();
+    bgSound.pause();
 };
 
 function startTimer() {

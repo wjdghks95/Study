@@ -1,4 +1,4 @@
-CARROUT_COUNT = 5;
+CARROT_COUNT = 5;
 BUG_COUNT = 3;
 GAME_DURATION = 3;
 
@@ -42,7 +42,7 @@ function onItemClick(event) {
 };
 
 function updateScore() {
-    gameScore.innerText = CARROUT_COUNT - score;
+    gameScore.innerText = CARROT_COUNT - score;
 };
 
 function updatePoint() {
@@ -100,10 +100,10 @@ function stopTimer() {
 
 function initGame() {
     gameField.innerText = '';
-    gameScore.innerText = CARROUT_COUNT;
+    gameScore.innerText = CARROT_COUNT;
     score = 0;
     point = 0;
-    addItem(CARROUT_COUNT, 'carrot', 'img/carrot.png');
+    addItem(CARROT_COUNT, 'carrot', 'img/carrot.png');
     addItem(BUG_COUNT, 'bug', 'img/bug.png');
     hidePopUp();
     gameTimer.style.fontSize = 'calc(var(--font-large) * 1.2)';

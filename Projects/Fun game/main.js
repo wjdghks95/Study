@@ -12,11 +12,16 @@ const gamePoint = document.querySelector('.game__point');
 
 const popUp = document.querySelector('.pop-up');
 const popUpText = document.querySelector('.pop-up__message');
+const popUpRefresh = document.querySelector('.pop-up__refreshBtn');
 
 let started = false;
 let timer;
 let score = 0;
 let point = 0;
+
+popUpRefresh.addEventListener('click', () => {
+    startGame();
+});
 
 gameField.addEventListener('click', onItemClick);
 
@@ -57,6 +62,7 @@ function startGame() {
     started = true;
     startTimer();
     initGame();
+    updatePoint();
     showStopBtn();
     showTimerAndScore();
 };
@@ -93,9 +99,14 @@ function stopTimer() {
 };
 
 function initGame() {
+    gameField.innerText = '';
     gameScore.innerText = CARROUT_COUNT;
+    score = 0;
+    point = 0;
     addItem(CARROUT_COUNT, 'carrot', 'img/carrot.png');
     addItem(BUG_COUNT, 'bug', 'img/bug.png');
+    hidePopUp();
+    gameTimer.style.fontSize = 'calc(var(--font-large) * 1.2)';
 };
 
 function addItem(count, className, imgPath) {
@@ -124,6 +135,7 @@ function getRandomNumber(min, max) {
 };
 
 function showStopBtn() {
+    gameBtn.style.visibility = 'visible';
     const icon = gameBtn.querySelector('.fas');
     icon.classList.remove('fa-play');
     icon.classList.add('fa-stop');
@@ -141,4 +153,8 @@ function showTimerAndScore() {
 function showPopUpWithText(text) {
     popUp.classList.remove('pop-up--hide');
     popUpText.innerText = text;
+};
+
+function hidePopUp() {
+    popUp.classList.add('pop-up--hide');
 };

@@ -20,6 +20,7 @@ gameBtn.addEventListener('click', () => {
 function startGame() {
     started = true;
     initGame();
+    showStopBtn();
 };
 
 function initGame() {
@@ -50,4 +51,10 @@ function addItem(count, className, imgPath) {
 
 function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
+};
+
+function showStopBtn() {
+    const icon = gameBtn.querySelector('.fas');
+    icon.classList.remove('fa-play');
+    icon.classList.add('fa-stop');
 };

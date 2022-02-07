@@ -13,6 +13,7 @@ const gamePoint = document.querySelector('.game__point');
 const popUp = document.querySelector('.pop-up');
 const popUpText = document.querySelector('.pop-up__message');
 const popUpRefresh = document.querySelector('.pop-up__refreshBtn');
+const popUpIcon = popUpRefresh.querySelector('.fas');
 
 let started = false;
 let timer;
@@ -20,7 +21,11 @@ let score = 0;
 let point = 0;
 
 popUpRefresh.addEventListener('click', () => {
-    startGame();
+    if (popUpIcon.classList.contains('fa-redo')) {
+        startGame();
+    } else if (popUpIcon.classList.contains('fa-forward')) {
+        nextGame();
+    };
 });
 
 gameField.addEventListener('click', onItemClick);
@@ -36,6 +41,9 @@ function onItemClick(event) {
         updateScore();
         point++;
         updatePoint();
+        if (score === CARROT_COUNT) {
+            clearGame();
+        };
     } else if (target.matches('.bug')) {
         finishGame();
     };
@@ -65,6 +73,14 @@ function startGame() {
     updatePoint();
     showStopBtn();
     showTimerAndScore();
+};
+
+function clearGame() {
+    started = false;
+    stopTimer();
+    hideStopBtn();
+    showPopUpWithText(`Next Game`);
+    showPopUpForwardBtn();
 };
 
 function stopGame() {
@@ -164,4 +180,10 @@ function showPopUpWithText(text) {
 
 function hidePopUp() {
     popUp.classList.add('pop-up--hide');
+};
+
+function showPopUpForwardBtn() {
+    const icon = popUpRefresh.querySelector('.fas');
+    icon.classList.remove('fa-redo');
+    icon.classList.add('fa-forward');
 };

@@ -1,17 +1,16 @@
-import PopUp from './popup.js';
+'use strict'
 
-const INIT_CARROT_COUNT = 3;
-const INIT_BUG_COUNT = 1;
+import PopUp from './popup.js';
+import Field from './field.js';
+
+const CARROT_COUNT = 3;
+const BUG_COUNT = 1;
 const INIT_GAME_DURATION = 3;
 
-let CARROT_COUNT = INIT_CARROT_COUNT;
-let BUG_COUNT = INIT_BUG_COUNT;
 let GAME_DURATION = INIT_GAME_DURATION;
 
-const CARROT_SIZE = 80;
 
 const gameBtn = document.querySelector('.game__button');
-const gameField = document.querySelector('.game__field');
 const gameTimer = document.querySelector('.game__timer');
 const gameScore = document.querySelector('.game__score');
 const gamePoint = document.querySelector('.game__point');
@@ -33,15 +32,14 @@ gameFinishBanner.onClickListener(() => {
     nextGame();
 });
 
-gameField.addEventListener('click', onItemClick);
+const gameField = new Field(CARROT_COUNT, BUG_COUNT);
+gameField.setClickListener(onItemClick)
 
-function onItemClick(event) {
+function onItemClick(item) {
     if (started === false) {
         return;
     };
-    const target = event.target;
-    if (target.matches('.carrot')) {
-        target.remove();
+    if (item === 'carrot') {
         score++;
         updateScore();
         point++;
@@ -51,7 +49,7 @@ function onItemClick(event) {
         if (score === CARROT_COUNT) {
             clearGame();
         };
-    } else if (target.matches('.bug')) {
+    } else if (item ==='bug') {
         bugSound.play();
         finishGame();
     };
@@ -88,15 +86,12 @@ function startGame() {
 function nextGame() {
     started = true;
     GAME_DURATION++;
-    CARROT_COUNT++;
-    BUG_COUNT++;
     gameField.innerText = '';
     gameScore.innerText = CARROT_COUNT;
     startTimer();
     showStopBtn();
     score = 0;
-    addItem(CARROT_COUNT, 'carrot', 'img/carrot.png');
-    addItem(BUG_COUNT, 'bug', 'img/bug.png');
+    gameField.nextStage();
     gameFinishBanner.hide();
     bgSound.play();
     bgSound.currentTime = 0;
@@ -156,45 +151,6 @@ function stopTimer() {
     clearInterval(timer);
 };
 
-function initGame() {
-    CARROT_COUNT = INIT_CARROT_COUNT;
-    BUG_COUNT = INIT_BUG_COUNT;
-    GAME_DURATION = INIT_GAME_DURATION;
-    gameField.innerText = '';
-    gameScore.innerText = CARROT_COUNT;
-    score = 0;
-    point = 0;
-    addItem(CARROT_COUNT, 'carrot', 'img/carrot.png');
-    addItem(BUG_COUNT, 'bug', 'img/bug.png');
-    gameFinishBanner.hide();
-    gameTimer.style.fontSize = 'calc(var(--font-large) * 1.2)';
-};
-
-function addItem(count, className, imgPath) {
-    const gameFieldRect = gameField.getBoundingClientRect();
-    const x1 = 0;
-    const x2 = gameFieldRect.width -CARROT_SIZE;
-    const y1 = 0;
-    const y2 = gameFieldRect.height -CARROT_SIZE;
-
-    for (let i = 1; i <= count; i++) {
-        const item = document.createElement('img');
-        item.setAttribute('class', className);
-        item.setAttribute('src', imgPath);
-        
-        const x = getRandomNumber(x1, x2);
-        const y = getRandomNumber(y1, y2);
-
-        item.style.left = `${x}px`;
-        item.style.top = `${y}px`;
-        gameField.appendChild(item);
-    };
-};
-
-function getRandomNumber(min, max) {
-    return Math.random() * (max - min) + min;
-};
-
 function showStopBtn() {
     gameBtn.style.visibility = 'visible';
     const icon = gameBtn.querySelector('.fas');
@@ -211,3 +167,12 @@ function showTimerAndScore() {
     gameScore.style.visibility = 'visible';
 };
 
+function initGame() {
+    GAME_DURATION = INIT_GAME_DURATION;
+    gameScore.innerText = CARROT_COUNT;
+    score = 0;
+    point = 0;
+    gameField.init();
+    gameFinishBanner.hide();
+    gameTimer.style.fontSize = 'calc(var(--font-large) * 1.2)';
+};

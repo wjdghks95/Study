@@ -1,3 +1,4 @@
+'use strict'
 export default class Popup {
     constructor () {
         this.popUp = document.querySelector('.pop-up');

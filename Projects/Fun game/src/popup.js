@@ -11,6 +11,7 @@ export default class Popup {
             } else if (this.popUpIcon.classList.contains('fa-forward')) {
                 this.onNext && this.onNext();
             };
+            this.hide();
         });
     }
 

@@ -2,16 +2,11 @@
 
 import PopUp from './popup.js';
 import Game from './game.js';
+import * as sound from './sound.js'
 
 const CARROT_COUNT = 3;
 const BUG_COUNT = 1;
 const GAME_DURATION = 3;
-
-const bgSound = new Audio('sound/bg.mp3');
-const alertSound = new Audio('sound/alert.wav');
-const bugSound = new Audio('sound/bug_pull.mp3');
-const carrotSound = new Audio('sound/carrot_pull.mp3');
-const winSound = new Audio('sound/game_win.mp3');
 
 const game = new Game(CARROT_COUNT, BUG_COUNT, GAME_DURATION);
 game.setGameStopListener((reason, point) => {
@@ -20,14 +15,17 @@ game.setGameStopListener((reason, point) => {
         case 'win':
             message = 'NEXT GAME';
             gameFinishBanner.showForwardBtn();
+            sound.playWin();
             break;
         case 'lose':
             message = `${point}점`;
             gameFinishBanner.showRefreshBtn();
+            sound.playBug();
             break;
         case 'cancel':
             message = 'REPLAY ?';
             gameFinishBanner.showRefreshBtn();
+            sound.playAlert();
             break;
         default:
             break;

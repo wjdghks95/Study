@@ -1,6 +1,7 @@
 'use strict'
 
 import Field from './field.js';
+import * as sound from './sound.js'
 
 export default class Game {
     constructor(carrotCount, bugCount, gameDuration) {
@@ -42,8 +43,7 @@ export default class Game {
         this.updatePoint();
         this.showStopBtn();
         this.showTimerAndScore();
-        // bgSound.play();
-        // bgSound.currentTime = 0;
+        sound.playBackground();
     };
 
     next() {
@@ -56,8 +56,7 @@ export default class Game {
         this.gameField.nextStage(this.carrotCount, this.bugCount);
         this.startTimer();
         this.showStopBtn();
-        // bgSound.play();
-        // bgSound.currentTime = 0;
+        sound.playBackground();
     };
 
     clear() {
@@ -65,8 +64,7 @@ export default class Game {
         this.stopTimer();
         this.hideStopBtn();
         this.onGameStop && this.onGameStop('win');
-        // winSound.play();
-        // bgSound.pause();
+        sound.stopBackground();
     };
 
     stop() {
@@ -74,8 +72,7 @@ export default class Game {
         this.stopTimer();
         this.hideStopBtn();
         this.onGameStop && this.onGameStop('cancel');
-        // alertSound.play();
-        // bgSound.pause();
+        sound.stopBackground();
     };
 
     finish() {
@@ -83,8 +80,7 @@ export default class Game {
         this.stopTimer();
         this.hideStopBtn();
         this.onGameStop && this.onGameStop('lose', this.point);
-        // bugSound.play();
-        // bgSound.pause();
+        sound.stopBackground();
     };
 
     setGameStopListener(onGameStop) {
@@ -100,8 +96,7 @@ export default class Game {
             this.updateScore();
             this.point++;
             this.updatePoint();
-            // this.carrotSound.play();
-            // this.carrotSound.currentTime = 0;
+            sound.playCarrot();
             if (this.score === this.carrotCount) {
                 this.clear();
             };

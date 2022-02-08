@@ -1,12 +1,14 @@
-INIT_CARROT_COUNT = 3;
-INIT_BUG_COUNT = 1;
-INIT_GAME_DURATION = 3;
+import PopUp from './popup.js';
 
-CARROT_COUNT = INIT_CARROT_COUNT;
-BUG_COUNT = INIT_BUG_COUNT;
-GAME_DURATION = INIT_GAME_DURATION;
+const INIT_CARROT_COUNT = 3;
+const INIT_BUG_COUNT = 1;
+const INIT_GAME_DURATION = 3;
 
-CARROT_SIZE = 80;
+let CARROT_COUNT = INIT_CARROT_COUNT;
+let BUG_COUNT = INIT_BUG_COUNT;
+let GAME_DURATION = INIT_GAME_DURATION;
+
+const CARROT_SIZE = 80;
 
 const gameBtn = document.querySelector('.game__button');
 const gameField = document.querySelector('.game__field');
@@ -14,29 +16,21 @@ const gameTimer = document.querySelector('.game__timer');
 const gameScore = document.querySelector('.game__score');
 const gamePoint = document.querySelector('.game__point');
 
-const popUp = document.querySelector('.pop-up');
-const popUpText = document.querySelector('.pop-up__message');
-const popUpRefresh = document.querySelector('.pop-up__refreshBtn');
-const popUpIcon = popUpRefresh.querySelector('.fas');
-
 const bgSound = new Audio('sound/bg.mp3');
 const alertSound = new Audio('sound/alert.wav');
 const bugSound = new Audio('sound/bug_pull.mp3');
 const carrotSound = new Audio('sound/carrot_pull.mp3');
 const winSound = new Audio('sound/game_win.mp3');
-
-
 let started = false;
 let timer;
 let score = 0;
 let point = 0;
 
-popUpRefresh.addEventListener('click', () => {
-    if (popUpIcon.classList.contains('fa-redo')) {
-        startGame();
-    } else if (popUpIcon.classList.contains('fa-forward')) {
-        nextGame();
-    };
+const gameFinishBanner = new PopUp();
+gameFinishBanner.onClickListener(() => {
+    startGame()
+}, () => {
+    nextGame();
 });
 
 gameField.addEventListener('click', onItemClick);
@@ -103,7 +97,7 @@ function nextGame() {
     score = 0;
     addItem(CARROT_COUNT, 'carrot', 'img/carrot.png');
     addItem(BUG_COUNT, 'bug', 'img/bug.png');
-    hidePopUp();
+    gameFinishBanner.hide();
     bgSound.play();
     bgSound.currentTime = 0;
 };
@@ -112,8 +106,8 @@ function clearGame() {
     started = false;
     stopTimer();
     hideStopBtn();
-    showPopUpWithText(`Next Game`);
-    showPopUpForwardBtn();
+    gameFinishBanner.showWithText('Next Game');
+    gameFinishBanner.showForwardBtn();
     winSound.play();
     bgSound.pause();
 };
@@ -122,8 +116,8 @@ function stopGame() {
     started = true;
     stopTimer();
     hideStopBtn();
-    showPopUpWithText(`REPLAY ?`);
-    showPopUpRefreshBtn();
+    gameFinishBanner.showWithText('REPLAY ?');
+    gameFinishBanner.showRefreshBtn();
     alertSound.play();
     bgSound.pause();
 };
@@ -132,8 +126,8 @@ function finishGame() {
     started = false;
     stopTimer();
     hideStopBtn();
-    showPopUpWithText(`${point}점`);
-    showPopUpRefreshBtn();
+    gameFinishBanner.showWithText(`${point}점`);
+    gameFinishBanner.showRefreshBtn();
     bugSound.play();
     bgSound.pause();
 };
@@ -172,7 +166,7 @@ function initGame() {
     point = 0;
     addItem(CARROT_COUNT, 'carrot', 'img/carrot.png');
     addItem(BUG_COUNT, 'bug', 'img/bug.png');
-    hidePopUp();
+    gameFinishBanner.hide();
     gameTimer.style.fontSize = 'calc(var(--font-large) * 1.2)';
 };
 
@@ -217,23 +211,3 @@ function showTimerAndScore() {
     gameScore.style.visibility = 'visible';
 };
 
-function showPopUpWithText(text) {
-    popUp.classList.remove('pop-up--hide');
-    popUpText.innerText = text;
-};
-
-function hidePopUp() {
-    popUp.classList.add('pop-up--hide');
-};
-
-function showPopUpForwardBtn() {
-    const icon = popUpRefresh.querySelector('.fas');
-    icon.classList.remove('fa-redo');
-    icon.classList.add('fa-forward');
-};
-
-function showPopUpRefreshBtn() {
-    const icon = popUpRefresh.querySelector('.fas');
-    icon.classList.add('fa-redo');
-    icon.classList.remove('fa-forward');
-};

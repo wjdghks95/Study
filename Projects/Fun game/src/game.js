@@ -57,8 +57,7 @@ export class Game {
         this.gameBtn.addEventListener('click', () => {
             if (this.started === true) {
                 this.stop(Reason.cancel);
-            };
-            if (this.started === false) {
+            } else if (this.started === false) {
                 this.start();
             };
         });
@@ -86,7 +85,7 @@ export class Game {
     };
 
     stop(reason, point) {
-        this.started = true;
+        this.started = false;
         this.stopTimer();
         this.hideStopBtn();
         this.onGameStop && this.onGameStop(reason, point);

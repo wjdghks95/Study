@@ -29,8 +29,8 @@ game.setGameStopListener((reason, point) => {
             sound.playAlert();
             break;
         default:
-            break;
-    }
+            throw new Error('Error');
+    };
     gameFinishBanner.showWithText(message);
 });
 

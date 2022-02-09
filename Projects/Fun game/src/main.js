@@ -1,14 +1,15 @@
 'use strict'
 
 import PopUp from './popup.js';
-import { Game, Reason } from './game.js';
+import { gameBuilder, Reason } from './game.js';
 import * as sound from './sound.js'
 
-const CARROT_COUNT = 3;
-const BUG_COUNT = 1;
-const GAME_DURATION = 3;
+const game = new gameBuilder()
+    .withCarrotCount(3)
+    .withBugCount(1)
+    .withGameDuration(3)
+    .build();
 
-const game = new Game(CARROT_COUNT, BUG_COUNT, GAME_DURATION);
 game.setGameStopListener((reason, point) => {
     let message;
     switch (reason) {

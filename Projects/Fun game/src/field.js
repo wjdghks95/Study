@@ -2,10 +2,15 @@
 
 const CARROT_SIZE = 80;
 
-export default class Field {
-    constructor(carrotCount, bugCount) {
-        this.init_carrotCount = carrotCount;
-        this.init_bugCount = bugCount;
+export const ItemType = Object.freeze({
+    carrot: 'carrot',
+    bug: 'bug',
+});
+
+export class Field {
+    constructor(init_carrotCount, init_bugCount) {
+        this.init_carrotCount = init_carrotCount;
+        this.init_bugCount = init_bugCount;
 
         this.gameField = document.querySelector('.game__field');
         this.gameField.addEventListener('click', this.onClick);
@@ -19,24 +24,22 @@ export default class Field {
         const target = event.target;
         if (target.matches('.carrot')) {
             target.remove();
-            this.onItemClick && this.onItemClick('carrot');
+            this.onItemClick && this.onItemClick(ItemType.carrot);
         } else if (target.matches('.bug')) {
-            this.onItemClick && this.onItemClick('bug');
+            this.onItemClick && this.onItemClick(ItemType.bug);
         };
     };
 
     init() {
-        this.carrotCount = this.init_CarrotCount;
-        this.bugCount = this.init_BugCount;
         this.gameField.innerText = '';
-        this._addItem(this.init_carrotCount, 'carrot', 'img/carrot.png');
-        this._addItem(this.init_bugCount, 'bug', 'img/bug.png');
+        this._addItem(this.init_carrotCount, ItemType.carrot, 'img/carrot.png');
+        this._addItem(this.init_bugCount, ItemType.bug, 'img/bug.png');
     };
     
     nextStage(carrotCount, bugCount) {
         this.gameField.innerText = '';
-        this._addItem(carrotCount, 'carrot', 'img/carrot.png');
-        this._addItem(bugCount, 'bug', 'img/bug.png');
+        this._addItem(carrotCount, ItemType.carrot, 'img/carrot.png');
+        this._addItem(bugCount, ItemType.bug, 'img/bug.png');
     };
 
     _addItem(count, className, imgPath) {

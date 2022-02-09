@@ -1,7 +1,7 @@
 'use strict'
 
 import PopUp from './popup.js';
-import Game from './game.js';
+import { Game, Reason } from './game.js';
 import * as sound from './sound.js'
 
 const CARROT_COUNT = 3;
@@ -12,17 +12,17 @@ const game = new Game(CARROT_COUNT, BUG_COUNT, GAME_DURATION);
 game.setGameStopListener((reason, point) => {
     let message;
     switch (reason) {
-        case 'win':
+        case Reason.win:
             message = 'NEXT GAME';
             gameFinishBanner.showForwardBtn();
             sound.playWin();
             break;
-        case 'lose':
+        case Reason.lose:
             message = `${point}점`;
             gameFinishBanner.showRefreshBtn();
             sound.playBug();
             break;
-        case 'cancel':
+        case Reason.cancel:
             message = 'REPLAY ?';
             gameFinishBanner.showRefreshBtn();
             sound.playAlert();

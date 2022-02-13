@@ -13,9 +13,11 @@ const swiper = new Swiper('.swiper-container', {
 });
 // 배너 이미지 슬라이드
 
-const swipe2 = new Swiper('.swiper-container2', {
+const swiper1 = new Swiper('.swiper-container2', {
     slidesPerView: 4,
     spaceBetween: 24,
+    observer: true,
+    observeParents: true,
     mousewheel: {
         invert: true,
     },
@@ -26,5 +28,19 @@ const swipe2 = new Swiper('.swiper-container2', {
     autoplay: {
         delay: 5000,
     },
+     breakpoints: {
+    600: {
+      slidesPerView: 1.4,
+      spaceBetween: 24
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24
+    },
+    960: {
+      slidesPerView: 3,
+      spaceBetween: 24
+      },
+  }
 });
 // 영화차트 이미지 슬라이드

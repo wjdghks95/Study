@@ -18,6 +18,13 @@
   position: relative;
 }
 
+#movie {
+  background-color: #f8f8f8;
+}
+
+#event {
+}
+
 /* 로우 영역 */
 .row {
   padding: 0 28px;
@@ -377,6 +384,40 @@
   margin-right: 0;
 }
 
+/* 이벤트 */
+.event {
+  overflow: hidden;
+  padding: 100px 0;
+}
+.event h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 500;
+}
+.event img {
+  display: block;
+}
+
+.event .event_left {
+  overflow: hidden;
+  float: left;
+  width: 66%;
+  margin-right: 2%;
+}
+.event .event_left .event__box1 {
+  float: left;
+  width: 50%;
+}
+.event .event_left .event__box2 {
+  float: left;
+  width: 50%;
+}
+
+.event .event_right {
+  float: left;
+  width: 32%;
+}
+
 /* 미디어 쿼리 */
 @media (max-width: 1290px) {
   .container {
@@ -656,10 +697,7 @@
 }
 @media (max-width: 480px) {
 }
-@media (max-width: 360px) {
-  .movie_title ul {
-    width: max-content;
-  }
+@media (max-width: 320px) {
   .movie_title ul li a {
     margin-right: 9px;
   }

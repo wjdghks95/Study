@@ -25,6 +25,11 @@
 #event {
 }
 
+#opening {
+  margin: 17px 0;
+  background: url(../img/bg01.jpg) center top/ cover no-repeat;
+}
+
 /* 로우 영역 */
 .row {
   padding: 0 28px;
@@ -416,6 +421,67 @@
 .event .event_right {
   float: left;
   width: 32%;
+}
+
+/* 오프닝 */
+.opening {
+  padding: 100px 0;
+  text-align: center;
+  color: #bb9b51;
+}
+.opening h2 {
+  margin-bottom: 15px;
+}
+.opening h2 .grand {
+  display: inline-block;
+  width: 330px;
+  height: 50px;
+  background-position: 0 -175px;
+}
+.opening .date {
+  display: inline-block;
+  width: 260px;
+  height: 45px;
+  background-position: 0 -225px;
+}
+.opening .desc {
+  padding-bottom: 20px;
+  font-size: 35px;
+  font-weight: 300;
+  background: url(../img/bar.png) center bottom / 100% no-repeat;
+}
+.opening .open_box {
+  overflow: hidden;
+  padding: 20px 3% 0 3%;
+}
+.opening .open_box > div {
+  float: left;
+  width: 27.333%;
+  margin: 4% 3% 0 3%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #3e4b44;
+  box-sizing: border-box;
+  text-align: center;
+}
+.opening .open_box > div h3 {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: -24px;
+  background: #551e9b;
+  color: #fff;
+  border: 1px solid #6e3abb;
+  font-size: 19px;
+  font-weight: 300;
+}
+.opening .open_box > div p {
+  padding: 6% 0 10% 0;
+  font-size: 23px;
+  font-weight: 500;
+  color: #fff;
+}
+.opening .open_box > div em,
+.opening .open_box > div strong {
+  display: block;
 }
 
 /* 미디어 쿼리 */

@@ -496,20 +496,27 @@
   body {
     background: #d9d7e0;
   }
+
   #mNav {
     right: 6px;
   }
+
   .row {
     padding: 0 16px;
   }
+
   .header h1 {
     text-align: left;
   }
   .header h1 strong {
     display: none;
   }
+
+  #movie {
+    background: none;
+  }
   #movie .row {
-    margin: 24px;
+    margin: 24px 24px 0 24px;
     padding: 24px;
     background: #fff;
   }
@@ -568,6 +575,25 @@
     width: 100%;
     height: 2px;
     background: #666;
+  }
+
+  #event .row {
+    padding: 24px;
+  }
+  .event {
+    padding: 24px;
+    background: #fff;
+  }
+  .event h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .event .event_left {
+    width: 100%;
+    margin-right: 0;
+  }
+  .event .event_right {
+    display: none;
   }
 }
 @media (max-width: 600px) {
@@ -693,6 +719,17 @@
   }
   .movie_chart > div > div > div .infor .inforBtn a:last-child {
     display: none;
+  }
+
+  #event .row {
+    padding: 0 8px;
+  }
+  .event {
+    padding: 16px;
+  }
+  .event h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
   }
 }
 @media (max-width: 480px) {

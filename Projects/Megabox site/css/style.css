@@ -710,6 +710,11 @@
 .notice ul li ul li dd {
   padding-top: 3px;
   color: #777;
+}
+.notice ul li ul li a {
+  border: 0;
+  padding: 0;
+  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

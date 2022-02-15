@@ -1,5 +1,7 @@
 'use strict'
 
+// 영화 탭 메뉴
+
 const movBtn = $(".movie_title > ul > li");
 const movCont = $(".movie_chart > div");
 
@@ -14,3 +16,17 @@ movBtn.click((e) => {
     movCont.css('display', 'none');
     movCont.eq(index).css('display', 'block');
 });
+
+// 공지사항 탭 메뉴
+
+const tabMenu = $('.notice');
+tabMenu.find('ul > li > ul').hide();
+tabMenu.find('li.active > ul').show();
+
+function tabList(e) {
+    e.preventDefault();
+    const target = $(this);
+    target.next().show().parent('li').addClass('active').siblings('li').removeClass('active').find('ul').hide();
+}
+
+tabMenu.find('ul > li > a').click(tabList).focus(tabList);

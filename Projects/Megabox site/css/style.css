@@ -708,6 +708,42 @@
   white-space: nowrap;
 }
 
+/* 할인카드 */
+.card {
+  padding: 17px;
+}
+.card ul {
+}
+.card ul li {
+  position: relative;
+  padding: 17px;
+  margin-bottom: 15px;
+  min-height: 102px;
+  border: 1px solid #d7d7d7;
+  box-sizing: border-box;
+}
+.card ul li span {
+  position: absolute;
+  left: 17px;
+  top: 17px;
+}
+.card ul li span img {
+  width: 105px;
+}
+.card ul li strong {
+  display: block;
+  padding-left: 120px;
+  font-size: 18px;
+  color: #777;
+}
+.card ul li em {
+  display: block;
+  padding-left: 120px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #777;
+}
+
 /* 미디어 쿼리 */
 @media (max-width: 1290px) {
   .container {

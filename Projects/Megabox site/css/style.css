@@ -382,6 +382,9 @@
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .movie_chart > div > div > div .infor h3 span {
   display: inline-block;

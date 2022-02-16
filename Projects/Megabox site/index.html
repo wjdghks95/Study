@@ -37,8 +37,17 @@
     <script src="src/swiper.use.js" defer></script>
     <script src="src/fontawesome.js"></script>
     <script src="src/main.js" defer></script>
+    <script src="src/iframe_api.js" defer></script>
+    <script src="src/movie.js" defer></script>
 </head>
 <body>
+   <div id="skip">
+      <a rel="bookmark" href="#movie">최신 영화 소식</a>
+      <a rel="bookmark" href="#event">새로운 이벤트</a>
+      <a rel="bookmark" href="#new">새로운 영화</a>
+   </div>
+   <!-- skip -->
+
    <header id="header">
       <div class="container">
          <div class="row">
@@ -657,7 +666,7 @@
             <div class="new">
                <h2>새로운 영화</h2>
                <div class="new_left">
-                  <div class="play">
+                  <div class="play" id="showTrailer" data-youtube="l8BpJ8vBDZI">
                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                         y="0px" viewBox="0 0 120 120" style="enable-background:new 0 0 120 120;" xml:space="preserve">
                         <circle class="st0" cx="60" cy="60.4" r="56" />
@@ -1384,5 +1393,13 @@
       </div>
    </footer>
    <!-- footer -->
+
+   <aside id="blackout" class="overlay">
+      <div id="trailerModal" class="modal">
+         <div id="trailer"></div>
+      </div>
+      <button id="hideTrailer" class="modal__close">닫기</button>
+   </aside>
+   <!-- 트레일러 -->
 </body>
 </html>

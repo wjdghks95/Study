@@ -1,0 +1,91 @@
+body {
+  background-color: #000;
+}
+
+/* 레이아웃 */
+#header {
+  transition: all 300ms ease-in;
+}
+#header:hover {
+  background-color: #062c5e;
+}
+
+/* Container, Row */
+.container {
+  padding: 0 5%;
+}
+.row {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* 헤더 */
+.header {
+  position: relative;
+  top: 21px;
+  text-align: center;
+}
+.header__language {
+  position: relative;
+  top: 15px;
+}
+.header__language li {
+  float: left;
+  margin-right: 16px;
+}
+.header__language li.active {
+  border-bottom: 1px solid #fff;
+}
+.header__language li a {
+  color: #fff;
+}
+.header__logo {
+  display: inline-block;
+  position: relative;
+  right: 48px;
+  padding: 15px;
+  width: 250px;
+}
+.header__search {
+  float: right;
+  position: relative;
+  top: 10px;
+}
+.header__search a {
+  display: block;
+  padding: 5px 12px;
+  color: #fff;
+}
+
+.menu {
+  margin-top: 15px;
+}
+.menu__items {
+  text-align: center;
+}
+.menu__item {
+  display: inline-block;
+}
+.menu__item a {
+  display: block;
+  padding: 25px 22px;
+  color: #fff;
+  font-size: 14px;
+}
+.menu__item a span {
+  position: relative;
+  padding-bottom: 25px;
+}
+.menu__item a span::after {
+  display: none;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #92b4e2;
+}
+.menu__item a span.hover::after {
+  display: block;
+}

@@ -1,1 +1,1 @@
-#Fun gmae
+# Fun game

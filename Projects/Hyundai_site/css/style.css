@@ -15,6 +15,7 @@ body {
   padding: 0 5%;
 }
 .row {
+  width: 83.3333%;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -46,15 +47,37 @@ body {
   padding: 15px;
   width: 250px;
 }
-.header__search {
+.header__util {
   float: right;
   position: relative;
   top: 10px;
 }
-.header__search a {
-  display: block;
+.header__util .searchBtn {
+  display: inline-block;
+  position: relative;
   padding: 5px 12px;
   color: #fff;
+}
+.header__util .searchBtn::after {
+  display: none;
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 1px;
+  height: 27px;
+  background-color: #685a57;
+}
+.header__util .m_menuBtn {
+  display: none;
+  position: relative;
+  float: right;
+  margin: 3px 0 0 11px;
+  padding-left: 6px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .menu {
@@ -88,4 +111,41 @@ body {
 }
 .menu__item a span.hover::after {
   display: block;
+}
+
+/* 미디어쿼리 */
+@media (max-width: 1279px) {
+  .row {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  /* 헤더 */
+  .header {
+    top: 0;
+    text-align: start;
+  }
+  .header__language {
+    display: none;
+  }
+  .header__logo {
+    width: 170px;
+    padding: 22px 0 21px;
+    right: 0;
+  }
+  .header__util {
+    top: 15px;
+    font-size: 18px;
+  }
+  .header__util .searchBtn::after {
+    display: block;
+  }
+  .header__util .m_menuBtn {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
 }

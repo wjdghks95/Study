@@ -21,12 +21,14 @@
 			const currentSlide = this.slides[slide];
 			const video = currentSlide.querySelector('video');
 			currentSlide.style.opacity = 1;
+			currentSlide.style.zIndex = 1;
 			video.load();
 			
 			for (let i = 0; i < this.slides.length; i++) {
 				const slide = this.slides[i];
 				if (slide !== currentSlide) {
 					slide.style.opacity = 0;
+					slide.style.zIndex = 0;
 				};
 			};
 		},

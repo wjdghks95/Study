@@ -113,7 +113,7 @@
   height: 4px;
   background-color: #92b4e2;
 }
-.menu__item a span.hover::after {
+.menu__item a span.active::after {
   display: block;
 }
 

@@ -115,5 +115,34 @@
 	
 	const slider = new Slideshow("#home-slider", '#home-slideMenu');
 	
+	function ShowUnderbar(ul) {
+		this.ul = document.querySelector(ul);
+
+		this.active();
+	};
+
+	ShowUnderbar.prototype = {
+		active: function () {
+			this.ul.addEventListener('click', (event) => {
+				const items = this.ul.querySelectorAll('li');
+				items.forEach(item => {
+					const text = item.querySelector('span');
+					text.classList.remove('active');
+				});
+				
+				if (event.target.tagName === 'UL') {
+					return;
+				};
+				
+				const target = event.target.tagName === 'A' ? event.target.childNodes[0] : event.target;
+				
+				target.classList.add('active');
+			});
+		},
+	};
+
+	const headMenu = new ShowUnderbar('.menu__items');
+	const slideMenu = new ShowUnderbar('.slideMenu__items');
+
 })();
 

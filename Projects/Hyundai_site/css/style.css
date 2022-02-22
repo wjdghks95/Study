@@ -153,10 +153,15 @@
   position: absolute;
   display: block;
   height: 64px;
-  width: 100%;
-  top: 50%;
-  left: 0;
+  bottom: 50%;
   z-index: 10000000000000000;
+  transition: all 300ms ease-out;
+}
+.slider-nav.previous {
+  left: 0;
+}
+.slider-nav.next {
+  right: 0;
 }
 .slider-nav button {
   display: block;
@@ -190,6 +195,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
   text-align: center;
 }
 .slide__content span {
@@ -234,7 +240,6 @@
   border-radius: 18px;
   box-sizing: border-box;
   color: #fff;
-  cursor: pointer;
 }
 .slide__content .moreBtn:hover {
   background-color: #fff;
@@ -279,6 +284,18 @@
   .row {
     width: 100%;
   }
+  .slider-nav button.slider-next {
+    margin-right: 10px;
+  }
+  .slider-nav button.slider-previous {
+    margin-left: 10px;
+  }
+  .slide__content h2 {
+    margin: 42px 0 12px 0;
+  }
+  .slide__content p {
+    display: none;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -307,6 +324,27 @@
   }
 
   .menu {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .slider-nav {
+    bottom: -80px;
+  }
+  .slider-nav button {
+    border: 1px solid #cacaca;
+    color: #716c6e;
+    font-size: 20px;
+  }
+  .slideMenu__item {
+    display: none;
+    width: 100%;
+  }
+  .slideMenu__item.active {
+    display: block;
+  }
+  .slideMenu__item a span.active::after {
     display: none;
   }
 }

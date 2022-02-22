@@ -18,7 +18,7 @@
 		_slideTo: function( slide ) {
             const currentSlide = this.slides[slide];
             const video = currentSlide.querySelector('video');
-            currentSlide.style.opacity = 1;
+			currentSlide.style.opacity = 1;
             video.load();
 			
 			for( var i = 0; i < this.slides.length; i++ ) {

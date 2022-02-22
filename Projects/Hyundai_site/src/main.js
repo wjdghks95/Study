@@ -32,13 +32,17 @@
 		},
 		_active: function (index) {
 			const currentSlideItem = this.slideItems[index];
+			const currentSlideName = currentSlideItem.querySelector('span');
 			currentSlideItem.classList.add('active');
+			currentSlideName.classList.add('active');
 				
 			for (let i = 0; i < this.slideItems.length; i++) {
 				const slideItem = this.slideItems[i];
+				const slideName = slideItem.querySelector('span');
 				
 				if (slideItem !== currentSlideItem) {
 					slideItem.classList.remove('active');
+					slideName.classList.remove('active');
 				};
 			};
 		},
@@ -126,8 +130,8 @@
 			this.ul.addEventListener('click', (event) => {
 				const items = this.ul.querySelectorAll('li');
 				items.forEach(item => {
-					const text = item.querySelector('span');
-					text.classList.remove('active');
+					const itemName = item.querySelector('span');
+					itemName.classList.remove('active');
 				});
 				
 				if (event.target.tagName === 'UL') {

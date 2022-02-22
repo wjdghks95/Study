@@ -120,6 +120,7 @@
 	};
 	
 	const slider = new Slideshow("#home-slider", '#home-slideMenu');
+	// 버튼 또는 메뉴 클릭 시 영상, 언더바 슬라이드
 	
 	function ShowUnderbar(ul) {
 		this.ul = document.querySelector(ul);
@@ -139,9 +140,8 @@
 				if (event.target.tagName === 'UL') {
 					return;
 				};
-				
-				const target = event.target.tagName === 'A' ? event.target.childNodes[0] : event.target;
-				
+
+				const target = event.target.tagName === 'A' ? event.target.children[0] : event.target;
 				target.classList.add('active');
 			});
 		},
@@ -149,6 +149,6 @@
 
 	const headMenu = new ShowUnderbar('.menu__items');
 	const slideMenu = new ShowUnderbar('.slideMenu__items');
-
+	// 메뉴 클릭 시 텍스트 언더바 활성화
 })();
 

@@ -324,6 +324,9 @@
   transition: all 300ms ease;
   vertical-align: middle;
 }
+.benefit__item .item__desc {
+  height: 100px;
+}
 .benefit__item .item__desc em {
   display: block;
   font-size: 24px;
@@ -397,9 +400,19 @@
   .menu {
     display: none;
   }
-}
+  
+  .benefit__item {
+    width: 48%;
+    margin-bottom: 2%;
+  }
 
 @media (max-width: 767px) {
+  .slider-container {
+    height: 771px;
+  }
+  .slide {
+    height: 771px;
+  }
   .slider-nav {
     bottom: -80px;
   }
@@ -417,5 +430,31 @@
   }
   .slideMenu__item a span.active::after {
     display: none;
+  }
+
+  #benefit {
+    padding: 54px 0;
+  }
+}
+
+@media (max-width: 599px) {
+  .benefit h2 {
+    text-align: center;
+  }
+  .benefit__item .item__img {
+    line-height: 150px;
+  }
+  .benefit__item .item__desc em {
+    font-size: 20px;
+  }
+  .benefit__item .item__desc span {
+    font-size: 20px;
+  }
+  .benefit__more {
+    position: relative;
+    text-align: center;
+  }
+  .benefit__more .moreBtn {
+    width: 30%;
   }
 }

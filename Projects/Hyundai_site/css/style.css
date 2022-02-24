@@ -7,6 +7,9 @@
   transition: all 300ms ease-in;
   z-index: 999;
 }
+#header.fixed {
+  background-color: #062c5e;
+}
 #header:hover {
   background-color: #062c5e;
 }
@@ -58,6 +61,7 @@
 .header__logo {
   display: inline-block;
   position: relative;
+  top: 0;
   right: 48px;
   padding: 15px;
   width: 250px;
@@ -170,7 +174,7 @@
   display: block;
   height: 64px;
   bottom: 50%;
-  z-index: 10000000000000000;
+  z-index: 99;
   transition: all 300ms ease-out;
 }
 .slider-nav.previous {
@@ -374,6 +378,9 @@
 }
 
 @media (max-width: 1023px) {
+  #header {
+    background: #062c5e;
+  }
   .header {
     top: 0;
     text-align: start;

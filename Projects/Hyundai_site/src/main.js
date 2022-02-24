@@ -150,5 +150,30 @@
 	const headMenu = new ShowUnderbar('.menu__items');
 	const slideMenu = new ShowUnderbar('.slideMenu__items');
 	// 메뉴 클릭 시 텍스트 언더바 활성화
+	function Scroll(element) {
+		this.el = document.querySelector(element);
+
+		this.init();
+	};
+
+	Scroll.prototype = {
+		init: function () {
+			this.elHeight = this.el.getBoundingClientRect().height;
+				
+			this.action();
+		},
+		action: function () {
+			document.addEventListener('scroll', () => {
+				
+				if (window.scrollY > this.elHeight) {
+					this.el.classList.add('fixed');
+				} else {
+					this.el.classList.remove('fixed');
+				};
+			});
+		},
+	};
+	const scrollHeader = new Scroll('#header');
+	// 스크롤 시 헤더배경 고정 변환
 })();
 

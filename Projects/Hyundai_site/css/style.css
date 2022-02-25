@@ -140,10 +140,10 @@
 }
 
 /* 홈 */
-#home .slider-nav button.slider-previous {
+.home .slider-nav button.slider-previous {
   margin-left: 40px;
 }
-#home .slider-nav button.slider-next {
+.home .slider-nav button.slider-next {
   margin-right: 40px;
 }
 
@@ -307,6 +307,95 @@
   text-align: center;
   font-size: 32px;
   font-weight: 500;
+}
+.lineup .slide-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 430px;
+}
+.lineup .slides {
+  position: relative;
+  left: 0;
+  top: 0;  
+}
+.lineup .slides.animated {
+  transition: .5s ease-out;
+}
+.lineup .slides .slide {
+  float: left;
+  position: static;
+  width: 430px;
+  height: 430px;
+  opacity: 1;
+  background: transparent;
+}
+.lineup .slides .slide:not(:last-child) {
+  margin-right: 20px;
+}
+.lineup .slides .slide img {
+  height: 300px;
+}
+.lineup .slider-nav {
+  position: absolute;
+  height: 60px;
+  transform: translateY(-50%);
+}
+.lineup .slider-nav button {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #fff;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+.lineup .slider-nav button.slider-previous {
+  display: block;
+}
+
+.lineup__item:hover .lineup__item-itemBox .item__desc {
+  opacity: 1;
+}
+.lineup__item-itemBox {
+  position: relative;
+  width: 100%;
+}
+.lineup__item .item__desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transition: all 300ms ease-in;
+}
+.lineup__item .item__desc h4 {
+  color: #444;
+  font-size: 20px;
+}
+.lineup__item .item__desc .desc__more .moreBtn {
+  color: #444;
+  border: 1px solid #444
+}
+.lineup__item .item__desc .desc__more .moreBtn:hover {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #444;
+}
+.lineup__item .item__desc .ad a {
+  width: 23px;
+  height: 23px;
+  color: #444;
+  font-size: 30px;
+}
+.lineup__item h3 {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
 }
 
 /* 미디어쿼리 */

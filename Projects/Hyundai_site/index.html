@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/fontawesome.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
@@ -22,7 +23,7 @@
     <script src="src/html5shiv.min.js"></script>
     <script src="src/ie-checker.js"></script>
     <script src="src/modernizr-custom.js"></script>
-    <script src="src/main.js" defer></script>
+    <script src="src/main.js" type="module" defer></script>
 
     <!-- HTLM5shiv ie6~8 -->
     <!--[if lt IE 9]> 
@@ -72,33 +73,33 @@
                     </div>
                     <nav class="menu">
                         <h2 class="ir_su">메뉴</h2>
-                        <ul class="menu__items clearfix">
-                            <li class="menu__item">
+                        <ul class="menu__items items clearfix">
+                            <li class="menu__item item">
                                 <a href="#" class="active">
                                     <span>모델</span>
                                 </a>
                             </li>
-                            <li class="menu__item">
+                            <li class="menu__item item">
                                 <a href="#">
                                     <span>멤버십&차량관리</span>
                                 </a>
                             </li>
-                            <li class="menu__item">
+                            <li class="menu__item item">
                                 <a href="#">
                                     <span>이벤트</span>
                                 </a>
                             </li>
-                            <li class="menu__item">
+                            <li class="menu__item item">
                                 <a href="#">
                                     <span>고객지원</span>
                                 </a>
                             </li>
-                            <li class="menu__item">
+                            <li class="menu__item item">
                                 <a href="#">
                                     <span>브랜드</span>
                                 </a>
                             </li>
-                            <li class="menu__item">
+                            <li class="menu__item item">
                                 <a href="#">
                                     <span>회사소개</span>
                                 </a>
@@ -111,81 +112,83 @@
         <!-- 헤더 -->
 
         <section id="home">
-            <div class="slider-container" id="home-slider">
-                <div class="slider-wrapper">
-                    <div class="slide">
-                        <video src="video/casper.mp4" type="video/mp4" autoplay muted loop>capser</video>
-                        <div class="slide__content">
-                            <span>Hyundai Motor Group</span>
-                            <h2>case by CASPER</h2>
-                            <p>젊고 역동적인 감성의 SUV 디자인 당당하고 견고한 외관 디자인으로<br> 캐스퍼만의 존재감을 드러냅니다.</p>
-                            <div class="content__more">
-                                <a href="#" class="moreBtn">바로가기
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </a>
+            <div class="home">
+                <div class="slider-container">
+                    <div class="slider-wrapper">
+                        <div class="contents slide">
+                            <video src="video/casper.mp4" type="video/mp4" autoplay muted loop>capser</video>
+                            <div class="contents__info">
+                                <span>Hyundai Motor Group</span>
+                                <h2>case by CASPER</h2>
+                                <p>젊고 역동적인 감성의 SUV 디자인 당당하고 견고한 외관 디자인으로<br> 캐스퍼만의 존재감을 드러냅니다.</p>
+                                <div class="info__more">
+                                    <a href="#" class="moreBtn">바로가기
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contents slide">
+                            <video src="video/ioniq5.mp4" type="video/mp4" autoplay muted loop>ioniq5</video>
+                            <div class="contents__info">
+                                <span>Hyundai Motor Group</span>
+                                <h2>무엇이든 가능한 세상</h2>
+                                <p>최초의 경험으로 가득찬 새로운 모빌리티 시대가 열립니다.<br> 무엇이든 가능한 세상, IONIQ 5를 경험하세요.</p>
+                                <div class="info__more">
+                                    <a href="#" class="moreBtn">바로가기
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contents slide">
+                            <video src="video/santafe.mp4" type="video/mp4" autoplay muted loop>santafe</video>
+                            <div class="contents__info">
+                                <span>Hyundai Motor Group</span>
+                                <h2>도심형 패밀리 SUV의 진화</h2>
+                                <p>더 혁신적으로 진화한 싼타페는 가족 모두의 <br>라이프 스타일을 풍요롭게 만들어 줍니다.</p>
+                                <div class="info__more">
+                                    <a href="#" class="moreBtn">바로가기
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="slide">
-                        <video src="video/ioniq5.mp4" type="video/mp4" autoplay muted loop>ioniq5</video>
-                        <div class="slide__content">
-                            <span>Hyundai Motor Group</span>
-                            <h2>무엇이든 가능한 세상</h2>
-                            <p>최초의 경험으로 가득찬 새로운 모빌리티 시대가 열립니다.<br> 무엇이든 가능한 세상, IONIQ 5를 경험하세요.</p>
-                            <div class="content__more">
-                                <a href="#" class="moreBtn">바로가기
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <div class="slider-nav previous">
+                        <button class="slider-previous">
+                            <span class="ir_pm">이전</span>
+                            <i class="fa-solid fa-angle-left"></i>
+                        </button>
                     </div>
-                    <div class="slide">
-                        <video src="video/santafe.mp4" type="video/mp4" autoplay muted loop>santafe</video>
-                        <div class="slide__content">
-                            <span>Hyundai Motor Group</span>
-                            <h2>도심형 패밀리 SUV의 진화</h2>
-                            <p>더 혁신적으로 진화한 싼타페는 가족 모두의 <br>라이프 스타일을 풍요롭게 만들어 줍니다.</p>
-                            <div class="content__more">
-                                <a href="#" class="moreBtn">바로가기
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <div class="slider-nav next">
+                        <button class="slider-next">
+                            <span class="ir_pm">다음</span>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="slider-nav previous">
-                    <button class="slider-previous">
-                        <span class="ir_pm">이전</span>
-                        <i class="fa-solid fa-angle-left"></i>
-                    </button>
-                </div>
-                <div class="slider-nav next">
-                    <button class="slider-next">
-                        <span class="ir_pm">다음</span>
-                        <i class="fa-solid fa-angle-right"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="slideMenu" id="home-slideMenu">
-                <div class="container">
-                    <div class="row">
-                        <ul class="slideMenu__items">
-                            <li class="slideMenu__item active" data-index="0">
-                                <a href="#">
-                                    <span class="active">CASPER</span>
-                                </a>
-                            </li>
-                            <li class="slideMenu__item" data-index="1">
-                                <a href="#">
-                                    <span>IONIQ5</span>
-                                </a>
-                            </li>
-                            <li class="slideMenu__item" data-index="2">
-                                <a href="#">
-                                    <span>SANTAFE</span>
-                                </a>
-                            </li>
-                        </ul>
+                <div class="contentsMenu">
+                    <div class="container">
+                        <div class="row">
+                            <ul class="contentsMenu__items items">
+                                <li class="contentsMenu__item item active" data-index="0">
+                                    <a href="#">
+                                        <span class="active">CASPER</span>
+                                    </a>
+                                </li>
+                                <li class="contentsMenu__item item" data-index="1">
+                                    <a href="#">
+                                        <span>IONIQ5</span>
+                                    </a>
+                                </li>
+                                <li class="contentsMenu__item item" data-index="2">
+                                    <a href="#">
+                                        <span>SANTAFE</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -260,6 +263,13 @@
         </div>
     </section>
     <!-- 혜택 -->
+
+    <section id="lineup">
+        <div class="lineup">
+            <h2>차종 라인업</h2>
+        </div>
+    </section>
+    <!-- 라인업 -->
 </body>
 
 </html>

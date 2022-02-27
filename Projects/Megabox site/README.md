@@ -1,6 +1,6 @@
 # Megabox_site
 
-###[[Demo]](https://wjdghks95.github.io/Study/Projects/Megabox%20site/index.html)
+### [[Demo]](https://wjdghks95.github.io/Study/Projects/Megabox%20site/index.html)
 
 ## 개발목표
 메가박스 클론사이트 제작

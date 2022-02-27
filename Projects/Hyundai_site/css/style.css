@@ -20,7 +20,6 @@
 }
 #lineup {
   padding-bottom: 100px;
-  background-color: #f5f5f5;
 }
 
 /* Container, Row */
@@ -40,6 +39,16 @@
   padding: 13px 17px;
   border-radius: 18px;
   box-sizing: border-box;
+}
+.nextBtn {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer
 }
 
 /* 헤더 */
@@ -302,13 +311,106 @@
 }
 
 /* 라인업 */
-.lineup h2 {
-  padding: 115px 0 68px;
-  color: #000;
+.lineup .contents {
+  position: relative;
+}
+.lineup .contents .contents__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 455px;
+  z-index: -1;
+  background: url(../img/라인업_세단.PNG) bottom center / cover no-repeat;
+}
+.lineup .contents .contents__bg .bgBlack {
+  width: 100%;
+  height: 100%;
+  opacity: .4;
+  background: #000;
+}
+.lineup .contents h2 {
+  padding: 102px 0 68px;
+  color: #fff;
   text-align: center;
-  font-size: 32px;
+  font-size: 45px;
   font-weight: 500;
 }
+.lineup .contents .contents__items {
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+}
+.lineup .contents .contents__items .contents__item {
+  position: relative;
+  display: inline-block;
+  margin: 0 1%;
+  width: 23%;
+  height: 285px;
+}
+.lineup .contents .contents__items .contents__item:hover .nextBtn {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #444;
+}
+.lineup .contents .contents__items .contents__item:nth-child(1) {
+  background: url(../img/아반떼BG.png) center / cover no-repeat;
+}
+.lineup .contents .contents__items .contents__item:nth-child(2) {
+  background: url(../img/쏘나타BG.png) center / cover no-repeat;
+}
+.lineup .contents .contents__items .contents__item:nth-child(3) {
+  background: url(../img/그랜저BG.png) center / cover no-repeat;
+}
+.lineup .contents .contents__items .contents__item:nth-child(4) {
+  background: url(../img/아반떼nBG.png) center / cover no-repeat;
+}
+.lineup .contents .contents__items .contents__item a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.lineup .contents .contents__items .contents__item a span {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+.lineup .contents .contents__items .contents__item a .item__next {
+  float: right;
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+}
+.lineup .contents .contents__desc {
+  margin: 60px auto 75px;
+  width: 64%;
+}
+.lineup .contents .contents__desc h3 {
+  text-align: center;
+  font-size: 28px;
+  color: #222
+}
+.lineup .contents .contents__desc span{
+  display: inline-block;
+  margin: 18px 0;
+  text-align: center;
+  font-size: 18px;
+  color: #444
+}
+
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  
+}
+
 
 /* 미디어쿼리 */
 @media (max-width: 1279px) {

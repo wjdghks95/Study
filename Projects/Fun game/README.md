@@ -19,3 +19,4 @@ const game = new gameBuilder()
 ``
 
 ## 개선사항
+반응형

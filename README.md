@@ -1,4 +1,6 @@
 # Study
+작성된 코드는 github에는 공부한 분야별로 커밋
+공부한 내용은 [Notion](https://flying-talos-c55.notion.site/Git-ca428b9c8f5249e08ab1ec208874f41f)에 정리
 
 # Projects
 

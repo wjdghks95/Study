@@ -316,17 +316,18 @@
     width: 100%;
   }
 
-  #home .slider-nav button.slider-next {
-    margin-right: 10px;
-  }
-  #home .slider-nav button.slider-previous {
-    margin-left: 10px;
-  }
-  #home .slide__content h2 {
+  .home .contents .contents__info h2 {
     margin: 42px 0 12px 0;
   }
-  #home .slide__content p {
+  .home .contents .contents__info p {
     display: none;
+  }
+  .home .slider-nav button.slider-next {
+    margin-right: 10px;
+  }
+  .home .slider-nav button.slider-previous {
+    margin-left: 10px;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -337,22 +338,22 @@
     top: 0;
     text-align: start;
   }
-  .header__language {
+  .header .header__language {
     display: none;
   }
-  .header__logo {
+  .header .header__logo {
     width: 170px;
     padding: 22px 0 21px;
     right: 0;
   }
-  .header__util {
+  .header .header__util {
     top: 15px;
     font-size: 18px;
   }
-  .util__search::after {
+  .header .header__util .util__search::after {
     display: block;
   }
-  .util__mobileMenu .m_menuBtn {
+  .header .header__util .util__mobileMenu .m_menuBtn {
     display: inline-block;
   }
 
@@ -360,35 +361,35 @@
     display: none;
   }
   
-  .benefit__item {
+  .benefit .benefit__items .benefit__item {
     width: 48%;
     margin-bottom: 2%;
   }
 
 @media (max-width: 767px) {
-  #home .slider-container {
+  .home .slider-container {
     height: 771px;
   }
-  #home .slide {
+  .home .slide {
     height: 771px;
   }
-  #home .slider-nav {
+  .home .slider-nav {
     bottom: -80px;
   }
-  #home .slider-nav button {
+  .home .slider-nav button {
     border: 1px solid #cacaca;
     color: #716c6e;
     font-size: 20px;
   }
 
-  .contentsMenu__item {
+  .home .contentsMenu .contentsMenu__items .contentsMenu__item {
     display: none;
     width: 100%;
   }
-  .contentsMenu__item.active {
+  .home .contentsMenu .contentsMenu__items .contentsMenu__item.active {
     display: block;
   }
-  .contentsMenu__item a span.active::after {
+  .home .contentsMenu .contentsMenu__items .contentsMenu__item a span.active::after {
     display: none;
   }
 
@@ -401,20 +402,20 @@
   .benefit h2 {
     text-align: center;
   }
-  .benefit__item .item__img {
+  .benefit .benefit__items .benefit__item .item__img {
     line-height: 150px;
   }
-  .benefit__item .item__desc em {
+  .benefit .benefit__items .benefit__item .item__desc em {
     font-size: 20px;
   }
-  .benefit__item .item__desc span {
+  .benefit .benefit__items .benefit__item .item__desc span {
     font-size: 20px;
   }
-  .benefit__more {
+  .benefit .benefit__more {
     position: relative;
     text-align: center;
   }
-  .benefit__more .moreBtn {
+  .benefit .benefit__more .moreBtn {
     width: 30%;
   }
 }

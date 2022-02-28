@@ -314,6 +314,12 @@
 .lineup .contents {
   position: relative;
 }
+.lineup h2 {
+  margin-bottom: 48px;
+  text-align: center;
+  font-size: 44px;
+  font-weight: 500;
+}
 .lineup .contents .contents__bg {
   position: absolute;
   top: 0;
@@ -321,7 +327,15 @@
   width: 100%;
   height: 455px;
   z-index: -1;
-  background: url(../img/라인업_세단.PNG) bottom center / cover no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.lineup .contents:nth-child(1) .contents__bg {
+  background-image: url(../img/라인업_세단.PNG);
+}
+.lineup .contents:nth-child(2) .contents__bg {
+  background-image: url(../img/라인업_SUV.PNG);
 }
 .lineup .contents .contents__bg .bgBlack {
   width: 100%;
@@ -329,8 +343,8 @@
   opacity: .4;
   background: #000;
 }
-.lineup .contents h2 {
-  padding: 102px 0 68px;
+.lineup .contents h3 {
+  padding: 115px 0 68px;
   color: #fff;
   text-align: center;
   font-size: 45px;
@@ -340,6 +354,7 @@
   width: 100%;
   height: 100%;
   font-size: 0;
+  text-align: center;
 }
 .lineup .contents .contents__items .contents__item {
   position: relative;
@@ -347,6 +362,9 @@
   margin: 0 1%;
   width: 23%;
   height: 285px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .lineup .contents .contents__items .contents__item:hover .nextBtn {
   background-color: #fff;
@@ -354,16 +372,25 @@
   color: #444;
 }
 .lineup .contents .contents__items .contents__item:nth-child(1) {
-  background: url(../img/아반떼BG.png) center / cover no-repeat;
+  background-image: url(../img/아반떼BG.png)
 }
 .lineup .contents .contents__items .contents__item:nth-child(2) {
-  background: url(../img/쏘나타BG.png) center / cover no-repeat;
+  background-image: url(../img/쏘나타BG.png)
 }
 .lineup .contents .contents__items .contents__item:nth-child(3) {
-  background: url(../img/그랜저BG.png) center / cover no-repeat;
+  background-image: url(../img/그랜저BG.png)
 }
-.lineup .contents .contents__items .contents__item:nth-child(4) {
-  background: url(../img/아반떼nBG.png) center / cover no-repeat;
+.lineup .contents:nth-child(2) .contents__items .contents__item:nth-child(1) {
+  background-image: url(../img/베뉴BG.png)
+}
+.lineup .contents:nth-child(2) .contents__items .contents__item:nth-child(2) {
+  background-image: url(../img/코나BG.png)
+}
+.lineup .contents:nth-child(2) .contents__items .contents__item:nth-child(3) {
+  background-image: url(../img/투싼BG.png)
+}
+.lineup .contents:nth-child(2) .contents__items .contents__item:nth-child(4) {
+  background-image: url(../img/싼타페BG.png)
 }
 .lineup .contents .contents__items .contents__item a {
   display: inline-block;
@@ -388,7 +415,7 @@
   margin: 60px auto 75px;
   width: 64%;
 }
-.lineup .contents .contents__desc h3 {
+.lineup .contents .contents__desc h4 {
   text-align: center;
   font-size: 28px;
   color: #222

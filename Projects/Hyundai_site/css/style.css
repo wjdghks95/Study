@@ -337,6 +337,9 @@
 .lineup .contents:nth-child(2) .contents__bg {
   background-image: url(../img/라인업_SUV.PNG);
 }
+.lineup .contents:nth-child(3) .contents__bg {
+  background-image: url(../img/라인업_전기\,수소.PNG);
+}
 .lineup .contents .contents__bg .bgBlack {
   width: 100%;
   height: 100%;
@@ -357,45 +360,34 @@
   text-align: center;
 }
 .lineup .contents .contents__items .contents__item {
+  overflow: hidden;
   position: relative;
   display: inline-block;
   margin: 0 1%;
-  width: 23%;
-  height: 285px;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 18%;
+  height: 235px;
+}
+.lineup .contents .contents__items .contents__item:hover a img {
+  transform: scale(1.1);
 }
 .lineup .contents .contents__items .contents__item:hover .nextBtn {
   background-color: #fff;
   border: 1px solid #ccc;
   color: #444;
 }
-.lineup .contents .contents__items .contents__item:nth-child(1) {
-  background-image: url(../img/아반떼BG.png)
-}
-.lineup .contents .contents__items .contents__item:nth-child(2) {
-  background-image: url(../img/쏘나타BG.png)
-}
-.lineup .contents .contents__items .contents__item:nth-child(3) {
-  background-image: url(../img/그랜저BG.png)
-}
-.lineup .contents:nth-child(2) .contents__items .contents__item:nth-child(1) {
-  background-image: url(../img/베뉴BG.png)
-}
-.lineup .contents:nth-child(2) .contents__items .contents__item:nth-child(2) {
-  background-image: url(../img/코나BG.png)
-}
-.lineup .contents:nth-child(2) .contents__items .contents__item:nth-child(3) {
-  background-image: url(../img/투싼BG.png)
-}
-.lineup .contents:nth-child(2) .contents__items .contents__item:nth-child(4) {
-  background-image: url(../img/싼타페BG.png)
-}
 .lineup .contents .contents__items .contents__item a {
   display: inline-block;
+  position: relative;
   width: 100%;
   height: 100%;
+}
+.lineup .contents .contents__items .contents__item a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  height: 100%;
+  transition: all 300ms ease-out;
 }
 .lineup .contents .contents__items .contents__item a span {
   position: absolute;

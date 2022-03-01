@@ -1,6 +1,6 @@
 'use strict'
 
-export default class MainSlideBuilder {
+export default class SlideBuilder {
     section(element) {
         this.el = document.querySelector(element);
         return this;

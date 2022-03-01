@@ -331,20 +331,15 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-.lineup .contents:nth-child(1) .contents__bg {
-  background-image: url(../img/라인업_세단.PNG);
-}
-.lineup .contents:nth-child(2) .contents__bg {
-  background-image: url(../img/라인업_SUV.PNG);
-}
-.lineup .contents:nth-child(3) .contents__bg {
-  background-image: url(../img/라인업_전기\,수소.PNG);
-}
-.lineup .contents .contents__bg .bgBlack {
+.lineup .contents .contents__bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  opacity: .4;
-  background: #000;
+  background-color: #000;
+  opacity: .3;
 }
 .lineup .contents h3 {
   padding: 115px 0 68px;
@@ -419,17 +414,6 @@
   font-size: 18px;
   color: #444
 }
-
-
-.swiper-container {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  
-}
-
 
 /* 미디어쿼리 */
 @media (max-width: 1279px) {

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/swiper.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
 
@@ -23,6 +24,7 @@
     <script src="src/html5shiv.min.js"></script>
     <script src="src/ie-checker.js"></script>
     <script src="src/modernizr-custom.js"></script>
+    <script src="src/swiper.js"></script>
     <script src="src/main.js" type="module" defer></script>
 
     <!-- HTLM5shiv ie6~8 -->
@@ -269,175 +271,199 @@
             <h2>차종 라인업</h2>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="contents swiper-slide">
-                        <div class="contents__bg">
-                            <div class="bgBlack"></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <h3>승용</h3>
-                                <ul class="contents__items">
-                                    <li class="contents__item">
-                                        <a href="#">
-                                            <img src="img/아반떼BG.png" alt="아반떼">
-                                            <span>아반떼</span>
-                                            <div class="item__next">
-                                                <button class="nextBtn">
-                                                    <span class="ir_pm">더보기</span>
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </button>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="contents__item">
-                                        <a href="#">
-                                            <img src="img/쏘나타BG.png" alt="쏘나타">
-                                            <span>쏘나타</span>
-                                            <div class="item__next">
-                                                <button class="nextBtn">
-                                                    <span class="ir_pm">더보기</span>
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </button>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="contents__item">
-                                        <a href="#">
-                                            <img src="img/그랜저BG.png" alt="그랜저">
-                                            <span>그랜저</span>
-                                            <div class="item__next">
-                                                <button class="nextBtn">
-                                                    <span class="ir_pm">더보기</span>
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </button>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="contents__desc">
-                                    <h4>일상을 함께하는 드라이빙 파트너를 만나다.</h4>
-                                    <span>승용차는 이동 시 사용되는 기본적인 자동차를 말하며, 주로 적은 수(6명 이하)의 사람이 편안하게 이동하기 적합하게 만들어집니다.
-                                        현대자동차의 승용으로 단순한 일상 속 드라이빙을 넘어 당신만의 든든한 라이프 파트너가 될 것입니다.</span>
+                    <div class="swiper-slide">
+                        <div class="contents">
+                            <div class="contents__bg" style="background-image: url('img/라인업_세단.PNG');"></div>
+                            <div class="container">
+                                <div class="row">
+                                    <h3>승용</h3>
+                                    <ul class="contents__items">
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/아반떼BG.png" alt="아반떼">
+                                                <span>아반떼</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/쏘나타BG.png" alt="쏘나타">
+                                                <span>쏘나타</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/그랜저BG.png" alt="그랜저">
+                                                <span>그랜저</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="contents__desc">
+                                        <h4>일상을 함께하는 드라이빙 파트너를 만나다.</h4>
+                                        <span>승용차는 이동 시 사용되는 기본적인 자동차를 말하며, 주로 적은 수(6명 이하)의 사람이 편안하게 이동하기 적합하게 만들어집니다.
+                                            현대자동차의 승용으로 단순한 일상 속 드라이빙을 넘어 당신만의 든든한 라이프 파트너가 될 것입니다.</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                     </div>
-                    <div class="contents swiper-slide">
-                        <div class="contents__bg">
-                            <div class="bgBlack"></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <h3>SUV</h3>
-                                <ul class="contents__items">
-                                    <li class="contents__item">
-                                        <a href="#">
-                                            <img src="img/베뉴BG.png" alt="베뉴">
-                                            <span>베뉴</span>
-                                            <div class="item__next">
-                                                <button class="nextBtn">
-                                                    <span class="ir_pm">더보기</span>
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </button>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="contents__item">
-                                        <a href="#">
-                                            <img src="img/코나BG.png" alt="코나">
-                                            <span>코나</span>
-                                            <div class="item__next">
-                                                <button class="nextBtn">
-                                                    <span class="ir_pm">더보기</span>
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </button>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="contents__item">
-                                        <a href="#">
-                                            <img src="img/투싼BG.png" alt="투싼">
-                                            <span>투싼</span>
-                                            <div class="item__next">
-                                                <button class="nextBtn">
-                                                    <span class="ir_pm">더보기</span>
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </button>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="contents__item">
-                                        <a href="#">
-                                            <img src="img/싼타페BG.png" alt="싼타페">
-                                            <span>싼타페</span>
-                                            <div class="item__next">
-                                                <button class="nextBtn">
-                                                    <span class="ir_pm">더보기</span>
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </button>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="contents__item">
-                                        <a href="#">
-                                            <img src="img/펠리세이드BG.png" alt="펠리세이드">
-                                            <span>펠리세이드</span>
-                                            <div class="item__next">
-                                                <button class="nextBtn">
-                                                    <span class="ir_pm">더보기</span>
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </button>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="contents__desc">
-                                    <h4>당신의 열정을 닮은 드라이빙으로 여유로운 일상을 완성하다.</h4>
-                                    <span>SUV는 Sport Utility Vehicle의 줄임말로 스포츠와 같은 여가생활을 즐길 수 있도록 만들어진 자동차입니다.
-                                    지상고가 높고 견고하여 일반 도로는 물론 오프로드에서도 완벽한 주행성능을 발휘합니다.
-                                    현대자동차의 SUV로 당신의 일상에 언제나 여유로움이 가득할 것입니다.</span>
+                    <div class="swiper-slide">
+                        <div class="contents">
+                            <div class="contents__bg" style="background-image: url('img/라인업_SUV.PNG');"></div>
+                            <div class="container">
+                                <div class="row">
+                                    <h3>SUV</h3>
+                                    <ul class="contents__items">
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/베뉴BG.png" alt="베뉴">
+                                                <span>베뉴</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/코나BG.png" alt="코나">
+                                                <span>코나</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/투싼BG.png" alt="투싼">
+                                                <span>투싼</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/싼타페BG.png" alt="싼타페">
+                                                <span>싼타페</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/펠리세이드BG.png" alt="펠리세이드">
+                                                <span>펠리세이드</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="contents__desc">
+                                        <h4>당신의 열정을 닮은 드라이빙으로 여유로운 일상을 완성하다.</h4>
+                                        <span>SUV는 Sport Utility Vehicle의 줄임말로 스포츠와 같은 여가생활을 즐길 수 있도록 만들어진 자동차입니다.
+                                            지상고가 높고 견고하여 일반 도로는 물론 오프로드에서도 완벽한 주행성능을 발휘합니다.
+                                            현대자동차의 SUV로 당신의 일상에 언제나 여유로움이 가득할 것입니다.</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>        
                     </div>
-                    <div class="contents swiper-slide">
-                        <div class="contents__bg">
-                            <div class="bgBlack"></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <h3>수소 / 전기차</h3>
-                                <ul class="contents__items">
-                                    <li class="contents__item">
-                                        <a href="#">
-                                            <img src="img/아이오닉5.png" alt="아이오닉5">
-                                            <span>아이오닉5</span>
-                                            <div class="item__next">
-                                                <button class="nextBtn">
-                                                    <span class="ir_pm">더보기</span>
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </button>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="contents__item">
-                                        <a href="#">
-                                            <img src="img/넥쏘.png" alt="넥쏘">
-                                            <span>넥쏘</span>
-                                            <div class="item__next">
-                                                <button class="nextBtn">
-                                                    <span class="ir_pm">더보기</span>
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </button>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="contents__desc">
-                                    <h4>지구환경을 생각하는 친환경차로 가장 건강한 드라이빙을 시작하다.</h4>
-                                    <span>현대자동차는 하이브리드차, 전기차, 수소전기차 등 환경 문제로부터 자유로운 다양한 친환경차를 개발, 양산하여
-                                    진정한 ‘친환경 이동성(Clean Mobility)’을 구현합니다.
-                                    쾌적한 운전에서 지구환경의 미래까지 생각하는 우수한 친환경차로 가장 건강한 드라이빙을 실현해가겠습니다.</span>
+                    <div class="swiper-slide">
+                        <div class="contents">
+                            <div class="contents__bg" style="background-image: url('img/라인업_전기\,수소.PNG');"></div>
+                            <div class="container">
+                                <div class="row">
+                                    <h3>수소 / 전기차</h3>
+                                    <ul class="contents__items">
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/아이오닉5.png" alt="아이오닉5">
+                                                <span>아이오닉5</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/넥쏘.png" alt="넥쏘">
+                                                <span>넥쏘</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/포터전기BG.png" alt="포터전기차">
+                                                <span>포터II 전기</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="contents__item">
+                                            <a href="#">
+                                                <img src="img/포터전기_특장차BG.png" alt="포터전기특장차">
+                                                <span>포터II 전기 특장차</span>
+                                                <div class="item__next">
+                                                    <button class="nextBtn">
+                                                        <span class="ir_pm">더보기</span>
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="contents__desc">
+                                        <h4>지구환경을 생각하는 친환경차로 가장 건강한 드라이빙을 시작하다.</h4>
+                                        <span>현대자동차는 하이브리드차, 전기차, 수소전기차 등 환경 문제로부터 자유로운 다양한 친환경차를 개발, 양산하여
+                                            진정한 ‘친환경 이동성(Clean Mobility)’을 구현합니다.
+                                            쾌적한 운전에서 지구환경의 미래까지 생각하는 우수한 친환경차로 가장 건강한 드라이빙을 실현해가겠습니다.</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

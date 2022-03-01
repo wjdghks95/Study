@@ -1,8 +1,8 @@
 'use strict'
 
-import MainSlideBuilder from './slider.js';
+import SlideBuilder from './slider.js';
 
-const mainSlide = new MainSlideBuilder()
+const mainSlide = new SlideBuilder()
 	.section('#home')
 	.build();
 // 메인 홈 슬라이드
@@ -48,3 +48,18 @@ const headerHeight = header.getBoundingClientRect().height;
 })();
 // 스크롤 시 헤더 배경 고정
 
+const swiper = new Swiper('.swiper-container', {
+	slidesPerView: 1,
+	spaceBetween: 10,
+	speed: 800,
+	loop: true,
+	effect: 'fade',
+	fadeEffect: {
+		crossFade: true,
+	},
+    pagination: {
+    el: '.swiper-pagination',
+	type: 'bullets',
+	clickable: true,
+	},
+});

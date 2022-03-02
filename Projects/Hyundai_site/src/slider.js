@@ -16,7 +16,7 @@ export default class SlideBuilder {
 export class Slideshow {
     constructor(el) {
         this.wrapper = el.querySelector(".slider-wrapper");
-        this.slides = el.querySelectorAll(".slide");
+        this.slides = el.querySelectorAll(".slider-slide");
         this.previous = el.querySelector(".slider-previous");
         this.next = el.querySelector(".slider-next");
         this.contentsMenu = el.querySelector('.items');

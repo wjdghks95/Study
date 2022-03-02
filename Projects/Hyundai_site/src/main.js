@@ -29,8 +29,8 @@ function textUnderbarToggle(list) {
 		});
 	});
 };
-textUnderbarToggle('.menu');
-textUnderbarToggle('.contentsMenu');
+textUnderbarToggle('.header__nav');
+textUnderbarToggle('.home__contents-menu');
 // 메뉴 클릭 시 해당 메뉴 언더바 생성
 
 const header = document.querySelector('#header');

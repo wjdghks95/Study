@@ -1,26 +1,26 @@
 /* 슬라이드 기본 세팅 */
 .slider-container {
+  position: relative;
   margin: 0 auto;
   max-width: 100%;
   width: 100%;
   height: 857px;
-  position: relative;
 }
 .slider-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
 }
-.slide {
+.slider-slide {
   float: left;
   position: absolute;
   width: 100%;
-  height: 857px;
+  height: 100%;
   opacity: 0;
   transition: opacity 500ms linear;
   background-color: #000;
 }
-.slider-wrapper > .slide:first-child {
+.slider-wrapper > .slider-slide:first-child {
   opacity: 1;
   z-index: 1;
 }
@@ -29,7 +29,6 @@
 .slider-nav {
   position: absolute;
   display: block;
-  height: 64px;
   bottom: 50%;
   z-index: 99;
   transition: all 300ms ease-out;

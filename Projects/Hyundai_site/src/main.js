@@ -63,3 +63,18 @@ const swiper = new Swiper('.swiper-container', {
 	clickable: true,
 	},
 });
+const swiper2 = new Swiper('.swiper-container2', {
+	slidesPerView: 5,
+	spaceBetween: 10,
+	navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+	},
+	pagination: {
+    el: '.swiper-pagination',
+	type: 'bullets',
+	clickable: true,
+	},
+	speed: 800,
+	loop: true,
+});

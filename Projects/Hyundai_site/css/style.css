@@ -21,6 +21,9 @@
 #lineup {
   padding-bottom: 100px;
 }
+#event {
+  padding-bottom: 100px;
+}
 
 /* Container, Row */
 .container {
@@ -48,6 +51,7 @@
   box-sizing: border-box;
   border: 1px solid #fff;
   color: #fff;
+  transition: all 300ms ease;
 }
 .moreBtn:hover {
   background-color: #fff;
@@ -432,6 +436,77 @@
   text-align: center;
   font-size: 18px;
   color: #444;
+}
+
+/* 이벤트 */
+.event .section-title {
+  text-align: center;
+}
+.event__contents {
+  overflow: hidden;
+  position: relative;
+  max-width: 360px;
+  height: 100%;
+}
+.event__contents img {
+  transition: all 300ms ease-out;
+}
+.event__contents:hover img {
+  transform: scale(1.1);
+}
+.event__contents .contents__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #e6e2e3e6;
+  opacity: 0;
+  transition: all 300ms ease-out;
+}
+.event__contents:hover .contents__info {
+  opacity: 1;
+}
+.contents__info em {
+  width: 260px;
+  color: #444;
+  font-size: 18px;
+  font-weight: 400;
+}
+.event .contents__info .moreBtn {
+  border: 1px solid #444;
+  color: #444;
+}
+.event .contents__info .moreBtn:hover {
+  border: 1px solid #444;
+  background-color: #444;
+  color: #fff;
+}
+.event h3 {
+  font-size: 26px;
+  font-weight: 500;
+  text-align: center;
+}
+.event .swiper-pagination {
+  margin-top: 55px;
+}
+.event .swiper-button-prev,
+.event .swiper-button-next {
+  top: 35%;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  transition: all 300ms ease;
+}
+.event .swiper-button-prev:hover,
+.event .swiper-button-next:hover {
+  transform: scale(1.1);
+}
+.event .swiper-button-prev:after,
+.event .swiper-button-next:after {
+  color: #fff;
+  font-size: 24px;
 }
 
 /* 미디어쿼리 */

@@ -77,4 +77,23 @@ const swiper2 = new Swiper('.swiper-container2', {
 	},
 	speed: 800,
 	loop: true,
+	breakpoints: {
+	0: {
+		slidesPerView: 1,
+		spaceBetween: 0,
+    },
+    480: {
+		slidesPerView: 1.7,
+		spaceBetween: 80,
+		centeredSlides: true,
+    },
+    768: {
+		slidesPerView: 3,
+		spaceBetween: 15,
+    },
+    1024: {
+		slidesPerView: 5,
+		spaceBetween: 10,
+    },
+  }
 });

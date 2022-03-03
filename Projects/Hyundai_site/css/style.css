@@ -25,6 +25,10 @@
   padding-bottom: 100px;
   background-color: #f5f5f5;
 }
+#footer {
+  margin-top: 140px;
+  padding: 0 0 40px;
+}
 
 /* Container, Row */
 .container {
@@ -513,6 +517,114 @@
   font-size: 24px;
 }
 
+/* 푸터 */
+.footer {
+  position: relative;
+}
+.footer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #f5f5f5;
+}
+.footer__go-to-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.go-to-topBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #f5f5f5;
+  border-radius: 50%;
+  color: #707070;
+  font-size: 11px;
+  background-color: #fff;
+  transition: all 300ms ease-out;
+}
+.go-to-topBtn:hover {
+  background-color: #444;
+  border: 1px solid #ccc;
+  color: #fff;
+}
+.footer__link {
+  padding-top: 43px;
+}
+.link__items {
+  text-align: center;
+  font-size: 0;
+}
+.link__item {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 15px 10px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.link__item:hover a {
+  border-bottom: 1px solid #005295;
+  color: #005295;
+}
+.link__item:not(:first-child):before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 10px;
+  background-color: #e0e0e0;
+}
+.link__item a {
+  color: #444;
+}
+.footer__contact {
+  padding: 7px 0 23px;
+}
+.footer__contact span {
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #444;
+  font-size: 11px;
+  font-weight: 300;
+}
+.contact__items {
+  text-align: center;
+  font-size: 0;
+}
+.contact__item {
+  display: inline-block;
+  margin: 0 6px;
+  font-size: 24px;
+}
+.contact__item:hover .fa-youtube,
+.contact__item:hover .fa-instagram {
+  color: #e62117;
+}
+.contact__item:hover .fa-twitter,
+.contact__item:hover .fa-facebook-square {
+  color: #0073b1;
+}
+.contact__item a {
+  color: #444;
+}
+.copyright {
+  text-align: center;
+  color: #444;
+  font-weight: 300;
+}
+
 /* 미디어쿼리 */
 @media (max-width: 1279px) {
   .row {
@@ -621,6 +733,9 @@
   }
   #event {
     padding-bottom: 54px;
+  }
+  #footer {
+    margin-top: 80px;
   }
 
   .section-title {

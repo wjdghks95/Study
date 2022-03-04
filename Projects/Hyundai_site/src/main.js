@@ -97,3 +97,28 @@ const swiper2 = new Swiper('.swiper-container2', {
     },
   }
 });
+// swiper
+
+const topBtn = document.querySelector('.footer__go-to-top');
+topBtn.addEventListener('click', (event) => {
+	event.preventDefault();
+	window.scrollTo({
+		top: 0,
+		behavior: 'smooth',
+	});
+});
+// top버튼 클릭 시 최상단으로 이동
+
+const searchBtn = document.querySelector('.searchBtn');
+const searchInput = document.querySelector('.search-input');
+searchBtn.addEventListener('click', (event) => {
+	event.preventDefault();
+
+	searchInput.style.display = 'block';
+	searchInput.focus();
+});
+searchInput.addEventListener('focusout', (event) => {
+	searchInput.value = '';
+	searchInput.style.display = 'none';
+});
+// 검색버튼 활성화

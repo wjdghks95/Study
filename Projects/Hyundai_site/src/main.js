@@ -122,3 +122,22 @@ searchInput.addEventListener('focusout', (event) => {
 	searchInput.style.display = 'none';
 });
 // 검색버튼 활성화
+
+const wrapBg = document.querySelector('#wrap-bg');
+const mobileMenuBtn = document.querySelector('.util__mobileMenu');
+const sideNav = document.querySelector('#side-nav');
+const closeNav = document.querySelector('.side-nav__close');
+mobileMenuBtn.addEventListener('click', (event) => {
+	event.preventDefault();
+	sideNav.classList.add('active');
+	wrapBg.style.display = 'block';
+});
+closeNav.addEventListener('click', () => {
+	sideNav.classList.remove('active');
+	wrapBg.style.display = 'none';
+});
+wrapBg.addEventListener('click', () => {
+	sideNav.classList.remove('active');
+	wrapBg.style.display = 'none';
+});
+// 모바일메뉴 버튼 클릭 시 활성화

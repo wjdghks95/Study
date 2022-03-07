@@ -29,10 +29,11 @@
 #home {
 }
 #side-nav {
-  display: block;
+  display: none;
   position: fixed;
   top: 0;
-  right: -50%;
+  right: 0;
+  transform: translateX(50%);
   width: 288px;
   height: auto;
   background-color: #fff;
@@ -41,9 +42,8 @@
   transition: all 300ms ease-in-out;
 }
 #side-nav.active {
-  display: block;
   opacity: 1;
-  right: 0;
+  transform: translateX(0);
 }
 #benefit {
   padding: 100px 0;

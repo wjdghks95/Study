@@ -127,17 +127,30 @@ const wrapBg = document.querySelector('#wrap-bg');
 const mobileMenuBtn = document.querySelector('.util__mobileMenu');
 const sideNav = document.querySelector('#side-nav');
 const closeNav = document.querySelector('.side-nav__close');
+
 mobileMenuBtn.addEventListener('click', (event) => {
 	event.preventDefault();
-	sideNav.classList.add('active');
-	wrapBg.style.display = 'block';
+	showSlideNav();
 });
 closeNav.addEventListener('click', () => {
-	sideNav.classList.remove('active');
-	wrapBg.style.display = 'none';
+	removeSideNav()
 });
 wrapBg.addEventListener('click', () => {
+	removeSideNav()
+});
+
+function showSlideNav() {
+	sideNav.style.display = 'block';
+	setTimeout(() => {
+		sideNav.classList.add('active');
+		wrapBg.style.display = 'block';
+	}, 0);
+};
+function removeSideNav() {
 	sideNav.classList.remove('active');
 	wrapBg.style.display = 'none';
-});
+	setTimeout(() => {
+		sideNav.style.display = 'none';
+	}, 300);
+};
 // 모바일메뉴 버튼 클릭 시 활성화

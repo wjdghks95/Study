@@ -7,18 +7,43 @@ const mainSlide = new SlideBuilder()
 	.build();
 // 메인 홈 슬라이드
 
-function textUnderbarToggle(list) {
-	const menu = document.querySelector(list);
+const searchToggle = document.querySelector('.utils__search-toggle');
+const search = document.querySelector('.utils__search');
+const searchInput = document.querySelector('#search-input');
+
+searchToggle.addEventListener('click', (event) => {
+	event.preventDefault();
+
+	if (window.innerWidth > 1023) {
+		searchToggle.style.display = 'none';
+		search.style.display = 'inline-block';
+		searchInput.focus();
+	};
+});
+document.addEventListener('click', (event) => {
+	const target = event.target;
+	if (target == searchToggle || event.target == searchInput) {
+		return;
+	} else {
+		search.style.display = 'none';
+		searchToggle.style.display = 'inline-block';
+		searchInput.value = '';
+	};
+});
+// 검색 활성화
+
+function showMenuUnderbar(ul) {
+	const menu = document.querySelector(ul);
 	menu.addEventListener('click', (event) => {
 
-		if (event.target === menu) {
+		if (event.target == menu) {
 			return;
 		};
 
 		const target = event.target.tagName !== 'SPAN' ? event.target.children[0] : event.target;
 		target.classList.add('active');
 
-		const items = menu.querySelectorAll('.item');
+		const items = menu.querySelectorAll('li');
 		
 		items.forEach(item => {
 			const itemName = item.querySelector('span');
@@ -29,8 +54,8 @@ function textUnderbarToggle(list) {
 		});
 	});
 };
-textUnderbarToggle('.header__nav');
-textUnderbarToggle('.home__contents-menu');
+showMenuUnderbar('.nav__items');
+showMenuUnderbar('.home__contents-menu');
 // 메뉴 클릭 시 해당 메뉴 언더바 생성
 
 const header = document.querySelector('#header');
@@ -109,26 +134,12 @@ topBtn.addEventListener('click', (event) => {
 });
 // top버튼 클릭 시 최상단으로 이동
 
-const searchBtn = document.querySelector('.searchBtn');
-const searchInput = document.querySelector('.search-input');
-searchBtn.addEventListener('click', (event) => {
-	event.preventDefault();
-
-	searchInput.style.display = 'block';
-	searchInput.focus();
-});
-searchInput.addEventListener('focusout', (event) => {
-	searchInput.value = '';
-	searchInput.style.display = 'none';
-});
-// 검색버튼 활성화
-
 const wrapBg = document.querySelector('#wrap-bg');
-const mobileMenuBtn = document.querySelector('.util__mobileMenu');
+const sideNavBtn = document.querySelector('.utils__toggle-sideNav');
 const sideNav = document.querySelector('#side-nav');
 const closeNav = document.querySelector('.side-nav__close');
 
-mobileMenuBtn.addEventListener('click', (event) => {
+sideNavBtn.addEventListener('click', (event) => {
 	event.preventDefault();
 	showSlideNav();
 });
@@ -138,7 +149,6 @@ closeNav.addEventListener('click', () => {
 wrapBg.addEventListener('click', () => {
 	removeSideNav()
 });
-
 function showSlideNav() {
 	sideNav.style.display = 'block';
 	setTimeout(() => {

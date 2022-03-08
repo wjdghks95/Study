@@ -43,8 +43,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="header">
-                            <div class="header__header-top">
-                                <ul class="header-top__languages clearfix">
+                            <h1 class="header__logo">
+                                <a href="#">
+                                    <img src="img/logo.png" alt="Hyundai">
+                                </a>
+                            </h1>
+                            <div class="header__utils">
+                                <ul class="utils__languages clearfix">
                                     <li class="language active">
                                         <a href="#">KR</a>
                                     </li>
@@ -55,56 +60,51 @@
                                         <a href="#">CN</a>
                                     </li>
                                 </ul>
-                                <h1 class="header-top__logo">
-                                    <a href="#">
-                                        <img src="img/logo.png" alt="Hyundai">
-                                    </a>
-                                </h1>
-                                <div class="header-top__util">
-                                    <div class="util__search">
-                                        <input type="text" type="search" class="search-input" placeholder="검색어">
-                                        <a href="#" class="searchBtn">
+                                <a href="#" class="utils__search-toggle">
+                                    <span class="ir_pm">검색</span>
+                                </a>
+                                <div class="utils__search">
+                                    <form action="index.html" method="get" class="search">
+                                        <label for="search-input" class="ir_pm">검색어</label>
+                                        <input type="search" id="search-input" placeholder="검색어">
+                                        <button type="submit" class="search-go">
                                             <span class="ir_pm">검색</span>
-                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                        </a>
-                                    </div>
-                                    <div class="util__mobileMenu">
-                                        <a href="#" class="mobileMenuBtn">
-                                            <span class="ir_pm">모바일메뉴</span>
-                                            <i class="fa-solid fa-bars"></i>
-                                        </a>
-                                    </div>
+                                        </button>
+                                    </form>
                                 </div>
+                                <a href="#" class="utils__toggle-sideNav">
+                                    <span class="ir_pm">모바일메뉴</span>
+                                </a>
                             </div>
                             <nav class="header__nav">
                                 <h2 class="ir_su">메뉴</h2>
-                                <ul class="nav__items items clearfix">
-                                    <li class="nav__item item">
-                                        <a href="#" class="active">
+                                <ul class="nav__items clearfix">
+                                    <li class="nav__item">
+                                        <a href="#">
                                             <span>모델</span>
                                         </a>
                                     </li>
-                                    <li class="nav__item item">
+                                    <li class="nav__item">
                                         <a href="#">
                                             <span>멤버십&차량관리</span>
                                         </a>
                                     </li>
-                                    <li class="nav__item item">
+                                    <li class="nav__item">
                                         <a href="#">
                                             <span>이벤트</span>
                                         </a>
                                     </li>
-                                    <li class="nav__item item">
+                                    <li class="nav__item">
                                         <a href="#">
                                             <span>고객지원</span>
                                         </a>
                                     </li>
-                                    <li class="nav__item item">
+                                    <li class="nav__item">
                                         <a href="#">
                                             <span>브랜드</span>
                                         </a>
                                     </li>
-                                    <li class="nav__item item">
+                                    <li class="nav__item">
                                         <a href="#">
                                             <span>회사소개</span>
                                         </a>
@@ -127,12 +127,12 @@
                                     <div class="contents__info">
                                         <span>Hyundai Motor Group</span>
                                         <h3>case by CASPER</h2>
-                                            <p>젊고 역동적인 감성의 SUV 디자인 당당하고 견고한 외관 디자인으로<br> 캐스퍼만의 존재감을 드러냅니다.</p>
-                                            <div class="info__more">
-                                                <a href="#" class="moreBtn">바로가기
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </a>
-                                            </div>
+                                        <p>젊고 역동적인 감성의 SUV 디자인 당당하고 견고한 외관 디자인으로<br> 캐스퍼만의 존재감을 드러냅니다.</p>
+                                        <div class="info__more">
+                                            <a href="#" class="moreBtn">바로가기
+                                                <i class="fa-solid fa-angle-right"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -142,12 +142,12 @@
                                     <div class="contents__info">
                                         <span>Hyundai Motor Group</span>
                                         <h3>무엇이든 가능한 세상</h2>
-                                            <p>최초의 경험으로 가득찬 새로운 모빌리티 시대가 열립니다.<br> 무엇이든 가능한 세상, IONIQ 5를 경험하세요.</p>
-                                            <div class="info__more">
-                                                <a href="#" class="moreBtn">바로가기
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </a>
-                                            </div>
+                                        <p>최초의 경험으로 가득찬 새로운 모빌리티 시대가 열립니다.<br> 무엇이든 가능한 세상, IONIQ 5를 경험하세요.</p>
+                                        <div class="info__more">
+                                            <a href="#" class="moreBtn">바로가기
+                                                <i class="fa-solid fa-angle-right"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -158,11 +158,9 @@
                                         <span>Hyundai Motor Group</span>
                                         <h3>도심형 패밀리 SUV의 진화</h3>
                                         <p>더 혁신적으로 진화한 싼타페는 가족 모두의 <br>라이프 스타일을 풍요롭게 만들어 줍니다.</p>
-                                        <div class="info__more">
-                                            <a href="#" class="moreBtn">바로가기
-                                                <i class="fa-solid fa-angle-right"></i>
-                                            </a>
-                                        </div>
+                                        <a href="#" class="moreBtn">바로가기
+                                            <i class="fa-solid fa-angle-right"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -181,6 +179,7 @@
                         </div>
                     </div>
                     <div class="home__contents-menu">
+                        <h2 class="ir_pm">메뉴</h2>
                         <ul class="contents-menu__items items">
                             <li class="contents-menu__item item active" data-index="0">
                                 <a href="#">
@@ -675,10 +674,11 @@
             </div>
         </footer>
         <!-- 푸터 -->
+
         <div id="wrap-bg"></div>
     </div>
 
-    <section id="side-nav">
+    <div id="side-nav">
         <div class="side-nav">
             <h1 class="side-nav__logo">
                 <a href="#">
@@ -726,7 +726,7 @@
                 <button class="closeBtn"><i class="fa-solid fa-xmark"></i></button>
             </div>
         </div>
-    </section>
+    </div>
     <!-- 사이드메뉴 -->
 </body>
 

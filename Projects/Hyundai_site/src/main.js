@@ -4,7 +4,7 @@ import Slideshow from './slider.js';
 
 const home = document.querySelector('#home');
 const slide = new Slideshow(home);
-// 메인 홈 슬라이드
+// 홈 슬라이드
 
 const searchToggle = document.querySelector('.utils__search-toggle');
 const search = document.querySelector('.utils__search');
@@ -13,15 +13,14 @@ const searchInput = document.querySelector('#search-input');
 searchToggle.addEventListener('click', (event) => {
 	event.preventDefault();
 
-	if (window.innerWidth > 1023) {
-		searchToggle.style.display = 'none';
-		search.style.display = 'inline-block';
-		searchInput.focus();
-	};
+	searchToggle.style.display = 'none';
+	search.style.display = 'inline-block';
+	searchInput.focus();
 });
 document.addEventListener('click', (event) => {
 	const target = event.target;
-	if (target == searchToggle || event.target == searchInput) {
+	
+	if (target == searchToggle || target == searchInput) {
 		return;
 	} else {
 		search.style.display = 'none';
@@ -87,6 +86,7 @@ const swiper = new Swiper('.swiper-container', {
 	clickable: true,
 	},
 });
+// 라인업 swiper
 const swiper2 = new Swiper('.swiper-container2', {
 	slidesPerView: 5,
 	spaceBetween: 10,
@@ -121,9 +121,9 @@ const swiper2 = new Swiper('.swiper-container2', {
     },
   }
 });
-// swiper
+// 이벤트 swiper
 
-const topBtn = document.querySelector('.footer__go-to-top');
+const topBtn = document.querySelector('.footer__go-to-topBtn');
 topBtn.addEventListener('click', (event) => {
 	event.preventDefault();
 	window.scrollTo({
@@ -133,31 +133,37 @@ topBtn.addEventListener('click', (event) => {
 });
 // top버튼 클릭 시 최상단으로 이동
 
-const wrapBg = document.querySelector('#wrap-bg');
+const wrap = document.querySelector('#wrap');
 const sideNavBtn = document.querySelector('.utils__toggle-sideNav');
-const sideNav = document.querySelector('#side-nav');
-const closeNav = document.querySelector('.side-nav__close');
+const sideNav = document.querySelector('#side-pad');
+const closeNav = document.querySelector('.side-pad__close');
 
 sideNavBtn.addEventListener('click', (event) => {
 	event.preventDefault();
-	showSlideNav();
+	showSideNav();
 });
 closeNav.addEventListener('click', () => {
 	removeSideNav()
 });
-wrapBg.addEventListener('click', () => {
-	removeSideNav()
+document.addEventListener('click', (event) => {
+	const target = event.target;
+	
+	if (target !== wrap) {
+		return;
+	} else {
+		removeSideNav();
+	};
 });
-function showSlideNav() {
+function showSideNav() {
 	sideNav.style.display = 'block';
 	setTimeout(() => {
 		sideNav.classList.add('active');
-		wrapBg.style.display = 'block';
+		wrap.classList.add('active');
 	}, 0);
 };
 function removeSideNav() {
 	sideNav.classList.remove('active');
-	wrapBg.style.display = 'none';
+	wrap.classList.remove('active');
 	setTimeout(() => {
 		sideNav.style.display = 'none';
 	}, 300);

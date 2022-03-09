@@ -1,10 +1,9 @@
 'use strict'
 
-import SlideBuilder from './slider.js';
+import Slideshow from './slider.js';
 
-const mainSlide = new SlideBuilder()
-	.section('#home')
-	.build();
+const home = document.querySelector('#home');
+const slide = new Slideshow(home);
 // 메인 홈 슬라이드
 
 const searchToggle = document.querySelector('.utils__search-toggle');
@@ -55,7 +54,7 @@ function showMenuUnderbar(ul) {
 	});
 };
 showMenuUnderbar('.nav__items');
-showMenuUnderbar('.home__contents-menu');
+showMenuUnderbar('.contents-menu__items');
 // 메뉴 클릭 시 해당 메뉴 언더바 생성
 
 const header = document.querySelector('#header');

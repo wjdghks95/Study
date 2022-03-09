@@ -1,26 +1,13 @@
 'use strict'
 
-export default class SlideBuilder {
-    section(element) {
-        this.el = document.querySelector(element);
-        return this;
-    };
-
-    build() {
-        return new Slideshow(
-            this.el
-        );
-    };
-};
-
-export class Slideshow {
+export default class Slideshow {
     constructor(el) {
         this.wrapper = el.querySelector(".slider-wrapper");
         this.slides = el.querySelectorAll(".slider-slide");
         this.previous = el.querySelector(".slider-previous");
         this.next = el.querySelector(".slider-next");
-        this.contentsMenu = el.querySelector('.items');
-        this.contentMenuItems = this.contentsMenu.querySelectorAll('.item');
+        this.contentsMenu = el.querySelector('.contents-menu__items');
+        this.contentMenuItems = this.contentsMenu.querySelectorAll('.contents-menu__item');
         this.index = 0;
         this.total = this.slides.length;
 
@@ -77,7 +64,7 @@ export class Slideshow {
     };
     // 현재 슬라이드 아이템에 active 클래스를 생성하고 나머지는 제거
 
-    _toggleTextUnderbar(index) {
+    _showTextUnderbar(index) {
         const currentItem = this.contentMenuItems[index];
         const currentItemName = currentItem.querySelector('span');
         
@@ -102,7 +89,7 @@ export class Slideshow {
 
             self._toggleNav(self.index);
             self._toggleActive(self.index);
-            self._toggleTextUnderbar(self.index);
+            self._showTextUnderbar(self.index);
             self._slideTo(self.index);
 
         }, false);
@@ -112,7 +99,7 @@ export class Slideshow {
 
             self._toggleNav(self.index);
             self._toggleActive(self.index);
-            self._toggleTextUnderbar(self.index);
+            self._showTextUnderbar(self.index);
             self._slideTo(self.index);
 
         }, false);

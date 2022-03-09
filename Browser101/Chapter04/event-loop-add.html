@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Click to add</button>
+    <script>
+        const button = document.querySelector('button');
+        button.addEventListener('click', () => {
+            const element = document.createElement('h1');
+            document.body.appendChild(element);
+            element.style.color = 'red';
+            element.innerText = 'hello';
+        });
+        // 이벤트 발생후 실행되는 동작은 Task Queue에 담고 Call Stack에서 모두 처리 후 브라우저에 업데이트 된다.
+    </script>
+</body>
+</html>

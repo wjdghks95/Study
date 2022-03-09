@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let counter = 0
+        const litener = () => {
+            header.innerText = `클릭횟수 : ${++counter}`
+        }
+
+        const header = document.createElement('h1')
+        header.style.userSelect = 'none'
+        header.innerText = `클릭횟수 : 0`
+
+        const p = document.createElement('p')
+        p.innerText = `이벤트 연결 상태 : 해제`
+
+        const connectButton = document.createElement('button')
+        connectButton.innerText = '이벤트 연결'
+        connectButton.addEventListener('click', () => {
+            header.addEventListener('click', litener)
+            p.innerText = `이벤트 연결 상태 : 연결`
+        })
+
+        const disconnectButton = document.createElement('button')
+        disconnectButton.innerText = '이벤트 해제'
+        disconnectButton.addEventListener('click', () => {
+            header.removeEventListener('click', litener)
+            p.innerText = `이벤트 연결 상태 : 해제`
+        })
+
+        document.body.appendChild(header)
+        document.body.appendChild(p)
+        document.body.appendChild(connectButton)
+        document.body.appendChild(disconnectButton)
+    </script>
+</body>
+</html>

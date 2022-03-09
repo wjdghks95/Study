@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1 = document.createElement('h1')
+            document.body.appendChild(h1)
+            h1.textContent = '할 일 목록'
+            const addTodo = () => {
+                if(input.value !== ''){
+                        const div = document.createElement('div')
+                        document.body.appendChild(div)
+
+                        const checkbox = document.createElement('input')
+                        div.appendChild(checkbox)
+                        checkbox.type = 'checkbox'
+                        checkbox.addEventListener('change', () => {
+                            if(checkbox.checked){
+                                span.style.textDecoration = 'line-through'
+                            }   else{
+                            span.style.textDecoration = 'none'
+                            }
+                        })
+
+                        const span = document.createElement('span')
+                        div.appendChild(span)
+                        span.textContent = input.value
+                        input.value = ''
+
+                        const delectButton = document.createElement('button')
+                        div.appendChild(delectButton)
+                        delectButton.textContent = '제거하기'
+                        delectButton.addEventListener('click', () => {
+                            div.parentNode.removeChild(div)
+                        })
+                    }
+            }
+            const input = document.createElement('input')
+            document.body.appendChild(input)
+            input.type = 'text'
+            input.addEventListener('keyup', (event) => {
+                if(event.keyCode === 13){
+                    addTodo()
+                }
+            })
+            const addButton = document.createElement('button')
+            addButton.addEventListener('click', () => {
+                addTodo()
+            })
+            document.body.appendChild(addButton)
+            addButton.textContent = '추가하기'
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

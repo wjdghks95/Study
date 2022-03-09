@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header1 = document.querySelector('#textContent')
+            const header2 = document.querySelector('#innerHTML')
+
+            header1.textContent = '원하는<br>문자열'
+            header2.innerHTML = '원하는<br>문자열'
+            
+            const img = document.querySelector('img')
+            img.setAttribute('src', 'http://aa.aa.') // = img.src = 'http://aa.aa'
+            img.getAttribute('src') // = img.src
+            const divs = document.querySelectorAll('div')
+            divs.forEach((div, key) => {
+                div.style.backgroundColor = `rgb(${key * 25.5},${key * 25.5},${key * 25.5})`
+                div.style.height = '10px'
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1 id="textContent">textContent 속성 기존 문자열</h1>
+    <h1 id="innerHTML">innerHTML 속성 기존 문자열</h1>
+    <img src="" alt="">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function isRequired(이름){throw `${이름} 매개변수에 문제가 있습니다.`}
+        function 메일보내기 ({
+            발신인 = isRequired('발신인'),
+            수신인 = isRequired('수신인'),
+            내용 = isRequired('내용')
+        }) {
+            console.log(`발신인: ${발신인}`)
+            console.log(`발신인: ${수신인}`)
+            console.log(내용)
+        }
+        메일보내기({
+            발신인: '구름',
+            수신인: '별',
+            내욤: '밥줘'
+        })
+
+        //
+        function 메일보내기 ({
+            발신인 = '사용자',
+            수신인 = '관리자',
+            내용 = '문제가 발생했음'
+        } = {}) {
+            console.log(`발신인: ${발신인}`)
+            console.log(`발신인: ${수신인}`)
+            console.log(내용)
+        }
+        메일보내기()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

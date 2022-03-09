@@ -1,0 +1,29 @@
+<script>
+    class Square {
+        #length
+        constructor (length) {
+            if(length < 0){ throw '길이는 0 이상이어야 합니다.'}
+            this.#length = length
+        }
+        get area () {
+            return this.#length * this.#length
+        }
+        get perimeter () {
+            return 4 * this.#length
+        }
+        set Length (length) {
+            if(length < 0){ throw '길이는 0 이상이어야 합니다.'}
+            this.#length = length
+        }
+        get Length () {
+            return this.#length
+        }
+    }
+    const square = new Square(10)
+    console.log(square.area)
+    console.log(square.perimeter)
+
+    console.log(square.Length)
+    square.Length = 20
+    console.log(square.Length)
+</script>

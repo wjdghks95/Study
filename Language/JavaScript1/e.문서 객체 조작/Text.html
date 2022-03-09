@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const input1 = document.querySelector('#input1')
+            const button1 = document.querySelector('#button1')
+            const p1 = document.querySelector('#p1')
+            
+            button1.addEventListener('click', () => {
+                p1.textContent = `${Number(input1.value) * 2.54}cm로 변환되었습니다.`
+            })
+
+            const input2 = document.querySelector('#input2')
+            const p2 = document.querySelector('#p2')
+
+            input2.addEventListener('keyup', () => {
+                p2.textContent = `${Number(input2.value) * 2.54}cm로 변환되었습니다.`
+            })
+
+            const input3 = document.querySelector('#input3')
+            const p3 = document.querySelector('#p3')
+
+            input3.addEventListener('change', () => {
+                p3.textContent = `${Number(input3.value) * 2.54}cm로 변환되었습니다.`
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" id="input1"> inch <br>
+    <button id="button1">계산</button>
+    <p id="p1"></p>
+    
+    <input type="text" id="input2"> inch <br>
+    <p id="p2"></p>
+
+    <input type="text" id="input3"> inch <br>
+    <p id="p3"></p>
+</body>
+</html>

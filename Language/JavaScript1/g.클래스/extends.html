@@ -1,0 +1,37 @@
+<script>
+    class Rectangle {
+        #width
+        #height
+        constructor (width, height){
+            this.#width = width
+            this.#height = height
+        }
+            get area () { return this.#width * this.#height }
+            get perimeter () { return 2 * (this.#width + this.#height) }
+
+            get width () { return this.#width }
+            set width (width) { this.#width = width }
+            
+            get height () { return this.#height }
+            set height (height) { this.#height = height }
+    }
+    class Square extends Rectangle {
+        constructor (width){
+            super(width, width)
+        }
+    }
+
+    const rect = new Rectangle(20, 10)
+    console.log(`넓이: ${rect.area}`)
+    console.log(`둘레: ${rect.perimeter}`)
+    const square = new Square(10)
+    console.log(`넓이: ${square.area}`)
+    console.log(`둘레: ${square.perimeter}`)
+    rect.width = 50
+    rect.height = 20
+    console.log(`넓이: ${rect.area}`)
+    console.log(`둘레: ${rect.perimeter}`)
+    square.width = 20
+    console.log(`넓이: ${square.area}`)
+    console.log(`넓이: ${square.perimeter}`)
+</script>

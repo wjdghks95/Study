@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // localStorage.getItem() -> 키 불러오기
+            // localStorage.setItem() -> 키, 값 저장
+            // localStorage.removeItem() -> 키 제거
+            // localStorage.clear() -> 전체제거
+            const p = document.querySelector('p')
+            const button = document.querySelector('button')
+            const input = document.querySelector('input')
+            const select = document.querySelector('select')
+
+            const key = localStorage.getItem('키')
+            if (key !== null){
+            p.textContent = `이전 실행때의 마지막 값: ${key}`
+            input.value = key
+            }
+            const color = localStorage.getItem('color')
+            if(color !== null){
+                document.body.style.backgroundColor = color
+                select.value = color
+            }   else {
+                document.body.style.backgroundColor = 'red'
+            }
+
+            button.addEventListener('click', () => {
+                localStorage.clear()
+            })
+            input.addEventListener('keyup', () => {
+                localStorage.setItem('키', input.value)
+            })
+
+            select.addEventListener('change', () => {
+                const color = select.options[select.selectedIndex].value
+                document.body.style.backgroundColor = color
+                localStorage.setItem('color', color)
+            })
+        })
+    </script>
+</head>
+<body>
+    <p></p>
+    <button>지우기</button>
+    <input type="text" name="" id="">
+    <select name="" id="">
+        <option value="red">빨간색</option>
+        <option value="blue">파란색</option>
+        <option value="green">초록색</option>
+    </select>
+</body>
+</html>

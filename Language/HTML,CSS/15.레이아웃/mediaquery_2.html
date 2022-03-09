@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            .container{
+                display: flex;
+                flex-direction: column;
+            }
+            header{
+                border-bottom: 1px solid gray;
+                padding left: 20px;
+            }
+            footer{
+                border-top: 1px solid gray;
+                padding: 20px;
+                text-align: center;
+            }
+            .content{
+                display: flex;                
+            }
+            .content nav{
+                border-right: 1px solid gray;
+            }
+            @media(max-width:500px){
+                .content{
+                    flex-direction: column;
+                }
+                .content nav, .content aside{
+                    border: none;
+                    flex-basis: auto;
+                }
+            }
+            .content aside{
+                border-left: 1px solid gray;
+            }
+            nav, aside{
+                flex-basis: 150px;
+                flex-shrink: 0;
+            }
+            main{
+                padding: 10px;
+            }            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>생활코딩</h1>
+            </header>
+            <section class="content">
+                <nav>
+                    <ul>
+                        <li>html</li>
+                        <li>css</li>
+                        <li>javascript</li>
+                    </ul>
+                </nav>
+                <main>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos ex aliquam obcaecati porro labore mollitia sint quia dolor harum, minus quisquam, molestiae doloremque. Voluptates nisi dicta blanditiis repudiandae minus nesciunt ab, accusamus recusandae totam sit architecto cum eveniet rerum sapiente magni quas cumque vero distinctio tenetur officiis aperiam natus odio. Similique delectus optio assumenda dolorem. Possimus sed ut, magnam, cupiditate laudantium molestias molestiae voluptatibus exercitationem explicabo delectus dignissimos nesciunt modi voluptatum mollitia aliquam consequuntur nihil id accusantium eaque nulla nostrum. Non laboriosam ratione possimus dolorem unde quas deleniti? Maiores at, impedit enim tempore animi sapiente, velit minus eligendi eveniet laboriosam quis assumenda esse nam consequuntur harum, rem soluta quisquam architecto iste consequatur exercitationem hic nihil! Nam officia consectetur ducimus ipsum, blanditiis eos magnam ut placeat asperiores voluptate qui nemo est eum doloremque! Corrupti magni unde a accusamus, cumque aspernatur mollitia sapiente, quisquam odit suscipit labore numquam, reprehenderit dignissimos quo repellendus dolor dolorem placeat! Officia, iure iste, dicta adipisci sint cumque magnam dolores molestias incidunt eius deleniti. Dicta consectetur error, hic voluptatum necessitatibus facere cum! Inventore, quod eligendi nobis repudiandae commodi velit iure culpa, expedita saepe veniam distinctio autem maiores odit dolorem laboriosam dignissimos sapiente voluptate? Aliquam hic libero facilis vitae aut omnis nihil sapiente suscipit, itaque eveniet animi voluptates perspiciatis eligendi quis fuga possimus voluptatem eius fugit tempora nam tempore? Quibusdam, tempore unde animi sed ducimus, cum alias odit deserunt praesentium suscipit asperiores nostrum at repudiandae aliquid sapiente dolorum illum. Odio excepturi adipisci eos repellat, possimus ut quo? Non, perspiciatis ab. Dolore sunt dolorum impedit cum officia? Provident, voluptatem! Quis voluptas 
+                </main>
+                <aside>
+                    AD
+                </aside>
+            </section>
+            <footer>
+                <a href="">홈페이지</a>
+            </footer>
+        </div>
+    </body>
+</html>

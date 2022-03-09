@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        //     document.addEventListener('keydown', (event) => {
+        //         document.body.innerHTML = `<h1>keydown ${event.code}</h1>`
+        //     })
+        //     document.addEventListener('keyup', () => {
+        //         document.body.innerHTML = '<h1>keyup</h1>'
+        // })
+        
+
+        const textarea = document.querySelector('textarea')
+        const h1 = document.querySelector('h1')
+        
+        textarea.addEventListener('keyup', (event) => {
+            const length = textarea.value.length
+            h1.textContent = `글자 수: ${length}`
+        })
+        
+        textarea.addEventListener('keyup', (event) => {
+            h1.textContent = `글자 수: ${textarea.value.length}`
+        })
+        textarea.addEventListener('keyup', (event) => {
+            h1.textContent = `글자 수: ${event.currentTarget.value.length}`
+        })
+        textarea.addEventListener('keyup', function () {
+            h1.textContent = `{this.value.length}`
+        })
+
+        const a = document.querySelector('a')
+        a.addEventListener('click', (event) => {
+            event.preventDefault()
+        })
+    })
+    </script>
+</head>
+<body>
+    <h1>글자 수: 0</h1>
+    <textarea></textarea>
+    <a href="http://hanbit.co.kr">링크</a>
+</body>
+</html>

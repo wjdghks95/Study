@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1 = document.querySelector('h1')
+            try{
+                h1.textContent = '변겅'
+            } catch(error){
+                console.log('오류가 발생했습니다!')
+                console.log(예외_객체)
+                console.log(예외_객체.name)
+                console.log(예외_객체.message)
+            } finally{
+                
+            }
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

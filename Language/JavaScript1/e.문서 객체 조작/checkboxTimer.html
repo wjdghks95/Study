@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+            const checkbox = document.querySelector('input[type=checkbox]')
+            const checkboxResult = document.querySelector('h1#checkbox')
+            let second = 0
+            let timerID = 0
+            checkbox.addEventListener('change', () => {
+                if(checkbox.checked){
+                    timerID = setInterval(() => {
+                        second += 1
+                        checkboxResult.textContent = `${second}초`
+                    }, 1000)
+                }   else{
+                    clearInterval(timerID)
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="checkbox" name="" id="">
+    <h1 id="checkbox">0초</h1>
+</body>
+</html>

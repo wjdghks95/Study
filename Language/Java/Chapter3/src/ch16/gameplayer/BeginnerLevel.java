@@ -1,4 +1,4 @@
-package ch16;
+package ch16.gameplayer;
 
 public class BeginnerLevel extends PlayerLevel {
 
@@ -16,10 +16,10 @@ public class BeginnerLevel extends PlayerLevel {
 	public void turn() {
 		System.out.println("turn 못하지롱");
 	}
-	
+
+	@Override
 	public void showLevelMessage() {
-		
-		System.out.println("****** 초급자 레벨입니다 ******");
+		System.out.println("****** 초급자 레벨입니다. ******");
 	}
 
 }

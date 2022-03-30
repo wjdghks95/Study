@@ -1,14 +1,15 @@
-package ch16;
+package ch16.gameplayer;
 
 public class Player {
 	
 	private PlayerLevel level;
-
+	
 	public Player() {
+		
 		level = new BeginnerLevel();
 		level.showLevelMessage();
 	}
-	
+
 	public PlayerLevel getLevel() {
 		return level;
 	}
@@ -20,6 +21,6 @@ public class Player {
 	
 	public void play(int count) {
 		level.go(count);
-	}	
-	
+	}
+
 }

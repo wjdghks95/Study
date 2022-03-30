@@ -1,4 +1,4 @@
-package ch16;
+package ch16.gameplayer;
 
 public class MainBoardPlay {
 
@@ -13,6 +13,7 @@ public class MainBoardPlay {
 		
 		SuperLevel sLevel = new SuperLevel();
 		player.upgradeLevel(sLevel);
-		player.play(2);
+		player.play(3);
+		
 	}
 }

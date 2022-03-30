@@ -1,4 +1,4 @@
-package ch16;
+package ch16.gameplayer;
 
 public class AdvancedLevel extends PlayerLevel {
 

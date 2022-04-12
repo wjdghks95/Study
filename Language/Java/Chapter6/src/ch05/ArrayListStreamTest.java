@@ -1,4 +1,4 @@
-package ch06;
+package ch05;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,9 +8,6 @@ import java.util.stream.Stream;
 public class ArrayListStreamTest {
 
 	public static void main(String[] args) {
-
-		Stream<String> stream1 = Arrays.stream(arr);
-		stream1.forEach(s->System.out.println(s));
 
 		List<String> sList = new ArrayList<String>();
 		sList.add("Tomas");

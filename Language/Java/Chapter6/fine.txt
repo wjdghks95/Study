@@ -1,0 +1,16 @@
+4월 13, 2022 8:20:21 오후 ch11.MyLogger warning
+WARNING: name must not be null
+4월 13, 2022 8:20:21 오후 ch11.MyLogger warning
+WARNING: 이름이 너무 길어요
+4월 13, 2022 8:20:21 오후 ch11.MyLogger fine
+FINE: begin getStudentName()
+4월 13, 2022 8:24:25 오후 ch11.MyLogger warning
+WARNING: name must not be null
+4월 13, 2022 8:24:25 오후 ch11.MyLogger warning
+WARNING: 이름이 너무 길어요
+4월 13, 2022 8:34:24 오후 ch11.MyLogger log
+INFO: log test
+4월 13, 2022 8:34:24 오후 ch11.MyLogger log
+WARNING: log test
+4월 13, 2022 8:34:24 오후 ch11.MyLogger log
+SEVERE: log test

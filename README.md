@@ -1,5 +1,5 @@
 # Study
-작성된 코드는 github에 저장
+작성된 코드는 github에 저장  
 공부한 내용은 [Notion](https://flying-talos-c55.notion.site/Curriculum-7dc336f2fe2a41caaab31334f203a37d)에 정리
 
 # Projects

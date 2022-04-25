@@ -16,20 +16,20 @@ public class DfsSearch {
 		visited = new boolean[count];
 		stack = new Stack<Integer>();
 	}
-	
+
 	public void dfsTraversal() {
 		
 		stack.push(0);
 		visited[0] = true;
 		
 		while(stack.isEmpty() == false) {
-			int node = stack.pop();
 			
+			int node = stack.pop();
 			System.out.print(node + " ");
 			
 			for(int j=0; j<count; j++) {
 				
-				if(matrix[node][j] != 0 && visited[j] == false) {
+				if(matrix[node][j] != 0 && !visited[j]) {
 					
 					stack.push(j);
 					visited[j] = true;
@@ -54,7 +54,6 @@ public class DfsSearch {
 		
 		DfsSearch dfs = new DfsSearch(count);
 		dfs.matrix = graph.getMatrix();
-		
 		dfs.dfsTraversal();
 	}
 

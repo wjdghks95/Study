@@ -23,8 +23,8 @@ public class BfsSearch {
 		visited[0] = true;
 		
 		while(queue.size() != 0) {
-			int node = queue.remove(0);
 			
+			int node = queue.remove(0);
 			System.out.print(node + " ");
 			
 			for(int j=0; j<count; j++) {

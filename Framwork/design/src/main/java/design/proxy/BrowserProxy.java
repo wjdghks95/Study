@@ -1,3 +1,5 @@
+package design.proxy;
+
 import design.proxy.Browser;
 import design.proxy.Html;
 import design.proxy.IBrowser;

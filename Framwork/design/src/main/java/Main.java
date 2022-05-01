@@ -1,19 +1,4 @@
-import design.adapter.*;
-import design.aop.AopBrowser;
-import design.decorator.*;
-import design.facade.Ftp;
-import design.facade.Reader;
-import design.facade.SftpClient;
-import design.facade.Writer;
-import design.observer.Button;
-import design.observer.IButtonListener;
-import design.proxy.Browser;
-import design.proxy.IBrowser;
-import design.singleton.Aclazz;
-import design.singleton.BClazz;
-import design.singleton.SocketClient;
-
-import java.util.concurrent.atomic.AtomicLong;
+import design.strategy.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -95,7 +80,7 @@ public class Main {
         button.click("메시지 전달 : click 3");
         button.click("메시지 전달 : click 4");*/
 
-        Ftp ftpClient = new Ftp("www.foo.co.kr", 22, "/home/etc");
+        /*Ftp ftpClient = new Ftp("www.foo.co.kr", 22, "/home/etc");
         ftpClient.connect();
         ftpClient.moveDirectory();
 
@@ -118,13 +103,33 @@ public class Main {
 
         sftpClient.read();
 
-        sftpClient.disConnect();
+        sftpClient.disConnect();*/
 
+        Encoder encoder = new Encoder();
+
+        // base64
+        EncodingStrategy base64 = new Base64Strategy();
+
+        // normal
+        EncodingStrategy normal = new NormalStrategy();
+
+        String message = "hello java";
+        encoder.setEncodingStrategy(base64);
+        String base64Result = encoder.getMessage(message);
+        System.out.println(base64Result);
+
+        encoder.setEncodingStrategy(normal);
+        String normalResult = encoder.getMessage(message);
+        System.out.println(normalResult);
+
+        encoder.setEncodingStrategy(new AppendStrategy());
+        String appendResult = encoder.getMessage(message);
+        System.out.println(appendResult);
     }
 
-    // 콘센트
+/*  // 콘센트
     public static void connect(Electronic110V electronic110V) {
 
         electronic110V.powerOn();
-    }
+    }*/
 }

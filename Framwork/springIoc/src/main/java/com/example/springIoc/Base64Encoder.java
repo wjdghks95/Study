@@ -1,6 +1,11 @@
+package com.example.springIoc;
+
+import org.springframework.stereotype.Component;
+
 import java.util.Base64;
 
-public class Base64Encoder implements IEncoder{
+@Component
+public class Base64Encoder implements IEncoder {
 
     public String encode(String message) {
 

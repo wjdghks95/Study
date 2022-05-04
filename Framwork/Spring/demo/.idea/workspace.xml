@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="42638ccf-b2f7-4a17-b3fb-e490bc89e1b1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Rest/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/java/com/example/hello/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/java/com/example/hello/controller/ApiController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/java/com/example/hello/controller/DeleteApiController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/java/com/example/hello/controller/GetApiController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/java/com/example/hello/controller/PostApiController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/java/com/example/hello/controller/PutApiController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/java/com/example/hello/dto/CarDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/java/com/example/hello/dto/PostRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/java/com/example/hello/dto/PutRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/java/com/example/hello/dto/UserRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Rest/src/test/java/com/example/hello/HelloApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/7.4/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/7.4/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/7.4/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/7.4/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/adapter/AirConditioner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/adapter/Cleaner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/adapter/Electronic110V.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/adapter/Electronic220V.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/adapter/HairDryer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/adapter/SocketAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/aop/AopBrowser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/decorator/A3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/decorator/A4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/decorator/A5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/decorator/Audi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/decorator/AudiDecorator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/decorator/ICar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/facade/Ftp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/facade/Reader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/facade/SftpClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/facade/Writer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/observer/Button.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/observer/IButtonListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/proxy/Browser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/proxy/BrowserProxy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/proxy/Html.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/proxy/IBrowser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/singleton/Aclazz.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/singleton/BClazz.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/singleton/SocketClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/strategy/AppendStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/strategy/Base64Strategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/strategy/Encoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/strategy/EncodingStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/classes/java/main/design/strategy/NormalStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/adapter/AirConditioner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/adapter/Cleaner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/adapter/Electronic110V.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/adapter/Electronic220V.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/adapter/HairDryer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/adapter/SocketAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/aop/AopBrowser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/decorator/A3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/decorator/A4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/decorator/A5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/decorator/Audi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/decorator/AudiDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/decorator/ICar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/facade/Ftp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/facade/Reader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/facade/SftpClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/facade/Writer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/observer/Button.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/observer/IButtonListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/proxy/Browser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/proxy/BrowserProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/proxy/Html.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/proxy/IBrowser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/singleton/Aclazz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/singleton/BClazz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/singleton/SocketClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/strategy/AppendStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/strategy/Base64Strategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/strategy/Encoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/strategy/EncodingStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../design/src/main/java/design/strategy/NormalStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/7.4/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/7.4/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/7.4/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/7.4/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/build/classes/java/main/Base64Encoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/build/classes/java/main/Encoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/build/classes/java/main/IEncoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/build/classes/java/main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/build/classes/java/main/UrlEncoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/src/main/java/Base64Encoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/src/main/java/Encoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/src/main/java/IEncoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ioc/src/main/java/UrlEncoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/src/main/java/com/example/objectmapper/ObjectMapperApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/src/main/java/com/example/objectmapper/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../object-mapper/src/test/java/com/example/objectmapper/ObjectMapperApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/src/main/java/com/example/response/ResponseApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/src/main/java/com/example/response/controller/ApiController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/src/main/java/com/example/response/controller/PageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/src/main/java/com/example/response/controller/dto/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/src/main/resources/static/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../response/src/test/java/com/example/response/ResponseApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/src/main/java/com/example/springIoc/ApplicationContextProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/src/main/java/com/example/springIoc/Base64Encoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/src/main/java/com/example/springIoc/Encoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/src/main/java/com/example/springIoc/IEncoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/src/main/java/com/example/springIoc/SpringIocApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/src/main/java/com/example/springIoc/UrlEncoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springIoc/src/test/java/com/example/springIoc/SpringIocApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="28guVSrzhK6C6lJPwu3lhwRD8F3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/wjdgh/Desktop/Study/Framwork/Spring/aop"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="42638ccf-b2f7-4a17-b3fb-e490bc89e1b1" name="Changes" comment="" />
+      <created>1651650576906</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651650576906</updated>
+    </task>
+    <servers />
+  </component>
+</project>

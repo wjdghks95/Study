@@ -1,7 +1,6 @@
 package com.example.filter.filter;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 import org.springframework.web.util.ContentCachingResponseWrapper;
 
@@ -9,7 +8,6 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.IOException;
 
 @Slf4j
@@ -29,8 +27,7 @@ public class GlobalFilter implements Filter {
         // 후처리
         // req
         String reqContent = new String(httpServletRequest.getContentAsByteArray());
-        log.info("request status : {}, requestBody : {}", url, reqContent);
-
+        log.info("request url : {}, requestBody : {}", url, reqContent);
 
         String resContent = new String(httpServletResponse.getContentAsByteArray());
         int httpStatus = httpServletResponse.getStatus();

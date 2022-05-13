@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.service.TodoServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-05-13T07:54:29" hostname="DESKTOP-0KQ7LPC" time="0.882">
+  <properties/>
+  <testcase name="searchById()" classname="org.example.service.TodoServiceTest" time="0.864"/>
+  <testcase name="searchByIdFailed()" classname="org.example.service.TodoServiceTest" time="0.008"/>
+  <testcase name="add()" classname="org.example.service.TodoServiceTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

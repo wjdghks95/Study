@@ -1,11 +1,13 @@
 package com.example.bookmanager.repository;
 
+import com.example.bookmanager.domain.Gender;
 import com.example.bookmanager.domain.User;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.*;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
@@ -16,20 +18,21 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
 
 @SpringBootTest
+@Sql({"/data.sql"})
 class UserRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;
 
     @Test
-    @Transactional
+//    @Transactional
     void crud() {
-//        User user1 = new User("jack", "jack@naver.com");
-//
-//        userRepository.save(user1);
+        User user1 = new User("jack", "jack@naver.com");
 
-//        List<User> users = userRepository.findAll();
-//        users.forEach(System.out::println);
+        userRepository.save(user1);
+
+        List<User> users = userRepository.findAll();
+        users.forEach(System.out::println);
 
 //        User user = userRepository.getOne(1L);
 
@@ -75,12 +78,12 @@ class UserRepositoryTest {
 //
 //        userRepository.findAll(example).forEach(System.out::println);
 
-        userRepository.save(new User("david", "david@naver.com"));
-
-        User user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
-        user.setEmail("martin-update@naver.com");
-
-        userRepository.save(user);
+//        userRepository.save(new User("david", "david@naver.com"));
+//
+//        User user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+//        user.setEmail("martin-update@naver.com");
+//
+//        userRepository.save(user);
     }
 
     @Test
@@ -131,5 +134,31 @@ class UserRepositoryTest {
         System.out.println("findFirstByNameOrderByIdDescEmailAsc : " +userRepository.findFirstByNameOrderByIdDescEmailAsc("martin"));
         System.out.println("findFirstByNameWithSortParams : " + userRepository.findFirstByName("martin", Sort.by(Sort.Order.desc("id"), Sort.Order.asc("email"))));
         System.out.println("findByNameWithPaging : " + userRepository.findByName("martin", PageRequest.of(0, 1, Sort.by(Sort.Order.desc("id")))).getContent());
+    }
+
+    @Test
+    void insertAndUpdateTest() {
+        User user = new User();
+        user.setName("martin");
+        user.setEmail("martin@gmail.com");
+
+        userRepository.save(user);
+
+        User user2 = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+        user2.setName("marrrrrrtin");
+
+        userRepository.save(user2);
+    }
+
+    @Test
+    void enumTest() {
+        User user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+        user.setGender(Gender.MALE);
+
+        userRepository.save(user);
+
+        userRepository.findAll().forEach(System.out::println);
+
+        System.out.println(userRepository.findRowRecord().get("gender"));
     }
 }

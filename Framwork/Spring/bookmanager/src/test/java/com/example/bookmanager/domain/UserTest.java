@@ -17,13 +17,13 @@ class UserTest {
         user.setUpdatedAt(LocalDateTime.now());
 
 //        User user1 = new User(null,"steve", "steve@gmail.com", LocalDateTime.now(), LocalDateTime.now(), null);
-        User user1 = new User(null,"steve", "steve@gmail.com", LocalDateTime.now(), LocalDateTime.now());
+//        User user1 = new User(null,"steve", "steve@gmail.com", LocalDateTime.now(), LocalDateTime.now());
         User user2 = new User("martin", "martin@gmail.com");
 
         User user3 = User.builder().name("martin").email("martin@gmail.com").build();
 
         System.out.println(">>> " + user);
-        System.out.println(">>> " + user1);
+//        System.out.println(">>> " + user1);
         System.out.println(">>> " + user2);
         System.out.println(">>> " + user3);
     }

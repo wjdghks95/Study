@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class Book extends BaseEntity implements Auditable {
+public class Book extends BaseEntity  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,15 @@ public class Book extends BaseEntity implements Auditable {
 
     private String name;
 
-    private String author;
+    private String category;
+
+    private Long authorId;
+
+    private Long publisherId;
+
+    @OneToOne(mappedBy = "book")
+    @ToString.Exclude
+    private BookReviewInfo bookReviewInfo;
 
 //    @CreatedDate
 //    private LocalDateTime createdAt;

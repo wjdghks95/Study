@@ -17,17 +17,21 @@ import java.time.LocalDateTime;
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class UserHistory extends BaseEntity implements Auditable {
+public class UserHistory extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "user_id", insertable = false, updatable = false)
     private Long userId;
 
     private String name;
 
     private String email;
+
+    @ManyToOne
+    private User user;
 
 //    @CreatedDate
 //    private LocalDateTime createdAt;

@@ -1,4 +1,4 @@
-package singleton;
+package hello.core.singleton;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;

@@ -16,17 +16,21 @@ public class JpaMain {
         tx.begin();
 
         try {
+            Member member1 = new Member();
+            member1.setUsername("A");
 
-            //영속
-            Member member = em.find(Member.class, 150L);
-            member.setName("AAAA");
+            Member member2 = new Member();
+            member2.setUsername("B");
 
-            em.detach(member);
-//            em.clear();
-
-            Member member2 = em.find(Member.class, 150L);
+            Member member3 = new Member();
+            member3.setUsername("C");
 
             System.out.println("======================");
+            em.persist(member1);
+            em.persist(member2);
+            em.persist(member3);
+            System.out.println("======================");
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();

@@ -8,6 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 public class JpaMain {
 
@@ -20,93 +21,66 @@ public class JpaMain {
 
         try {
 
-            Child child1 = new Child();
-            Child child2 = new Child();
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setHomeAddress(new Address("homeCity", "street", "10000"));
 
-            Parent parent = new Parent();
-            parent.addChild(child1);
-            parent.addChild(child2);
+            member.getFavoriteFoods().add("치킨");
+            member.getFavoriteFoods().add("족발");
+            member.getFavoriteFoods().add("피자");
 
-            em.persist(parent);
+            member.getAddressHistory().add(new AddressEntity("old1", "street", "10000"));
+            member.getAddressHistory().add(new AddressEntity("old2", "street", "10000"));
+
+            em.persist(member);
 
             em.flush();
             em.clear();
 
-            Parent findParent = em.find(Parent.class, parent.getId());
-            findParent.getChildList().remove(0);
+            System.out.println("======== START ==========");
+            Member findMember = em.find(Member.class, member.getId());
 
-            /*Team team = new Team();
-            team.setName("teamA");
-            em.persist(team);
+/*
+            //homeCity -> newCity
+            Address a = findMember.getHomeAddress();
+            findMember.setHomeAddress(new Address("newCity", a.getStreet(), a.getZipcode()));
 
-            Team teamB = new Team();
-            team.setName("teamB");
-            em.persist(teamB);
+            //치킨- > 한식
+            findMember.getFavoriteFoods().remove("치킨");
+            findMember.getFavoriteFoods().add("한식");
+
+            findMember.getAddressHistory().remove(new AddressEntity("old1", "street", "10000"));
+            findMember.getAddressHistory().add(new AddressEntity("newCity1", "street", "10000"));
+*/
+
+/*
+            List<Address> addressHistory = findMember.getAddressHistory();
+            for (Address address : addressHistory) {
+                System.out.println("address = " + address.getCity());
+            }
+
+            Set<String> favoriteFoods = findMember.getFavoriteFoods();
+            for (String favoriteFood : favoriteFoods) {
+                System.out.println("favoriteFood = " + favoriteFood);
+            }
+*/
+
+/*
+            Address address = new Address("city", "street", "10000");
 
             Member member1 = new Member();
             member1.setUsername("member1");
-            member1.setTeam(team);
+            member1.setHomeAddress(address);
             em.persist(member1);
 
+            Address newAddress = new Address("NewCity", address.getStreet(), address.getZipcode());
             Member member2 = new Member();
             member2.setUsername("member2");
-            member2.setTeam(teamB);
+            member2.setHomeAddress(newAddress);
             em.persist(member2);
+*/
 
-            em.flush();
-            em.clear();
-
-            List<Member> members = em.createQuery("select m from Member m join fetch m.team", Member.class)
-                    .getResultList();*/
-
-//            Member m = em.find(Member.class, member1.getId());
-
-            /*System.out.println("m = " + m.getTeam().getClass());
-            System.out.println("===============");
-            System.out.println(m.getTeam().getName());
-            System.out.println("===============");*/
-
-            /*Member refMember = em.getReference(Member.class, member1.getId());
-            System.out.println("refMember = " + refMember.getClass()); // Proxy
-
-            System.out.println("isLoaded = " + emf.getPersistenceUnitUtil().isLoaded(refMember)); // 프록시 초기화 여부 확인
-            Hibernate.initialize(refMember);*/
-
-//            em.detach(refMember);
-//            em.close();
-//            em.clear();
-
-//            refMember.getUsername();
-
-//            System.out.println("isLoaded = " + emf.getPersistenceUnitUtil().isLoaded(refMember));
-
-            /*Member refMember = em.getReference(Member.class, member1.getId()); // Proxy
-            System.out.println("m1 = " + refMember.getClass());
-
-            Member findMember = em.find(Member.class, member1.getId()); // Member, 프록시 먼저 조회시 프록시 반환
-            System.out.println("reference = " + findMember.getClass());
-
-            System.out.println("a == a: " + (refMember == findMember));*/
-
-            /*Member m1 = em.find(Member.class, member1.getId());
-            System.out.println("m1 = " + m1.getClass());
-
-            Member reference = em.getReference(Member.class, member1.getId()); // 영속성 컨텍스트에 엔티티가 있으므로 실제 엔티티 반환
-            System.out.println("reference = " + reference.getClass());
-
-            System.out.println("a == a: " + (m1 == reference));*/
-
-            /*Member m1 = em.find(Member.class, member1.getId());
-            Member m2 = em.getReference(Member.class, member2.getId());
-
-            logic(m1, m2);*/
-
-//            Member findMember = em.find(Member.class, member1.getId());
-/*            Member findMember = em.getReference(Member.class, member1.getId());
-            System.out.println("findMember = " + findMember.getClass());
-            System.out.println("findMember.id = " + findMember.getId());
-            System.out.println("findMember.username = " + findMember.getUsername()); // 초기화 요청 (딱 한번만 초기화)
-            System.out.println("findMember.username = " + findMember.getUsername()); */
+//            member1.getHomeAddress().setCity("newCity");
 
             tx.commit();
         } catch (Exception e) {

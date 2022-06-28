@@ -1,5 +1,7 @@
 package jpql;
 
+import org.hibernate.annotations.BatchSize;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,7 @@ public class Team {
     private String name;
 
     @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
+    @BatchSize(size = 100)
     private List<Member> members = new ArrayList<>();
 
     public List<Member> getMembers() {

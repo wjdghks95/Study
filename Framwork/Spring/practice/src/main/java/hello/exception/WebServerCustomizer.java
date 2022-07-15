@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
  *
  * 스프링 부트는 /error 를 기본으로 요청
  * BasicErrorController 요청을 처리하여 templates/error/* 의 View 를 반환
+ * API 예외도 처리 (JSON 형태로 반환)
  */
 //@Component
 public class WebServerCustomizer implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {

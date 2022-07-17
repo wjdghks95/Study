@@ -2,17 +2,18 @@ package hello.jdbc.repository;
 
 import hello.jdbc.domain.Member;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
 import java.util.NoSuchElementException;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * JDBC - DriverManager.getConnection()
+ */
 @Slf4j
-class MemberRepositoryTest {
+class MemberRepositoryV0Test {
 
     MemberRepositoryV0 memberRepository = new MemberRepositoryV0();
 

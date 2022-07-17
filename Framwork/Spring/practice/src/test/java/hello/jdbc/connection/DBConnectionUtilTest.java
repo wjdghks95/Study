@@ -9,6 +9,9 @@ import java.sql.Connection;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * DriverManager.getConnection
+ */
 @Slf4j
 class DBConnectionUtilTest {
 

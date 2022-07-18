@@ -1,9 +1,7 @@
 package hello.jdbc.service;
 
 import hello.jdbc.domain.Member;
-import hello.jdbc.repository.MemberRepository;
-import hello.jdbc.repository.MemberRepositoryV4_1;
-import hello.jdbc.repository.MemberRepositoryV4_2;
+import hello.jdbc.repository.MemberRepositoryV3;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
@@ -20,23 +18,17 @@ import java.sql.SQLException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-/**
- * 예외 누수 문제 해결
- * SQLException 제거
- *
- * MemberRepository 인터페이스 의존
- */
 @Slf4j
 @SpringBootTest
-class MemberServiceV4Test {
+class MemberServiceV3_4Test {
 
     public static final String MEMBER_A = "memberA";
     public static final String MEMBER_B = "memberB";
     public static final String MEMBER_EX = "ex";
 
 
-    @Autowired private MemberRepository memberRepository;
-    @Autowired private MemberServiceV4 memberService;
+    @Autowired private MemberRepositoryV3 memberRepository;
+    @Autowired private MemberServiceV3_3 memberService;
 
     @AfterEach
     void after() throws SQLException {
@@ -45,6 +37,9 @@ class MemberServiceV4Test {
         memberRepository.delete("ex");
     }
 
+    /**
+     * 트랜잭션 - DataSource, transactionManager 자동 등록
+     */
     @TestConfiguration
     static class TestConfig {
         private final DataSource dataSource;
@@ -54,14 +49,13 @@ class MemberServiceV4Test {
         }
 
         @Bean
-        MemberRepository memberRepository() {
-//            return new MemberRepositoryV4_1(dataSource); // 단순 예외 반환
-            return new MemberRepositoryV4_2(dataSource); // 스프링 예외 반환
+        MemberRepositoryV3 memberRepositoryV3() {
+            return new MemberRepositoryV3(dataSource);
         }
         
         @Bean
-        MemberServiceV4 memberServiceV4() {
-            return new MemberServiceV4(memberRepository());
+        MemberServiceV3_3 memberServiceV3_3() {
+            return new MemberServiceV3_3(memberRepositoryV3());
         }
     }
 

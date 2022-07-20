@@ -3,8 +3,7 @@ package hello.jpa.hellojpa;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * 객체와 테이블 매핑
@@ -29,14 +28,30 @@ import javax.persistence.Entity;
 @Getter @Setter
 public class Member {
 
-    private String id;
-    @Column(name = "name", nullable = false)
-    private String userName;
+    @Id @GeneratedValue
+    @Column(name = "MEMBER_ID")
+    private Long id;
+    @Column(name = "USERNAME")
+    private String username;
 
+    /**
+     * @JoinColumn: 외래 키 매핑
+     *
+     * 양방향 매핑 (주인)
+     *   - 외래 키가 있는 있는 곳을 주인으로 지정
+     *   - 연관관계의 주인만이 외래 키를 관리(등록, 수정)
+     *   - 주인은 mappedBy 속성 사용X
+     */
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 
-    public Member(String id, String userName) {
-        this.id = id;
-        this.userName = userName;
+    public Member(){
+    }
+
+    public void changeTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this);
     }
 
 /*
@@ -61,6 +76,4 @@ public class Member {
     @Transient
     private int temp;
 */
-
-    public Member(){}
 }

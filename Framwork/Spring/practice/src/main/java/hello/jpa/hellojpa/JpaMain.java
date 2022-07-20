@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 /**
  * 엔티티 매니저 팩토리는 하나만 생성해서 애플리케이션 전체에서 공유
@@ -33,6 +34,7 @@ public class JpaMain {
              * 영속성 컨텍스트
              *  - 엔티티 생명주기
              */
+/*
             // 객체를 생성한 상태(비영속)
             Member member = new Member();
             member.setId("1L");
@@ -46,10 +48,12 @@ public class JpaMain {
 
             // db에서 삭제 (삭제)
             em.remove(member);
+*/
 
             /**
              *  - 영속성 컨텍스트의 이점
              */
+/*
             //1. 1차 캐시에서 조회, 캐시에 없는 경우 데이터베이스에서 조회
             Member findMember = em.find(Member.class,"1L");
 
@@ -74,6 +78,29 @@ public class JpaMain {
             em.flush();
             // 영속성 컨텍스트를 완전히 초기화
             em.clear();
+*/
+
+            /**
+             * 엔티티 매핑
+             * 연관관계 매핑
+             */
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("member1");
+            member.changeTeam(team);
+            em.persist(member);
+
+            Team findTeam = em.find(Team.class, team.getId());
+            List<Member> members = findTeam.getMembers();
+
+            System.out.println("==============");
+            for (Member m : members) {
+                System.out.println("m = " + m.getUsername());
+            }
+            System.out.println("==============");
 
             tx.commit(); // 커밋
         }catch(Exception e){

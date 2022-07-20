@@ -1,6 +1,5 @@
 package hello.jpa.hellojpa;
 
-import hello.jpa.hellojpa.domain.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

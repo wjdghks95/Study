@@ -14,11 +14,11 @@ public class OrderItem {
     @Column(name = "ORDER_ITEM_ID")
     private Long id;
 
-    @ManyToOne // 주문상품과 상품은 다대일 단방향 관계, 연관관계의 주인
+    @ManyToOne(fetch = FetchType.LAZY) // 주문상품과 상품은 다대일 단방향 관계, 연관관계의 주인
     @JoinColumn(name = "ITEM_ID")
     private Item item; // 주문 상품
 
-    @ManyToOne // 주문상품과 주문은 다대일 양방향 관계, 연관관계의 주인
+    @ManyToOne(fetch = FetchType.LAZY) // 주문상품과 주문은 다대일 양방향 관계, 연관관계의 주인
     @JoinColumn(name = "ORDER_ID")
     private Order order; // 주문
 

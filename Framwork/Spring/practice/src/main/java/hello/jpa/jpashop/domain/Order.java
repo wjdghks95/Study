@@ -17,14 +17,14 @@ public class Order extends BaseEntity {
     @Column(name = "ORDER_ID")
     private Long id;
 
-    @ManyToOne // 주문과 회원은 다대일 양방향 관계, 연관관계의 주인
+    @ManyToOne(fetch = FetchType.LAZY) // 주문과 회원은 다대일 양방향 관계, 연관관계의 주인
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToMany(mappedBy = "order") // 주문과 주문상품은 일대다 양방향 관계
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) // 주문과 주문상품은 일대다 양방향 관계
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
-    @OneToOne // 일대일 양방향 관계, 연관관계의 주인
+    @OneToOne(fetch = FetchType.LAZY) // 일대일 양방향 관계, 연관관계의 주인
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery; // 배송정보
 

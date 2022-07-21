@@ -49,8 +49,16 @@ public class Member extends BaseEntity {
      *  - 일대다: @OneToMany
      *  - 일대일: @OneToOne
      *  - 다대다: @ManyToMany
+     *
+     * fetch = FetchType.EAGER: 즉시로딩
+     * fetch = FetchType.LAZY: 지연로딩
+     *  - 가급적 지연 로딩만 사용
+     *  - 즉시 로딩을 적용하면 예상하지 못한 SQL이 발생
+     *  - 즉시 로딩은 JPQL에서 N+1 문제를 일으킴
+     *  - @ManyToOne, @OneToOne 은 기본이 즉시 로딩 -> LAZY로 설정
+     *  - @OneToMany, @ManyToMany 는 기본이 지연 로딩
      */
-    @ManyToOne // 다대일 양방향 매핑, 연관관계 주인
+    @ManyToOne(fetch = FetchType.EAGER) // 다대일 양방향 매핑, 연관관계 주인
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
@@ -72,7 +80,7 @@ public class Member extends BaseEntity {
 */
 
     // 다대다에서 일대다, 다대일 관계로
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<MemberProduct> memberProducts = new ArrayList<>();
 
     public Member(){

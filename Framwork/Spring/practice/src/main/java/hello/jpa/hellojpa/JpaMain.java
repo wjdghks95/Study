@@ -1,6 +1,10 @@
 package hello.jpa.hellojpa;
 
 
+import hello.jpa.hellojpa.cascade.Child;
+import hello.jpa.hellojpa.cascade.Parent;
+import org.hibernate.Hibernate;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -84,6 +88,7 @@ public class JpaMain {
              * 엔티티 매핑
              * 연관관계 매핑
              */
+/*
             Team team = new Team();
             team.setName("TeamA");
             em.persist(team);
@@ -101,6 +106,51 @@ public class JpaMain {
                 System.out.println("m = " + m.getUsername());
             }
             System.out.println("==============");
+*/
+            /**
+             * 프록시와 연관관계
+             */
+            Member member = new Member();
+            member.setUsername("member1");
+
+            // 실제 엔티티 먼저 조회 시 영속성 컨텍스트에 엔티티가 있으므로 이후 프록시를 조회해도 실제 엔티티 반환
+            // 프록시가 먼저 조회 시 이후 실제 엔티티 객체를 조회해도 프록시 반환
+            Member findMember = em.find(Member.class, member.getId()); // 실제 엔티티 객체 조회
+            System.out.println("m1 = " + findMember.getClass());
+
+            Member refMember = em.getReference(Member.class, member.getId()); // 프록시 엔티티 객체 조회
+            System.out.println("m1 = " + refMember.getClass());
+
+            System.out.println("isLoaded = " + emf.getPersistenceUnitUtil().isLoaded(refMember)); // 프록시 초기화 여부 확인
+            Hibernate.initialize(refMember); // 프록시 강제 초기화
+
+            logic(findMember, refMember); // 프록시 객체 타입 체크시 instanceof 사용
+
+            // 준영속 상태일 때, 프록시 초기화 시 LazyInitializationException 예외 발생
+            em.detach(refMember);
+            refMember.getUsername(); // 초기화 요청(처음 사용시 딱 한 번만 초기화), 실제 엔티티에 접근
+
+            /**
+             * 영속화
+             */
+            Child child1 = new Child();
+            Child child2 = new Child();
+            Parent parent = new Parent();
+
+            child1.setParent(parent); // 연관관계 추가
+            child2.setParent(parent); // 연관관계 추가
+            parent.getChildren().add(child1);
+            parent.getChildren().add(child2);
+
+            em.persist(parent); // 부모 엔티티를 영속화할 때 자식 엔티티도 같이 영속화
+
+
+            /**
+             * 고아 객체
+             */
+            Parent parent1 = em.find(Parent.class, parent.getId());
+            parent1.getChildren().remove(0); // 첫 번째 자식 엔티티를 컬렉션에서 제거
+            parent1.getChildren().clear(); // 모든 자식 엔티티 제거
 
             tx.commit(); // 커밋
         }catch(Exception e){
@@ -109,5 +159,10 @@ public class JpaMain {
             em.close(); // EntityManager 종료
         }
         emf.close(); // EntityManagerFactory 종료
+    }
+
+    private static void logic(Member m1, Member m2) {
+        System.out.println("m1 == m2: " + (m1 instanceof Member));
+        System.out.println("m1 == m2: " + (m2 instanceof Member));
     }
 }

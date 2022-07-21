@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity // 상품 엔티티
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // 상속 - 싱글 테이블 전략
+@DiscriminatorColumn(name = "DTYPE")
 @Getter @Setter
-public class Item {
+public abstract class Item {
 
     @Id @GeneratedValue
     @Column(name = "ITEM_ID")

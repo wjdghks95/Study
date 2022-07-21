@@ -21,9 +21,8 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member") // 회원과 주문은 일대다 양방향 관계
     private List<Order> orders = new ArrayList<Order>();
 
-    private String city; // 주소 CITY, STREET, ZIPCODE
-    private String street;
-    private String zipcode;
+    @Embedded
+    private Address address;
 
     //Getter, Setter
 

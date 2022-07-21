@@ -3,6 +3,8 @@ package hello.jpa.hellojpa;
 
 import hello.jpa.hellojpa.cascade.Child;
 import hello.jpa.hellojpa.cascade.Parent;
+import hello.jpa.hellojpa.valuetype.Address;
+import hello.jpa.hellojpa.valuetype.Zipcode;
 import org.hibernate.Hibernate;
 
 import javax.persistence.EntityManager;
@@ -110,6 +112,7 @@ public class JpaMain {
             /**
              * 프록시와 연관관계
              */
+/*
             Member member = new Member();
             member.setUsername("member1");
 
@@ -129,10 +132,12 @@ public class JpaMain {
             // 준영속 상태일 때, 프록시 초기화 시 LazyInitializationException 예외 발생
             em.detach(refMember);
             refMember.getUsername(); // 초기화 요청(처음 사용시 딱 한 번만 초기화), 실제 엔티티에 접근
+*/
 
             /**
              * 영속화
              */
+/*
             Child child1 = new Child();
             Child child2 = new Child();
             Parent parent = new Parent();
@@ -143,14 +148,36 @@ public class JpaMain {
             parent.getChildren().add(child2);
 
             em.persist(parent); // 부모 엔티티를 영속화할 때 자식 엔티티도 같이 영속화
-
+*/
 
             /**
              * 고아 객체
              */
+/*
             Parent parent1 = em.find(Parent.class, parent.getId());
             parent1.getChildren().remove(0); // 첫 번째 자식 엔티티를 컬렉션에서 제거
             parent1.getChildren().clear(); // 모든 자식 엔티티 제거
+*/
+
+            /**
+             * 값 타입
+             */
+            Member member = new Member();
+
+            // 임베디드 값 타입
+            member.setHomeAddress(new Address("통영", "몽동해수욕장", "660-123", new Zipcode()));
+
+            // 기본값 타입 컬렉션
+            member.getFavoriteFoods().add("짬뽕");
+            member.getFavoriteFoods().add("짜장");
+            member.getFavoriteFoods().add("탕수육");
+
+            // 임베디드 값 타입 컬렉션
+            member.getAddressHistory().add(new Address("서울", "강남", "123-123", new Zipcode()));
+            member.getAddressHistory().add(new Address("서울", "강북", "000-000", new Zipcode()));
+
+            // member 엔티티만 영속화하면 값 타입도 함께 저장
+            em.persist(member);
 
             tx.commit(); // 커밋
         }catch(Exception e){

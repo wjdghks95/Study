@@ -1,11 +1,16 @@
 package hello.jpa.hellojpa;
 
+import hello.jpa.hellojpa.valuetype.Address;
+import hello.jpa.hellojpa.valuetype.Period;
+import hello.jpa.hellojpa.valuetype.PhoneNumber;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 객체와 테이블 매핑
@@ -82,6 +87,44 @@ public class Member extends BaseEntity {
     // 다대다에서 일대다, 다대일 관계로
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<MemberProduct> memberProducts = new ArrayList<>();
+
+    /**
+     * 값 타입
+     * @Embedded: 값 타입 사용
+     * @Embeddable: 값 타입 정의
+     * @AttributeOverrides: 임베디드 타입 재정의
+     * 값 타입은 불변 객체로 설계해야함
+     *
+     * 값 타입 컬렉션
+     * @ElementCollection: 값 타입 컬렉션임을 지정
+     * @CollectionTable: 컬렉션 테이블 생성
+     */
+    @Embedded // 값 타입 사용
+    private Period workPeriod; // 근무 기간
+
+    @Embedded
+    private Address homeAddress; // 집 주소
+
+    @Embedded
+    PhoneNumber phoneNumber; // 임베디드 타입 포함
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name="city", column=@Column(name="COMPANY_CITY")),
+            @AttributeOverride(name="street", column=@Column(name="COMPANY_STREET")),
+            @AttributeOverride(name="zipcode", column=@Column(name="COMPANY_ZIPCODE"))
+    })
+    Address companyAddress; // 회사 주소
+
+    // 값 타입 컬렉션
+    @ElementCollection
+    @CollectionTable(name = "FAVORITE_FOODS", joinColumns = @JoinColumn(name = "MEMBER_ID"))
+    @Column(name = "FOOD_NAME")
+    private Set<String> favoriteFoods = new HashSet<String>();
+
+    @ElementCollection
+    @CollectionTable(name = "ADDRESS", joinColumns = @JoinColumn(name = "MEMBER_ID"))
+    private List<Address> addressHistory = new ArrayList<Address>();
 
     public Member(){
     }

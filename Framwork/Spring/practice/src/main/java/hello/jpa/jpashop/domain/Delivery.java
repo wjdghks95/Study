@@ -16,9 +16,8 @@ public class Delivery {
     @OneToOne(mappedBy = "delivery") // 일대일 양방향 관계, 연관관계 주인이 아님
     private Order order;
 
-    private String city;
-    private String street;
-    private String zipcode;
+    @Embedded // 추가
+    private Address address; // 추가
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;

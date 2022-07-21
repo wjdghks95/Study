@@ -22,6 +22,6 @@ public class Team {
      *  - 주인이 아닌쪽은 읽기만 가능
      *  - mappedBy 속성으로 주인 지정
      */
-    @OneToMany(mappedBy = "team")
+    @OneToMany(mappedBy = "team") // 일대다 양방향 매핑, 연관관계 주인이 아님
     List<Member> members = new ArrayList<Member>();
 }

@@ -24,6 +24,10 @@ public class Order {
     @OneToMany(mappedBy = "order") // 주문과 주문상품은 일대다 양방향 관계
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
+    @OneToOne // 일대일 양방향 관계, 연관관계의 주인
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery; // 배송정보
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate; // 주문 날짜
 
@@ -45,5 +49,10 @@ public class Order {
     public void addOrderItem(OrderItem orderItem) {
         orderItems.add(orderItem);
         orderItem.setOrder(this);
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+        delivery.setOrder(this);
     }
 }

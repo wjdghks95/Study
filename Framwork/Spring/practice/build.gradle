@@ -13,7 +13,7 @@ plugins {
 	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 }
 
-ext["hibernate.version"] = "5.6.5.Final"
+//ext["hibernate.version"] = "5.6.5.Final"
 
 group = 'hello'
 version = '0.0.1-SNAPSHOT'
@@ -40,6 +40,9 @@ dependencies {
 
 	//MyBatis 추가
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+
+	//쿼리 파라미터 로그
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
 
 	// querydsl dependencies 추가
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"

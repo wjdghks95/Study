@@ -44,6 +44,9 @@ dependencies {
 	//쿼리 파라미터 로그
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
 
+	// AOP 관련 클래스를 자동으로 스프링 빈에 등록
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+
 	// querydsl dependencies 추가
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"

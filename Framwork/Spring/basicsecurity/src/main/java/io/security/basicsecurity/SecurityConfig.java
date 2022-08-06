@@ -32,7 +32,7 @@ import java.io.IOException;
  *  -> 최신버전부터 SecurityFilterChain 타입의 빈을 생성하는 것으로 대체
  */
 //@Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired

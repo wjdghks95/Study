@@ -10,9 +10,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * 필터 초기화와 다중 보안 설정
  * DelegatingFilterProxy, FilterChainProxy
  */
-@Configuration
-@EnableWebSecurity
-@Order(0)
+//@Configuration
+//@EnableWebSecurity
+//@Order(0)
 public class SecurityConfig2 extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -26,8 +26,8 @@ public class SecurityConfig2 extends WebSecurityConfigurerAdapter {
     }
 }
 
-@Configuration
-@Order(1)
+//@Configuration
+//@Order(1)
 class SecurityConfig3 extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {

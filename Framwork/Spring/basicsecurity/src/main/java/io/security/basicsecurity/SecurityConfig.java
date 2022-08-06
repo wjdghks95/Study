@@ -2,6 +2,7 @@ package io.security.basicsecurity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -31,13 +32,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsService userDetailsService;
 
+    // AuthenticationManagerBuilder: 인증 객체를 만들 수 있는 API 제공
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("user").password("{noop}1111").roles("USER");
+        auth.inMemoryAuthentication().withUser("sys").password("{noop}1111").roles("SYS", "USER");
+        auth.inMemoryAuthentication().withUser("admin").password("{noop}1111").roles("ADMIN", "SYS", "USER");
+    }
+
     // HttpSecurity: 세부적인 보안 기능을 설정할 수 있는 API 제공
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        /**
+         * 인가 API
+         */
         http
-                .authorizeRequests()
-                .anyRequest().authenticated();
+                .authorizeRequests() // 시큐리티 처리에 HttpServletRequest 를 이용
+                .antMatchers("/user").hasRole("USER") // .antMatchers: 특정 경로 지정
+                .antMatchers("/admin/pay").hasRole("ADMIN")
+                .antMatchers("/admin/**").access("hasRole('ADMIN') or hasRole('SYS')")
+                .anyRequest().authenticated(); // .anyRequest(): antMatchers 경로를 제외한 모든 요청
 
+        /**
+         * 인증 API
+         */
         http
                 .formLogin() // UsernamePasswordAuthenticationFilter 동작
 //                .loginPage("/loginPage") // 사용자 정의 로그인 페이지

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -83,11 +84,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
 
-                .rememberMe()
+                .rememberMe() // RememberMe 기능 동작
                 .rememberMeParameter("remember") // 기본 파라미터명은 remember-me
                 .tokenValiditySeconds(3600) // 쿠키 만료 시간, Default 는 14일
                 .alwaysRemember(false) // 리멤버 미 기능 활성화 여부
-                .userDetailsService(userDetailsService); // remember me 기능을 수행할 때 시스템의 사용자 계정을 조회할 때 처리를 설정
+                .userDetailsService(userDetailsService) // remember me 기능을 수행할 때 시스템의 사용자 계정을 조회할 때 처리를 설정
+        ;
+
+        http
+                .sessionManagement() // 세션 관리 기능 작동
+                .sessionFixation().changeSessionId() // 세션 고정 보호, Default
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) // 세션 정책, 스프링 시큐리티가 필요 시 세션 생성, Default
+                .maximumSessions(1) // 최대 허용 가능 세션 수 , -1 : 무제한 로그인 세션 허용
+                .maxSessionsPreventsLogin(false) // ture: 동시 로그인 차단, false: 기존 세션 만료(default)
         ;
     }
 }

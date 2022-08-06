@@ -1,13 +1,19 @@
 package io.security.basicsecurity;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SecurityController {
 
     @GetMapping("/")
-    public String index() {
+    public String home() throws Exception {
+        return "home";
+    }
+
+    @PostMapping("/")
+    public String postHome() throws Exception {
         return "home";
     }
 

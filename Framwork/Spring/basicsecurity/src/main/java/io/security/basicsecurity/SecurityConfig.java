@@ -54,6 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          */
         http
                 .authorizeRequests() // 시큐리티 처리에 HttpServletRequest 를 이용
+                .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/user").hasRole("USER") // .antMatchers: 특정 경로 지정
                 .antMatchers("/admin/pay").hasRole("ADMIN")
@@ -147,5 +148,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     }
                 }) // 인가 실패 시 처리
         ;
+
+        /**
+         * CsrfFilter
+         */
+//        http.csrf().disable(); // CsrfFilter 비활성화
     }
 }

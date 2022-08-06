@@ -31,7 +31,7 @@ import java.io.IOException;
  * WebSecurityConfigurerAdapter: 스프링 시큐리티의 웹 보안 기능 초기화 및 설정
  *  -> 최신버전부터 SecurityFilterChain 타입의 빈을 생성하는 것으로 대체
  */
-@Configuration
+//@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 

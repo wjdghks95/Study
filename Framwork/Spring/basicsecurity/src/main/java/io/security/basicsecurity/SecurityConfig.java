@@ -1,11 +1,13 @@
 package io.security.basicsecurity;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
@@ -24,6 +26,9 @@ import java.io.IOException;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    UserDetailsService userDetailsService;
 
     // HttpSecurity: 세부적인 보안 기능을 설정할 수 있는 API 제공
     @Override
@@ -75,6 +80,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     }
                 }) // 로그아웃 성공 후 핸들러
                 .deleteCookies("remember-me") // 로그아웃 후 쿠키 삭제
+
+                .and()
+
+                .rememberMe()
+                .rememberMeParameter("remember") // 기본 파라미터명은 remember-me
+                .tokenValiditySeconds(3600) // 쿠키 만료 시간, Default 는 14일
+                .alwaysRemember(false) // 리멤버 미 기능 활성화 여부
+                .userDetailsService(userDetailsService); // remember me 기능을 수행할 때 시스템의 사용자 계정을 조회할 때 처리를 설정
         ;
     }
 }

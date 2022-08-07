@@ -7,21 +7,21 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
- * SecurityContextHolder, SecurityContext
+ * Authorization, FilterSecurityInterceptor
+ * AccessDecisionManager, AccessDecisionVoter
  */
-//@Configuration
-//@EnableWebSecurity
-public class SecurityConfig4 extends WebSecurityConfigurerAdapter {
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig5 extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .anyRequest().authenticated();
+                .antMatchers("/user").hasRole("USER")
+                .anyRequest().permitAll();
         http
                 .formLogin()
                 ;
-
-        SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL); // SecurityContext 객체 저장 방식 지정
     }
 }

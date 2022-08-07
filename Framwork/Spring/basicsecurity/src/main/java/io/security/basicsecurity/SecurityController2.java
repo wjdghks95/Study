@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 /**
  * SecurityContextHolder, SecurityContext
  */
-@RestController
+//@RestController
 public class SecurityController2 {
 
     @GetMapping("/")

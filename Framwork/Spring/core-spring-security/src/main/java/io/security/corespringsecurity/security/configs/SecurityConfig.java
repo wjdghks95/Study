@@ -74,6 +74,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         /** 인증 */
         .and()
                 .formLogin()
+                .loginPage("/login") // 사용자 정의 로그인 페이지
+                .loginProcessingUrl("/login_proc")
+                .defaultSuccessUrl("/")
+                .permitAll()
         ;
     }
 }

@@ -1,12 +1,14 @@
 package io.security.corespringsecurity2.security.configs;
 
 import io.security.corespringsecurity2.security.common.FormWebAuthenticationDetailsSource;
+import io.security.corespringsecurity2.security.factory.UrlResourcesMapFactoryBean;
 import io.security.corespringsecurity2.security.handler.AjaxAuthenticationFailureHandler;
 import io.security.corespringsecurity2.security.handler.AjaxAuthenticationSuccessHandler;
 import io.security.corespringsecurity2.security.handler.FormAccessDeniedHandler;
-import io.security.corespringsecurity2.security.metadatasource.UrlFilterInvocationSecurityMetadatsSource;
+import io.security.corespringsecurity2.security.metadatasource.UrlFilterInvocationSecurityMetadataSource;
 import io.security.corespringsecurity2.security.provider.AjaxAuthenticationProvider;
 import io.security.corespringsecurity2.security.provider.FormAuthenticationProvider;
+import io.security.corespringsecurity2.service.SecurityResourceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
@@ -46,6 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthenticationSuccessHandler formAuthenticationSuccessHandler;
     @Autowired
     private AuthenticationFailureHandler formAuthenticationFailureHandler;
+    @Autowired
+    private SecurityResourceService securityResourceService;
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -86,8 +90,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login"))
                 .accessDeniedPage("/denied")
                 .accessDeniedHandler(accessDeniedHandler())
-//        .and()
-//                .addFilterBefore(customFilterSecurityInterceptor(), FilterSecurityInterceptor.class)
+        .and()
+                .addFilterBefore(customFilterSecurityInterceptor(), FilterSecurityInterceptor.class)
         ;
 
         http.csrf().disable();
@@ -155,9 +159,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public FilterInvocationSecurityMetadataSource urlFilterInvocationSecurityMetadataSource() {
-        return new UrlFilterInvocationSecurityMetadatsSource();
+    public FilterInvocationSecurityMetadataSource urlFilterInvocationSecurityMetadataSource() throws Exception {
+        return new UrlFilterInvocationSecurityMetadataSource(urlResourcesMapFactoryBean().getObject());
     }
 
+    private UrlResourcesMapFactoryBean urlResourcesMapFactoryBean() {
 
+        UrlResourcesMapFactoryBean urlResourcesMapFactoryBean = new UrlResourcesMapFactoryBean();
+        urlResourcesMapFactoryBean.setSecurityResourceService(securityResourceService);
+
+        return urlResourcesMapFactoryBean;
+    }
 }

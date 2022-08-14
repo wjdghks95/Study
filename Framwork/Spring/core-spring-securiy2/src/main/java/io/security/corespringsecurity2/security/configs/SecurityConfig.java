@@ -46,7 +46,6 @@ import java.util.List;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true) // 어노테이션 권한 설정 활성화
 @Slf4j
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 

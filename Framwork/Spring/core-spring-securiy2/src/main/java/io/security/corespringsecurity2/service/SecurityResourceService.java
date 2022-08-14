@@ -14,10 +14,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * DB로 부터 권한/자원 정보 조회하여 매핑
- * DB로 부터 IP 정보 조회
- */
 @Service
 public class SecurityResourceService {
 
@@ -33,6 +29,9 @@ public class SecurityResourceService {
         this.resourcesRepository = resourcesRepository;
     }
 
+    /**
+     * DB로 부터 권한/자원 정보 조회하여 매핑
+     */
     public LinkedHashMap<RequestMatcher, List<ConfigAttribute>> getResourceList() {
 
         LinkedHashMap<RequestMatcher, List<ConfigAttribute>> result = new LinkedHashMap<>();
@@ -41,12 +40,34 @@ public class SecurityResourceService {
             List<ConfigAttribute> configAttributeList = new ArrayList<>();
             re.getRoleSet().forEach(role -> {
                 configAttributeList.add(new SecurityConfig(role.getRoleName()));
-                result.put(new AntPathRequestMatcher(re.getResourceName()), configAttributeList); // 요청 정보, 권한 목록
             });
+            result.put(new AntPathRequestMatcher(re.getResourceName()), configAttributeList); // 요청 정보, 권한 목록
         });
         return result;
     }
 
+    /**
+     * DB로 부터 Method 정보를 조회하여 매핑
+     */
+    public LinkedHashMap<String, List<ConfigAttribute>> getMethodResourceList() {
+
+        LinkedHashMap<String, List<ConfigAttribute>> result = new LinkedHashMap<>();
+        List<Resources> resourcesList = resourcesRepository.findAllMethodResources();
+        resourcesList.forEach(re ->
+                {
+                    List<ConfigAttribute> configAttributeList = new ArrayList<>();
+                    re.getRoleSet().forEach(ro -> {
+                        configAttributeList.add(new SecurityConfig(ro.getRoleName()));
+                    });
+                    result.put(re.getResourceName(), configAttributeList);
+                }
+        );
+        return result;
+    }
+
+    /**
+     * DB로 부터 IP 정보 조회
+     */
     public List<String> getAccessIpList() {
         List<String> accessIpList = accessIpRepository.findAll().stream().map(accessIp -> accessIp.getIpAddress()).collect(Collectors.toList());
         return accessIpList;

@@ -1,22 +1,33 @@
 package io.security.corespringsecurity2.service;
 
 import io.security.corespringsecurity2.domain.entity.Resources;
+import io.security.corespringsecurity2.repository.AccessIpRepository;
 import io.security.corespringsecurity2.repository.ResourcesRepository;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * DB로 부터 권한/자원 정보 조회하여 매핑
+ * DB로 부터 IP 정보 조회
  */
+@Service
 public class SecurityResourceService {
 
     private ResourcesRepository resourcesRepository;
+    private AccessIpRepository accessIpRepository;
+
+    public SecurityResourceService(ResourcesRepository resourcesRepository, AccessIpRepository accessIpRepository) {
+        this.resourcesRepository = resourcesRepository;
+        this.accessIpRepository = accessIpRepository;
+    }
 
     public SecurityResourceService(ResourcesRepository resourcesRepository) {
         this.resourcesRepository = resourcesRepository;
@@ -34,5 +45,10 @@ public class SecurityResourceService {
             });
         });
         return result;
+    }
+
+    public List<String> getAccessIpList() {
+        List<String> accessIpList = accessIpRepository.findAll().stream().map(accessIp -> accessIp.getIpAddress()).collect(Collectors.toList());
+        return accessIpList;
     }
 }

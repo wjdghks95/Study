@@ -9,6 +9,7 @@ import io.security.corespringsecurity2.security.handler.FormAccessDeniedHandler;
 import io.security.corespringsecurity2.security.metadatasource.UrlFilterInvocationSecurityMetadataSource;
 import io.security.corespringsecurity2.security.provider.AjaxAuthenticationProvider;
 import io.security.corespringsecurity2.security.provider.FormAuthenticationProvider;
+import io.security.corespringsecurity2.security.voter.IpAddressVoter;
 import io.security.corespringsecurity2.service.SecurityResourceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -163,6 +164,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private List<AccessDecisionVoter<?>> getAccessDecisionVoters() {
         List<AccessDecisionVoter<? extends Object>> accessDecisionVoters = new ArrayList<>();
+        accessDecisionVoters.add(new IpAddressVoter(securityResourceService)); // IpAddress 를 검사하는 VOTER를 등록
         accessDecisionVoters.add(roleVoter());  // 기존 new RoleVoter()를 roleVoter()로 변경
 
         return accessDecisionVoters;

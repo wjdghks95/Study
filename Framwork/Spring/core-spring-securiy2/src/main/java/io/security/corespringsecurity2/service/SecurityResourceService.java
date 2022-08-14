@@ -66,10 +66,31 @@ public class SecurityResourceService {
     }
 
     /**
+     * DB로 부터 pointcut 정보를 조회하여 매핑
+     */
+    public LinkedHashMap<String, List<ConfigAttribute>> getPointcutResourceList() {
+
+        LinkedHashMap<String, List<ConfigAttribute>> result = new LinkedHashMap<>();
+        List<Resources> resourcesList = resourcesRepository.findAllPointcutResources();
+        resourcesList.forEach(re ->
+                {
+                    List<ConfigAttribute> configAttributeList = new ArrayList<>();
+                    re.getRoleSet().forEach(ro -> {
+                        configAttributeList.add(new SecurityConfig(ro.getRoleName()));
+                    });
+                    result.put(re.getResourceName(), configAttributeList);
+                }
+        );
+        return result;
+    }
+
+    /**
      * DB로 부터 IP 정보 조회
      */
     public List<String> getAccessIpList() {
         List<String> accessIpList = accessIpRepository.findAll().stream().map(accessIp -> accessIp.getIpAddress()).collect(Collectors.toList());
         return accessIpList;
     }
+
+
 }

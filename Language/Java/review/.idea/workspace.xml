@@ -33,22 +33,22 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.ArrayBinarySearchTest">
-    <configuration name="ArrayBinarySearchTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap05.ArrayBinarySearchTest" />
+}</component>
+  <component name="RunManager" selected="Application.Sample18">
+    <configuration name="Sample15" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap08.sample15.Sample15" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap05.*" />
+          <option name="PATTERN" value="chap08.sample15.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -56,12 +56,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArrayClassTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap05.ArrayClassTest" />
+    <configuration name="Sample16" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap08.sample15.Sample16" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap05.*" />
+          <option name="PATTERN" value="chap08.sample15.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -69,12 +69,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArraySortTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap05.ArraySortTest" />
+    <configuration name="Sample17" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap08.sample16.Sample17" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap05.*" />
+          <option name="PATTERN" value="chap08.sample16.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -82,12 +82,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArrayTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap05.ArrayTest" />
+    <configuration name="Sample18" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap08.sample16.Sample18" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap05.*" />
+          <option name="PATTERN" value="chap08.sample16.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,12 +95,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MultiDimensionalArrayTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap05.MultiDimensionalArrayTest" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap08.sample16.Test" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap05.*" />
+          <option name="PATTERN" value="chap08.sample16.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -110,11 +110,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ArrayBinarySearchTest" />
-        <item itemvalue="Application.ArraySortTest" />
-        <item itemvalue="Application.ArrayClassTest" />
-        <item itemvalue="Application.MultiDimensionalArrayTest" />
-        <item itemvalue="Application.ArrayTest" />
+        <item itemvalue="Application.Sample18" />
+        <item itemvalue="Application.Sample17" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Sample16" />
+        <item itemvalue="Application.Sample15" />
       </list>
     </recent_temporary>
   </component>

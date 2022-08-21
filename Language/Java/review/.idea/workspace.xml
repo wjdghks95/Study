@@ -54,7 +54,7 @@
       <recent name="chap09" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Sample04">
+  <component name="RunManager" selected="Application.Sample05">
     <configuration name="Sample01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="chap11.Sample01" />
       <module name="review.main" />
@@ -107,12 +107,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sample15" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap10.Sample15" />
+    <configuration name="Sample05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap11.Sample05" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap10.*" />
+          <option name="PATTERN" value="chap11.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Sample05" />
         <item itemvalue="Application.Sample04" />
         <item itemvalue="Application.Sample03" />
         <item itemvalue="Application.Sample02" />
         <item itemvalue="Application.Sample01" />
-        <item itemvalue="Application.Sample15" />
       </list>
     </recent_temporary>
   </component>

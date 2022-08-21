@@ -33,83 +33,85 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/wjdgh/Desktop/Study/Language/Java/review/src/main/java/chap09",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/wjdgh/Desktop/Study/Language/Java/review/src/main/java/chap10&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\wjdgh\Desktop\Study\Language\Java\review\src\main\java\chap10" />
       <recent name="C:\Users\wjdgh\Desktop\Study\Language\Java\review\src\main\java\chap09" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="chap10" />
       <recent name="chap09" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Sample10">
-    <configuration name="Sample05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap09.Sample05" />
-      <module name="review.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="chap09.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Sample07" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap09.Sample07" />
-      <module name="review.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="chap09.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Sample08" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap09.Sample08" />
-      <module name="review.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="chap09.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Sample09" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap09.Sample09" />
-      <module name="review.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="chap09.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Sample15">
     <configuration name="Sample10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap09.Sample10" />
+      <option name="MAIN_CLASS_NAME" value="chap10.Sample10" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap09.*" />
+          <option name="PATTERN" value="chap10.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sample11" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap10.Sample11" />
+      <module name="review.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chap10.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sample12" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap10.Sample12" />
+      <module name="review.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chap10.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sample13" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap10.Sample13" />
+      <module name="review.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chap10.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sample15" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap10.Sample15" />
+      <module name="review.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chap10.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Sample10" />
-        <item itemvalue="Application.Sample09" />
-        <item itemvalue="Application.Sample08" />
-        <item itemvalue="Application.Sample07" />
-        <item itemvalue="Application.Sample05" />
+        <item itemvalue="Application.Sample15" />
+        <item itemvalue="Application.Sample13" />
+        <item itemvalue="Application.Sample11" />
+        <item itemvalue="Application.Sample12" />
+        <item itemvalue="Application.Sample10 (1)" />
       </list>
     </recent_temporary>
   </component>

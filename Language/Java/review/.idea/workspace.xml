@@ -54,9 +54,9 @@
       <recent name="chap09" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Sample05">
-    <configuration name="Sample01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.Sample01" />
+  <component name="RunManager" selected="Application.Sample09 (2)">
+    <configuration name="Sample06" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap11.Sample06" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
@@ -68,8 +68,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sample02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.Sample02" />
+    <configuration name="Sample07" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap11.Sample07" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
@@ -81,8 +81,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sample03" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.Sample03" />
+    <configuration name="Sample09 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap11.Sample09" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
@@ -94,8 +94,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sample04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.Sample04" />
+    <configuration name="Sample09 (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap11.Sample09" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
@@ -107,8 +107,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sample05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.Sample05" />
+    <configuration name="Sample09" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap11.Sample09" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
@@ -122,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Sample05" />
-        <item itemvalue="Application.Sample04" />
-        <item itemvalue="Application.Sample03" />
-        <item itemvalue="Application.Sample02" />
-        <item itemvalue="Application.Sample01" />
+        <item itemvalue="Application.Sample09 (2)" />
+        <item itemvalue="Application.Sample09 (1)" />
+        <item itemvalue="Application.Sample09" />
+        <item itemvalue="Application.Sample07" />
+        <item itemvalue="Application.Sample06" />
       </list>
     </recent_temporary>
   </component>

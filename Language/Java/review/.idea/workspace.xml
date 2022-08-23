@@ -54,13 +54,13 @@
       <recent name="chap09" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Sample13">
-    <configuration name="Sample09 (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.Sample09" />
+  <component name="RunManager" selected="Application.Sample05">
+    <configuration name="Sample03" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap12.Sample03" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap11.*" />
+          <option name="PATTERN" value="chap12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -68,12 +68,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sample10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.Sample10" />
+    <configuration name="Sample04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap12.Sample04" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap11.*" />
+          <option name="PATTERN" value="chap12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,12 +81,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sample11" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.Sample11" />
+    <configuration name="Sample05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap12.Sample05" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap11.*" />
+          <option name="PATTERN" value="chap12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,12 +94,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sample12" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.Sample12" />
+    <configuration name="Sample06" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap12.Sample06" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap11.*" />
+          <option name="PATTERN" value="chap12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,12 +107,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sample13" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.Sample13" />
+    <configuration name="Sample07" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap12.Sample07" />
       <module name="review.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap11.*" />
+          <option name="PATTERN" value="chap12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Sample13" />
-        <item itemvalue="Application.Sample12" />
-        <item itemvalue="Application.Sample11" />
-        <item itemvalue="Application.Sample10" />
-        <item itemvalue="Application.Sample09 (2)" />
+        <item itemvalue="Application.Sample07" />
+        <item itemvalue="Application.Sample06" />
+        <item itemvalue="Application.Sample05" />
+        <item itemvalue="Application.Sample04" />
+        <item itemvalue="Application.Sample03" />
       </list>
     </recent_temporary>
   </component>

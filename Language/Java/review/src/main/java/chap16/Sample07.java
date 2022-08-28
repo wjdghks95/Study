@@ -5,14 +5,14 @@ import java.util.function.Supplier;
 public class Sample07 {
     public static void main(String[] args) {
         MessageCenter mc = new MessageCenter("Hello~ Lambda!");
-        Supplier<MessageCenter> param = () -> mc;
-        MessageCenter main = getMsg(() -> mc);
+        MessageCenter main  = getMsg(() -> mc);
         System.out.println(main);
     }
 
-    public static MessageCenter getMsg(Supplier<MessageCenter> m) {
-        return m.get();
+    public static MessageCenter getMsg(Supplier<MessageCenter> mc) {
+        return mc.get();
     }
+
 }
 
 class MessageCenter {

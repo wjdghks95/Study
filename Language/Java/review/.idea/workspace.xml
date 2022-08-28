@@ -58,20 +58,7 @@
       <recent name="chap09" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Sample16">
-    <configuration name="Sample10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap16.Sample10" />
-      <module name="review.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="chap16.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Sample21">
     <configuration name="Sample11" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="chap16.Sample11" />
       <module name="review.main" />
@@ -124,13 +111,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Sample21" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap16.Sample21" />
+      <module name="review.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chap16.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Sample21" />
         <item itemvalue="Application.Sample16" />
         <item itemvalue="Application.Sample17" />
         <item itemvalue="Application.Sample15" />
         <item itemvalue="Application.Sample11" />
-        <item itemvalue="Application.Sample10" />
       </list>
     </recent_temporary>
   </component>

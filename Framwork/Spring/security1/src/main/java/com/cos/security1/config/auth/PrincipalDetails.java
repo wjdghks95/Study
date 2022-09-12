@@ -1,18 +1,35 @@
-package com.cos.security1.auth;
+package com.cos.security1.config.auth;
 
 import com.cos.security1.model.Account;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
-public class PrincipalDetails implements UserDetails {
+@Data
+public class PrincipalDetails implements UserDetails, OAuth2User {
 
     private Account account;
+    private Map<String, Object> attributes;
 
+    // 일반 로그인
     public PrincipalDetails(Account account) {
         this.account = account;
+    }
+
+    // OAuth 로그인
+    public PrincipalDetails(Account account, Map<String, Object> attributes) {
+        this.account = account;
+        this.attributes = attributes;
+    }
+
+    @Override
+    public Map<String, Object> getAttributes() {
+        return attributes;
     }
 
     @Override
@@ -55,5 +72,10 @@ public class PrincipalDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String getName() {
+        return null;
     }
 }

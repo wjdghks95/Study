@@ -43,6 +43,7 @@
     - 리뷰 작성
         - 제목
         - 사진, 썸네일 (썸네일을 선택하지 않으면 첫번째 이미지로 업로드)
+        - 카테고리
         - 평점
         - 설명
         - 태그
@@ -58,3 +59,16 @@
     - 리뷰어와 유저와의 소통
         - 알림
         - 채팅
+4. 와이어프레임
+<div>
+    <img src="WireFrame\homedesktop.png" alt="홈" width="200" height="100%" align="top"/>
+    <img src="WireFrame\categorygallerydesktop.png" alt="카테고리" width="200" height="100%" align="top"/>
+    <img src="WireFrame\logindesktop.png" alt="로그인" width="200" height="100%" align="top"/>
+    <img src="WireFrame\signupdesktop.png" alt="회원가입" width="200" height="100%" align="top"/>
+</div>
+<div>
+    <img src="WireFrame\reviewdesktop.png" alt="리뷰" width="200" height="100%" align="top"/>
+    <img src="WireFrame\writedesktop.png" alt="리뷰작성" width="200" height="100%" align="top"/>
+    <img src="WireFrame\mypagedeletedesktop.png" alt="회원탈퇴" width="200" height="100%" align="top"/>
+    <img src="WireFrame\mypagemyreview_thumbs_followdesktop.png" alt="마이페이지" width="200" height="100%" align="top"/>
+</div>

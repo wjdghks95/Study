@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="LeeJeongHwan">
+    <meta description="종합 리뷰 웹 애플리케이션">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>종합 리뷰 사이트</title>
+</head>
+<body>
+    <header>
+        <div class="header__container container">
+            <div class="header__wrapper">
+                <div class="header__logo-area">
+                    <a href="#" class="header__logo">
+                        <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Home</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Category</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">MyPage</a></li>
+                    </ul>
+                    <ul class="header__util-buttons">
+                        <li class="header__util-button">
+                            <button type="button" class="login-btn" onclick="location.href='/login'">Login</button>
+                        </li>
+                        <li class="header__util-button">
+                            <button type="button" class="signUp-btn" onclick="location.href='/signUp'">SignUp</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <main class="home">
+        <section class="search-banner">
+            <div class="search-banner__container container">
+                <article class="section__content search-banner__content">
+                    <h2 class="search-banner__title">Title</h2>
+                    <form action="#" class="search-bar-form" method="post">
+                        <div class="search-bar-form__tag-button">
+                            <button type="button" class="tag-btn">Tag</button>
+                        </div>
+                        <div class="search-bar-form__search-bar">
+                            <input type="search" class="search-bar-form__input" placeholder="검색어를 입력하세요">
+                            <button type="submit" class="search-bar-form__submit">Search</button>
+                        </div>
+                    </form>
+                </article>
+            </div>
+        </section>
+        <!-- search-banner -->
+
+        <section class="pick-review">
+            <div class="pick-review__container container">
+                <header class="section__headings">
+                    <h2 class="section__heading">section1</h2>
+                    <p class="section__subheading">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloribus laboriosam ullam explicabo debitis accusamus nostrum laborum in soluta?</p>
+                </header>
+                <article class="section__content">
+                    <div class="pick-review__list">
+                        <div class="pick-review__list--left">
+                            <div class="pick-review__item">
+                                <a href="#" class="pick-review__link"><img src="../img/sample1.jpg" alt="item1"></a>
+                            </div>
+                        </div>
+                        <ul class="pick-review__list--right">
+                            <li class="pick-review__item">
+                                <a href="#" class="pick-review__link"><img src="../img/sample1.jpg"  alt="item2"></a>
+                            </li>
+                            <li class="pick-review__item">
+                                <a href="#" class="pick-review__link"><img src="../img/sample1.jpg" alt="item3"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- pick-review -->
+
+        <section class="best-review">
+            <div class="best-review__bg"></div>
+            <div class="best-review__container container">
+                <header class="section__headings">
+                    <h2 class="section__heading">section2</h2>
+                    <p class="section__subheading">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloribus laboriosam ullam explicabo debitis accusamus nostrum laborum in soluta?</p>
+                </header>
+                <article class="section__content">
+                    <div class="best-review-swiper swiper">
+                        <div class="swiper-wrapper">
+                            <ul class="best-review__list swiper-slide">
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample1.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">5.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample1.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">5.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample1.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">3.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample1.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">3.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="best-review__list swiper-slide">
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample2.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">5.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample2.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">5.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample2.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">3.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample2.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">3.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="best-review__list swiper-slide">
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample3.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">5.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample3.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">5.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample3.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">3.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="best-review__item">
+                                    <a href="#" class="best-review__link">
+                                        <div class="best-review__img-box">
+                                            <img src="../img/sample3.jpg" alt="item">
+                                        </div>
+                                        <div class="best-review__body">
+                                            <h3>Title</h3>
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-solid.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <div class="rating__star">
+                                                    <img src="../icon/star-regular.svg" alt="star">
+                                                </div>
+                                                <span class="rating__score">3.0</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- best-review -->
+
+        <section class="hot-review">
+            <div class="hot-review__container container">
+                <header class="section__headings">
+                    <h2 class="section__heading">section3</h2>
+                </header>
+                <div class="switch-area">
+                    <div class="switch">
+                        <input type="radio" class="switch-input" name="view" value="latest" id="latest" checked>
+                        <label for="latest" class="switch-label switch-label-off">최신순</label>
+                        <input type="radio" class="switch-input" name="view" value="popularity" id="popularity">
+                        <label for="popularity" class="switch-label switch-label-on">인기순</label>                        
+                        <span class="switch-selection"></span>
+                    </div>
+                </div>
+                <article class="section__content">
+                    <ul class="hot-review__list">
+                        <li class="hot-review__item">
+                            <a href="#" class="hot-review__link">
+                                <img src="../img/sample3.jpg" alt="item">
+                            </a>
+                        </li>
+                        <li class="hot-review__item">
+                            <a href="#" class="hot-review__link">
+                                <img src="../img/sample3.jpg" alt="item">
+                            </a>
+                        </li>
+                        <li class="hot-review__item">
+                            <a href="#" class="hot-review__link">
+                                <img src="../img/sample3.jpg" alt="item">
+                            </a>
+                        </li>
+                        <li class="hot-review__item">
+                            <a href="#" class="hot-review__link">
+                                <img src="../img/sample3.jpg" alt="item">
+                            </a>
+                        </li>
+                        <li class="hot-review__item">
+                            <a href="#" class="hot-review__link">
+                                <img src="../img/sample3.jpg" alt="item">
+                            </a>
+                        </li>
+                        <li class="hot-review__item">
+                            <a href="#" class="hot-review__link">
+                                <img src="../img/sample3.jpg" alt="item">
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+                
+            </div>
+        </section>
+        <!-- hot-review -->
+    </main>
+    <!-- main -->
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <header class="section__headings">
+                <h2 class="section__heading">Footer</h2>
+                <p class="section__subheading">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur reprehenderit vitae quos neque laudantium!</p>
+            </header>
+            <article class="section__content">
+                <ul class="footer__contact">
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/email.svg" alt="email">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/facebook.svg" alt="facebook">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/instagram.svg" alt="instagram">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/github.svg" alt="github">
+                        </a>
+                    </li>
+                </ul>
+                <p class="footer__copyright">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+            </article>
+        </div>
+    </footer>
+    <!-- footer -->
+
+</body>
+</html>
+

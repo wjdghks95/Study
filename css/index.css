@@ -1,0 +1,123 @@
+/* search-banner */
+.search-banner {
+    background-color: var(--color-dark-blue);
+}
+
+.search-banner__container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.search-banner__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 33.875rem;
+}
+
+.search-banner__title {
+    margin-bottom: 3.75rem;
+    text-align: center;
+    color: var(--color-white);
+    font-size: calc(var(--font-big));
+}
+
+/* pick-review */
+.pick-review__list {
+    display: flex;
+    justify-content: space-between;
+    height: 30.625rem;
+}
+
+.pick-review__list--left {
+    flex-basis: 49%;
+}
+
+.pick-review__list--right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 49%;
+}
+
+.pick-review__item {
+    flex-basis: 48%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.pick-review__item:hover img{
+    transform: scale(1.1);
+}
+
+.pick-review__link {
+    display: block;
+    height: 100%;
+}
+
+/* best-review */
+.best-review {
+    position: relative;
+    border-bottom: 1px solid var(--color-light-blue);
+}
+
+.best-review__bg {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 55%;
+    background-color: var(--color-light-blue);
+}
+
+.best-review__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.best-review__item {
+    flex-basis: 24%;
+}
+
+.best-review__item:hover .best-review__img-box img {
+    transform: scale(1.1);
+}
+
+.best-review__link {
+    display: block;
+}
+
+.best-review__img-box {
+    overflow: hidden;
+    height: 20.75rem;
+}
+
+.best-review__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+/* hot-review */
+.hot-review__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.hot-review__item {
+    flex-basis: 48%;
+    overflow: hidden;
+    height: 15.3125rem;
+    margin-bottom: 1.25rem;
+}
+
+.hot-review__item:hover img{
+    transform: scale(1.1);
+}
+
+.hot-review__link {
+    display: block;
+    height: 100%;
+}

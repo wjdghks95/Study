@@ -15,11 +15,8 @@
     height: 33.875rem;
 }
 
-.search-banner__title {
-    margin-bottom: 3.75rem;
-    text-align: center;
+.home__title {
     color: var(--color-white);
-    font-size: calc(var(--font-big));
 }
 
 /* pick-review */

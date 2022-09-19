@@ -42,6 +42,10 @@
     pointer-events: none;
 }
 
+.sign-in__sns {
+    margin-bottom: 2rem;
+}
+
 .sign-in__sns-list {
     display: flex;
     height: 4.375rem;

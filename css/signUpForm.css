@@ -1,0 +1,44 @@
+.sign-up__container {
+    width: 700px;
+}
+
+.sign-up__content form {
+    padding: 4rem;
+    border: 2px solid var(--color-gray);
+    border-radius: 20px;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 0.625rem;
+    font-weight: 600;
+}
+
+.form__submit-button {
+    width: auto;
+    height: 100%;
+}
+
+.default-btn {
+    padding: 0.65rem;
+    font-size: var(--font-micro);
+}
+
+.email-symbol {
+    margin: 0 0.625rem;
+}
+
+#email-input--hidden {
+    display: block;
+    margin-right: 0.625rem;
+}
+
+#address-input,
+#address-detail-input {
+    margin-top: .5rem;
+}
+
+.form__submit-button.sign-up-button {
+    width: 20%;
+    margin: 1.625rem auto 0;
+}

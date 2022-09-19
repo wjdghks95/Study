@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta author="LeeJeongHwan">
+        <meta description="종합 리뷰 웹 애플리케이션">
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="../css/style.css">
+        <title>종합 리뷰 사이트</title>
+    </head>
+<body>
+    <header>
+        <div class="header__container container">
+            <div class="header__wrapper">
+                <div class="header__logo-area">
+                    <a href="#" class="header__logo">
+                        <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Home</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Category</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">MyPage</a></li>
+                    </ul>
+                    <ul class="header__util-buttons">
+                        <li class="header__util-button">
+                            <button type="button" class="login-btn" onclick="location.href='/login'">Login</button>
+                        </li>
+                        <li class="header__util-button">
+                            <button type="button" class="signUp-btn" onclick="location.href='/signUp'">SignUp</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <main class="sign-in">
+        <section class="banner">
+            <div class="banner__container container">
+                <article class="section__content">
+                    <header class="section__headings">
+                        <h2 class="section__heading">LOGIN</br>로그인 페이지입니다.</h2>
+                    </header>
+                </article>
+            </div>
+        </section>
+        <!-- banner -->
+
+        <section class="sign-in__form">
+            <div class="sign-in__container container">
+                <article class="section__content">
+                    <div class="sign-in__normal">
+                        <header class="sign-in__headings">
+                            <h3>일반 로그인</h2>
+                            <p>아이디/비밀번호를 활용한 로그인 방식입니다.</p>
+                        </header>
+                        <form action="/login" method="post">
+                            <div class="form__group">
+                                <div class="form__input">
+                                    <label>
+                                        <input type="email" name="email" placeholder="아이디">
+                                    </label>
+                                    <label>
+                                        <input type="password" name="password" placeholder="비밀번호">
+                                    </label>
+                                </div>
+                                <div class="form__submit-button">
+                                    <button type="submit" class="default-btn">로그인</button>
+                                </div>
+                            </div>
+                            <div class="form__group">
+                                <label for="remember-me">
+                                    <input type="checkbox" name="remember-me" id="remember-me">아아디 저장
+                                </label>
+                                <div class="find-member">
+                                    <a href="#">아이디 찾기</a>
+                                    <a href="#">비밀번호 찾기</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sign-in__sns">
+                        <header class="sign-in__headings">
+                            <h3>SNS 로그인</h2>
+                            <p>SNS 계정을 활용한 로그인 방식입니다.</p>
+                        </header>
+                        <ul class="sign-in__sns-list">
+                            <li class="sign-in__sns-item">
+                                <a href="#" class="sign-in__sns-link">
+                                    <img src="../icon/kakaotalk.png" alt="kakaotalk">
+                                </a>
+                            </li>
+                            <li class="sign-in__sns-item">
+                                <a href="#" class="sign-in__sns-link">
+                                    <img src="../icon/naver.png" alt="naver">
+                                </a>
+                            </li>
+                            <li class="sign-in__sns-item">
+                                <a href="#" class="sign-in__sns-link">
+                                    <img src="../icon/google.svg" alt="google">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- sign-in -->
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <header class="section__headings">
+                <h2 class="section__heading">Footer</h2>
+                <p class="section__subheading">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur reprehenderit vitae quos neque laudantium!</p>
+            </header>
+            <article class="section__content">
+                <ul class="footer__contact">
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/email.svg" alt="email">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/facebook.svg" alt="facebook">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/instagram.svg" alt="instagram">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/github.svg" alt="github">
+                        </a>
+                    </li>
+                </ul>
+                <p class="footer__copyright">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+            </article>
+        </div>
+    </footer>
+    <!-- footer -->
+</body>
+</html>

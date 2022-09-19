@@ -8,6 +8,7 @@
         <meta description="종합 리뷰 웹 애플리케이션">
         <link rel="shortcut icon" href="#">
         <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/loginForm.css">
         <title>종합 리뷰 사이트</title>
     </head>
 <body>
@@ -53,7 +54,7 @@
 
         <section class="sign-in__form">
             <div class="sign-in__container container">
-                <article class="section__content">
+                <article class="section__content sign-in__content">
                     <div class="sign-in__normal">
                         <header class="sign-in__headings">
                             <h3>일반 로그인</h2>
@@ -61,11 +62,11 @@
                         </header>
                         <form action="/login" method="post">
                             <div class="form__group">
-                                <div class="form__input">
-                                    <label>
+                                <div class="form__input-box">
+                                    <label class="form__label">
                                         <input type="email" name="email" placeholder="아이디">
                                     </label>
-                                    <label>
+                                    <label class="form__label">
                                         <input type="password" name="password" placeholder="비밀번호">
                                     </label>
                                 </div>
@@ -74,8 +75,8 @@
                                 </div>
                             </div>
                             <div class="form__group">
-                                <label for="remember-me">
-                                    <input type="checkbox" name="remember-me" id="remember-me">아아디 저장
+                                <label for="remember-me" class="form__label">
+                                    <input type="checkbox" name="remember-me" id="remember-me">아이디 저장
                                 </label>
                                 <div class="find-member">
                                     <a href="#">아이디 찾기</a>
@@ -101,7 +102,7 @@
                                 </a>
                             </li>
                             <li class="sign-in__sns-item">
-                                <a href="#" class="sign-in__sns-link">
+                                <a href="#" class="sign-in__sns-link" id="sign-in__sns-google">
                                     <img src="../icon/google.svg" alt="google">
                                 </a>
                             </li>

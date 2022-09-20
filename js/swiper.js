@@ -1,4 +1,4 @@
-const swiper = new Swiper('.fade-swiper', {
+const fadeSwiper = new Swiper('.fade-swiper', {
     // Optional parameters
     spaceBetween: 30,
     effect: "fade",
@@ -7,11 +7,20 @@ const swiper = new Swiper('.fade-swiper', {
     autoplay: {
         delay: 2500,
         disableOnInteraction: false,
-      },
+    },
 
     // If we need pagination
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
     }
+});
+
+const slideSwiper = new Swiper(".slide-swiper", {
+    slidesPerView: 10,    
+    touchRatio: 0,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 });

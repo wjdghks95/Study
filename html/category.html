@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="LeeJeongHwan">
+    <meta description="종합 리뷰 웹 애플리케이션">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>종합 리뷰 사이트</title>
+</head>
+<body>
+    <header>
+        <div class="header__container container">
+            <div class="header__wrapper">
+                <div class="header__logo-area">
+                    <a href="#" class="header__logo">
+                        <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Home</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Category</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">MyPage</a></li>
+                    </ul>
+                    <ul class="header__util-buttons">
+                        <li class="header__util-button">
+                            <button type="button" class="login-btn" onclick="location.href='/login'">Login</button>
+                        </li>
+                        <li class="header__util-button">
+                            <button type="button" class="signUp-btn" onclick="location.href='/signUp'">SignUp</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <main class="category">
+        <section class="banner">
+            <div class="banner__container container">
+                <article class="section__content">
+                    <header class="section__headings">
+                        <h2 class="section__heading">Category</h2>
+                        <p class="section__subheading">카테고리 페이지입니다</p>
+                    </header>
+                </article>
+            </div>
+        </section>
+        <!-- banner -->
+
+        <section class="category__feed">
+            <div class="category__container container">
+                <article class="section__content">
+                    <div class="category__feed-list slide-swiper">
+                        <ul class="swiper-wrapper">
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">전체</a>
+                            </li>
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">식품</a>
+                            </li>
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">미용/코스메틱</a>
+                            </li>
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">패션/잡화</a>
+                            </li>
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">출산/육아</a>
+                            </li>
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">디지털/가전</a>
+                            </li>
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">스포츠/건강</a>
+                            </li>
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">반려동물</a>
+                            </li>
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">여행/숙박</a>
+                            </li>
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">인테리어</a>
+                            </li>
+                            <li class="category__feed-item swiper-slide">
+                                <a href="#">기타</a>
+                            </li>
+                        </ul>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <ul class="category__feed-view-list">
+                        <li class="category__feed-view-button">
+                            <button type="button" class="feed-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M40 352c-22.1 0-40 17.9-40 40l0 48c0 22.1 17.9 40 40 40l48 0c22.1 0 40-17.9 40-40l0-48c0-22.1-17.9-40-40-40l-48 0zm192 0c-22.1 0-40 17.9-40 40l0 48c0 22.1 17.9 40 40 40l48 0c22.1 0 40-17.9 40-40l0-48c0-22.1-17.9-40-40-40l-48 0zM40 320l48 0c22.1 0 40-17.9 40-40l0-48c0-22.1-17.9-40-40-40l-48 0c-22.1 0-40 17.9-40 40l0 48c0 22.1 17.9 40 40 40zM232 192c-22.1 0-40 17.9-40 40l0 48c0 22.1 17.9 40 40 40l48 0c22.1 0 40-17.9 40-40l0-48c0-22.1-17.9-40-40-40l-48 0zM40 160l48 0c22.1 0 40-17.9 40-40l0-48c0-22.1-17.9-40-40-40L40 32C17.9 32 0 49.9 0 72l0 48c0 22.1 17.9 40 40 40zM232 32c-22.1 0-40 17.9-40 40l0 48c0 22.1 17.9 40 40 40l48 0c22.1 0 40-17.9 40-40l0-48c0-22.1-17.9-40-40-40l-48 0z"/></svg>
+                            </button>
+                        </li>
+                        <li class="category__feed-view-button">
+                            <button type="button" class="feed-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/></svg>
+                            </button>
+                        </li>
+                        <li class="category__feed-view-button">
+                            <button type="button" class="feed-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M64 360c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zm0-160c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zM120 96c0 30.9-25.1 56-56 56S8 126.9 8 96S33.1 40 64 40s56 25.1 56 56z"/></svg>
+                            </button>
+                        </li>
+                    </ul>
+
+                    <ul class="category__feed category__feed--gallery">
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample3.jpg" alt="item">
+                                </div>
+                                <div class="category__feed-body">
+                                    <h3>title</h3>
+                                    <div class="rating">
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- feed--gallery -->
+
+                    <table class="category__feed category__feed--list">
+                        <th>작성자</th>
+                        <th>제목</th>
+                        <th>평점</th>
+                        <th>등록일</th>
+                        <th>조회수</th>
+                        <tr>
+                            <td>회원1</td>
+                            <a href="#"><td>title</td></a>
+                            <td>
+                                <div class="rating">
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                </div>
+                            </td>
+                            <td>2022.09.20</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>회원2</td>
+                            <a href="#"><td>title</td></a>
+                            <td>
+                                <div class="rating">
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                </div>
+                            </td>
+                            <td>2022.09.20</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>회원3</td>
+                            <a href="#"><td>title</td></a>
+                            <td>
+                                <div class="rating">
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                    <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                </div>
+                            </td>
+                            <td>2022.09.20</td>
+                            <td>100</td>
+                        </tr>
+                    </table>
+                    <!-- feed--list -->
+
+                    <ul class="category__feed category__feed--board">
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                        <li class="category__feed-item">
+                            <a href="#" class="category__feed-link">
+                                <div class="img-box">
+                                    <img src="../img/sample2.jpg" alt="item">
+                                </div>
+                                <h3>Tag</h3>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- feed--board -->
+
+                    <div class="pagination">
+                        <a href="#" class="pagination-btn pagination-next">Previous</a>
+                        <a href="#" class="pagination-btn">1</a>
+                        <a href="#" class="pagination-btn">2</a>
+                        <a href="#" class="pagination-btn">3</a>
+                        <a href="#" class="pagination-btn">4</a>
+                        <a href="#" class="pagination-btn">5</a>
+                        <a href="#" class="pagination-btn pagination-next">Next</a>
+                    </div>
+                    <form action="#" class="search-bar-form" method="post">
+                        <div class="search-bar-form__tag-button">
+                            <button type="button" class="tag-btn">Tag</button>
+                        </div>
+                        <div class="search-bar-form__search-bar">
+                            <input type="search" class="search-bar-form__input" placeholder="검색어를 입력하세요">
+                            <button type="submit" class="search-bar-form__submit">Search</button>
+                        </div>
+                    </form>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer__container container">
+            <header class="section__headings">
+                <h2 class="section__heading">Footer</h2>
+                <p class="section__subheading">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur reprehenderit vitae quos neque laudantium!</p>
+            </header>
+            <article class="section__content">
+                <ul class="footer__contact">
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/email.svg" alt="email">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/facebook.svg" alt="facebook">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/instagram.svg" alt="instagram">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/github.svg" alt="github">
+                        </a>
+                    </li>
+                </ul>
+                <p class="footer__copyright">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+            </article>
+        </div>
+    </footer>
+    <!-- footer -->
+</body>
+</html>

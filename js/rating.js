@@ -1,5 +1,4 @@
 let stars = document.querySelectorAll('.rating__star');
-let ratDisplay = document.querySelector('.rating_display');
 let totalStar = 0;
 
 stars.forEach((star, index) => {
@@ -10,7 +9,7 @@ stars.forEach((star, index) => {
 });
 
 function onMouseOver(e) {
-    const ratingVal = e.target.dataset.rating;
+    const ratingVal = e.currentTarget.dataset.rating;
     if (!ratingVal) {
         return;
     } else {
@@ -21,9 +20,9 @@ function onMouseOver(e) {
 function fill(ratingVal) {
     for (let i = 0; i < 5; i++) {
         if (i < ratingVal) {
-            stars[i].querySelector('img').setAttribute('src', '../icon/star-regular.svg');
+            stars[i].querySelector('img').setAttribute('src', '../icon/star-solid.svg');
         } else {
-            stars[i].querySelector('img').setAttribute('src', '../icon/star-soild.svg');
+            stars[i].querySelector('img').setAttribute('src', '../icon/star-regular.svg');
         }
     }
 }
@@ -33,8 +32,7 @@ function onMouseLeave(e) {
 }
 
 function onClick(e) {
-    const ratingVal = e.target.dataset.rating;
+    const ratingVal = e.currentTarget.dataset.rating;
     totalStar = ratingVal;
     fill(totalStar);
-    ratDisplay.innerHTML = ratingVal;
 }

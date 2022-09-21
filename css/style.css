@@ -93,11 +93,10 @@ input[type="password"] {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    align-items: center;
 }
 
 .form__input-box {
-    flex-basis: 80%;
+    flex-basis: 75%;
 }
 
 .form__submit-button {
@@ -112,6 +111,13 @@ input[type="password"] {
     border: 1px solid var(--color-gray);
     border-radius: 4px;
     font-size: var(--font-small);
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 0.625rem;
+    font-size: var(--font-medium);
+    font-weight: 600;
 }
 
 /* img */

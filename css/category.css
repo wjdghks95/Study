@@ -93,3 +93,7 @@
 .category__feed--board {
     display: flex;
 }
+
+.search__container {
+    padding-top: 0;
+}

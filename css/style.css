@@ -481,7 +481,7 @@ img {
     align-items: center;
     width: 34%;
     height: 3.125rem;
-    margin: 0 auto 2rem;
+    margin: 0 auto;
     border: 2px solid var(--color-gray);
     border-radius: 4px;
 }

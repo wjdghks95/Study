@@ -1,7 +1,10 @@
+.sign-in__container {
+    padding-left: 24rem;
+    padding-right: 24rem;
+}
+
 .sign-in__content {
-    width: 700px;
     padding: 4rem;
-    margin: 0 auto;
     border: 2px solid var(--color-gray);
     border-radius: 20px;
 }

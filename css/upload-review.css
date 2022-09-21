@@ -1,0 +1,76 @@
+.form__wrapper {
+    height: 20.625rem;
+    margin-bottom: 4rem;
+}
+
+.upload-review-picture__button {
+    flex-basis: 45%;
+}
+
+.form__group {
+    flex-basis: 45%;
+}
+
+.rating {
+    justify-content: flex-start;
+}
+
+.tag-in {
+    padding: 1.25rem;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 4px;
+}
+
+.tag-in__wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.tag-in__wrapper .form__label {
+    margin-right: 1.875rem;
+}
+
+#tag-input {
+    flex-basis: 40%;
+    margin-right: 1.875rem;
+    padding-left: 1.25rem;
+    font-size: var(--font-micro);
+}
+
+.add-button {
+    width: 50px;
+    height: 100%;
+}
+
+.sharp {
+    position: relative;
+    left: 1rem;
+    font-weight: 600;
+    color: var(--color-blue);
+}
+
+.tag-in__list {
+    display: flex;
+    align-items: center;
+}
+
+.tag-in__item:not(:last-child) {
+    margin-right: .625rem;
+}
+
+.tag-in__item span {
+    font-size: var(--font-micro);
+    color: var(--color-gray);
+}
+
+.form__submit-button {
+    margin: 3rem auto 0;
+    width: 10%;
+    height: 100%;
+}
+
+.default-btn {
+    padding: 0.65rem;
+    font-size: var(--font-micro);
+}

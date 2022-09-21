@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="LeeJeongHwan">
+    <meta description="종합 리뷰 웹 애플리케이션">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>종합 리뷰 사이트</title>
+</head>
+<body>
+    <header>
+        <div class="header__container container">
+            <div class="header__wrapper">
+                <div class="header__logo-area">
+                    <a href="#" class="header__logo">
+                        <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Home</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Category</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">MyPage</a></li>
+                    </ul>
+                    <ul class="header__util-buttons">
+                        <li class="header__util-button">
+                            <button type="button" class="login-btn" onclick="location.href='/login'">Login</button>
+                        </li>
+                        <li class="header__util-button">
+                            <button type="button" class="signUp-btn" onclick="location.href='/signUp'">SignUp</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <main class="upload-review">
+        <div class="upload-review__container container">
+            <header class="section__headings">
+                <h2 class="section__heading">리뷰 쓰기</h2>
+            </header>
+            <form action="#" class="upload-review-form" method="post">
+                <div class="upload-review-picture">
+                    <button type="button" id="picture-input">
+                        <div class="upload-review-picture__icon">
+                            <img src="../icon/camera.svg" alt="camera">
+                        </div>
+                        <p>사진 올리기</p>
+                        <p><small>(* 최대 10장까지)</small></p>
+                    </button>
+                </div>
+                <div class="form__group">
+                    <div class="form__group">
+                        <label for="title-input" class="form__label">제목</label>
+                        <input type="text" id="title-input" placeholder="제목">
+                    </div>
+                    <div class="form__group">
+                        <label for="category-select" class="form__label">카테고리 선택</label>
+                        <select name="category" id="category-select" class="form__select">
+                            <option value="" disabled selected>카테고리</option>
+                            <option value="all">전체</option>
+                            <option value="food">식품</option>
+                            <option value="cosmetic">미용/코스메틱</option>
+                            <option value="fashion">패션/잡화</option>
+                            <option value="nursing">출산/육아</option>
+                            <option value="digital">디지털/가전</option>
+                            <option value="sports">스포츠/건강</option>
+                            <option value="pet">반려동물</option>
+                            <option value="restaurant">맛집</option>
+                            <option value="travel">여행/숙박</option>
+                            <option value="culture">문화</option>
+                            <option value="interior">인테리어</option>
+                            <option value="etc">기타</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="textarea-input" class="form__label">
+                        <textarea name="description" id="textarea-input" rows="10" class="form__textarea" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다.(최소 20자 이상)"></textarea>
+                    </label>
+                </div>
+                <div class="form__group">
+                    <div class="tag-in">
+                        <div class="tag-in-wrapper">
+                            <label for="tag-input" class="form__label">태그</label>
+                            <span class="sharp">#</span>
+                            <input type="text" id="tag-input" placeholder="키워드">
+                            <div class="add-button">
+                                <button type="button" class="add-btn">추가</button>
+                            </div>
+                        </div>
+                        <div class="tag-in-list">
+                            <ul>
+                                <li><span>#태그</span></li>
+                                <li><span>#태그</span></li>
+                                <li><span>#태그</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__submit-button">
+                    <button type="submit" class="default-btn">작성하기</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <header class="section__headings">
+                <h2 class="section__heading">Footer</h2>
+                <p class="section__subheading">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur reprehenderit vitae quos neque laudantium!</p>
+            </header>
+            <article class="section__content">
+                <ul class="footer__contact">
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/email.svg" alt="email">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/facebook.svg" alt="facebook">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/instagram.svg" alt="instagram">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/github.svg" alt="github">
+                        </a>
+                    </li>
+                </ul>
+                <p class="footer__copyright">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+            </article>
+        </div>
+    </footer>
+    <!-- footer -->
+</body>
+</html>

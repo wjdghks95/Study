@@ -258,9 +258,11 @@ textarea::placeholder {
     background-color: var(--color-gray);
 }
 
-.close-btn {    
+.remove-btn {    
+    display: inline-block;
     width: 1.25rem;
     height: 100%;
+    margin-left: .125rem;
     background-color: transparent;
     border: 1px solid var(--color-gray);
     border-radius: 4px;
@@ -271,7 +273,7 @@ textarea::placeholder {
     font-weight: 500;
 }
 
-.close-btn:hover {
+.remove-btn:hover {
     color: var(--color-black);
     background-color: var(--color-dark-white);
 }

@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/upload-review.css">
     <script type="module" src="../js/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../css/swiper.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../js/swiper.js" defer></script>
     <title>종합 리뷰 사이트</title>
 </head>
 <body>
@@ -48,14 +52,19 @@
             </header>
             <form action="#" class="upload-review-form" method="post">
                 <div class="form__wrapper">
-                    <div class="upload-review-picture__button">
-                        <button type="button" id="picture-input" class="picture-btn">
-                            <div class="upload-review-picture__icon">
-                                <img src="../icon/camera.svg" alt="camera">
-                            </div>
-                            <p>사진 올리기</p>
-                            <p><small>(* 최대 10장까지)</small></p>
-                        </button>
+                    <div class="upload-review__photo-button single-slide-swiper swiper">
+                        <div class="swiper-wrapper">
+                            <button type="button" class="photo-btn">
+                                <div class="upload-review__photo-icon">
+                                    <img src="../icon/camera.svg" alt="camera">
+                                </div>
+                                <p>사진 올리기<small> (* 최대 10장까지)</small></p>
+                                <p><small>좌/우로 넘겨 썸네일을 선택하세요.</small></p>
+                            </button>
+                        </div>
+                        <div class="swiper-button-next" style="display: none"></div>
+                        <div class="swiper-button-prev" style="display: none"></div>
+                        <input type="file" id="file-input" accept=".jpg, .png" required multiple style="display: none" >
                     </div>
                     <div class="form__group">
                         <div class="form__group">

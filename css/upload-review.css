@@ -3,8 +3,12 @@
     margin-bottom: 4rem;
 }
 
-.upload-review-picture__button {
+.upload-review__photo-button {
     flex-basis: 45%;
+}
+
+.upload-review__photo-button.swiper {
+    margin: 0;
 }
 
 .form__group {

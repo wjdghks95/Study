@@ -24,3 +24,14 @@ const slideSwiper = new Swiper(".slide-swiper", {
         prevEl: ".swiper-button-prev",
     },
 });
+
+const singleSlideSwiper = new Swiper(".single-slide-swiper", {
+    touchRatio: 0,
+    observer: true,
+    observeParents: true,
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});

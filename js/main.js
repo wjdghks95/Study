@@ -1,6 +1,6 @@
 import Rating from '../js/rating.js';
 import Tag from '../js/tag.js';
-import SubmitBtn from './button.js';
+import {SubmitBtn, ImgUploadBtn } from './button.js';
 
 const rating = new Rating();
 rating.action();
@@ -10,3 +10,6 @@ tag.onAdd();
 
 const submitBtn = new SubmitBtn();
 submitBtn.onSubmit();
+
+const imgUploadBtn = new ImgUploadBtn('.upload-review__photo-button');
+imgUploadBtn.onUpload();

@@ -1,6 +1,6 @@
 package com.example.test.chap05;
 
-import com.example.test.Study;
+import com.example.test.domain.Study;
 import com.example.test.chap02.FastTest;
 import com.example.test.chap02.SlowTest;
 import org.junit.jupiter.api.*;
@@ -30,7 +30,7 @@ class OrderTest {
         System.out.println(this);
         System.out.println(value++);
         Study actual = new Study(1);
-        assertThat(actual.getLimit()).isGreaterThan(0);
+        assertThat(actual.getLimitCount()).isGreaterThan(0);
     }
 
     @Order(1)

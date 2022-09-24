@@ -1,6 +1,6 @@
 package com.example.test.chap03;
 
-import com.example.test.Study;
+import com.example.test.domain.Study;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.RepetitionInfo;
@@ -46,7 +46,7 @@ class RepeatTest {
     @ParameterizedTest(name = "{index} {displayName} message={0}")
     @ValueSource(ints = {10, 20, 40})
     void parameterizedTest3(@ConvertWith(StudyConverter.class) Study study) {
-        System.out.println(study.getLimit());
+        System.out.println(study.getLimitCount());
     }
 
     static class StudyConverter extends SimpleArgumentConverter {

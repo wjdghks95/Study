@@ -1,6 +1,6 @@
 package com.example.test.chap01;
 
-import com.example.test.Study;
+import com.example.test.domain.Study;
 import com.example.test.StudyStatus;
 import org.junit.jupiter.api.*;
 
@@ -29,13 +29,13 @@ class AssertionsTest {
                 return "스터디를 처음 만들면 DRAFT이어야 한다.";
             }
         });
-        assertTrue(study.getLimit() > 0, "스터디 최대 참석 가능 인원은 0보다 커야 한다.");
+        assertTrue(study.getLimitCount() > 0, "스터디 최대 참석 가능 인원은 0보다 커야 한다.");
 
         // assertAll
         assertAll(
                 () -> assertNotNull(study),
                 () -> assertEquals(StudyStatus.DRAFT, study.getStatus(), "스터디를 처음 만들면 상태값이 DRAFT이어야 한다."),
-                () -> assertTrue(study.getLimit() > 0, "스터디 최대 참석 가능 인원은 0보다 커야 한다.")
+                () -> assertTrue(study.getLimitCount() > 0, "스터디 최대 참석 가능 인원은 0보다 커야 한다.")
         );
 
         // assertThrows

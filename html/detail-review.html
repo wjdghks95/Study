@@ -45,29 +45,27 @@
             <div class="detail-review-content__container container">
                 <header class="detail-review-content__header">
                     <div class="detail-review-content__author">
-                        <div class="detail-review-content__author-info">
+                        <a href="#" class="detail-review-content__author-info">
                             <div class="detail-review-content__author-image">
                                 <img src="../img/sample1.jpg">
                             </div>
                             <div class="detail-review-content__author-nickname">nickname</div>
-                        </div>
+                        </a>
                         <div class="detail-review-content__author-follow-button">
-                            <button class="follow-btn">+ 팔로우</button>
+                            <button class="default-btn">+ 팔로우</button>
                         </div>
                     </div>
                     <ul class="detail-review-content__tags">
-                        <li class="detail-review-content__tag"><a href="#">#tag</a></li>
-                        <li class="detail-review-content__tag"><a href="#">#tag</a></li>
-                        <li class="detail-review-content__tag"><a href="#">#tag</a></li>
+                        <li class="detail-review-content__tag"><a href="#" class="detail-review-content__tag-link">#tag</a></li>
+                        <li class="detail-review-content__tag"><a href="#" class="detail-review-content__tag-link">#tag</a></li>
+                        <li class="detail-review-content__tag"><a href="#" class="detail-review-content__tag-link">#tag</a></li>
                     </ul>
                 </header>
                 <article class="section__content">
-                    <h2 class="detail-review-content__title">
-                        제목
-                    </h2>
+                    <h2 class="section__heading">제목</h2>
                     <ul class="detail-review-content__photo-list">
-                        <li><img src="../img/sample2.jpg" alt="리뷰사진"></li>
-                        <li><img src="../img/sample2.jpg" alt="리뷰사진"></li>
+                        <li class="detail-review-content__photo"><img src="../img/sample2.jpg" alt="리뷰사진"></li>
+                        <li class="detail-review-content__photo"><img src="../img/sample2.jpg" alt="리뷰사진"></li>
                     </ul>
                     <div class="detail-review-content__stats">
                         <div class="detail-review-content__satisfaction-level">
@@ -88,7 +86,6 @@
                                 <div class="rating__star">
                                     <img src="../icon/star-solid.svg" alt="star">
                                 </div>
-                                <span class="rating__score">5.0</span>
                             </div>
                         </div>
                         <div class="detail-review-content__created-date">
@@ -96,14 +93,17 @@
                         </div>
                     </div>
                     <div class="detail-review-content__text">
-                        리뷰
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </div>
                 </article>
                 <div class="detail-review-content__buttons">
                     <div class="detail-review-content__thumbs-up">
                         <div class="detail-review-content__thumbs-up-button">
-                            <button class="thumbs-up-btn">♡</button>
+                            <button class="thumbs-up-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
+                            </button>
                         </div>
+                        <span class="detail-review-content__thumbs-up-score">10</span>
                     </div>
                     <div class="detail-review-content__edit-buttons">
                         <div class="detail-review-content__edit-button detail-review-content__edit-button--modify">
@@ -125,7 +125,7 @@
                         <div class="detail-review-comments__comment-author-image">
                             <img src="../img/sample3.jpg">
                         </div>
-                        <div class="detail-review-comments__comment-author-nickname"></div>
+                        <div class="detail-review-comments__comment-author-nickname">nickname</div>
                     </div>
                     <div class="detail-review-comments__comment-text">댓글</div>
                 </div>
@@ -134,7 +134,7 @@
                         <div class="detail-review-comments__comment-author-image">
                             <img src="../img/sample3.jpg">
                         </div>
-                        <div class="detail-review-comments__comment-author-nickname"></div>
+                        <div class="detail-review-comments__comment-author-nickname">nickname</div>
                     </div>
                     <div class="detail-review-comments__comment-text">댓글</div>
                 </div>

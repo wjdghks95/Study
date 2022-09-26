@@ -1,5 +1,5 @@
 # Study
-[Notion](https://flying-talos-c55.notion.site/Curriculum-7dc336f2fe2a41caaab31334f203a37d)
+[Notion](https://flying-talos-c55.notion.site/5ed5b6b338a84ae7a54ae251f728cf5b?v=c42338e6a74d49abb807df0030f18ba1)
 
 # Mini-Projects
 

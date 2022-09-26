@@ -97,3 +97,17 @@ function createElement(e, attr, attrName) {
     element.setAttribute(attr, attrName);
     return element;
 }
+
+export class ActiveToggle {
+    constructor(element) {
+        this.button = document.querySelector(element);
+    }
+
+    on() {
+        this.button.addEventListener('click', this._toggle);
+    }
+
+    _toggle = (e) => {
+        this.button.classList.toggle('active');
+    }
+}

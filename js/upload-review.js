@@ -1,5 +1,5 @@
-import Rating from '../js/rating.js';
-import Tag from '../js/tag.js';
+import Rating from './rating.js';
+import Tag from './tag.js';
 import {SubmitBtn, ImgUploadBtn } from './button.js';
 
 const rating = new Rating();

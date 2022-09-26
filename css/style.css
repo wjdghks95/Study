@@ -278,6 +278,14 @@ textarea::placeholder {
     background-color: var(--color-dark-white);
 }
 
+.thumbs-up-btn {
+    width: 1.5rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
 /* section */
 .container {
     width: 1440px;

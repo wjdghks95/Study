@@ -157,6 +157,10 @@ textarea::placeholder {
     border-radius: 4px;
 }
 
+.default-btn:hover {
+    background-color: #27a8cf;
+}
+
 .login-btn,
 .signUp-btn {
     width: 100%;

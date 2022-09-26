@@ -157,6 +157,10 @@ textarea::placeholder {
     border-radius: 4px;
 }
 
+.default-btn:hover {
+    background-color: #27a8cf;
+}
+
 .login-btn,
 .signUp-btn {
     width: 100%;
@@ -276,6 +280,21 @@ textarea::placeholder {
 .remove-btn:hover {
     color: var(--color-black);
     background-color: var(--color-dark-white);
+}
+
+.thumbs-up-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url(../icon/heart-regular.svg);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.thumbs-up-btn.active {
+    background-image: url(../icon/heart-solid.svg);
+    filter: invert(12%) sepia(83%) saturate(7279%) hue-rotate(359deg) brightness(116%) contrast(120%);
 }
 
 /* section */

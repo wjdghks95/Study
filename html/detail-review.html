@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="LeeJeongHwan">
+    <meta description="종합 리뷰 웹 애플리케이션">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/detail-review.css">
+    <script type="module" src="../js/detail-review.js"></script>
+    <title>종합 리뷰 사이트</title>
+</head>
+<body>
+    <header>
+        <div class="header__container container">
+            <div class="header__wrapper">
+                <div class="header__logo-area">
+                    <a href="#" class="header__logo">
+                        <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Home</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Category</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">MyPage</a></li>
+                    </ul>
+                    <ul class="header__util-buttons">
+                        <li class="header__util-button">
+                            <button type="button" class="login-btn" onclick="location.href='/logout'">Logout</button>
+                        </li>
+                        <li class="header__util-button">
+                            <button type="button" class="signUp-btn" onclick="location.href='/review/new'">글쓰기</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <main class="detail-review">
+        <section class="detail-review-content">
+            <div class="detail-review-content__container container">
+                <header class="detail-review-content__header">
+                    <div class="detail-review-content__author">
+                        <a href="#" class="detail-review-content__author-info">
+                            <div class="detail-review-content__author-image">
+                                <img src="../img/sample1.jpg">
+                            </div>
+                            <div class="detail-review-content__author-nickname">nickname</div>
+                        </a>
+                        <div class="detail-review-content__author-follow-button">
+                            <button class="default-btn">+ 팔로우</button>
+                        </div>
+                    </div>
+                    <ul class="detail-review-content__tags">
+                        <li class="detail-review-content__tag"><a href="#" class="detail-review-content__tag-link">#tag</a></li>
+                        <li class="detail-review-content__tag"><a href="#" class="detail-review-content__tag-link">#tag</a></li>
+                        <li class="detail-review-content__tag"><a href="#" class="detail-review-content__tag-link">#tag</a></li>
+                    </ul>
+                </header>
+                <article class="section__content">
+                    <h2 class="section__heading">제목</h2>
+                    <ul class="detail-review-content__photo-list">
+                        <li class="detail-review-content__photo"><img src="../img/sample2.jpg" alt="리뷰사진"></li>
+                        <li class="detail-review-content__photo"><img src="../img/sample2.jpg" alt="리뷰사진"></li>
+                    </ul>
+                    <div class="detail-review-content__stats">
+                        <div class="detail-review-content__satisfaction-level">
+                            <span>만족도</span>
+                            <div class="rating">
+                                <div class="rating__star">
+                                    <img src="../icon/star-solid.svg" alt="star">
+                                </div>
+                                <div class="rating__star">
+                                    <img src="../icon/star-solid.svg" alt="star">
+                                </div>
+                                <div class="rating__star">
+                                    <img src="../icon/star-solid.svg" alt="star">
+                                </div>
+                                <div class="rating__star">
+                                    <img src="../icon/star-solid.svg" alt="star">
+                                </div>
+                                <div class="rating__star">
+                                    <img src="../icon/star-solid.svg" alt="star">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-review-content__created-date">
+                            2022.09.26
+                        </div>
+                    </div>
+                    <div class="detail-review-content__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </div>
+                </article>
+                <div class="detail-review-content__buttons">
+                    <div class="detail-review-content__thumbs-up">
+                        <div class="detail-review-content__thumbs-up-button">
+                            <button class="thumbs-up-btn"></button>
+                        </div>
+                        <span class="detail-review-content__thumbs-up-score">10</span>
+                    </div>
+                    <div class="detail-review-content__edit-buttons">
+                        <div class="detail-review-content__edit-button detail-review-content__edit-button--modify">
+                            <button class="default-btn">수정</button>
+                        </div>
+                        <div class="detail-review-content__edit-button detail-review-content__edit-button--delete">
+                            <button class="default-btn">삭제</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- detail-review-content -->
+
+        <section class="detail-review-comments">
+            <div class="detail-review-comments__container container">
+                <div class="detail-review-comments__comment">
+                    <div class="detail-review-comments__comment-author">
+                        <div class="detail-review-comments__comment-author-image">
+                            <img src="../img/sample3.jpg">
+                        </div>
+                        <div class="detail-review-comments__comment-author-nickname">nickname</div>
+                    </div>
+                    <div class="detail-review-comments__comment-text">댓글</div>
+                </div>
+                <div class="detail-review-comments__comment">
+                    <div class="detail-review-comments__comment-author">
+                        <div class="detail-review-comments__comment-author-image">
+                            <img src="../img/sample3.jpg">
+                        </div>
+                        <div class="detail-review-comments__comment-author-nickname">nickname</div>
+                    </div>
+                    <div class="detail-review-comments__comment-text">댓글</div>
+                </div>
+                <div class="pagination">
+                    <a href="#" class="pagination-btn">1</a>
+                    <a href="#" class="pagination-btn">2</a>
+                    <a href="#" class="pagination-btn">3</a>
+                    <a href="#" class="pagination-btn">4</a>
+                    <a href="#" class="pagination-btn">5</a>
+                </div>
+            </div>
+        </section>
+        <!-- detail-review-comments -->
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <header class="section__headings">
+                <h2 class="section__heading">Footer</h2>
+                <p class="section__subheading">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur reprehenderit vitae quos neque laudantium!</p>
+            </header>
+            <article class="section__content">
+                <ul class="footer__contact">
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/email.svg" alt="email">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/facebook.svg" alt="facebook">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/instagram.svg" alt="instagram">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/github.svg" alt="github">
+                        </a>
+                    </li>
+                </ul>
+                <p class="footer__copyright">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+            </article>
+        </div>
+    </footer>
+    <!-- footer -->
+</body>
+</html>

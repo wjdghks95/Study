@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="LeeJeongHwan">
+    <meta description="종합 리뷰 웹 애플리케이션">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mypage-side.css">
+    <title>종합 리뷰 사이트</title>
+</head>
+<body>
+    <header>
+        <div class="header__container container">
+            <div class="header__wrapper">
+                <div class="header__logo-area">
+                    <a href="#" class="header__logo">
+                        <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link">Home</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link">Category</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link">MyPage</a>
+                        </li>
+                    </ul>
+                    <ul class="header__util-buttons">
+                        <li class="header__util-button">
+                            <button type="button" class="login-btn" onclick="location.href='/login'">Logout</button>
+                        </li>
+                        <li class="header__util-button">
+                            <button type="button" class="signUp-btn" onclick="location.href='/signUp'">글쓰기</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <main class="withdraw">
+        <section class="withdraw-content">
+            <div class="withdraw-content__container container">
+
+                <aside class="mypage-side-menu">
+                    <ul class="mypage-side-menu__list">
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">프로필</a>
+                        </li>
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">나의 리뷰</a>
+                        </li>
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">좋아요</a>
+                        </li>
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">팔로우</a>
+                        </li>
+                        <li class="mypage-side-menu__item active">
+                            <a href="#" class="mypage-side-menu__link">회원 탈퇴</a>
+                        </li>
+                    </ul>
+                </aside>
+                <!-- myPage-side-menu -->
+
+                <article class="section__content">
+                    <form action="#" method="post">
+                        <h2 class="section__heading">회원 탈퇴</h2>
+                        <div class="withdraw-content__description">
+                            <span>탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</span>
+                        </div>
+                        <div class="withdraw-content__description">
+                            <span>회원탈퇴 완료 후 복구가 불가한 것에 대해 인지하였으며 동의합니다.</span>
+                            <label>
+                                <input type="checkbox" class="withdraw-content__checkbox"> 동의
+                            </label>
+                        </div>
+                        <div class="withdraw-content__description">
+                            <span>회원탈퇴 시 주의사항에 대해 확인하였으며 회원탈퇴에 동의합니다.</span>
+                            <label>
+                                <input type="checkbox" class="withdraw-content__checkbox"> 동의
+                            </label>
+                        </div>
+                        <ul class="withdraw-content__buttons">
+                            <li class="withdraw-content__button">
+                                <button type="submit" class="default-btn">확인</button>
+                            </li>
+                            <li class="withdraw-content__button">
+                                <button type="button" class="default-btn--white">취소</button>
+                            </li>
+                        </ul>
+                    </form>
+                </article>
+            </div>
+        </section>
+        <!-- myPage-withdraw -->
+
+        
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <header class="section__headings">
+                <h2 class="section__heading">Footer</h2>
+                <p class="section__subheading">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur reprehenderit vitae quos neque laudantium!</p>
+            </header>
+            <article class="section__content">
+                <ul class="footer__contact">
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/email.svg" alt="email">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/facebook.svg" alt="facebook">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/instagram.svg" alt="instagram">
+                        </a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <a href="#" class="footer__contact-link">
+                            <img src="../icon/github.svg" alt="github">
+                        </a>
+                    </li>
+                </ul>
+                <p class="footer__copyright">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+            </article>
+        </div>
+    </footer>
+    <!-- footer -->
+</body>
+</html>

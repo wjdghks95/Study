@@ -8,6 +8,7 @@
     <meta description="종합 리뷰 웹 애플리케이션">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/myPage-withdraw.css">
     <link rel="stylesheet" href="../css/mypage-side.css">
     <title>종합 리뷰 사이트</title>
 </head>
@@ -72,20 +73,20 @@
                 <!-- myPage-side-menu -->
 
                 <article class="section__content">
-                    <form action="#" method="post">
+                    <form action="#" method="post" class="withdraw-content__form">
                         <h2 class="section__heading">회원 탈퇴</h2>
                         <div class="withdraw-content__description">
-                            <span>탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</span>
+                            <span style="color: var(--color-red)">탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</span>
                         </div>
                         <div class="withdraw-content__description">
                             <span>회원탈퇴 완료 후 복구가 불가한 것에 대해 인지하였으며 동의합니다.</span>
-                            <label>
+                            <label class="withdraw-content__label">
                                 <input type="checkbox" class="withdraw-content__checkbox"> 동의
                             </label>
                         </div>
                         <div class="withdraw-content__description">
                             <span>회원탈퇴 시 주의사항에 대해 확인하였으며 회원탈퇴에 동의합니다.</span>
-                            <label>
+                            <label class="withdraw-content__label">
                                 <input type="checkbox" class="withdraw-content__checkbox"> 동의
                             </label>
                         </div>
@@ -94,7 +95,7 @@
                                 <button type="submit" class="default-btn">확인</button>
                             </li>
                             <li class="withdraw-content__button">
-                                <button type="button" class="default-btn--white">취소</button>
+                                <button type="button" class="default-btn default-btn--white">취소</button>
                             </li>
                         </ul>
                     </form>

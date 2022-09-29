@@ -1,0 +1,41 @@
+.withdraw {
+    min-height: 500px;
+}
+
+.section__content {
+    margin: 0 auto;
+    width: 1024px;
+}
+
+.withdraw-content__form {
+    padding: 2.25rem 1.75rem;
+    border: 1px solid var(--color-gray);
+    border-radius: 10px;
+}
+
+.section__heading {
+    text-align: center;
+}
+
+.withdraw-content__description {
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+}
+
+.withdraw-content__label {
+    margin-left: 30px;
+}
+
+.withdraw-content__buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.withdraw-content__button {
+    margin: 0 .625rem;
+}
+
+.default-btn {
+    padding: .625rem 2rem;
+    font-size: var(--font-small);
+}

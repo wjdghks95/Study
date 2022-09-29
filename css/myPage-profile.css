@@ -45,13 +45,13 @@
     font-size: var(--font-micro);
 }
 
-.profile-side-menu {
+.mypage-side-menu {
     position: absolute;
     top: 3.75rem;
     left: 0;
 }
 
-.profile-side-menu__list {
+.mypage-side-menu__list {
     width: 12.5rem;
     display: flex;
     flex-direction: column;
@@ -59,10 +59,10 @@
     font-size: var(--font-medium);
 }
 
-.profile-side-menu__item.active {
+.mypage-side-menu__item.active {
     font-weight: bold;
 }
 
-.profile-side-menu__item {
+.mypage-side-menu__item {
     margin-bottom: 2.5rem;
 }

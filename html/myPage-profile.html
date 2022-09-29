@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/myPage-profile.css">
+    <link rel="stylesheet" href="../css/mypage-side.css">
     <title>종합 리뷰 사이트</title>
 </head>
 <body>
@@ -43,50 +44,56 @@
     <main class="profile">
         <section class="profile-info">
             <div class="profile-info__container container">
-                <header class="section__headings">
-                    <h2 class="section__heading">프로필</h2>
-                </header>
-                <ul class="profile-info__list">
-                    <li class="profile-info__item">
-                        <div class="profile-info__field">사진</div>
-                        <div class="profile-info__field-text">사진을 등록하세요</div>
-                        <figure class="profile-info__field-image">
-                            <img src="../img/sample1.jpg">
-                        </figure>
-                    </li>
-                    <li class="profile-info__item">
-                        <div class="profile-info__field">이름</div>
-                        <div class="profile-info__field-text">NAME</div>
-                    </li>
-                    <li class="profile-info__item">
-                        <div class="profile-info__field">닉네임</div>
-                        <div class="profile-info__field-text">NICKNAME</div>
-                        <div class="profile-info__field-button">
-                            <button type="button" class="default-btn">변경</button>
-                        </div>
-                    </li>
-                </ul>
+
+                <aside class="mypage-side-menu">
+                    <ul class="mypage-side-menu__list">
+                        <li class="mypage-side-menu__item active">
+                            <a href="#" class="mypage-side-menu__link">프로필</a>
+                        </li>
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">나의 리뷰</a>
+                        </li>
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">좋아요</a>
+                        </li>
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">팔로우</a>
+                        </li>
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">회원 탈퇴</a>
+                        </li>
+                    </ul>
+                </aside>
+                <!-- myPage-side-menu -->
+
+                <article class="section__content">
+                    <header class="section__headings">
+                        <h2 class="section__heading">프로필</h2>
+                    </header>
+                    <ul class="profile-info__list">
+                        <li class="profile-info__item">
+                            <div class="profile-info__field">사진</div>
+                            <div class="profile-info__field-text">사진을 등록하세요</div>
+                            <figure class="profile-info__field-image">
+                                <img src="../img/sample1.jpg">
+                            </figure>
+                        </li>
+                        <li class="profile-info__item">
+                            <div class="profile-info__field">이름</div>
+                            <div class="profile-info__field-text">NAME</div>
+                        </li>
+                        <li class="profile-info__item">
+                            <div class="profile-info__field">닉네임</div>
+                            <div class="profile-info__field-text">NICKNAME</div>
+                            <div class="profile-info__field-button">
+                                <button type="button" class="default-btn">변경</button>
+                            </div>
+                        </li>
+                    </ul>      
+                </article> 
             </div>
         </section>
-        <aside class="mypage-side-menu">
-            <ul class="mypage-side-menu__list">
-                <li class="mypage-side-menu__item active">
-                    <a href="#" class="mypage-side-menu__link">프로필</a>
-                </li>
-                <li class="mypage-side-menu__item">
-                    <a href="#" class="mypage-side-menu__link">나의 리뷰</a>
-                </li>
-                <li class="mypage-side-menu__item">
-                    <a href="#" class="mypage-side-menu__link">좋아요</a>
-                </li>
-                <li class="mypage-side-menu__item">
-                    <a href="#" class="mypage-side-menu__link">팔로우</a>
-                </li>
-                <li class="mypage-side-menu__item">
-                    <a href="#" class="mypage-side-menu__link">회원 탈퇴</a>
-                </li>
-            </ul>
-        </aside>
+        <!-- myPage-profile -->
     </main>
 
     <footer class="footer">

@@ -8,7 +8,8 @@
     <meta description="종합 리뷰 웹 애플리케이션">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/myPage-profile.css">
+    <link rel="stylesheet" href="../css/myPage-myreview.css">
+    <link rel="stylesheet" href="../css/mypage-side.css">
     <title>종합 리뷰 사이트</title>
 </head>
 <body>
@@ -49,47 +50,82 @@
     <main class="myreview">
         <section class="myreview-content">
             <div class="myreview-content__container container">
-                <header class="section__headings">
-                    <h2 class="section__heading">나의 리뷰</h2>
-                </header>
-                <ul class="myreview-content__list">
-                    <li class="myreview-content__item">
-                        <a href="#" class="myreview-content__link">
-                            <img src="../img/sample2.jpg">
-                        </a>
-                    </li>
-                    <li class="myreview-content__item">
-                        <a href="#" class="myreview-content__link">
-                            <img src="../img/sample2.jpg">
-                        </a>
-                    </li>
-                    <li class="myreview-content__item">
-                        <a href="#" class="myreview-content__link">
-                            <img src="../img/sample2.jpg">
-                        </a>
-                    </li>
-                </ul>
+
+                <aside class="mypage-side-menu">
+                    <ul class="mypage-side-menu__list">
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">프로필</a>
+                        </li>
+                        <li class="mypage-side-menu__item active">
+                            <a href="#" class="mypage-side-menu__link">나의 리뷰</a>
+                        </li>
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">좋아요</a>
+                        </li>
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">팔로우</a>
+                        </li>
+                        <li class="mypage-side-menu__item">
+                            <a href="#" class="mypage-side-menu__link">회원 탈퇴</a>
+                        </li>
+                    </ul>
+                </aside>
+                <!-- myPage-side-menu -->
+
+                <article class="section__content">
+                    <header class="section__headings">
+                        <h2 class="section__heading">나의 리뷰</h2>
+                    </header>
+                    <ul class="myreview-content__list">
+                        <li class="myreview-content__item">
+                            <a href="#" class="myreview-content__link">
+                                <h3 class="myreview-content__title">title</h3>
+                                <img src="../img/sample2.jpg">
+                            </a>
+                        </li>
+                        <li class="myreview-content__item">
+                            <a href="#" class="myreview-content__link">
+                                <h3 class="myreview-content__title">title</h3>
+                                <img src="../img/sample2.jpg">
+                            </a>
+                        </li>
+                        <li class="myreview-content__item">
+                            <a href="#" class="myreview-content__link">
+                                <h3 class="myreview-content__title">title</h3>
+                                <img src="../img/sample2.jpg">
+                            </a>
+                        </li>
+                        <li class="myreview-content__item">
+                            <a href="#" class="myreview-content__link">
+                                <h3 class="myreview-content__title">title</h3>
+                                <img src="../img/sample2.jpg">
+                            </a>
+                        </li>
+                        <li class="myreview-content__item">
+                            <a href="#" class="myreview-content__link">
+                                <h3 class="myreview-content__title">title</h3>
+                                <img src="../img/sample2.jpg">
+                            </a>
+                        </li>
+                        <li class="myreview-content__item">
+                            <a href="#" class="myreview-content__link">
+                                <h3 class="myreview-content__title">title</h3>
+                                <img src="../img/sample2.jpg">
+                            </a>
+                        </li>
+                        <li class="myreview-content__item">
+                            <h3 class="myreview-content__title">title</h3>
+                            <a href="#" class="myreview-content__link">
+                                <img src="../img/sample2.jpg">
+                            </a>
+                        </li>
+                    </ul>            
+                </article>
             </div>
         </section>
-        <aside class="mypage-side-menu">
-            <ul class="mypage-side-menu__list">
-                <li class="mypage-side-menu__item">
-                    <a href="#" class="mypage-side-menu__link">프로필</a>
-                </li>
-                <li class="mypage-side-menu__item active">
-                    <a href="#" class="mypage-side-menu__link">나의 리뷰</a>
-                </li>
-                <li class="mypage-side-menu__item">
-                    <a href="#" class="mypage-side-menu__link">좋아요</a>
-                </li>
-                <li class="mypage-side-menu__item">
-                    <a href="#" class="mypage-side-menu__link">팔로우</a>
-                </li>
-                <li class="mypage-side-menu__item">
-                    <a href="#" class="mypage-side-menu__link">회원 탈퇴</a>
-                </li>
-            </ul>
-        </aside>
+        <!-- myPage-myreview -->
+
+        
     </main>
 
     <footer class="footer">

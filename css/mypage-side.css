@@ -1,0 +1,19 @@
+.mypage-side-menu {
+    position: absolute;
+    width: 12.5rem;
+}
+
+.mypage-side-menu__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--font-medium);
+}
+
+.mypage-side-menu__item.active {
+    font-weight: bold;
+}
+
+.mypage-side-menu__item {
+    margin-bottom: 2.5rem;
+}

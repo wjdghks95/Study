@@ -1,0 +1,47 @@
+.profile-info__container {
+    position: relative;
+}
+
+.section__content {
+    margin: 0 auto;
+    width: 1024px;
+}
+
+.profile-info__list {
+    padding: 2.25rem 1.75rem;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 10px;
+}
+
+.profile-info__item {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem .625rem;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.profile-info__field {
+    flex-basis: 20%;
+    color: var(--color-gray);
+}
+
+.profile-info__field-text {
+    flex-basis: 70%;
+}
+
+.profile-info__field-image {
+    overflow: hidden;
+    width: 4.375rem;
+    height: 4.375rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-info__field-button {
+    width: 4.375rem;
+}
+
+.default-btn {
+    padding: .5rem;
+    font-size: var(--font-micro);
+}

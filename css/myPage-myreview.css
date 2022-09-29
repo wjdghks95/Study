@@ -1,0 +1,39 @@
+.myreview-content__container {
+    position: relative;
+}
+
+.section__content {
+    margin: 0 auto;
+    width: 1024px;
+}
+
+.myreview-content__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.myreview-content__item {
+    position: relative;
+    overflow: hidden;
+    width: 30%;
+    margin-bottom: 1.875rem;
+}
+
+.myreview-content__item:hover .myreview-content__title {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.myreview-content__title {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--color-white);
+    text-align: center;
+    line-height: 12rem;
+    transform: translateY(70%);
+    opacity: 0;
+    transition: all .2s ease-out;
+}

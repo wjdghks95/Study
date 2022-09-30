@@ -2,6 +2,9 @@ const fadeSwiper = new Swiper('.fade-swiper', {
     // Optional parameters
     spaceBetween: 30,
     effect: "fade",
+	fadeEffect: {
+		crossFade: true,
+	},
     loop: true,
 
     autoplay: {

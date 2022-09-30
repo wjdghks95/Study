@@ -15,10 +15,6 @@
     height: 33.875rem;
 }
 
-.section__heading--white {
-    color: var(--color-white);
-}
-
 /* rol-pick */
 .rol-pick__list {
     display: flex;

@@ -213,32 +213,6 @@ textarea::placeholder {
     transition: all .1s ease-in;
 }
 
-.photo-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-light-gray);
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-
-.upload-review__photo-icon {
-    width: 100px;
-    height: 100px;
-}
-
-.upload-review__photo-icon img {
-    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(79deg) brightness(105%) contrast(106%);
-}
-
-.photo-btn p {
-    color: var(--color-white);
-}
-
 .add-btn {
     width: 100%;
     height: 100%;
@@ -295,7 +269,7 @@ textarea::placeholder {
 
 /* section */
 .container {
-    width: 1440px;
+    max-width: 1440px;
     padding: 4rem 0;
     margin: 0 auto;
 }

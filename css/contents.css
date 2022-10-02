@@ -60,7 +60,8 @@
     align-items: center;
 }
 
-.category__content-body > h4 {
+.category__content-title,
+.category__content-author {
     display: inline-block;
 	width: 100%;
 	white-space: nowrap;
@@ -68,9 +69,14 @@
 	text-overflow: ellipsis;
 }
 
+.category__content-title > a:hover,
+.category__content-author > a:hover {
+    text-decoration: underline;
+}
+
 .category__content--gallery {
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
     flex-wrap: wrap;
 }
 
@@ -96,8 +102,8 @@
 }
 
 .category__content--board {
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
     flex-wrap: wrap;
 }
 

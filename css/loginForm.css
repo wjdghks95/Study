@@ -1,67 +1,66 @@
-.sign-in__container {
-    padding-left: 24rem;
-    padding-right: 24rem;
+.login-model__container {
+    width: 768px;
 }
 
-.sign-in__content {
+.login-model__inner {
     padding: 4rem;
     border: 2px solid var(--color-gray);
     border-radius: 20px;
 }
 
-.sign-in__normal {
+.login-model-type {
     margin-bottom: 3rem;
 }
 
-.sign-in__headings {
+.login-model-type__headings {
     margin-bottom: 1.875rem;
 }
 
-.sign-in__headings p {
-    color: var(--color-gray);
-    font-weight: 600;
+.login-model-type__heading {
+    margin-bottom: 1rem;
 }
 
-.find-member a {
+.login-model-type__subheading {
+    color: var(--color-gray);
+    font-weight: bold;
+}
+
+.form__label {
+    font-size: var(--font-small) !important;
+}
+
+.find-account a {
     color: var(--color-gray);
 }
 
-.find-member a:first-child {
+.find-account a:first-child {
     position: relative;
     margin-right: 1.25rem;
 }
 
-.find-member a:first-child::after {
+.find-account a:first-child::after {
     content: "";
     position: absolute;
     right: -1rem;
     bottom: .3125rem;
-    width: 0.375rem;
-    height: 0.375rem;
+    width: 0.25rem;
+    height: 0.25rem;
     border-radius: 50%;
     background-color: var(--color-gray);
     pointer-events: none;
 }
 
-.sign-in__sns {
-    margin-bottom: 2rem;
-}
-
-.sign-in__sns-list {
+.login-model-type__oauth2 {
     display: flex;
-    height: 4.375rem;
+    height: 3.25rem;
 }
 
-.sign-in__sns-item {
+.login-model__oauth2-provider {
     height: 100%;
     margin-right: 1.875rem;
 }
 
-.sign-in__sns-link {
+.login-model__oauth2-link {
     display: block;
     height: 100%;
-}
-
-#sign-in__sns-google {
-    transform: scale(1.1);
 }

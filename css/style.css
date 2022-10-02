@@ -103,19 +103,14 @@ input[type="password"] {
     margin-bottom: 1rem;
 }
 
-.form__wrapper {
+.form__row-wrapper {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
 }
 
-.form__input-box {
+.form__input-container {
     flex-basis: 75%;
-}
-
-.form__submit-button {
-    width: auto;
-    height: 5.5rem;
 }
 
 .form__select {
@@ -127,11 +122,11 @@ input[type="password"] {
     font-size: var(--font-small);
 }
 
-.form__label {
+.form__label:not(:last-child) {
     display: block;
     margin-bottom: 0.625rem;
     font-size: var(--font-medium);
-    font-weight: 600;
+    font-weight: bold;
 }
 
 /* img */
@@ -382,6 +377,7 @@ textarea::placeholder {
 
 .header__menu-link {
     display: block;
+    padding: 1rem 0;
 }
 
 .header__util-buttons {

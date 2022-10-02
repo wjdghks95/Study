@@ -94,8 +94,15 @@ input[type="checkbox"] {
     margin-right: 0.3125rem;
 }
 
-input[type="password"] {
-    margin-top: .5rem;
+/* select */
+select {
+    display: block;
+    padding: 0.625rem 0.875rem;
+    width: 100%;
+    border: 1px solid var(--color-gray);
+    border-radius: 4px;
+    color: var(--color-black);
+    font-size: var(--font-small);
 }
 
 /* form */
@@ -110,22 +117,13 @@ input[type="password"] {
 }
 
 .form__input-container {
-    flex-basis: 75%;
-}
-
-.form__select {
-    display: block;
-    padding: 0.625rem 0.875rem;
-    width: 100%;
-    border: 1px solid var(--color-gray);
-    border-radius: 4px;
-    font-size: var(--font-small);
+    flex-basis: 70%;
 }
 
 .form__label:not(:last-child) {
     display: block;
     margin-bottom: 0.625rem;
-    font-size: var(--font-medium);
+    font-size: var(--font-medium-small);
     font-weight: bold;
 }
 

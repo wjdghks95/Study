@@ -5,33 +5,39 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta author="LeeJeongHwan">
-        <meta description="종합 리뷰 웹 애플리케이션">
+        <meta description="내가 내돈으로 직접 주고 산 제품이나 경험과 같은 모든 것들의 좋았던 점 또는 아쉬웠던 점을 사람들과 공유할 수 있는 웹 애플리케이션">
         <link rel="shortcut icon" href="#">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/signUpForm.css">
-        <title>종합 리뷰 사이트</title>
+        <title>회원가입</title>
     </head>
 <body>
     <header>
         <div class="header__container container">
             <div class="header__wrapper">
                 <div class="header__logo-area">
-                    <a href="#" class="header__logo">
+                    <a href="../html/index.html" class="header__logo">
                         <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
                     </a>
                 </div>
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li class="header__menu-item"><a href="#" class="header__menu-link">Home</a></li>
-                        <li class="header__menu-item"><a href="#" class="header__menu-link">Category</a></li>
-                        <li class="header__menu-item"><a href="#" class="header__menu-link">MyPage</a></li>
+                        <li class="header__menu-item">
+                            <a href="../html/index.html" class="header__menu-link">Home</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="../html/contents.html" class="header__menu-link">Contents</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="../html/myPage-profile.html" class="header__menu-link">MyPage</a>
+                        </li>
                     </ul>
                     <ul class="header__util-buttons">
                         <li class="header__util-button">
-                            <button type="button" class="login-btn" onclick="location.href='/login'">Login</button>
+                            <button type="button" class="util-btn" onclick="location.href='/login'">Login</button>
                         </li>
                         <li class="header__util-button">
-                            <button type="button" class="signUp-btn" onclick="location.href='/signUp'">SignUp</button>
+                            <button type="button" class="util-btn" onclick="location.href='/signUp'">SignUp</button>
                         </li>
                     </ul>
                 </nav>
@@ -45,82 +51,84 @@
             <div class="banner__container container">
                 <article class="section__content">
                     <header class="section__headings">
-                        <h2 class="section__heading">SignUp</br>회원가입 페이지입니다.</h2>
+                        <h2 class="section__heading">회원가입</h2>
                     </header>
                 </article>
             </div>
         </section>
         <!-- banner -->
 
-        <section class="sign-up__form">
-            <div class="sign-up__container container">
-                <article class="section__content sign-up__content">
-                    <form action="/sign-up" method="post">
-                        <label for="phone-number-input" class="form__label">휴대폰 번호</label>
-                        <div class="form__group form__wrapper">
-                            <div class="form__input-box">
-                                <input type="text" name="phone-number" id="phone-number-input" placeholder="휴대폰 번호(-없이 입력해주세요)">
-                            </div>
-                            <div class="form__submit-button">
-                                <button type="button" class="default-btn">인증번호 발송</button>
-                            </div>
-                        </div>
-                        <label for="email-input" class="form__label">이메일</label>
-                        <div class="form__group form__wrapper">
-                            <input type="text" name="email" id="email-input" placeholder="이메일 ID">
-                            <span class="email-symbol">@</span>
-                            <input type="text" name="email--hidden" id="email-input--hidden">
-                            <select name="email-address" id="email-select" class="form__select">
-                                <option value="" disabled selected>이메일 주소</option>
-                                <option value="input">직접선택</option>
-                                <option value="naver.com">naver.com</option>
-                                <option value="daum.net">daum.net</option>
-                                <option value="hanmail.net">hanmail.net</option>
-                                <option value="nate.com">nate.com</option>
-                                <option value="gmail.com">gmail.com</option>
-                            </select>
-                        </div>
-                        <label for="password-input" class="form__label">비밀번호</label>
+        <section class="sign-up-model">
+            <div class="sign-up-model__container container">
+                <article class="section__content">
+                    <form action="/sign-up" method="post" class="sign-up-model__form">
                         <div class="form__group">
-                            <input type="password" name="password" id="password-input" placeholder="비밀번호(최소 8자 이상)">
-                            <input type="password" name="password-confirm" id="password-confirm-input" placeholder="비밀번호 확인">
-                        </div>
-                        <label for="username-input" class="form__label">이름</label>
-                        <div class="form__group">
-                            <input type="text" name="username" id="username-input" placeholder="이름">
-                        </div>
-                        <label for="nickname-input" class="form__label">닉네임</label>
-                        <div class="form__group">
-                            <input type="text" name="nickname" id="nickname-input" placeholder="닉네임(최소2자~8자)">
-                        </div>
-                        <label class="form__label">주소</label>
-                        <div class="form__group">
-                            <div class="form__wrapper">
-                                <div class="form__input-box">
-                                    <input type="text" name="zipcode" id="zipcode-input" placeholder="우편번호" disabled>
+                            <label for="user[phone-number]" class="form__label">휴대폰 번호</label>
+                            <div class="form__row-wrapper">
+                                <div class="form__input-container">
+                                    <input type="text" name="phone-number" id="user[phone-number]" placeholder="휴대폰 번호(-없이 입력해주세요)">
                                 </div>
-                                <div class="form__submit-button">
+                                <div>
+                                    <button type="button" class="default-btn">인증번호 발송</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <label for="user[email]" class="form__label">이메일</label>
+                            <div class="form__row-wrapper">
+                                <input type="text" name="email" id="user[email]" placeholder="이메일 ID">
+                                <span class="email-symbol">@</span>
+                                <select name="email-address" id="email-address-drop-down">
+                                    <option value="" disabled selected style="display: none">이메일 주소</option>
+                                    <option class="email-address-drop-down__item">직접입력</option>
+                                    <option class="email-address-drop-down__item" value="naver.com">naver.com</option>
+                                    <option class="email-address-drop-down__item" value="daum.net">daum.net</option>
+                                    <option class="email-address-drop-down__item" value="hanmail.net">hanmail.net</option>
+                                    <option class="email-address-drop-down__item" value="nate.com">nate.com</option>
+                                    <option class="email-address-drop-down__item" value="gmail.com">gmail.com</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <label for="user[password]" class="form__label">비밀번호</label>
+                            <input type="password" name="password" id="user[password]" placeholder="비밀번호(최소 8자 이상)">
+                            <input type="password" name="password-confirm" id="user[password-confirm]" placeholder="비밀번호 확인">
+                        </div>
+                        <div class="form__group">
+                            <label for="user[name]" class="form__label">이름</label>
+                            <input type="text" name="username" id="user[name]" placeholder="이름">
+                        </div>
+                        <div class="form__group">
+                            <label for="user[nickname]" class="form__label">닉네임</label>
+                            <input type="text" name="nickname" id="user[nickname]" placeholder="닉네임(최소2자~8자)">
+                        </div>
+                        <div class="form__group">
+                            <label class="form__label">주소</label>
+                            <div class="form__row-wrapper">
+                                <div class="form__input-container">
+                                    <input type="text" name="zipcode" id="user[zipcode]" placeholder="우편번호" disabled>
+                                </div>
+                                <div>
                                     <button type="button" class="default-btn">주소 검색</button>
                                 </div>
                             </div>
-                            <input type="text" name="address" id="address-input" placeholder="주소" disabled>
-                            <input type="text" name="address-detail" id="address-detail-input" placeholder="상세주소">
+                            <input type="text" name="address" id="user[address]" placeholder="주소" disabled>
+                            <input type="text" name="address-detail" id="user[address-detail]" placeholder="상세주소">
                         </div>
                     </form>
-                    <div class="form__submit-button sign-up-button">
+                    <div class="sign-up-model__submit-button">
                         <button type="submit" class="default-btn">가입 완료하기</button>
                     </div>
                 </article> 
             </div>
         </section>
-        <!-- sign-up -->
+        <!-- sign-up-model -->
     </main>
 
     <footer class="footer">
         <div class="footer__container container">
             <header class="section__headings">
-                <h2 class="section__heading">Footer</h2>
-                <p class="section__subheading">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur reprehenderit vitae quos neque laudantium!</p>
+                <h2 class="section__heading section__heading--white">Let's talk</h2>
             </header>
             <article class="section__content">
                 <ul class="footer__contact">
@@ -146,7 +154,7 @@
                     </li>
                 </ul>
                 <p class="footer__copyright">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Copyright ⓒ 2022 - All rights reserved by wjdghks95
                 </p>
             </article>
         </div>

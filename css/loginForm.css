@@ -1,5 +1,6 @@
 .login-model__container {
-    width: 768px;
+    padding-left: 24rem;
+    padding-right: 24rem;
 }
 
 .login-model__inner {

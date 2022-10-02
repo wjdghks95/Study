@@ -61,8 +61,8 @@
 
         <section class="login-model">
             <div class="login-model__container container">
-                <article class="login-model__inner">
-                    <div class="login-model-type">
+                <div class="login-model__inner">
+                    <article class="login-model-type">
                         <header class="login-model-type__headings">
                             <h3 class="login-model-type__heading">일반 로그인</h3>
                             <p class="login-model-type__subheading">아이디/비밀번호를 활용한 로그인 방식입니다.</p>
@@ -77,13 +77,13 @@
                                         <input type="password" name="password" placeholder="비밀번호">
                                     </label>
                                 </div>
-                                <div class="form__submit-button">
+                                <div>
                                     <button type="submit" class="default-btn">로그인</button>
                                 </div>
                             </div>
                             <div class="form__group form__row-wrapper">
-                                <label for="remember-me" class="form__label">
-                                    <input type="checkbox" name="remember-me" id="remember-me">아이디 저장
+                                <label for="user[remember-me]" class="form__label">
+                                    <input type="checkbox" name="remember-me" id="user[remember-me]">아이디 저장
                                 </label>
                                 <div class="find-account">
                                     <a href="#">아이디 찾기</a>
@@ -91,8 +91,8 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <div class="login-model-type">
+                    </article>
+                    <article class="login-model-type">
                         <header class="login-model-type__headings">
                             <h3 class="login-model-type__heading">SNS 로그인</h2>
                             <p class="login-model-type__subheading">SNS 계정을 활용한 로그인 방식입니다.</p>
@@ -114,8 +114,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </article>
+                    </article>
+                </div>
             </div>
         </section>
         <!-- login-model -->

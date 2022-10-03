@@ -90,6 +90,7 @@
 
 .tag-in__list {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -99,7 +100,8 @@
 
 .tag-in__item > span {
     font-size: var(--font-micro);
-    color: var(--color-gray);
+    color: var(--color-blue);
+    background-color: var(--color-light-blue);
 }
 
 .review-model__submit-button {

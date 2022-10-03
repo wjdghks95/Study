@@ -5,7 +5,7 @@ export default class Rating {
         this.totalStar = 0;
     }
 
-    action() {
+    onEventListener() {
         this.stars.forEach((star, index) => {
             star.dataset.rating = index + 1;
             star.addEventListener('mouseover', this._onMouseOver);

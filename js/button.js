@@ -1,10 +1,10 @@
 export class SubmitBtn {
-    constructor() {
+    constructor(button) {
+        this.submitBtn = document.querySelector(button);
         this.form = document.querySelector('form');
-        this.submitBtn = document.querySelector('.form__submit-button');
     }
 
-    onSubmit() {
+    onClick() {
         this.submitBtn.addEventListener('click', (e) => {
             this.form.submit();
         })
@@ -14,14 +14,14 @@ export class SubmitBtn {
 export class ImgUploadBtn {
     constructor(element) {
         this.uploadBtn = document.querySelector(element);
-        this.fileInput = document.querySelector(element + ' #file-input');
+        this.fileInput = document.querySelector(element + ' input');
 
         this.wrapper = document.querySelector(element + " .swiper-wrapper");
         this.nextBtn = document.querySelector(element + " .swiper-button-next");
         this.prevBtn = document.querySelector(element + " .swiper-button-prev");
     }
 
-    onUpload() {
+    upload() {
         this.uploadBtn.addEventListener('click', (e) => {
             if (e.target == this.nextBtn || e.target == this.prevBtn) {
                 return;

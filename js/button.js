@@ -34,12 +34,13 @@ export class ImgUploadBtn {
     _getImageFile = (e) => {
         const uploadFiles = [];
         const files = e.currentTarget.files;
+        const count = [...files].length;
 
-        if ([...files].length == 0) {
+        if (count == 0) {
             return;
         }
 
-        if ([...files].length > 10) {
+        if (count > 10) {
             alert('이미지는 최대 10개까지 업로드가 가능합니다.');
             return;
         }
@@ -62,11 +63,23 @@ export class ImgUploadBtn {
             }
             reader.readAsDataURL(file);
         })
+
+        const uploadInfo = document.createElement('p');
+        let fileName;
+        if (count == 1) {
+            [...files].forEach(file => {
+                fileName = file.name;
+            })
+        } else {
+                fileName = count + '개의 사진중 썸네일로 지정할 사진을 위치시켜주세요';
+        }
+        uploadInfo.innerHTML = fileName;
+        this.uploadBtn.appendChild(uploadInfo);
     }
 
     
     _init() {
-    const photoBtn = document.querySelector('.photo-btn');
+        const photoBtn = document.querySelector('.photo-btn');
         if (photoBtn != null) {
             photoBtn.remove();
         }
@@ -79,6 +92,12 @@ export class ImgUploadBtn {
                 slide.remove();
             })
         }
+
+        this.uploadBtn.childNodes.forEach(child  => {
+            if (child.tagName == 'P') {
+                child.remove();
+            }
+        })
     }
 
     _createPhoto(e, file) {
@@ -104,10 +123,8 @@ export class ActiveToggle {
     }
 
     on() {
-        this.button.addEventListener('click', this._toggle);
-    }
-
-    _toggle = (e) => {
-        this.button.classList.toggle('active');
+        this.button.addEventListener('click', () => {
+            this.button.classList.toggle('active');
+        });
     }
 }

@@ -12,7 +12,16 @@
 }
 
 .review-model__photo {
-    flex-basis: 45%;
+    width: 45%;
+}
+
+.review-model__photo > p {
+    margin-top: .5rem;
+    font-size: var(--font-small);
+    font-weight: bold;
+    color: var(--color-red);
+    text-align: right;
+    pointer-events: none;
 }
 
 .photo-btn {

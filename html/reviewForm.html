@@ -58,19 +58,21 @@
             </header>
             <form action="#" method="post" class="review-model__form">
                 <div class="form__row-wrapper">
-                    <div class="review-model__photo single-slide-swiper swiper">
-                        <div class="swiper-wrapper">
-                            <button type="button" class="photo-btn">
-                                <div class="photo-icon">
-                                    <img src="../icon/camera.svg" alt="camera">
-                                </div>
-                                <p>사진 올리기</p>
-                                <p><small>(* 최대 10장까지)</small></p>
-                            </button>
+                    <div class="review-model__photo">
+                        <div class="single-slide-swiper swiper">
+                            <div class="swiper-wrapper">
+                                <button type="button" class="photo-btn">
+                                    <div class="photo-icon">
+                                        <img src="../icon/camera.svg" alt="camera">
+                                    </div>
+                                    <p>사진 올리기</p>
+                                    <p><small>(* 최대 10장까지)</small></p>
+                                </button>
+                            </div>
+                            <div class="swiper-button-next" style="display: none"></div>
+                            <div class="swiper-button-prev" style="display: none"></div>
                         </div>
-                        <div class="swiper-button-next" style="display: none"></div>
-                        <div class="swiper-button-prev" style="display: none"></div>
-                        <input type="file" accept=".jpg, .png" required multiple style="display: none" >
+                        <input type="file" accept=".jpg, .png" required multiple style="display: none;" >
                     </div>
                     <div class="review-model__info">
                         <div class="form__group">

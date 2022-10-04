@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../css/swiper.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="../js/swiper.js" defer></script>
+    <script type="module" src="../js/contents.js"></script>
     <title>콘텐츠</title>
 </head>
 <body>
@@ -109,13 +110,13 @@
 
                 <ul class="category__viewer-buttons">
                     <li class="category__viewer-button">
-                        <button type="button" class="background-img-btn" style="background-image: url(../icon/grid.svg); transform: scale(1.1);"></button>
+                        <button type="button" class="viewer-btn" style="background-image: url(../icon/grid.svg); transform: scale(1.1);"></button>
                     </li>
                     <li class="category__viewer-button">
-                        <button type="button" class="background-img-btn" style="background-image: url(../icon/list.svg)"></button>
+                        <button type="button" class="viewer-btn" style="background-image: url(../icon/list.svg)"></button>
                     </li>
                     <li class="category__viewer-button">
-                        <button type="button" class="background-img-btn" style="background-image: url(../icon/tag.svg)"></button>
+                        <button type="button" class="viewer-btn" style="background-image: url(../icon/tag.svg)"></button>
                     </li>
                 </ul>
 
@@ -209,9 +210,7 @@
         <div class="search-form__container container">
             <form action="#" class="search-form" method="post">
                 <div class="search-form__tag-button">
-                    <button type="button" class="tag-btn">
-                        <img src="../icon/tag.svg" alt="tag">
-                    </button>
+                    <button type="button" class="tag-btn"></button>
                 </div>
                 <div class="search-form__search-bar">
                     <input type="search" class="search-form__input" placeholder="검색어를 입력하세요">

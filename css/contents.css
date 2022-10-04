@@ -35,7 +35,7 @@
     margin-left: 1.25rem;
 }
 
-.category__viewer-button:hover > .background-img-btn {
+.category__viewer-button:hover > .viewer-btn {
     filter: invert(26%) sepia(74%) saturate(3738%) hue-rotate(209deg) brightness(100%);
 }
 
@@ -81,8 +81,8 @@
 }
 
 .category__content--list {
-    /* display: none;  */
-    display: table;
+    display: none; 
+    /* display: table; */
     text-align: center;
     width: 100%;
     margin-bottom: 3rem;
@@ -102,8 +102,8 @@
 }
 
 .category__content--board {
-    /* display: none; */
-    display: flex;
+    display: none;
+    /* display: flex; */
     flex-wrap: wrap;
 }
 

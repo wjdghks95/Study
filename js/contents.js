@@ -25,7 +25,6 @@ viewerBtns.forEach(viewerBtn => {
         } else {
             contents[2].style.display = 'none';
         }
-        
     })
 })
 

@@ -1,4 +1,4 @@
-const viewerBtns = document.querySelectorAll('.category__viewer-button');
+const viewerBtns = document.querySelectorAll('.viewer-btn');
 const contents = document.querySelectorAll('.category__content');
 
 viewerBtns.forEach(viewerBtn => {

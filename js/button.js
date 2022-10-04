@@ -68,10 +68,10 @@ export class ImgUploadBtn {
         let fileName;
         if (count == 1) {
             [...files].forEach(file => {
-                fileName = file.name;
+                fileName = `해당 사진을 썸네일로 등록합니다. (${file.name})`;
             })
         } else {
-                fileName = count + '개의 사진중 썸네일로 지정할 사진을 위치시켜주세요';
+                fileName = `해당 사진을 썸네일로 등록합니다. (업로드할 사진 수 ${count}개)`;
         }
         uploadInfo.innerHTML = fileName;
         this.uploadBtn.appendChild(uploadInfo);

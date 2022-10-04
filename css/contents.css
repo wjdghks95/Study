@@ -1,4 +1,8 @@
 /* category */
+.category__container {
+    padding-bottom: 2rem;
+}
+
 .swiper {
     height: 3.125rem !important;
 }
@@ -113,5 +117,5 @@
 }
 
 .tag-btn {
-    filter: invert(68%) sepia(16%) saturate(1699%) hue-rotate(156deg) brightness(89%) contrast(93%);
+    filter: invert(50%) sepia(68%) saturate(2716%) hue-rotate(171deg) brightness(94%) contrast(92%);
 }

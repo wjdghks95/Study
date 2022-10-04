@@ -3,7 +3,6 @@ const followBtn = document.querySelector('.detail-review-content__author-follow-
 
 followBtn.addEventListener('click', () => {
     const button = followBtn.children[0];
-    console.log(button);
     button.classList.toggle('default-btn--white');
 
     if (button.classList.contains('default-btn--white')) {

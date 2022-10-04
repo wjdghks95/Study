@@ -159,11 +159,6 @@
     padding: 1rem .625rem;
 }
 
-.pagination {
-    border: none;
-    width: 35%;
-}
-
 .pagination-btn { 
     border: 2px solid var(--color-gray);
     margin: 0 .625rem;

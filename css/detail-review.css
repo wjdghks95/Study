@@ -53,6 +53,10 @@
     font-weight: bold;
 }
 
+.detail-review-content__author-follow-button {
+    width: 6.25rem;
+}
+
 .detail-review-content__tags {
     display: flex;
     margin: .625rem 0 0;

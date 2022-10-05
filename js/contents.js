@@ -31,15 +31,14 @@ viewerBtns.forEach(viewerBtn => {
 
 // tagButton
 const tagBtn = document.querySelector('.tag-btn');
-const tag = document.querySelector('.tag-swiper');
+const searchTag = document.querySelector('.search-tag');
 tagBtn.addEventListener('click', () => {
-    tagBtn.classList.toggle('active');
-    
-    if (tagBtn.classList.contains('active')) {
-        tag.style.display = "block";
-        tagBtn.style.position = "absolute";
-    } else {
-        tag.style.display = "none";
-        tagBtn.style.position = "static";
-    }
+    searchTag.style.display = 'block';
+    tagBtn.style.display = 'none';
+
+    const xBtn = document.querySelector('.x-btn');
+    xBtn.addEventListener('click', () => {
+        searchTag.style.display = 'none';
+        tagBtn.style.display = 'block';
+    })
 })

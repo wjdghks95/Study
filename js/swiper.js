@@ -1,4 +1,4 @@
-const fadeSwiper = new Swiper('.fade-swiper', {
+new Swiper('.best-review-swiper', {
     // Optional parameters
     spaceBetween: 30,
     effect: "fade",
@@ -19,7 +19,7 @@ const fadeSwiper = new Swiper('.fade-swiper', {
     }
 });
 
-const slideSwiper = new Swiper(".slide-swiper", {
+new Swiper(".category-swiper", {
     slidesPerView: 10,    
     touchRatio: 0,
     navigation: {
@@ -28,24 +28,25 @@ const slideSwiper = new Swiper(".slide-swiper", {
     },
 });
 
-const slideSwiper2 = new Swiper(".slide-swiper2", {
-    slidesPerView: 5,    
-    touchRatio: 1,
-    freeMode: true,
-    speed: 5000,
-
+new Swiper(".tag-swiper", {
+    slidesPerView: 5, 
     loop: true,
     loopAdditionalSlides : 1,
 
-    autoplay: {
-        delay: 0,
-        disableOnInteraction: true,
-    },
+    touchRatio: 1,
+    speed: 3000,
+
     observer: true,
     observeParents: true,
+    autoplayDisableOnInteraction: false,
+
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false
+    },
 });
 
-const singleSlideSwiper = new Swiper(".single-slide-swiper", {
+new Swiper(".photo-swiper", {
     touchRatio: 0,
     observer: true,
     observeParents: true,

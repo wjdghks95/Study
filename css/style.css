@@ -499,61 +499,58 @@ textarea::placeholder {
     margin: 0 auto;
 }
 
-.search-form__tag {
-    display: block;
-    width: 80%;
-    border-radius: 4px;
-    padding: .2rem .4rem;
-}
-
-.tag-swiper {
+.search-tag {
     display: none;
+    position: relative;
+    width: 80%;
+    padding: .5rem;
+    padding-left: 2.4rem;
 }
 
-.slide-swiper2 {
-    overflow: hidden;
+.search-tag.active {
+    display: block;
 }
 
 .tag-btn {
-    position: static;
-    top: 2px;
-    left: 4px;
-    height: 40px;
-    width: 40px;
+    height: 34px;
+    width: 34px;
+    border: none;
     z-index: 100;
     background: url(../icon/tag-horizontal.svg) no-repeat center / 100% 100%;
-    border: none;
     cursor: pointer;
     filter: invert(100%) sepia(99%) saturate(0%) hue-rotate(299deg) brightness(107%) contrast(100%);
 }
 
-.tag-btn.active {
-    background: url(../icon/xmark.svg) no-repeat center / 70% 70%;
-    filter: inherit;
-    background-color: var(--color-white);
+.tag-btn:hover {
+    filter: invert(100%) sepia(4%) saturate(163%) hue-rotate(64deg) brightness(112%) contrast(86%);
+}
+
+.x-btn {
+    position: absolute;
+    top: 8px;
+    left: 2px;
+    height: 34px;
+    width: 34px;
+    z-index: 100;
+    background: url(../icon/xmark.svg) no-repeat center / 100% 100%;
     border: 2px solid var(--color-black);
     border-radius: 4px;
-    transition: all .1s ease-out;
-}
-
-.tag-btn.active:hover {
-    background-color: var(--color-light-white);
-}
-
-.slide-swiper2 {
-    overflow: hidden;
-}
-
-.tag-item-btn {
-    height: 38px;
-    padding: 0px 1em;
-    color: var(--color-black);
     cursor: pointer;
+    filter: invert(100%) sepia(99%) saturate(0%) hue-rotate(299deg) brightness(107%) contrast(100%);
+}
+
+.x-btn:hover {
+    filter: invert(100%) sepia(4%) saturate(163%) hue-rotate(64deg) brightness(112%) contrast(86%);
+}
+
+.tag-item {
+    height: 34px;
+    padding: 0 .7rem;
     border: none;
-    border-radius: 8px;
-    line-height: normal;
+    border-radius: 4px;
     font-size: var(--font-micro);
     font-weight: bold;
+    cursor: pointer;
 }
 
 .search-form__search-bar {
@@ -576,7 +573,7 @@ textarea::placeholder {
 .search-form__submit {
     width: 6.25rem;
     background-color: var(--color-blue);
-    border: 1px solid var(--color-black);
+    border: 1px solid var(--color-gray);
     color: var(--color-white);
     text-transform: uppercase;
     text-align: center;

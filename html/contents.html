@@ -67,7 +67,7 @@
         <section class="category">
             <div class="category__container container">
                 <div class="swiper">
-                    <div class="slide-swiper">
+                    <div class="category-swiper">
                         <ul class="category__list swiper-wrapper">
                             <li class="category__item swiper-slide">
                                 <a href="#" class="category__link active">전체</a>
@@ -209,26 +209,20 @@
 
         <div class="search-form__container container">
             <form action="#" class="search-form" method="post">
-                <button type="button" class="tag-btn"></button>
-                    <div class="search-form__tag">
-                        <div class="tag-swiper swiper">
-                            <div class="slide-swiper2">
-                                <ul class="search-form__tag-list swiper-wrapper">
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                    <li class="swiper-slide"><button type="button" class="tag-item-btn">#태그</button></li>
-                                </ul>
-                            </div>
+                <button type="button" class="tag-btn active"></button>
+                <div class="search-tag">
+                    <button type="button" class="x-btn"></button>
+                    <div class="swiper tag-swiper">
+                        <div class="swiper-wrapper">
+                            <li class="swiper-slide"><button type="button" class="tag-item">#태그1</button></li>
+                            <li class="swiper-slide"><button type="button" class="tag-item">#태그2</button></li>
+                            <li class="swiper-slide"><button type="button" class="tag-item">#태그3</button></li>
+                            <li class="swiper-slide"><button type="button" class="tag-item">#태그4</button></li>
+                            <li class="swiper-slide"><button type="button" class="tag-item">#태그5</button></li>
+                            <li class="swiper-slide"><button type="button" class="tag-item">#태그6</button></li>
                         </div>
                     </div>
+                </div>
                 <div class="search-form__search-bar">
                     <input type="search" class="search-form__input" placeholder="검색어를 입력하세요">
                     <button type="submit" class="search-form__submit">Search</button>

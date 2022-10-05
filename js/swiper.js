@@ -28,6 +28,23 @@ const slideSwiper = new Swiper(".slide-swiper", {
     },
 });
 
+const slideSwiper2 = new Swiper(".slide-swiper2", {
+    slidesPerView: 5,    
+    touchRatio: 1,
+    freeMode: true,
+    speed: 5000,
+
+    loop: true,
+    loopAdditionalSlides : 1,
+
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: true,
+    },
+    observer: true,
+    observeParents: true,
+});
+
 const singleSlideSwiper = new Swiper(".single-slide-swiper", {
     touchRatio: 0,
     observer: true,

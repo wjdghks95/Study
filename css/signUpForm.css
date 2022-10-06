@@ -1,39 +1,28 @@
-.sign-up__container {
-    padding-left: 24rem;
-    padding-right: 24rem;
-}
-
-.sign-up__content form {
-    padding: 4rem;
-    border: 2px solid var(--color-gray);
-    border-radius: 20px;
-}
-
-.form__submit-button {
-    width: auto;
-    height: 100%;
-}
-
 .default-btn {
     padding: 0.65rem;
     font-size: var(--font-micro);
 }
 
-.email-symbol {
-    margin: 0 0.625rem;
-}
-
-#email-input--hidden {
-    display: block;
-    margin-right: 0.625rem;
-}
-
-#address-input,
-#address-detail-input {
+.form__group input:not(:first-child) {
     margin-top: .5rem;
 }
 
-.form__submit-button.sign-up-button {
+.sign-up-model__container {
+    max-width: 768px;
+}
+
+.sign-up-model__form {
+    padding: 4rem;
+    border: 2px solid var(--color-gray);
+    border-radius: 20px;
+}
+
+.email-symbol {
+    margin: 0 0.625rem;
+    line-height: 2.5rem;
+}
+
+.sign-up-model__submit-button {
     width: 20%;
     margin: 1.625rem auto 0;
 }

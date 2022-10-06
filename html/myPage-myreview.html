@@ -5,40 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta author="LeeJeongHwan">
-    <meta description="종합 리뷰 웹 애플리케이션">
+    <meta description="내가 내돈으로 직접 주고 산 제품이나 경험과 같은 모든 것들의 좋았던 점 또는 아쉬웠던 점을 사람들과 공유할 수 있는 웹 애플리케이션">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/myPage-myreview.css">
-    <link rel="stylesheet" href="../css/mypage-side.css">
-    <title>종합 리뷰 사이트</title>
+    <link rel="stylesheet" href="../css/myPage.css">
+    <title>나의 리뷰</title>
 </head>
 <body>
     <header>
         <div class="header__container container">
             <div class="header__wrapper">
                 <div class="header__logo-area">
-                    <a href="#" class="header__logo">
+                    <a href="../html/index.html" class="header__logo">
                         <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
                     </a>
                 </div>
                 <nav class="header__nav">
                     <ul class="header__menu">
                         <li class="header__menu-item">
-                            <a href="#" class="header__menu-link">Home</a>
+                            <a href="../html/index.html" class="header__menu-link">Home</a>
                         </li>
                         <li class="header__menu-item">
-                            <a href="#" class="header__menu-link">Category</a>
+                            <a href="../html/contents.html" class="header__menu-link">Contents</a>
                         </li>
                         <li class="header__menu-item">
-                            <a href="#" class="header__menu-link">MyPage</a>
+                            <a href="../html/myPage-profile.html" class="header__menu-link">MyPage</a>
                         </li>
                     </ul>
                     <ul class="header__util-buttons">
                         <li class="header__util-button">
-                            <button type="button" class="login-btn" onclick="location.href='/login'">Logout</button>
+                            <button type="button" class="util-btn" onclick="location.href='/logout'">Logout</button>
                         </li>
                         <li class="header__util-button">
-                            <button type="button" class="signUp-btn" onclick="location.href='/signUp'">글쓰기</button>
+                            <button type="button" class="util-btn" onclick="location.href='/review/new'">글쓰기</button>
                         </li>
                     </ul>
                 </nav>
@@ -54,10 +53,10 @@
                 <aside class="mypage-side-menu">
                     <ul class="mypage-side-menu__list">
                         <li class="mypage-side-menu__item">
-                            <a href="#" class="mypage-side-menu__link">프로필</a>
+                            <a href="../html/myPage-profile.html" class="mypage-side-menu__link">프로필</a>
                         </li>
                         <li class="mypage-side-menu__item active">
-                            <a href="#" class="mypage-side-menu__link">나의 리뷰</a>
+                            <a href="../html/myPage-myreview.html" class="mypage-side-menu__link">나의 리뷰</a>
                         </li>
                         <li class="mypage-side-menu__item">
                             <a href="#" class="mypage-side-menu__link">좋아요</a>
@@ -66,7 +65,7 @@
                             <a href="#" class="mypage-side-menu__link">팔로우</a>
                         </li>
                         <li class="mypage-side-menu__item">
-                            <a href="#" class="mypage-side-menu__link">회원 탈퇴</a>
+                            <a href="../html/myPage-withdrawal.html" class="mypage-side-menu__link">회원 탈퇴</a>
                         </li>
                     </ul>
                 </aside>
@@ -79,43 +78,43 @@
                     <ul class="myreview-content__list">
                         <li class="myreview-content__item">
                             <a href="#" class="myreview-content__link">
-                                <h3 class="myreview-content__title">title</h3>
+                                <h4 class="myreview-content__title">리뷰입니다.</h4>
                                 <img src="../img/sample2.jpg">
                             </a>
                         </li>
                         <li class="myreview-content__item">
                             <a href="#" class="myreview-content__link">
-                                <h3 class="myreview-content__title">title</h3>
+                                <h4 class="myreview-content__title">리뷰입니다.</h4>
                                 <img src="../img/sample2.jpg">
                             </a>
                         </li>
                         <li class="myreview-content__item">
                             <a href="#" class="myreview-content__link">
-                                <h3 class="myreview-content__title">title</h3>
+                                <h4 class="myreview-content__title">리뷰입니다.</h4>
                                 <img src="../img/sample2.jpg">
                             </a>
                         </li>
                         <li class="myreview-content__item">
                             <a href="#" class="myreview-content__link">
-                                <h3 class="myreview-content__title">title</h3>
+                                <h4 class="myreview-content__title">리뷰입니다.</h4>
                                 <img src="../img/sample2.jpg">
                             </a>
                         </li>
                         <li class="myreview-content__item">
                             <a href="#" class="myreview-content__link">
-                                <h3 class="myreview-content__title">title</h3>
+                                <h4 class="myreview-content__title">리뷰입니다.</h4>
                                 <img src="../img/sample2.jpg">
                             </a>
                         </li>
                         <li class="myreview-content__item">
                             <a href="#" class="myreview-content__link">
-                                <h3 class="myreview-content__title">title</h3>
+                                <h4 class="myreview-content__title">리뷰입니다.</h4>
                                 <img src="../img/sample2.jpg">
                             </a>
                         </li>
                         <li class="myreview-content__item">
-                            <h3 class="myreview-content__title">title</h3>
                             <a href="#" class="myreview-content__link">
+                                <h4 class="myreview-content__title">리뷰입니다.</h4>
                                 <img src="../img/sample2.jpg">
                             </a>
                         </li>
@@ -124,15 +123,12 @@
             </div>
         </section>
         <!-- myPage-myreview -->
-
-        
     </main>
 
     <footer class="footer">
         <div class="footer__container container">
             <header class="section__headings">
-                <h2 class="section__heading">Footer</h2>
-                <p class="section__subheading">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur reprehenderit vitae quos neque laudantium!</p>
+                <h2 class="section__heading section__heading--white">Let's talk</h2>
             </header>
             <article class="section__content">
                 <ul class="footer__contact">
@@ -158,7 +154,7 @@
                     </li>
                 </ul>
                 <p class="footer__copyright">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Copyright ⓒ 2022 - All rights reserved by wjdghks95
                 </p>
             </article>
         </div>

@@ -5,40 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta author="LeeJeongHwan">
-    <meta description="종합 리뷰 웹 애플리케이션">
+    <meta description="내가 내돈으로 직접 주고 산 제품이나 경험과 같은 모든 것들의 좋았던 점 또는 아쉬웠던 점을 사람들과 공유할 수 있는 웹 애플리케이션">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/myPage-withdraw.css">
-    <link rel="stylesheet" href="../css/mypage-side.css">
-    <title>종합 리뷰 사이트</title>
+    <link rel="stylesheet" href="../css/myPage.css">
+    <title>회원 탈퇴</title>
 </head>
 <body>
     <header>
         <div class="header__container container">
             <div class="header__wrapper">
                 <div class="header__logo-area">
-                    <a href="#" class="header__logo">
+                    <a href="../html/index.html" class="header__logo">
                         <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
                     </a>
                 </div>
                 <nav class="header__nav">
                     <ul class="header__menu">
                         <li class="header__menu-item">
-                            <a href="#" class="header__menu-link">Home</a>
+                            <a href="../html/index.html" class="header__menu-link">Home</a>
                         </li>
                         <li class="header__menu-item">
-                            <a href="#" class="header__menu-link">Category</a>
+                            <a href="../html/contents.html" class="header__menu-link">Contents</a>
                         </li>
                         <li class="header__menu-item">
-                            <a href="#" class="header__menu-link">MyPage</a>
+                            <a href="../html/myPage-profile.html" class="header__menu-link">MyPage</a>
                         </li>
                     </ul>
                     <ul class="header__util-buttons">
                         <li class="header__util-button">
-                            <button type="button" class="login-btn" onclick="location.href='/login'">Logout</button>
+                            <button type="button" class="util-btn" onclick="location.href='/logout'">Logout</button>
                         </li>
                         <li class="header__util-button">
-                            <button type="button" class="signUp-btn" onclick="location.href='/signUp'">글쓰기</button>
+                            <button type="button" class="util-btn" onclick="location.href='/review/new'">글쓰기</button>
                         </li>
                     </ul>
                 </nav>
@@ -47,17 +46,17 @@
     </header>
     <!-- header -->
 
-    <main class="withdraw">
-        <section class="withdraw-content">
-            <div class="withdraw-content__container container">
+    <main class="withdrawal">
+        <section class="withdrawal-content">
+            <div class="withdrawal-content__container container">
 
                 <aside class="mypage-side-menu">
                     <ul class="mypage-side-menu__list">
                         <li class="mypage-side-menu__item">
-                            <a href="#" class="mypage-side-menu__link">프로필</a>
+                            <a href="../html/myPage-profile.html" class="mypage-side-menu__link">프로필</a>
                         </li>
                         <li class="mypage-side-menu__item">
-                            <a href="#" class="mypage-side-menu__link">나의 리뷰</a>
+                            <a href="../html/myPage-myreview.html" class="mypage-side-menu__link">나의 리뷰</a>
                         </li>
                         <li class="mypage-side-menu__item">
                             <a href="#" class="mypage-side-menu__link">좋아요</a>
@@ -66,52 +65,51 @@
                             <a href="#" class="mypage-side-menu__link">팔로우</a>
                         </li>
                         <li class="mypage-side-menu__item active">
-                            <a href="#" class="mypage-side-menu__link">회원 탈퇴</a>
+                            <a href="../html/myPage-withdrawal.html" class="mypage-side-menu__link">회원 탈퇴</a>
                         </li>
                     </ul>
                 </aside>
                 <!-- myPage-side-menu -->
 
                 <article class="section__content">
-                    <form action="#" method="post" class="withdraw-content__form">
-                        <h2 class="section__heading">회원 탈퇴</h2>
-                        <div class="withdraw-content__description">
-                            <span style="color: var(--color-red)">탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</span>
+                    <form action="#" method="post" class="withdrawal-content__form">
+                        <header class="section__headings">
+                            <h2 class="section__heading">회원 탈퇴</h2>
+                        </header>
+                        <div class="withdrawal-content__description withdrawal-content__description--red">
+                            <span>탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</span>
                         </div>
-                        <div class="withdraw-content__description">
+                        <div class="withdrawal-content__description">
                             <span>회원탈퇴 완료 후 복구가 불가한 것에 대해 인지하였으며 동의합니다.</span>
-                            <label class="withdraw-content__label">
-                                <input type="checkbox" class="withdraw-content__checkbox"> 동의
+                            <label class="withdrawal-content__label">
+                                <input type="checkbox" class="withdrawal-content__checkbox"> 동의
                             </label>
                         </div>
-                        <div class="withdraw-content__description">
+                        <div class="withdrawal-content__description">
                             <span>회원탈퇴 시 주의사항에 대해 확인하였으며 회원탈퇴에 동의합니다.</span>
-                            <label class="withdraw-content__label">
-                                <input type="checkbox" class="withdraw-content__checkbox"> 동의
+                            <label class="withdrawal-content__label">
+                                <input type="checkbox" class="withdrawal-content__checkbox"> 동의
                             </label>
                         </div>
-                        <ul class="withdraw-content__buttons">
-                            <li class="withdraw-content__button">
+                        <ul class="withdrawal-content__buttons">
+                            <li class="withdrawal-content__button">
                                 <button type="submit" class="default-btn">확인</button>
                             </li>
-                            <li class="withdraw-content__button">
-                                <button type="button" class="default-btn default-btn--white">취소</button>
+                            <li class="withdrawal-content__button">
+                                <button type="button" class="default-btn default-btn--white" onclick="location='../html/mypage-profile.html'">취소</button>
                             </li>
                         </ul>
                     </form>
                 </article>
             </div>
         </section>
-        <!-- myPage-withdraw -->
-
-        
+        <!-- myPage-withdrawal -->
     </main>
 
     <footer class="footer">
         <div class="footer__container container">
             <header class="section__headings">
-                <h2 class="section__heading">Footer</h2>
-                <p class="section__subheading">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur reprehenderit vitae quos neque laudantium!</p>
+                <h2 class="section__heading section__heading--white">Let's talk</h2>
             </header>
             <article class="section__content">
                 <ul class="footer__contact">
@@ -137,7 +135,7 @@
                     </li>
                 </ul>
                 <p class="footer__copyright">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Copyright ⓒ 2022 - All rights reserved by wjdghks95
                 </p>
             </article>
         </div>

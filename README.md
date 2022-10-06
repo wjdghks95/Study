@@ -60,29 +60,34 @@
         - 알림
         - 채팅
 4. 와이어프레임
-<div>
-    <img src="WireFrame\homedesktop.png" alt="홈" width="20%" height="100%" align="top"/>
-    <img src="WireFrame\categorygallerydesktop.png" alt="카테고리" width="20%" height="100%" align="top"/>
-    <img src="WireFrame\logindesktop.png" alt="로그인" width="20%" height="100%" align="top"/>
-    <img src="WireFrame\signupdesktop.png" alt="회원가입" width="20%" height="100%" align="top"/>
-</div>
-<div>
-    <img src="WireFrame\reviewdesktop.png" alt="리뷰" width="20%" height="100%" align="top"/>
-    <img src="WireFrame\writedesktop.png" alt="리뷰작성" width="20%" height="100%" align="top"/>
-    <img src="WireFrame\mypagedeletedesktop.png" alt="회원탈퇴" width="20%" height="100%" align="top"/>
-    <img src="WireFrame\mypagemyreview_thumbs_followdesktop.png" alt="마이페이지" width="20%" height="100%" align="top"/>
-</div>  
+    <div>
+        <img src="WireFrame\homedesktop.png" alt="홈" width="20%" height="100%" align="top"/>
+        <img src="WireFrame\categorygallerydesktop.png" alt="카테고리" width="20%" height="100%" align="top"/>
+        <img src="WireFrame\logindesktop.png" alt="로그인" width="20%" height="100%" align="top"/>
+        <img src="WireFrame\signupdesktop.png" alt="회원가입" width="20%" height="100%" align="top"/>
+    </div>
+    <div>
+        <img src="WireFrame\reviewdesktop.png" alt="리뷰" width="20%" height="100%" align="top"/>
+        <img src="WireFrame\writedesktop.png" alt="리뷰작성" width="20%" height="100%" align="top"/>
+        <img src="WireFrame\mypagedeletedesktop.png" alt="회원탈퇴" width="20%" height="100%" align="top"/>
+        <img src="WireFrame\mypagemyreview_thumbs_followdesktop.png" alt="마이페이지" width="20%" height="100%" align="top"/>
+    </div>  
 
 5. 마크업
-<div>
-    <img src="Markup\index.png" alt="홈" width="20%" height="100%"/>
-    <img src="Markup\contents.png" alt="콘텐츠" width="20%" height="100%" align="top"/>
-    <img src="Markup\loginForm.png" alt="로그인" width="20%" height="100%" align="top"/>
-    <img src="Markup\signUpForm.png" alt="회원가입" width="20%" height="100%" align="top"/>
-</div>
-<div>
-    <img src="Markup\detail-review.png" alt="상세리뷰" width="20%" height="100%"/>
-    <img src="Markup\reviewForm.png" alt="리뷰작성" width="20%" height="100%" align="top"/>
-    <img src="Markup\myPage-withdrawal.png" alt="로그인" width="20%" height="100%" align="top"/>
-    <img src="Markup\myPage-myreview.png" alt="회원가입" width="20%" height="100%" align="top"/>
-</div>
+    <div>
+        <img src="Markup\index.png" alt="홈" width="20%" height="100%"/>
+        <img src="Markup\contents.png" alt="콘텐츠" width="20%" height="100%" align="top"/>
+        <img src="Markup\loginForm.png" alt="로그인" width="20%" height="100%" align="top"/>
+        <img src="Markup\signUpForm.png" alt="회원가입" width="20%" height="100%" align="top"/>
+    </div>
+    <div>
+        <img src="Markup\detail-review.png" alt="상세리뷰" width="20%" height="100%"/>
+        <img src="Markup\reviewForm.png" alt="리뷰작성" width="20%" height="100%" align="top"/>
+        <img src="Markup\myPage-withdrawal.png" alt="로그인" width="20%" height="100%" align="top"/>
+        <img src="Markup\myPage-myreview.png" alt="회원가입" width="20%" height="100%" align="top"/>
+    </div>
+
+6. ERD
+    <div>
+        <img src="erd\rol-erd.png" alt="상세리뷰" width="100%" height="100%"/>
+    </div>

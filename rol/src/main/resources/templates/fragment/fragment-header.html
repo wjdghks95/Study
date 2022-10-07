@@ -1,0 +1,35 @@
+<header xmlns:th="http://www.thymeleaf.org" th:fragment="header">
+  <div class="header__container container">
+    <div class="header__wrapper">
+      <div class="header__logo-area">
+        <a href="../html/index.html" th:href="@{/}" class="header__logo">
+          <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
+        </a>
+      </div>
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li class="header__menu-item">
+            <a href="../html/index.html" th:href="@{/}" class="header__menu-link">Home</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="../html/contents.html" class="header__menu-link">Contents</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="../html/myPage-profile.html" class="header__menu-link">MyPage</a>
+          </li>
+        </ul>
+        <ul class="header__util-buttons">
+          <li class="header__util-button">
+            <button type="button" class="util-btn" onclick="location.href='/login'"
+                    th:onclick="|location.href='@{/login}'|">Login</button>
+          </li>
+          <li class="header__util-button">
+            <button type="button" class="util-btn" onclick="location.href='/signUp'"
+                    th:onclick="|location.href='@{/signUp}'|">SignUp</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- header -->

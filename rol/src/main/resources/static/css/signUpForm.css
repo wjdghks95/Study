@@ -1,0 +1,33 @@
+.default-btn {
+    padding: 0.65rem;
+    font-size: var(--font-micro);
+}
+
+.input--margin-top {
+    margin-top: .3rem;
+}
+
+.sign-up-model__container {
+    max-width: 768px;
+}
+
+.sign-up-model__form {
+    padding: 4rem;
+    border: 2px solid var(--color-gray);
+    border-radius: 20px;
+}
+
+.email-hidden {
+    display: none;
+    margin-right: .3rem;
+}
+
+.email-symbol {
+    margin: 0 0.625rem;
+    line-height: 2.5rem;
+}
+
+.sign-up-model__submit-button {
+    width: 20%;
+    margin: 1.625rem auto 0;
+}

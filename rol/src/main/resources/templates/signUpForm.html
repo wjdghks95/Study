@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta author="LeeJeongHwan">
+        <meta description="내가 내돈으로 직접 주고 산 제품이나 경험과 같은 모든 것들의 좋았던 점 또는 아쉬웠던 점을 사람들과 공유할 수 있는 웹 애플리케이션">
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="../css/style.css" th:href="@{/css/style.css}">
+        <link rel="stylesheet" href="../css/signUpForm.css" th:href="@{/css/signUpForm.css}">
+        <script src="../js/signUpForm.js" th:src="@{/js/signUpForm.js}" defer></script>
+        <title>회원가입</title>
+    </head>
+<body>
+    <header th:insert="~{fragment/fragment-header :: header}"></header>
+
+    <main class="sign-up">
+        <section class="banner">
+            <div class="banner__container container">
+                <article class="section__content">
+                    <header class="section__headings">
+                        <h2 class="section__heading">회원가입</h2>
+                    </header>
+                </article>
+            </div>
+        </section>
+        <!-- banner -->
+
+        <section class="sign-up-model">
+            <div class="sign-up-model__container container">
+                <article class="section__content">
+                    <form action="/signUp" method="post" class="sign-up-model__form" id="signUp__form" th:action th:object="${memberDto}">
+                        <div class="form__group">
+                            <label for="user[phone-number]" class="form__label">휴대폰 번호</label>
+                            <div class="form__row-wrapper">
+                                <div class="form__input-container">
+                                    <input type="text" name="phone" id="user[phone-number]" th:field="*{phone}" placeholder="휴대폰 번호(-없이 입력해주세요)">
+                                </div>
+                                <div>
+                                    <button type="button" class="default-btn">인증번호 발송</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <label for="user[email]" class="form__label">이메일</label>
+                            <div class="form__row-wrapper">
+                                <input type="text" name="email" id="user[email]" th:field="*{email}" placeholder="이메일 ID">
+                                <span class="email-symbol">@</span>
+                                <input type="text" name="email" id="user[email-hidden]" class="email-hidden" th:field="*{email}">
+                                <select name="email-address" id="user[email-address]" th:field="*{email}">
+                                    <option value="" disabled selected style="display: none">이메일 주소</option>
+                                    <option class="drop-down__item" value="input">직접입력</option>
+                                    <option class="drop-down__item" value="naver.com">naver.com</option>
+                                    <option class="drop-down__item" value="daum.net">daum.net</option>
+                                    <option class="drop-down__item" value="hanmail.net">hanmail.net</option>
+                                    <option class="drop-down__item" value="nate.com">nate.com</option>
+                                    <option class="drop-down__item" value="gmail.com">gmail.com</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <label for="user[password]" class="form__label">비밀번호</label>
+                            <input type="password" name="password" id="user[password]" th:field="*{password}" placeholder="비밀번호(최소 8자 이상)">
+                            <input type="password" name="password-confirm" id="user[password-confirm]" class="input--margin-top" placeholder="비밀번호 확인">
+                        </div>
+                        <div class="form__group">
+                            <label for="user[name]" class="form__label">이름</label>
+                            <input type="text" name="username" id="user[name]" th:field="*{name}" placeholder="이름">
+                        </div>
+                        <div class="form__group">
+                            <label for="user[nickname]" class="form__label">닉네임</label>
+                            <input type="text" name="nickname" id="user[nickname]" th:field="*{nickname}" placeholder="닉네임(최소2자~8자)">
+                        </div>
+                        <div class="form__group">
+                            <label class="form__label">주소</label>
+                            <div class="form__row-wrapper">
+                                <div class="form__input-container">
+                                    <input type="text" name="zipcode" id="user[zipcode]" placeholder="우편번호" disabled>
+                                </div>
+                                <div>
+                                    <button type="button" class="default-btn" form="">주소 검색</button>
+                                </div>
+                            </div>
+                            <input type="text" name="address" id="user[address]" class="input--margin-top" placeholder="주소" disabled>
+                            <input type="text" name="address-detail" id="user[address-detail]" class="input--margin-top" th:field="*{address}" placeholder="상세주소">
+                        </div>
+                    </form>
+                    <div class="sign-up-model__submit-button">
+                        <button type="submit" class="default-btn" form="signUp__form">가입 완료하기</button>
+                    </div>
+                </article> 
+            </div>
+        </section>
+        <!-- sign-up-model -->
+    </main>
+
+    <footer th:insert="~{fragment/fragment-footer :: footer}"></footer>
+</body>
+</html>

@@ -9,6 +9,7 @@
         <link rel="shortcut icon" href="#">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/signUpForm.css">
+        <script src="../js/signUpForm.js" defer></script>
         <title>회원가입</title>
     </head>
 <body>
@@ -78,9 +79,10 @@
                             <div class="form__row-wrapper">
                                 <input type="text" name="email" id="user[email]" placeholder="이메일 ID">
                                 <span class="email-symbol">@</span>
+                                <input type="text" name="email" id="user[email-hidden]" class="email-hidden">
                                 <select name="email-address" id="user[email-address]">
                                     <option value="" disabled selected style="display: none">이메일 주소</option>
-                                    <option class="drop-down__item">직접입력</option>
+                                    <option class="d-down__item" value="input">직접입력</option>
                                     <option class="drop-down__item" value="naver.com">naver.com</option>
                                     <option class="drop-down__item" value="daum.net">daum.net</option>
                                     <option class="drop-down__item" value="hanmail.net">hanmail.net</option>
@@ -92,7 +94,7 @@
                         <div class="form__group">
                             <label for="user[password]" class="form__label">비밀번호</label>
                             <input type="password" name="password" id="user[password]" placeholder="비밀번호(최소 8자 이상)">
-                            <input type="password" name="password-confirm" id="user[password-confirm]" placeholder="비밀번호 확인">
+                            <input type="password" name="password-confirm" id="user[password-confirm]" class="input--margin-top" placeholder="비밀번호 확인">
                         </div>
                         <div class="form__group">
                             <label for="user[name]" class="form__label">이름</label>
@@ -112,8 +114,8 @@
                                     <button type="button" class="default-btn">주소 검색</button>
                                 </div>
                             </div>
-                            <input type="text" name="address" id="user[address]" placeholder="주소" disabled>
-                            <input type="text" name="address-detail" id="user[address-detail]" placeholder="상세주소">
+                            <input type="text" name="address" id="user[address]" class="input--margin-top" placeholder="주소" disabled>
+                            <input type="text" name="address-detail" id="user[address-detail]" class="input--margin-top" placeholder="상세주소">
                         </div>
                     </form>
                     <div class="sign-up-model__submit-button">

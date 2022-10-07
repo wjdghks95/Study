@@ -3,8 +3,8 @@
     font-size: var(--font-micro);
 }
 
-.form__group input:not(:first-child) {
-    margin-top: .5rem;
+.input--margin-top {
+    margin-top: .3rem;
 }
 
 .sign-up-model__container {
@@ -15,6 +15,11 @@
     padding: 4rem;
     border: 2px solid var(--color-gray);
     border-radius: 20px;
+}
+
+.email-hidden {
+    display: none;
+    margin-right: .3rem;
 }
 
 .email-symbol {

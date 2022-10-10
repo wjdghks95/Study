@@ -6,14 +6,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import wjdghks95.project.rol.domain.dto.MemberDto;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.service.MemberService;
-
-import javax.validation.Valid;
+import wjdghks95.project.rol.validator.MemberDuplicateValidator;
 
 @Controller
 @RequiredArgsConstructor
@@ -22,6 +23,14 @@ public class MemberController {
     private final MemberService memberService;
 
     private final PasswordEncoder passwordEncoder;
+
+    private final MemberDuplicateValidator memberDuplicateValidator;
+
+    @InitBinder("memberDto")
+    public void init(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
+        dataBinder.addValidators(memberDuplicateValidator);
+    }
 
     @GetMapping("/login")
     public String login() {
@@ -47,7 +56,9 @@ public class MemberController {
                 .phone(memberDto.getPhone())
                 .name(memberDto.getName())
                 .nickname(memberDto.getName())
+                .zipcode(memberDto.getZipcode())
                 .address(memberDto.getAddress())
+                .detailAddress(memberDto.getDetailAddress())
                 .role("USER")
                 .build();
 

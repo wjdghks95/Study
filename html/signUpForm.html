@@ -62,64 +62,76 @@
         <section class="sign-up-model">
             <div class="sign-up-model__container container">
                 <article class="section__content">
-                    <form action="/sign-up" method="post" class="sign-up-model__form">
+                    <form action="/signUp" method="post" class="sign-up-model__form" id="sign-up-form">
                         <div class="form__group">
-                            <label for="user[phone-number]" class="form__label">휴대폰 번호</label>
+                            <label for="user-phone" class="form__label">휴대폰 번호</label>
                             <div class="form__row-wrapper">
                                 <div class="form__input-container">
-                                    <input type="text" name="phone-number" id="user[phone-number]" placeholder="휴대폰 번호(-없이 입력해주세요)">
+                                    <input type="text" name="phone" id="user-phone" placeholder="휴대폰 번호(-없이 입력해주세요)">
                                 </div>
-                                <div>
+                                <div class="sign-up-model__send-button">
                                     <button type="button" class="default-btn">인증번호 발송</button>
                                 </div>
                             </div>
+
+                            <div class="form__row-wrapper" id="phone-check">
+                                <input type="text" id="phone-check-number" placeholder="인증번호">
+                                <div class="sign-up-model__phone-check-button">
+                                    <button type="button" class="default-btn">인증확인</button>
+                                </div>
+                                <div class="sign-up-model__resend-button">
+                                    <button type="button" class="default-btn">재발송</button>
+                                </div>
+                            </div>
+                            <input type="hidden" id="phone-double-check" value="false"/>
                         </div>
                         <div class="form__group">
-                            <label for="user[email]" class="form__label">이메일</label>
+                            <label for="user-email" class="form__label">이메일</label>
                             <div class="form__row-wrapper">
-                                <input type="text" name="email" id="user[email]" placeholder="이메일 ID">
+                                <input type="text" id="user-email" placeholder="이메일 ID">
                                 <span class="email-symbol">@</span>
-                                <input type="text" name="email" id="user[email-hidden]" class="email-hidden">
-                                <select name="email-address" id="user[email-address]">
+                                <input type="text" id="user-email-address">
+                                <select id="user-email-address-list">
                                     <option value="" disabled selected style="display: none">이메일 주소</option>
-                                    <option class="d-down__item" value="input">직접입력</option>
-                                    <option class="drop-down__item" value="naver.com">naver.com</option>
-                                    <option class="drop-down__item" value="daum.net">daum.net</option>
-                                    <option class="drop-down__item" value="hanmail.net">hanmail.net</option>
-                                    <option class="drop-down__item" value="nate.com">nate.com</option>
-                                    <option class="drop-down__item" value="gmail.com">gmail.com</option>
+                                    <option value="type">직접입력</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="daum.net">daum.net</option>
+                                    <option value="hanmail.net">hanmail.net</option>
+                                    <option value="nate.com">nate.com</option>
+                                    <option value="gmail.com">gmail.com</option>
                                 </select>
                             </div>
+                            <input type="hidden" name="email" id="user-total-email">
                         </div>
                         <div class="form__group">
-                            <label for="user[password]" class="form__label">비밀번호</label>
-                            <input type="password" name="password" id="user[password]" placeholder="비밀번호(최소 8자 이상)">
-                            <input type="password" name="password-confirm" id="user[password-confirm]" class="input--margin-top" placeholder="비밀번호 확인">
+                            <label for="user-password" class="form__label">비밀번호</label>
+                            <input type="password" name="password" id="user-password" placeholder="비밀번호(최소 8자 이상)">
+                            <input type="password" id="user-password-confirm" placeholder="비밀번호 확인">
                         </div>
                         <div class="form__group">
-                            <label for="user[name]" class="form__label">이름</label>
-                            <input type="text" name="username" id="user[name]" placeholder="이름">
+                            <label for="user-name" class="form__label">이름</label>
+                            <input type="text" name="username" id="user-name" placeholder="이름">
                         </div>
                         <div class="form__group">
-                            <label for="user[nickname]" class="form__label">닉네임</label>
-                            <input type="text" name="nickname" id="user[nickname]" placeholder="닉네임(최소2자~8자)">
+                            <label for="user-nickname" class="form__label">닉네임</label>
+                            <input type="text" name="nickname" id="user-nickname" placeholder="닉네임(최소2자~8자)">
                         </div>
                         <div class="form__group">
                             <label class="form__label">주소</label>
                             <div class="form__row-wrapper">
                                 <div class="form__input-container">
-                                    <input type="text" name="zipcode" id="user[zipcode]" placeholder="우편번호" disabled>
+                                    <input type="text" name="zipcode" id="user-zipcode" placeholder="우편번호" disabled>
                                 </div>
-                                <div>
+                                <div class="sign-up-model__search-address-button">
                                     <button type="button" class="default-btn">주소 검색</button>
                                 </div>
                             </div>
-                            <input type="text" name="address" id="user[address]" class="input--margin-top" placeholder="주소" disabled>
-                            <input type="text" name="address-detail" id="user[address-detail]" class="input--margin-top" placeholder="상세주소">
+                            <input type="text" name="address" id="user-address" placeholder="주소" disabled>
+                            <input type="text" name="address-detail" id="user-detail-address" placeholder="상세주소">
                         </div>
                     </form>
                     <div class="sign-up-model__submit-button">
-                        <button type="submit" class="default-btn">가입 완료하기</button>
+                        <button type="submit" class="default-btn" form="sign-up-form">가입 완료하기</button>
                     </div>
                 </article> 
             </div>

@@ -3,10 +3,6 @@
     font-size: var(--font-micro);
 }
 
-.input--margin-top {
-    margin-top: .3rem;
-}
-
 .sign-up-model__container {
     max-width: 768px;
 }
@@ -17,9 +13,30 @@
     border-radius: 20px;
 }
 
-.email-hidden {
+#phone-check {
+    display: none;
+    margin-top: .3rem;
+    justify-content: flex-start;
+}
+
+#phone-check-number {
+    width: 50%;
+    margin-right: .5rem;
+}
+
+.sign-up-model__phone-check-button {
+    margin-right: .5rem;
+}
+
+#user-email-address {
     display: none;
     margin-right: .3rem;
+}
+
+#user-password-confirm,
+#user-address,
+#user-detail-address {
+    margin-top: .3rem;
 }
 
 .email-symbol {

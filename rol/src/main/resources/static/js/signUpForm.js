@@ -80,3 +80,28 @@ function addUpEmail() {
         totalEmail.value = email.value + "@" + emailAddress.value;
     }
 };
+
+// 비밀번호 확인
+const password = document.querySelector("#user-password");
+const passwordConfirm = document.querySelector("#user-password-confirm");
+const confirmMsg = document.querySelector("#password-confirm-message");
+
+password.addEventListener("blur", () => passConfirm());
+passwordConfirm.addEventListener("blur", () => passConfirm());
+
+function passConfirm() {
+    if(password.value != "" && passwordConfirm.value != "") {
+        if(password.value == passwordConfirm.value){
+            confirmMsg.style.color = "var(--color-black)";
+            confirmMsg.innerHTML = "비밀번호가 일치합니다";
+            document.querySelector("#password-double-check").value = "true";
+        }else{
+            confirmMsg.style.color = "var(--color-red)";
+            confirmMsg.innerHTML = "비밀번호가 일치하지 않습니다";
+            document.querySelector("#password-double-check").value = "false";
+        }
+    } else {
+        confirmMsg.innerHTML = "";
+        document.querySelector("#password-double-check").value = "false";
+    }
+}

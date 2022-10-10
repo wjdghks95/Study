@@ -55,14 +55,28 @@ function telValidator(phoneNumber) {
 }
 
 // 이메일 주소 선택
-const select = document.querySelector("select");
-const email = document.querySelector('.email-hidden');
+const email = document.querySelector("#user-email");
+const emailAddress = document.querySelector("#user-email-address");
+const emailAddressList = document.querySelector("#user-email-address-list");
+const totalEmail = document.querySelector("#user-total-email");
 
-select.addEventListener('change', () => {
-    if (select.options[select.selectedIndex].value == "input") {
-        email.style.display = 'block';
+email.addEventListener("blur", () => addUpEmail());
+emailAddress.addEventListener("blur", () => addUpEmail());
+
+emailAddressList.addEventListener('change', () => {
+    if (emailAddressList.options[emailAddressList.selectedIndex].value == "type") {
+        emailAddress.style.display = 'block';
+        emailAddress.value = "";
+        emailAddress.focus();
     } else {
-        email.style.display = 'none';
+        emailAddress.style.display = 'none';
+        emailAddress.value = emailAddressList.options[emailAddressList.selectedIndex].value;
+        addUpEmail();
     }
-    
 })
+
+function addUpEmail() {
+    if(email.value != "" && emailAddress.value != "") {
+        totalEmail.value = email.value + "@" + emailAddress.value;
+    }
+};

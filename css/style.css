@@ -94,6 +94,10 @@ input[type="checkbox"] {
     margin-right: 0.3125rem;
 }
 
+input:read-only {
+    background-color: var(--color-light-white);
+}
+
 /* select */
 select {
     display: block;

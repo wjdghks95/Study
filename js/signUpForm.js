@@ -24,14 +24,17 @@ sendBtn.addEventListener("click", () => {
 
 const phoneCheckBtn = document.querySelector(".sign-up-model__phone-check-button");
 const resendBtn = document.querySelector(".sign-up-model__resend-button");
+
+let phoneCheck = document.querySelector("#phone-double-check");
+
 phoneCheckBtn.addEventListener("click", () => {
     const phoneCheckNumber = document.querySelector("#phone-check-number");
-    
+
     if (phoneCheckNumber.value == code) {
         alert("인증이 완료되었습니다.");
         phoneCheckNumber.setAttribute("disabled", true);
         resendBtn.querySelector("button").setAttribute("disabled", true);
-        document.querySelector("#phone-double-check").value = "true";
+        phoneCheck.value = "true";
     } else {
         alert("인증번호가 올바르지 않습니다. 다시 확인해 주세요.");
         phoneCheckNumber.focus();
@@ -64,16 +67,13 @@ email.addEventListener("blur", () => addUpEmail());
 emailAddress.addEventListener("blur", () => addUpEmail());
 
 emailAddressList.addEventListener('change', () => {
-
-    const selectedValue = emailAddressList.options[emailAddressList.selectedIndex].value;
-
-    if (selectedValue == "type") {
+    if (emailAddressList.options[emailAddressList.selectedIndex].value == "type") {
         emailAddress.style.display = 'block';
         emailAddress.value = "";
         emailAddress.focus();
     } else {
         emailAddress.style.display = 'none';
-        emailAddress.value = selectedValue;
+        emailAddress.value = emailAddressList.options[emailAddressList.selectedIndex].value;
         addUpEmail();
     }
 })
@@ -111,31 +111,26 @@ function addUpEmail() {
     }
 })();
 
-
 // 비밀번호 확인
 const password = document.querySelector("#user-password");
 const passwordConfirm = document.querySelector("#user-password-confirm");
-const confirmMsg = document.querySelector("#password-confirm-message");
+let passwordCheck = document.querySelector("#password-double-check");
 
 password.addEventListener("blur", () => passConfirm());
 passwordConfirm.addEventListener("blur", () => passConfirm());
 
 function passConfirm() {
-    if(password.value != "" && passwordConfirm.value != "") {
-        if(password.value == passwordConfirm.value){
-            confirmMsg.style.color = "var(--color-black)";
-            confirmMsg.innerHTML = "비밀번호가 일치합니다";
-            document.querySelector("#password-double-check").value = "true";
+    if(password.value !== "" && passwordConfirm.value !== "") {
+        if(password.value === passwordConfirm.value){
+            passwordCheck.value = "true";
         }else{
-            confirmMsg.style.color = "var(--color-red)";
-            confirmMsg.innerHTML = "비밀번호가 일치하지 않습니다";
-            document.querySelector("#password-double-check").value = "false";
+            passwordCheck.value = "false";
         }
     } else {
-        confirmMsg.innerHTML = "";
-        document.querySelector("#password-double-check").value = "false";
+        passwordCheck.value = "false";
     }
 }
+
 
 // 주소 검색
 const searchAddressBtn = document.querySelector(".sign-up-model__search-address-button");

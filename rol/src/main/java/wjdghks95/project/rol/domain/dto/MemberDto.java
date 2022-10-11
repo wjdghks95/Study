@@ -13,7 +13,7 @@ import javax.validation.constraints.Pattern;
 @NoArgsConstructor
 public class MemberDto {
 
-    @NotBlank(message = "핸드폰 번호를 입력하여 인증을 완료해주세요.")
+    @NotBlank(message = "핸드폰 번호를 입력해주세요.")
     private String phone;
     @Email
     @NotBlank(message = "이메일을 입력해주세요.")
@@ -37,8 +37,12 @@ public class MemberDto {
 
     private String detailAddress;
 
+    private boolean phoneCheck;
+    private boolean passwordCheck;
+
     @Builder
-    public MemberDto(String email, String password, String name, String nickname, String zipcode, String address, String detailAddress, String phone) {
+    public MemberDto(String phone, String email, String password, String name, String nickname, String zipcode, String address, String detailAddress, String phoneCheck, String passwordCheck) {
+        this.phone = phone;
         this.email = email;
         this.password = password;
         this.name = name;
@@ -46,6 +50,7 @@ public class MemberDto {
         this.zipcode = zipcode;
         this.address = address;
         this.detailAddress = detailAddress;
-        this.phone = phone;
+        this.phoneCheck = Boolean.parseBoolean(phoneCheck);
+        this.passwordCheck = Boolean.parseBoolean(passwordCheck);
     }
 }

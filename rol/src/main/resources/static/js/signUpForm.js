@@ -78,8 +78,35 @@ emailAddressList.addEventListener('change', () => {
 function addUpEmail() {
     if(email.value != "" && emailAddress.value != "") {
         totalEmail.value = email.value + "@" + emailAddress.value;
+        localStorage.setItem("email", email.value);
+        localStorage.setItem("emailAddress", emailAddress.value);
     }
 };
+
+(function loadEmail() {
+
+    if (totalEmail.value == "") {
+        localStorage.clear();
+    }
+
+    const savedEmail = localStorage.getItem("email");
+    const savedEmailAddress = localStorage.getItem("emailAddress");
+
+    if(savedEmail !== null && savedEmailAddress !== null) {
+        email.value = savedEmail;
+        for(let i = 0; i < emailAddressList.options.length; i++) {
+            if (emailAddressList.options[i].value !== savedEmailAddress) {
+                emailAddress.style.display = "block";
+                emailAddress.value = savedEmailAddress;
+            } else {
+                emailAddress.style.display = "none";
+                emailAddress.value = savedEmailAddress;
+                emailAddressList.value = savedEmailAddress;
+                break;
+            }
+        }
+    }
+})();
 
 // 비밀번호 확인
 const password = document.querySelector("#user-password");

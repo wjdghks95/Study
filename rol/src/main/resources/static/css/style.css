@@ -649,3 +649,9 @@ textarea::placeholder {
 .pagination-btn.pagination-next-btn {
     border-radius: 0 4px 4px 0;
 }
+
+/* error */
+.error-message {
+    margin-top: .3rem;
+    color: var(--color-red);
+}

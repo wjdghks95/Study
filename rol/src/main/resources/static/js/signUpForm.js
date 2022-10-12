@@ -1,7 +1,7 @@
 // 핸드폰 인증
-const sendBtn = document.querySelector(".sign-up-model__send-button");
+const sendSMSBtn = document.querySelector(".sign-up-form__send-sms-button");
 let code = "";
-sendBtn.addEventListener("click", () => {
+sendSMSBtn.addEventListener("click", () => {
 
     const phone = document.querySelector("#user-phone");
     const phoneNumber = phone.value;
@@ -14,37 +14,15 @@ sendBtn.addEventListener("click", () => {
         xhr.send();
         xhr.onload = (data) => {
             phone.setAttribute("readonly", true);
-            sendBtn.querySelector("button").setAttribute("disabled", true);
-            const phoneCheck = document.querySelector("#phone-check");
-            phoneCheck.style.display = "flex";
+            sendSMSBtn.querySelector("button").setAttribute("disabled", true);
+
+            const phoneCheckArea = document.querySelector(".sign-up-form__phone-check-area");
+            phoneCheckArea.style.display = "flex";
+
             code = data.currentTarget.response;
         }
     }
 })
-
-const phoneCheckBtn = document.querySelector(".sign-up-model__phone-check-button");
-const resendBtn = document.querySelector(".sign-up-model__resend-button");
-
-let phoneCheck = document.querySelector("#phone-double-check");
-
-phoneCheckBtn.addEventListener("click", () => {
-    const phoneCheckNumber = document.querySelector("#phone-check-number");
-
-    if (phoneCheckNumber.value == code) {
-        alert("인증이 완료되었습니다.");
-        phoneCheckNumber.setAttribute("disabled", true);
-        resendBtn.querySelector("button").setAttribute("disabled", true);
-        phoneCheck.value = "true";
-    } else {
-        alert("인증번호가 올바르지 않습니다. 다시 확인해 주세요.");
-        phoneCheckNumber.focus();
-    }
-})
-
-resendBtn.addEventListener("click", () => {
-    sendBtn.click();
-})
-
 
 function telValidator(phoneNumber) {
 
@@ -57,6 +35,28 @@ function telValidator(phoneNumber) {
     return true;
 }
 
+const phoneCheckBtn = document.querySelector(".sign-up-form__phone-check-button");
+const resendSMSBtn = document.querySelector(".sign-up-form__resend-sms-button");
+let phoneCheck = document.querySelector("#user-phone-check");
+
+phoneCheckBtn.addEventListener("click", () => {
+    const phoneCheckNumber = document.querySelector("#phone-check-number");
+
+    if (phoneCheckNumber.value === code) {
+        alert("인증이 완료되었습니다.");
+        phoneCheckNumber.setAttribute("disabled", true);
+        resendSMSBtn.querySelector("button").setAttribute("disabled", true);
+        phoneCheck.value = "true";
+    } else {
+        alert("인증번호가 올바르지 않습니다. 다시 확인해 주세요.");
+        phoneCheckNumber.focus();
+    }
+})
+
+resendSMSBtn.addEventListener("click", () => {
+    sendSMSBtn.click();
+})
+
 // 이메일 주소 선택
 const email = document.querySelector("#user-email");
 const emailAddress = document.querySelector("#user-email-address");
@@ -67,19 +67,21 @@ email.addEventListener("blur", () => addUpEmail());
 emailAddress.addEventListener("blur", () => addUpEmail());
 
 emailAddressList.addEventListener('change', () => {
-    if (emailAddressList.options[emailAddressList.selectedIndex].value == "type") {
+    const selectedValue = emailAddressList.options[emailAddressList.selectedIndex].value;
+
+    if (selectedValue === "type") {
         emailAddress.style.display = 'block';
         emailAddress.value = "";
         emailAddress.focus();
     } else {
         emailAddress.style.display = 'none';
-        emailAddress.value = emailAddressList.options[emailAddressList.selectedIndex].value;
+        emailAddress.value = selectedValue;
         addUpEmail();
     }
 })
 
 function addUpEmail() {
-    if(email.value != "" && emailAddress.value != "") {
+    if(email.value !== "" && emailAddress.value !== "") {
         totalEmail.value = email.value + "@" + emailAddress.value;
         localStorage.setItem("email", email.value);
         localStorage.setItem("emailAddress", emailAddress.value);
@@ -88,7 +90,7 @@ function addUpEmail() {
 
 (function loadEmail() {
 
-    if (totalEmail.value == "") {
+    if (totalEmail.value === "") {
         localStorage.clear();
     }
 
@@ -114,7 +116,7 @@ function addUpEmail() {
 // 비밀번호 확인
 const password = document.querySelector("#user-password");
 const passwordConfirm = document.querySelector("#user-password-confirm");
-let passwordCheck = document.querySelector("#password-double-check");
+let passwordCheck = document.querySelector("#user-password-check");
 
 password.addEventListener("blur", () => passConfirm());
 passwordConfirm.addEventListener("blur", () => passConfirm());
@@ -132,7 +134,7 @@ function passConfirm() {
 }
 
 // 주소 검색
-const searchAddressBtn = document.querySelector(".sign-up-model__search-address-button");
+const searchAddressBtn = document.querySelector(".sign-up-form__search-address-button");
 searchAddressBtn.addEventListener("click", () => execDaumPostcode());
 
 var themeObj = {
@@ -166,3 +168,8 @@ function execDaumPostcode() {
         }
     }).open();
 }
+
+const submitBtn = document.querySelector(".sign-up-form__submit-button");
+submitBtn.addEventListener("click", () => {
+    document.querySelector(".sign-up-form__form").submit();
+})

@@ -12,7 +12,7 @@ import wjdghks95.project.rol.domain.dto.MemberDto;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.service.MemberService;
 import wjdghks95.project.rol.validator.MemberDuplicateValidator;
-import wjdghks95.project.rol.validator.SignUpValidator;
+import wjdghks95.project.rol.validator.AuthCheckValidator;
 
 @Controller
 @RequiredArgsConstructor
@@ -24,13 +24,13 @@ public class MemberController {
 
     private final MemberDuplicateValidator memberDuplicateValidator;
 
-    private final SignUpValidator signUpValidator;
+    private final AuthCheckValidator authCheckValidator;
 
     @InitBinder("memberDto")
     public void memberDuplicateValidation(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
         dataBinder.addValidators(memberDuplicateValidator);
-        dataBinder.addValidators(signUpValidator);
+        dataBinder.addValidators(authCheckValidator);
     }
 
     @GetMapping("/login")

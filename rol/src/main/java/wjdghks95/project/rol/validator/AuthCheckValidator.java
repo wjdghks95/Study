@@ -6,7 +6,7 @@ import org.springframework.validation.Validator;
 import wjdghks95.project.rol.domain.dto.MemberDto;
 
 @Component
-public class SignUpValidator implements Validator {
+public class AuthCheckValidator implements Validator {
     @Override
     public boolean supports(Class<?> clazz) {
         return MemberDto.class.isAssignableFrom(clazz);

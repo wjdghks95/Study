@@ -3,17 +3,17 @@
     font-size: var(--font-micro);
 }
 
-.sign-up-model__container {
+.sign-up-form__container {
     max-width: 768px;
 }
 
-.sign-up-model__form {
+.sign-up-form__form {
     padding: 4rem;
     border: 2px solid var(--color-gray);
     border-radius: 20px;
 }
 
-#phone-check {
+.sign-up-form__phone-check-area {
     display: none;
     margin-top: .3rem;
     justify-content: flex-start;
@@ -24,7 +24,7 @@
     margin-right: .5rem;
 }
 
-.sign-up-model__phone-check-button {
+.sign-up-form__phone-check-button {
     margin-right: .5rem;
 }
 
@@ -44,12 +44,7 @@
     line-height: 2.5rem;
 }
 
-.sign-up-model__submit-button {
+.sign-up-form__submit-button {
     width: 20%;
     margin: 1.625rem auto 0;
-}
-
-.error-message {
-    margin-top: .3rem;
-    color: var(--color-red);
 }

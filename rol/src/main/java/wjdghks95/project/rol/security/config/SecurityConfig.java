@@ -9,11 +9,13 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import wjdghks95.project.rol.security.provider.FormAuthenticationProvider;
 import wjdghks95.project.rol.security.service.FormUserDetailService;
+import wjdghks95.project.rol.security.service.UserLoginRememberMeService;
 
 import javax.sql.DataSource;
 
@@ -72,20 +74,17 @@ public class SecurityConfig {
                 .antMatchers("/h2-console/**", "/favicon.ico");
     }
 
+    /** PersistentTokenBasedRememberMeServices 를 위한 저장소 */
     @Bean
     public PersistentTokenRepository tokenRepository() {
         JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
-        jdbcTokenRepository.setDataSource(dataSource);
-        try {
-            jdbcTokenRepository.removeUserTokens("1");
-        } catch(Exception ex) {
-            jdbcTokenRepository.setCreateTableOnStartup(true);
-        }
+        jdbcTokenRepository.setDataSource(dataSource); // DataSource 설정
         return jdbcTokenRepository;
     }
 
+    /** Custom PersistentTokenBasedRememberMeServices */
     @Bean
-    public PersistentTokenBasedRememberMeServices rememberMeServices(PersistentTokenRepository tokenRepository) {
-        return new PersistentTokenBasedRememberMeServices("rememberMeKey", formUserDetailService, tokenRepository());
+    public RememberMeServices rememberMeServices(PersistentTokenRepository tokenRepository) {
+        return new UserLoginRememberMeService("rememberMeKey", formUserDetailService, tokenRepository);
     }
 }

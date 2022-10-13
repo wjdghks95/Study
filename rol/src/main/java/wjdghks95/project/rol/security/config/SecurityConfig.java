@@ -8,16 +8,20 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import wjdghks95.project.rol.security.provider.FormAuthenticationProvider;
 import wjdghks95.project.rol.security.service.FormUserDetailService;
+
+import javax.sql.DataSource;
 
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfig {
 
     private final FormAuthenticationProvider formAuthenticationProvider;
+
 
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
@@ -35,21 +39,32 @@ public class SecurityConfig {
 
         http
                 .authorizeRequests()
-                .antMatchers("/h2-console/**", "favicon.ico").permitAll()
-                .antMatchers("/icon/**", "/js/**", "/css/**", "/font/**").permitAll()
                 .antMatchers("/", "/login", "/signUp").permitAll()
                 .anyRequest().authenticated()
 
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/");
+                .defaultSuccessUrl("/")
+
+
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/")
+                .deleteCookies("JSESSIONID", "remember-me");
 
         return http.build();
     }
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+        return (web) -> web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations())
+                .and()
+                .ignoring()
+                .mvcMatchers("/icon/**", "/js/**", "/css/**", "/font/**", "/img/**", "/resources/**", "/error")
+                .antMatchers("/h2-console/**", "/favicon.ico");
     }
+
+
 }

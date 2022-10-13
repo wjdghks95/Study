@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import wjdghks95.project.rol.security.provider.FormAuthenticationProvider;
 import wjdghks95.project.rol.security.service.FormUserDetailService;
@@ -21,7 +22,8 @@ import javax.sql.DataSource;
 public class SecurityConfig {
 
     private final FormAuthenticationProvider formAuthenticationProvider;
-
+    private final DataSource dataSource;
+    private final FormUserDetailService formUserDetailService;
 
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
@@ -47,6 +49,10 @@ public class SecurityConfig {
                 .loginPage("/login")
                 .defaultSuccessUrl("/")
 
+                .and()
+                .rememberMe()
+                .tokenValiditySeconds(3600)
+                .rememberMeServices(rememberMeServices(tokenRepository()))
 
                 .and()
                 .logout()
@@ -66,5 +72,20 @@ public class SecurityConfig {
                 .antMatchers("/h2-console/**", "/favicon.ico");
     }
 
+    @Bean
+    public PersistentTokenRepository tokenRepository() {
+        JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
+        jdbcTokenRepository.setDataSource(dataSource);
+        try {
+            jdbcTokenRepository.removeUserTokens("1");
+        } catch(Exception ex) {
+            jdbcTokenRepository.setCreateTableOnStartup(true);
+        }
+        return jdbcTokenRepository;
+    }
 
+    @Bean
+    public PersistentTokenBasedRememberMeServices rememberMeServices(PersistentTokenRepository tokenRepository) {
+        return new PersistentTokenBasedRememberMeServices("rememberMeKey", formUserDetailService, tokenRepository());
+    }
 }

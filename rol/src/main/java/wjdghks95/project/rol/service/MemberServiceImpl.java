@@ -24,7 +24,7 @@ public class MemberServiceImpl implements MemberService {
                 .password(passwordEncoder.encode(memberDto.getPassword()))
                 .phone(memberDto.getPhone())
                 .name(memberDto.getName())
-                .nickname(memberDto.getName())
+                .nickname(memberDto.getNickname())
                 .zipcode(memberDto.getZipcode())
                 .address(memberDto.getAddress())
                 .detailAddress(memberDto.getDetailAddress())

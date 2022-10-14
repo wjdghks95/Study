@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import wjdghks95.project.rol.security.provider.FormAuthenticationProvider;
+import wjdghks95.project.rol.security.service.CustomOAuth2UserService;
 import wjdghks95.project.rol.security.service.FormUserDetailService;
 import wjdghks95.project.rol.security.service.UserLoginRememberMeService;
 
@@ -27,7 +28,7 @@ public class SecurityConfig {
     private final FormAuthenticationProvider formAuthenticationProvider;
     private final DataSource dataSource;
     private final FormUserDetailService formUserDetailService;
-    private final OAuth2UserService oAuth2UserService;
+    private final CustomOAuth2UserService oAuth2UserService;
 
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {

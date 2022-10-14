@@ -2,27 +2,26 @@ package wjdghks95.project.rol.security.oauth;
 
 import java.util.Map;
 
-public class GoogleUserInfo implements OAuth2UserInfo{
-
+public class NaverUserInfo implements OAuth2UserInfo {
     private Map<String, Object> attributes;
 
-    public GoogleUserInfo(Map<String, Object> attributes) {
+    public NaverUserInfo(Map<String, Object> attributes) {
         this.attributes = attributes;
     }
 
     @Override
     public String getProviderId() {
-        return (String) attributes.get("sub");
+        return (String) attributes.get("id");
     }
 
     @Override
     public String getProvider() {
-        return "google";
+        return "naver";
     }
 
     @Override
     public String getPhone() {
-        return null;
+        return (String) attributes.get("mobile");
     }
 
     @Override
@@ -37,7 +36,7 @@ public class GoogleUserInfo implements OAuth2UserInfo{
 
     @Override
     public String getNickname() {
-        return null;
+        return (String) attributes.get("nickname");
     }
 
     @Override
@@ -57,6 +56,6 @@ public class GoogleUserInfo implements OAuth2UserInfo{
 
     @Override
     public String getPicture() {
-        return (String) attributes.get("picture");
+        return (String) attributes.get("profile_image");
     }
 }

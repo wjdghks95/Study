@@ -1,4 +1,4 @@
-<header xmlns:th="http://www.thymeleaf.org" th:fragment="header">
+<header xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" th:fragment="header">
   <div class="header__container container">
     <div class="header__wrapper">
       <div class="header__logo-area">
@@ -21,11 +21,15 @@
         <ul class="header__util-buttons">
           <li class="header__util-button">
             <button type="button" class="util-btn" onclick="location.href='/login'"
-                    th:onclick="|location.href='@{/login}'|">Login</button>
+                    th:onclick="|location.href='@{/login}'|" sec:authorize="isAnonymous()">Login</button>
+            <button type="button" class="util-btn" onclick="location.href='/logout'"
+                    th:onclick="|location.href='@{/logout}'|" sec:authorize="isAuthenticated()">Logout</button>
           </li>
           <li class="header__util-button">
             <button type="button" class="util-btn" onclick="location.href='/signUp'"
-                    th:onclick="|location.href='@{/signUp}'|">SignUp</button>
+                    th:onclick="|location.href='@{/signUp}'|" sec:authorize="isAnonymous()">SignUp</button>
+            <button type="button" class="util-btn" onclick="location.href='/signUp'"
+                    th:onclick="|location.href='@{/review/new}'|" sec:authorize="isAuthenticated()">글쓰기</button>
           </li>
         </ul>
       </nav>

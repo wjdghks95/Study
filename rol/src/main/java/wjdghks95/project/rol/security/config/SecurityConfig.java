@@ -13,6 +13,7 @@ import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import wjdghks95.project.rol.security.provider.FormAuthenticationProvider;
 import wjdghks95.project.rol.security.service.FormUserDetailService;
 import wjdghks95.project.rol.security.service.UserLoginRememberMeService;
@@ -43,7 +44,7 @@ public class SecurityConfig {
 
         http
                 .authorizeRequests()
-                .antMatchers("/", "/login", "/signUp").permitAll()
+                .antMatchers("/", "/login", "/signUp", "/logout", "/check/sendSMS").permitAll()
                 .anyRequest().authenticated()
 
                 .and()
@@ -52,15 +53,17 @@ public class SecurityConfig {
                 .defaultSuccessUrl("/")
 
                 .and()
-                .rememberMe()
-                .tokenValiditySeconds(3600)
-                .rememberMeServices(rememberMeServices(tokenRepository()))
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .deleteCookies("remember-me", "JSESSIONID")
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .logoutSuccessUrl("/")
 
                 .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .deleteCookies("JSESSIONID", "remember-me");
+                .rememberMe()
+                .tokenValiditySeconds(3600)
+                .rememberMeServices(rememberMeServices(tokenRepository()));
 
         return http.build();
     }

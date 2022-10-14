@@ -20,8 +20,6 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    private final PasswordEncoder passwordEncoder;
-
     private final MemberDuplicateValidator memberDuplicateValidator;
 
     private final AuthCheckValidator authCheckValidator;

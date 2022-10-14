@@ -14,7 +14,7 @@ public class InitData {
     @Autowired MemberRepository memberRepository;
     @Autowired PasswordEncoder passwordEncoder;
 
-    @PostConstruct
+//    @PostConstruct
     public void init() {
         Member member = Member.builder()
                 .phone("01012345678")

@@ -21,7 +21,7 @@ public class FormUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Member member = memberRepository.findByEmail(username);
+        Member member = memberRepository.findByEmail(username).orElseThrow(() -> new IllegalArgumentException());
 
         if (member == null) {
             throw new UsernameNotFoundException("UsernameNotFoundException");

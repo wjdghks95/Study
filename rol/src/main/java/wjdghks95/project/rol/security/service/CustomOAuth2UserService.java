@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.repository.MemberRepository;
 import wjdghks95.project.rol.security.oauth.GoogleUserInfo;
+import wjdghks95.project.rol.security.oauth.KakaoUserInfo;
 import wjdghks95.project.rol.security.oauth.NaverUserInfo;
 import wjdghks95.project.rol.security.oauth.OAuth2UserInfo;
 
@@ -41,6 +42,8 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
             oAuth2UserInfo = new GoogleUserInfo(oAuth2User.getAttributes());
         } else if (userRequest.getClientRegistration().getRegistrationId().equals("naver")) { // 네이버 로그인 요청
             oAuth2UserInfo = new NaverUserInfo((Map<String, Object>) oAuth2User.getAttributes().get("response"));
+        } else if (userRequest.getClientRegistration().getRegistrationId().equals("kakao")) { // 카카오 로그인 요청
+            oAuth2UserInfo = new KakaoUserInfo(oAuth2User.getAttributes());
         }
 
         String phone = oAuth2UserInfo.getPhone();

@@ -34,8 +34,6 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuth2UserService<OAuth2UserRequest, OAuth2User> delegate = new DefaultOAuth2UserService(); // DefaultOAuth2UserService 를 통해 User 정보를 가져와야 하기 때문에 대리자 생성
         OAuth2User oAuth2User = delegate.loadUser(userRequest); // User 정보를 가지고옴
 
-        System.out.println(oAuth2User.getAttributes());
-
         OAuth2UserInfo oAuth2UserInfo = null; // OAuth 로그인시 회원정보를 가져오는 인터페이스
 
         if (userRequest.getClientRegistration().getRegistrationId().equals("google")) { // 구글 로그인 요청
@@ -46,7 +44,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
             oAuth2UserInfo = new KakaoUserInfo(oAuth2User.getAttributes());
         }
 
-        String phone = oAuth2UserInfo.getPhone();
+        String phone = oAuth2UserInfo.getPhone().replaceAll("[^0-9]", "");
         String email = oAuth2UserInfo.getEmail();
         String password = passwordEncoder.encode("OAuth2LoginPassword");
         String name = oAuth2UserInfo.getName();

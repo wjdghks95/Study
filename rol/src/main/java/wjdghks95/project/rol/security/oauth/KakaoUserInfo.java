@@ -22,7 +22,7 @@ public class KakaoUserInfo implements OAuth2UserInfo{
 
     @Override
     public String getPhone() {
-        return null;
+        return "";
     }
 
     @Override

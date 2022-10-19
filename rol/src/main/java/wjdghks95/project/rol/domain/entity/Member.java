@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import wjdghks95.project.rol.domain.BaseEntity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 @Entity
 @Getter
@@ -15,6 +17,7 @@ import java.util.Base64;
 public class Member extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_id")
     private Long id;
 
     private String email;
@@ -38,9 +41,11 @@ public class Member extends BaseEntity {
 
     private String role;
 
+    @OneToMany(mappedBy = "member")
+    private List<Review> reviewList = new ArrayList<>();
+
 //    private List<Follow> followList;
 //    private List<Like> likeList;
-//    private List<Review> reviewList;
 //    private List<Comment> commentList;
 
     @Builder

@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ImageServiceImpl implements ImageService{
+public class ImageServiceImpl implements ImageService {
 
     private final ImageRepository imageRepository;
     private final FileStore fileStore;
@@ -25,6 +25,7 @@ public class ImageServiceImpl implements ImageService{
 
     @Override
     public List<Image> findImages() {
-        return null;
+        List<Image> images = imageRepository.findAll();
+        return images;
     }
 }

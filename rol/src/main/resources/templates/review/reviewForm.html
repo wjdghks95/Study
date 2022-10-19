@@ -24,7 +24,7 @@
             <header class="section__headings">
                 <h2 class="section__heading">리뷰 쓰기</h2>
             </header>
-            <form action="/review/new" th:action method="post" class="review-model__form">
+            <form action="/review/new" th:action method="post" class="review-model__form" th:object="${reviewDto}" enctype="multipart/form-data">
                 <div class="form__row-wrapper">
                     <div class="review-model__photo">
                         <div class="photo-swiper swiper">
@@ -40,16 +40,16 @@
                             <div class="swiper-button-next" style="display: none"></div>
                             <div class="swiper-button-prev" style="display: none"></div>
                         </div>
-                        <input type="file" accept=".jpg, .png" required multiple style="display: none;" >
+                        <input type="file" accept=".jpg, .png" required multiple style="display: none;" th:field="*{multipartFiles}" >
                     </div>
                     <div class="review-model__info">
                         <div class="form__group">
-                            <label for="review[title]" class="form__label">제목</label>
-                            <input type="text" id="review[title]" placeholder="제목">
+                            <label for="review-title" class="form__label">제목</label>
+                            <input type="text" id="review-title" th:field="*{title}" placeholder="제목">
                         </div>
                         <div class="form__group">
-                            <label for="review[category]" class="form__label">카테고리 선택</label>
-                            <select name="category" id="review[category]">
+                            <label for="review-category" class="form__label">카테고리 선택</label>
+                            <select name="category" id="review-category">
                                 <option value="" disabled selected style="display: none;">카테고리</option>
                                 <option class="drop-down__item" value="food">식품</option>
                                 <option class="drop-down__item" value="cosmetic">미용/코스메틱</option>
@@ -88,14 +88,14 @@
                     </div>
                 </div>
                 <div class="review-model__text form__group">
-                    <label for="review[textarea]" class="form__label">리뷰 작성</label>
-                    <textarea name="description" id="review[textarea]" rows="10" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다.(최소 20자 이상)"></textarea>
+                    <label for="review-content" class="form__label">리뷰 작성</label>
+                    <textarea name="description" id="review-content" th:field="*{content}" rows="10" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다.(최소 20자 이상)"></textarea>
                 </div>
                 <div class="review-model__tag form__group">
                     <div class="tag-in form__row-wrapper">
-                        <label for="review[tag]" class="form__label">태그</label>
+                        <label for="review-tag" class="form__label">태그</label>
                         <span class="sharp">#</span>
-                        <input type="text" id="review[tag]" placeholder="키워드 (최대10개)">
+                        <input type="text" id="review-tag" placeholder="키워드 (최대10개)">
                         <div class="tag-in__add-button">
                             <button type="button" class="add-btn">추가</button>
                         </div>

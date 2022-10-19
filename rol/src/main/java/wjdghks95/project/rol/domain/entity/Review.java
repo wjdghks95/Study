@@ -1,6 +1,7 @@
 package wjdghks95.project.rol.domain.entity;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import wjdghks95.project.rol.domain.BaseEntity;
@@ -18,24 +19,41 @@ public class Review extends BaseEntity {
     @Column(name = "review_id")
     private Long id;
 
+    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
+    private List<Image> images = new ArrayList<>();
+
     private String title;
-
-    private String thumbnailImage;
-
-    private int rating;
 
     private String content;
 
-    private int countVisit;
+//    private String thumbnailImage;
+//    private int rating;
+//    private int countVisit;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
-    private List<Image> images = new ArrayList<>();
+    @Builder
+    public Review(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 
-//    private Category category;
+    /**
+     * 연관관계 메서드
+     */
+    public void setMember(Member member) {
+        this.member = member;
+        member.getReviewList().add(this);
+    }
+
+    public void setImage(Image image) {
+        this.images.add(image);
+        image.setReview(this);
+    }
+
+    //    private Category category;
 //    private Like like;
 //    private Comment comment;
 //    private ReviewTag reviewTag;

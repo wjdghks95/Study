@@ -12,15 +12,15 @@ import java.util.List;
 @NoArgsConstructor
 public class ReviewDto {
 
+    private List<MultipartFile> multipartFiles = new ArrayList<>();
+
     private String title;
 
     private String content;
 
-    private String thumbnailImage;
-
-    private int rating;
-
-    private List<MultipartFile> multipartFiles = new ArrayList<>();
+//    private String thumbnailImage;
+//
+//    private int rating;
 
 //    private Category category;
 }

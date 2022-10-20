@@ -8,7 +8,6 @@ import wjdghks95.project.rol.domain.BaseEntity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 
 @Entity

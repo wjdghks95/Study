@@ -16,11 +16,12 @@ public class ReviewDto {
 
     private String title;
 
+    private String categoryName;
+
     private String content;
 
 //    private String thumbnailImage;
 //
 //    private int rating;
 
-//    private Category category;
 }

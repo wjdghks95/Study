@@ -34,7 +34,6 @@ public class ReviewController {
 
     @PostMapping("/new")
     public String newReview(@ModelAttribute ReviewDto reviewDto, BindingResult bindingResult, @AuthenticationPrincipal MemberContext memberContext) throws IOException {
-
         if (bindingResult.hasErrors()) {
             log.info("bindingResult: {}", bindingResult.getFieldError());
             return "/review/reviewForm";

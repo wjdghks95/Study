@@ -17,10 +17,6 @@ import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import wjdghks95.project.rol.security.handler.CustomAuthenticationFailureHandler;
-import wjdghks95.project.rol.security.provider.FormAuthenticationProvider;
-import wjdghks95.project.rol.security.service.CustomOAuth2UserService;
-import wjdghks95.project.rol.security.service.FormUserDetailService;
 import wjdghks95.project.rol.security.service.UserLoginRememberMeService;
 
 import javax.sql.DataSource;

@@ -26,6 +26,10 @@ public class Review extends BaseEntity {
 
     private String content;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
 //    private String thumbnailImage;
 //    private int rating;
 //    private int countVisit;
@@ -35,29 +39,24 @@ public class Review extends BaseEntity {
     private Member member;
 
     @Builder
-    public Review(String title, String content) {
+    public Review(String title, String content, Member member, Category category) {
         this.title = title;
         this.content = content;
+        this.member = member;
+        member.getReviewList().add(this);
+        this.category = category;
+        category.getReviewList().add(this);
     }
 
     /**
      * 연관관계 메서드
      */
-    public void setMember(Member member) {
-        this.member = member;
-        member.getReviewList().add(this);
-    }
-
     public void setImage(Image image) {
         this.images.add(image);
         image.setReview(this);
     }
 
-    //    private Category category;
 //    private Like like;
 //    private Comment comment;
 //    private ReviewTag reviewTag;
-
-
-
 }

@@ -49,7 +49,7 @@
                         </div>
                         <div class="form__group">
                             <label for="review-category" class="form__label">카테고리 선택</label>
-                            <select name="category" id="review-category">
+                            <select name="category" id="review-category" th:field="*{categoryName}">
                                 <option value="" disabled selected style="display: none;">카테고리</option>
                                 <option class="drop-down__item" value="food">식품</option>
                                 <option class="drop-down__item" value="cosmetic">미용/코스메틱</option>

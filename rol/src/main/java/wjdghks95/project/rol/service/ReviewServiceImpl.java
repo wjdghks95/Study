@@ -38,10 +38,11 @@ public class ReviewServiceImpl implements ReviewService{
         Review review = Review.builder()
                 .title(reviewDto.getTitle())
                 .content(reviewDto.getContent())
-                .member(member)
+                .rating(reviewDto.getRating())
                 .category(category)
                 .build();
 
+        review.setMember(member);
         images.stream().forEach(image -> review.setImage(image));
 
         return reviewRepository.save(review);

@@ -20,8 +20,5 @@ public class ReviewDto {
 
     private String content;
 
-//    private String thumbnailImage;
-//
-//    private int rating;
-
+    private int rating;
 }

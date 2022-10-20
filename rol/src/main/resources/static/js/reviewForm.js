@@ -1,5 +1,6 @@
 // rating
 const stars = document.querySelectorAll('.rating__star');
+const score = document.querySelector(".rating__score");
 let totalStar = 0;
 
 stars.forEach((star, index) => {
@@ -41,6 +42,7 @@ function onMouseLeave(e) {
 function onClick(e) {
     const ratingVal = e.currentTarget.dataset.rating;
     totalStar = ratingVal;
+    score.value = totalStar;
 }
 
 // tag

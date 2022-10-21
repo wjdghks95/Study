@@ -24,7 +24,7 @@ public class Review extends BaseEntity {
 
     private String title;
 
-    private String content;
+    private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
@@ -34,6 +34,9 @@ public class Review extends BaseEntity {
 
     private int countVisit;
 
+    @OneToMany(mappedBy = "review")
+    private List<ReviewTag> reviewTag = new ArrayList<>();
+
 //    private String thumbnailImage;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,9 +44,9 @@ public class Review extends BaseEntity {
     private Member member;
 
     @Builder
-    public Review(String title, String content, Category category, int rating) {
+    public Review(String title, String description, Category category, int rating) {
         this.title = title;
-        this.content = content;
+        this.description = description;
         this.category = category;
         category.getReviewList().add(this);
         this.rating = rating;
@@ -65,5 +68,4 @@ public class Review extends BaseEntity {
 
 //    private Like like;
 //    private Comment comment;
-//    private ReviewTag reviewTag;
 }

@@ -18,7 +18,9 @@ public class ReviewDto {
 
     private String categoryName;
 
-    private String content;
+    private String description;
 
     private int rating;
+
+    private List<String> tagNames = new ArrayList<>();
 }

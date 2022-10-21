@@ -37,7 +37,7 @@ public class ReviewServiceImpl implements ReviewService{
 
         Review review = Review.builder()
                 .title(reviewDto.getTitle())
-                .content(reviewDto.getContent())
+                .description(reviewDto.getDescription())
                 .rating(reviewDto.getRating())
                 .category(category)
                 .build();

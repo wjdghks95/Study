@@ -19,14 +19,14 @@
 <body>
     <header th:insert="~{fragment/fragment-header :: header}"></header>
 
-    <main class="review-model">
-        <div class="review-model__container container">
+    <main class="review">
+        <div class="review__container container">
             <header class="section__headings">
                 <h2 class="section__heading">리뷰 쓰기</h2>
             </header>
-            <form action="/review/new" th:action method="post" class="review-model__form" th:object="${reviewDto}" enctype="multipart/form-data">
+            <form action="/review/new" th:action method="post" class="review__form" th:object="${reviewDto}" enctype="multipart/form-data">
                 <div class="form__row-wrapper">
-                    <div class="review-model__photo">
+                    <div class="review__photo">
                         <div class="photo-swiper swiper">
                             <div class="swiper-wrapper">
                                 <button type="button" class="photo-btn">
@@ -42,7 +42,7 @@
                         </div>
                         <input type="file" accept=".jpg, .png" required multiple style="display: none;" th:field="*{multipartFiles}" >
                     </div>
-                    <div class="review-model__info">
+                    <div class="review__info">
                         <div class="form__group">
                             <label for="review-title" class="form__label">제목</label>
                             <input type="text" id="review-title" th:field="*{title}" placeholder="제목">
@@ -51,18 +51,18 @@
                             <label for="review-category" class="form__label">카테고리 선택</label>
                             <select name="category" id="review-category" th:field="*{categoryName}">
                                 <option value="" disabled selected style="display: none;">카테고리</option>
-                                <option class="drop-down__item" value="food">식품</option>
-                                <option class="drop-down__item" value="cosmetic">미용/코스메틱</option>
-                                <option class="drop-down__item" value="fashion">패션/잡화</option>
-                                <option class="drop-down__item" value="nursing">출산/육아</option>
-                                <option class="drop-down__item" value="digital">디지털/가전</option>
-                                <option class="drop-down__item" value="sports">스포츠/건강</option>
-                                <option class="drop-down__item" value="pet">반려동물</option>
-                                <option class="drop-down__item" value="restaurant">맛집</option>
-                                <option class="drop-down__item" value="travel">여행/숙박</option>
-                                <option class="drop-down__item" value="culture">문화</option>
-                                <option class="drop-down__item" value="interior">인테리어</option>
-                                <option class="drop-down__item" value="etc">기타</option>
+                                <option value="food">식품</option>
+                                <option value="cosmetic">미용/코스메틱</option>
+                                <option value="fashion">패션/잡화</option>
+                                <option value="nursing">출산/육아</option>
+                                <option value="digital">디지털/가전</option>
+                                <option value="sports">스포츠/건강</option>
+                                <option value="pet">반려동물</option>
+                                <option value="restaurant">맛집</option>
+                                <option value="travel">여행/숙박</option>
+                                <option value="culture">문화</option>
+                                <option value="interior">인테리어</option>
+                                <option value="etc">기타</option>
                             </select>
                         </div>
                         <div class="form__group">
@@ -88,11 +88,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="review-model__text form__group">
-                    <label for="review-content" class="form__label">리뷰 작성</label>
-                    <textarea name="description" id="review-content" th:field="*{content}" rows="10" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다.(최소 20자 이상)"></textarea>
+                <div class="review__description form__group">
+                    <label for="review-description" class="form__label">리뷰 작성</label>
+                    <textarea name="description" id="review-description" th:field="*{description}" rows="10" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다.(최소 20자 이상)"></textarea>
                 </div>
-                <div class="review-model__tag form__group">
+                <div class="review__tag form__group">
                     <div class="tag-in form__row-wrapper">
                         <label for="review-tag" class="form__label">태그</label>
                         <span class="sharp">#</span>
@@ -101,13 +101,11 @@
                             <button type="button" class="add-btn">추가</button>
                         </div>
                     </div>
-                    <ul class="tag-in__list">
-                        <li class="tag-in__item">
-                            <span>#태그</span>
-                        </li>
+                    <ul class="tag__list">
                     </ul>
+                    <input type="hidden" value="" id="review-tags" th:field="*{tagNames}" />
                 </div>
-                <div class="review-model__submit-button">
+                <div class="review__submit-button">
                     <button type="button" class="default-btn">작성하기</button>
                 </div>
             </form>

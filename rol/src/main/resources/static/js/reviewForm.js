@@ -1,9 +1,9 @@
 // rating
-const stars = document.querySelectorAll('.rating__star');
-const score = document.querySelector(".rating__score");
+const ratingStars = document.querySelectorAll('.rating__star');
+const ratingScore = document.querySelector(".rating__score");
 let totalStar = 0;
 
-stars.forEach((star, index) => {
+ratingStars.forEach((star, index) => {
     star.dataset.rating = index + 1;
     star.addEventListener('mouseover', e => {
         onMouseOver(e);
@@ -19,9 +19,9 @@ stars.forEach((star, index) => {
 function fill(ratingVal) {
     for (let i = 0; i < 5; i++) {
         if (i < ratingVal) {
-            stars[i].querySelector('img').setAttribute('src', '../icon/star-solid.svg');
+            ratingStars[i].querySelector('img').setAttribute('src', '../icon/star-solid.svg');
         } else {
-            stars[i].querySelector('img').setAttribute('src', '../icon/star-regular.svg');
+            ratingStars[i].querySelector('img').setAttribute('src', '../icon/star-regular.svg');
         }
     }
 }
@@ -42,67 +42,95 @@ function onMouseLeave(e) {
 function onClick(e) {
     const ratingVal = e.currentTarget.dataset.rating;
     totalStar = ratingVal;
-    score.value = totalStar;
+    ratingScore.value = totalStar;
 }
 
 // tag
-const tagInput = document.querySelector('.tag-in > input');
-const tagAddBtn = document.querySelector('.tag-in__add-button');
-const tagList = document.querySelector('.tag-in__list');
+let tag = {};
+let counter = 0;
 
-tagAddBtn.addEventListener('click', () => createTag());
-tagInput.addEventListener('keydown', (e) => { 
-    if(e.key === 'Enter') {
+// 입력한 값을 태그로 생성
+function addTag (value) {
+    tag[counter] = value;
+    counter++; // remove-btn 의 고유 id
+}
+
+// tag 안에 있는 값을 array type 으로 만들어서 넘김
+function marginTag () {
+    return Object.values(tag).filter(word => {
+        return word !== "";
+    });
+}
+
+const tagInput = document.querySelector("#review-tag");
+const tagList = document.querySelector(".tag__list");
+const tagAddBtn = document.querySelector(".tag-in__add-button");
+
+tagAddBtn.addEventListener('click', () => {
+    createTag();
+})
+
+tagInput.addEventListener("keypress", (e) => {
+    //엔터나 스페이스바 눌렀을때 실행
+    if (e.key === "Enter" || e.keyCode == 32) {
         tagAddBtn.click();
+        e.preventDefault(); // SpaceBar 시 빈공간이 생기지 않도록 방지
     }
-});
+})
 
 function createTag() {
-    const tagItem = document.createElement('li');
-    const tagName = document.createElement('span');
-    const tagRemoveBtn = document.createElement('button');
-
-    let text = tagInput.value;
     if (tagList.childElementCount >= 10) {
-        alert('태그는 10개까지만 추가할 수 있습니다.');
+            alert('태그는 10개까지만 추가할 수 있습니다.');
     } else {
-        if (text != '') {
-            tagItem.setAttribute('class', 'tag-in__item');
+        let tagVal = tagInput.value; // 값 가져오기
 
-            tagName.innerHTML = '#' + text;
+         // 해시태그 값 없으면 실행X
+        if (tagVal !== "") {
+            // 같은 태그가 있는지 검사, 있다면 해당값이 array 로 return
+            let result = Object.values(tag).filter(word => {
+                return word === tagVal;
+            });
 
-            tagRemoveBtn.setAttribute('type', 'button');
-            tagRemoveBtn.setAttribute('class', 'remove-btn');
-            tagRemoveBtn.innerHTML = 'x';
-            tagRemoveBtn.addEventListener('click', () => {
-                tagItem.remove();
-            })
-            
-            tagItem.appendChild(tagName);
-            tagItem.appendChild(tagRemoveBtn);
-            tagList.appendChild(tagItem);
-            
-            tagInput.value = '';
-            tagInput.focus();
-        } else {
-            tagInput.focus();
-            return;
+            // 해시태그가 중복되었는지 확인
+            if (result.length == 0) {
+                const tagItem = document.createElement("li");
+                tagItem.setAttribute("class", "tag__item");
+                tagItem.innerHTML = "<span>#" + tagVal + "</span><button type='button' class='remove-btn' data-index='" + counter + "'>x</button>";
+                tagList.appendChild(tagItem);
+                tagInput.value = "";
+                tagInput.focus();
+
+                const tagRemoveBtn = document.querySelector(`.remove-btn[data-index="${counter}"]`);
+                tagRemoveBtn.addEventListener('click', () => {
+                    let index = tagRemoveBtn.getAttribute("data-index");
+                    tag[index] = "";
+                    tagRemoveBtn.parentElement.remove();
+                })
+                addTag(tagVal);
+            } else {
+                alert("태그값이 중복됩니다.");
+            }
         }
     }
 }
 
 // submitBtn
-const submitBtn = document.querySelector('.review-model__submit-button');
-const form = document.querySelector('form');
+const submitBtn = document.querySelector('.review__submit-button');
+const reviewForm = document.querySelector('.review__form');
 
-submitBtn.addEventListener('click', () => form.submit());
+submitBtn.addEventListener('click', () => {
+    let tagsInput = document.querySelector("#review-tags");
+    let tagArr = marginTag(); // return array
+    tagsInput.value = tagArr;
+    reviewForm.submit();
+});
 
 // imgUpload
-const uploadBtn = document.querySelector('.review-model__photo');
-const fileInput = document.querySelector('.review-model__photo input');
-const wrapper = document.querySelector(".review-model__photo .swiper-wrapper");
-const nextBtn = document.querySelector(".review-model__photo .swiper-button-next");
-const prevBtn = document.querySelector(".review-model__photo .swiper-button-prev");
+const uploadBtn = document.querySelector('.review__photo');
+const fileInput = document.querySelector('.review__photo input');
+const wrapper = document.querySelector(".review__photo .swiper-wrapper");
+const nextBtn = document.querySelector(".review__photo .swiper-button-next");
+const prevBtn = document.querySelector(".review__photo .swiper-button-prev");
 
 uploadBtn.addEventListener('click', (e) => {
     if (e.target == nextBtn || e.target == prevBtn) {
@@ -195,4 +223,4 @@ function createElement(e, attr, attrName) {
     const element = document.createElement(e);
     element.setAttribute(attr, attrName);
     return element;
-}b
+}

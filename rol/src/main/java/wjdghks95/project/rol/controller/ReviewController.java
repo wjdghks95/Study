@@ -38,6 +38,7 @@ public class ReviewController {
             log.info("bindingResult: {}", bindingResult.getFieldError());
             return "/review/reviewForm";
         }
+        reviewDto.getTagNames().forEach(System.out::print);
 
         Member member = memberContext.getMember();
         Review review = reviewService.write(reviewDto, member);

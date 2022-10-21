@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import wjdghks95.project.rol.domain.dto.ReviewDto;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.domain.entity.Review;
+import wjdghks95.project.rol.repository.MemberRepository;
 import wjdghks95.project.rol.security.service.MemberContext;
 import wjdghks95.project.rol.service.ReviewService;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 
 @Controller
 @RequestMapping("/review")
@@ -25,6 +27,7 @@ import java.io.IOException;
 public class ReviewController {
 
     private final ReviewService reviewService;
+    private final MemberRepository memberRepository;
 
     @GetMapping("/new")
     public String reviewForm(Model model) {
@@ -38,10 +41,11 @@ public class ReviewController {
             log.info("bindingResult: {}", bindingResult.getFieldError());
             return "/review/reviewForm";
         }
-        reviewDto.getTagNames().forEach(System.out::print);
 
-        Member member = memberContext.getMember();
-        Review review = reviewService.write(reviewDto, member);
+        Long memberId = memberContext.getMember().getId();
+        Member member = memberRepository.findById(memberId).orElseThrow(() -> new NoSuchElementException("NoSuchElementException"));
+        reviewService.write(reviewDto, member);
+
         return "redirect:/";
     }
 }

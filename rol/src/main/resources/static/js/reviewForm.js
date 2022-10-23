@@ -126,19 +126,19 @@ submitBtn.addEventListener('click', () => {
 });
 
 // imgUpload
-const uploadBtn = document.querySelector('.review__photo');
-const fileInput = document.querySelector('.review__photo input');
-const wrapper = document.querySelector(".review__photo .swiper-wrapper");
-const nextBtn = document.querySelector(".review__photo .swiper-button-next");
-const prevBtn = document.querySelector(".review__photo .swiper-button-prev");
+const reviewPhoto = document.querySelector('.review__photo');
+const fileInput = document.querySelector('input[type="file"]');
+const wrapper = document.querySelector(".swiper-wrapper");
+const nextBtn = document.querySelector(".swiper-button-next");
+const prevBtn = document.querySelector(".swiper-button-prev");
 
-uploadBtn.addEventListener('click', (e) => {
-    if (e.target == nextBtn || e.target == prevBtn) {
+reviewPhoto.addEventListener('click', (e) => {
+    if (e.target === nextBtn || e.target === prevBtn) {
         return;
     }
     fileInput.click();
-    fileInput.addEventListener('change', (e) => getImageFile(e));
 })
+fileInput.addEventListener('change', (e) => getImageFile(e));
 
 function getImageFile(e) {
     const uploadFiles = [];
@@ -174,20 +174,21 @@ function getImageFile(e) {
     })
 
     const uploadInfo = document.createElement('p');
-    let fileName;
+    uploadInfo.setAttribute('class', 'review__uploadInfo')
+    let uploadInfoText;
     if (count == 1) {
         [...files].forEach(file => {
-            fileName = `해당 사진을 썸네일로 등록합니다. (${file.name})`;
+            uploadInfoText = `해당 사진을 썸네일로 등록합니다. (${file.name})`;
         })
     } else {
-            fileName = `해당 사진을 썸네일로 등록합니다. (업로드할 사진 수 ${count}개)`;
+            uploadInfoText = `해당 사진을 썸네일로 등록합니다. (업로드할 사진 수 ${count}개)`;
     }
-    uploadInfo.innerHTML = fileName;
-    uploadBtn.appendChild(uploadInfo);
+    uploadInfo.innerHTML = uploadInfoText;
+    reviewPhoto.appendChild(uploadInfo);
 }
 
 
-function init() {
+function init(files) {
     const photoBtn = document.querySelector('.photo-btn');
     if (photoBtn != null) {
         photoBtn.remove();
@@ -196,17 +197,16 @@ function init() {
     nextBtn.style.display = 'block';
     prevBtn.style.display = 'block';
 
-    if (wrapper.hasChildNodes) {
+    if (wrapper.hasChildNodes()) {
         wrapper.querySelectorAll('.swiper-slide').forEach(slide => {
             slide.remove();
         })
     }
 
-    uploadBtn.childNodes.forEach(child  => {
-        if (child.tagName == 'P') {
-            child.remove();
-        }
-    })
+    const uploadInfo = document.querySelector('.review__uploadInfo');
+    if(uploadInfo !== null) {
+        uploadInfo.remove();
+    }
 }
 
 function createPhoto(e, file) {

@@ -1,12 +1,10 @@
 package wjdghks95.project.rol.service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wjdghks95.project.rol.domain.dto.ReviewDto;
 import wjdghks95.project.rol.domain.entity.*;
-import wjdghks95.project.rol.repository.MemberRepository;
 import wjdghks95.project.rol.repository.ReviewRepository;
 import wjdghks95.project.rol.repository.ReviewTagRepository;
 
@@ -17,8 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ReviewServiceImpl implements ReviewService{
-
-    private final MemberRepository memberRepository;
     private final ReviewRepository reviewRepository;
     private final CategoryService categoryService;
     private final TagService tagService;

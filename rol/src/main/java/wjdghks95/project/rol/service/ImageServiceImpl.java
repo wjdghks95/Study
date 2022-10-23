@@ -2,6 +2,7 @@ package wjdghks95.project.rol.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import wjdghks95.project.rol.domain.FileStore;
 import wjdghks95.project.rol.domain.entity.Image;
@@ -12,11 +13,13 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class ImageServiceImpl implements ImageService {
 
     private final ImageRepository imageRepository;
     private final FileStore fileStore;
 
+    @Transactional
     @Override
     public List<Image> saveImages(List<MultipartFile> multipartFileList) throws IOException {
         List<Image> images = fileStore.storeFiles(multipartFileList);

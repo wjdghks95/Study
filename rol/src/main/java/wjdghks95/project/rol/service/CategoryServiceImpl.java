@@ -9,11 +9,12 @@ import wjdghks95.project.rol.repository.CategoryRepository;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryRepository categoryRepository;
 
+    @Transactional
     @Override
     public Category saveCategory(String categoryValue) {
 

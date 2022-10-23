@@ -18,6 +18,7 @@ public class TagServiceImpl implements TagService{
 
     private final TagRepository tagRepository;
 
+    @Transactional
     @Override
     public List<Tag> saveTag(List<String> tagNames) {
         List<Tag> tags = new ArrayList<>();

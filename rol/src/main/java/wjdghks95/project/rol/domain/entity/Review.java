@@ -22,6 +22,10 @@ public class Review extends BaseEntity {
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     private List<Image> images = new ArrayList<>();
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "thumbnail_image_id")
+    private Image thumbnail;
+
     private String title;
 
     private String description;
@@ -30,14 +34,12 @@ public class Review extends BaseEntity {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    private int rating;
+    private int rating = 0;
 
     private int countVisit;
 
     @OneToMany(mappedBy = "review")
     private List<ReviewTag> reviewTag = new ArrayList<>();
-
-//    private String thumbnailImage;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
@@ -64,6 +66,10 @@ public class Review extends BaseEntity {
     public void setMember(Member member) {
         this.member = member;
         member.getReviewList().add(this);
+    }
+
+    public void setThumbnail(List<Image> images) {
+        this.thumbnail = images.get(0);
     }
 
 //    private Like like;

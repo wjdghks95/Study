@@ -37,6 +37,8 @@ public class ReviewServiceImpl implements ReviewService{
                 .build();
 
         review.setMember(member);
+
+        review.setThumbnail(images);
         images.stream().forEach(image -> review.setImage(image));
 
         Review savedReview = reviewRepository.save(review);

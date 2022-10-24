@@ -114,20 +114,25 @@ function createTag() {
     }
 }
 
-// submitBtn
+function sendTagVal() {
+    const tagsInput = document.querySelector("#review-tags");
+    let tagArr = marginTag(); // return array
+    tagsInput.value = tagArr;
+}
+
+// submit
 const submitBtn = document.querySelector('.review__submit-button');
 const reviewForm = document.querySelector('.review__form');
 
 submitBtn.addEventListener('click', () => {
-    let tagsInput = document.querySelector("#review-tags");
-    let tagArr = marginTag(); // return array
-    tagsInput.value = tagArr;
+    sendTagVal(); // 태그 값 전송
+
     reviewForm.submit();
 });
 
 // imgUpload
 const reviewPhoto = document.querySelector('.review__photo');
-const fileInput = document.querySelector('input[type="file"]');
+const filesInput = document.querySelector('input[type="file"]');
 const wrapper = document.querySelector(".swiper-wrapper");
 const nextBtn = document.querySelector(".swiper-button-next");
 const prevBtn = document.querySelector(".swiper-button-prev");
@@ -136,9 +141,9 @@ reviewPhoto.addEventListener('click', (e) => {
     if (e.target === nextBtn || e.target === prevBtn) {
         return;
     }
-    fileInput.click();
+    filesInput.click();
 })
-fileInput.addEventListener('change', (e) => getImageFile(e));
+filesInput.addEventListener('change', (e) => getImageFile(e));
 
 function getImageFile(e) {
     const uploadFiles = [];
@@ -171,17 +176,17 @@ function getImageFile(e) {
             wrapper.appendChild(photo);
         }
         reader.readAsDataURL(file);
-    })
+    });
 
     const uploadInfo = document.createElement('p');
     uploadInfo.setAttribute('class', 'review__uploadInfo')
     let uploadInfoText;
     if (count == 1) {
         [...files].forEach(file => {
-            uploadInfoText = `해당 사진을 썸네일로 등록합니다. (${file.name})`;
+            uploadInfoText = `해당 사진이 썸네일로 등록됩니다. (${file.name})`;
         })
     } else {
-            uploadInfoText = `해당 사진을 썸네일로 등록합니다. (업로드할 사진 수 ${count}개)`;
+            uploadInfoText = `첫번째 사진이 썸네일로 등록됩니다. (업로드할 사진 수 ${count}개)`;
     }
     uploadInfo.innerHTML = uploadInfoText;
     reviewPhoto.appendChild(uploadInfo);

@@ -23,7 +23,7 @@ public class MemberController {
     private final AuthCheckValidator authCheckValidator;
 
     @InitBinder("memberDto")
-    public void memberDuplicateValidation(WebDataBinder dataBinder) {
+    public void memberValidation(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
         dataBinder.addValidators(memberDuplicateValidator);
         dataBinder.addValidators(authCheckValidator);

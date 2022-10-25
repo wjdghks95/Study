@@ -59,7 +59,7 @@
     justify-content: flex-start;
 }
 
-.rating__star {
+.rating__star > img {
     cursor: pointer;
     margin-right: .375rem;
     width: 2rem;

@@ -1,5 +1,5 @@
 // rating
-const ratingStars = document.querySelectorAll('.rating__star');
+const ratingStars = document.querySelectorAll('.rating__star > img');
 const ratingScore = document.querySelector(".rating__score");
 let totalStar = 0;
 
@@ -19,9 +19,9 @@ ratingStars.forEach((star, index) => {
 function fill(ratingVal) {
     for (let i = 0; i < 5; i++) {
         if (i < ratingVal) {
-            ratingStars[i].querySelector('img').setAttribute('src', '../icon/star-solid.svg');
+            ratingStars[i].setAttribute('src', '../icon/star-solid.svg');
         } else {
-            ratingStars[i].querySelector('img').setAttribute('src', '../icon/star-regular.svg');
+            ratingStars[i].setAttribute('src', '../icon/star-regular.svg');
         }
     }
 }

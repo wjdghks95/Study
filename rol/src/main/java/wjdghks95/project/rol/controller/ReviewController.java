@@ -51,8 +51,19 @@ public class ReviewController {
 
         Long memberId = memberContext.getMember().getId();
         Member member = memberRepository.findById(memberId).orElseThrow(() -> new NoSuchElementException("NoSuchElementException"));
-        reviewService.write(reviewDto, member);
+        Long reviewId = reviewService.write(reviewDto, member);
 
-        return "redirect:/";
+        return "redirect:/review/" + reviewId;
+    }
+
+    @GetMapping("/{id}")
+    public String review(@PathVariable Long id, Model model, @AuthenticationPrincipal MemberContext memberContext) {
+        Member member = memberContext.getMember();
+        Review review = reviewService.findReview(id);
+
+        model.addAttribute("member", member);
+        model.addAttribute("review", review);
+
+        return "/review/review";
     }
 }

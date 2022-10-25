@@ -10,6 +10,7 @@ import wjdghks95.project.rol.repository.ReviewTagRepository;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -53,5 +54,10 @@ public class ReviewServiceImpl implements ReviewService{
         });
 
         return savedReview.getId();
+    }
+
+    @Override
+    public Review findReview(Long id) {
+        return reviewRepository.findById(id).orElseThrow(() -> new NoSuchElementException());
     }
 }

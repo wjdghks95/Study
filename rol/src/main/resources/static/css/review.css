@@ -20,129 +20,132 @@
     max-width: 1024px;
 }
 
-.detail-review-content__content {
+.section__content {
     margin-bottom: 1.25rem;
 }
 
-.detail-review-content__header {
+.detail-review__header {
     margin-bottom: 1.25rem;
 }
 
-.detail-review-content__author {
+.detail-review__author {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.detail-review-content__author-info {
+.detail-review__author-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.detail-review-content__author-image {
+.detail-review__author-image {
     width: 3.125rem;
     height: 3.125rem;
     border-radius: 50%;
     overflow: hidden;
 }
 
-.detail-review-content__author-nickname {
+.detail-review__author-nickname {
     margin-left: .625rem;
     font-size: var(--font-medium-small);
     font-weight: bold;
 }
 
-.detail-review-content__author-follow-button {
+.detail-review__author-follow-button {
     width: 6.25rem;
 }
 
-.detail-review-content__tags {
+.detail-review__tags {
     display: flex;
     margin: .625rem 0 0;
 }
 
-.detail-review-content__tag {
+.detail-review__tag {
     margin-right: .5rem;
     color: var(--color-blue);
 }
 
-.detail-review-content__photo {
+.detail-review__photo {
     height: 500px;
     margin-bottom: 1rem;
 }
 
-.detail-review-content__metadata {
+.detail-review__metadata {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.detail-review-content__satisfaction-level {
+.detail-review__satisfaction-level {
     display: flex;
     align-items: center;
     font-size: var(--font-medium-small);
     font-weight: bold;
 }
 
-.detail-review-content__created-date {
+.detail-review__created-date {
     font-size: var(--font-medium-small);
     font-weight: bold;
 }
 
-.detail-review-content__text {
+.detail-review__description {
     margin: 1rem 0;
     padding: 1.5rem;
     border: 1px solid var(--color-light-gray);
 }
 
-.detail-review-content__thumbs-up-button {
-    display: flex;
-    align-items: center;
+.detail-review__thumbs-up-button {
+    display: inline-block;
 }
 
-.detail-review-content__thumbs-up-score {
+.detail-review__thumbs-up-score {
     margin-left: .625rem;
     font-size: var(--font-medium-small);
     font-weight: bold;
 }
 
-.detail-review-content__comments > p {
+.section__heading.comment {
     margin-bottom: 1rem;
     font-size: var(--font-medium);
     font-weight: bold;
 }
 
-.detail-review-content__comment-form {
+.comments__container {
+    padding-top: 0;
+}
+
+.comments__form {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
 }
 
-.detail-review-content__comment-input {
+.comments__input {
     position: relative;
     width: 100%;
 }
 
-.detail-review-content__comment-input > input {
+.comments__input > input {
     padding-right: 3rem;
 }
 
-.detail-review-content__comment-input > input::placeholder {
+.comments__input > input::placeholder {
     font-size: var(--font-micro);
 }
 
-.detail-review-content__comment {
+.comments__comment {
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--color-light-gray);
 }
 
-.detail-review-content__comment-author {
+.comments__comment-author {
     display: flex;
     align-items: center;
 }
 
-.detail-review-content__comment-author-image {
+.comments__author-image {
     margin-right: .625rem;
     width: 2rem;
     height: 2rem;
@@ -150,12 +153,12 @@
     overflow: hidden;
 }
 
-.detail-review-content__comment-author-nickname {
+.comments__author-nickname {
     font-size: var(--font-small);
     font-weight: bold;
 }
 
-.detail-review-content__comment-text {
+.comments__comment-text {
     padding: 1rem .625rem;
 }
 

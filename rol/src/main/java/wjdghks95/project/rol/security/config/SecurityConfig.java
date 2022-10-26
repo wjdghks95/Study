@@ -48,6 +48,8 @@ public class SecurityConfig {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/login", "/signUp", "/logout", "/check/sendSMS").permitAll()
+                .antMatchers("/review/new").hasAnyAuthority("ROLE_USER")
+                .antMatchers("/review/**").permitAll()
                 .anyRequest().authenticated()
 
                 .and()

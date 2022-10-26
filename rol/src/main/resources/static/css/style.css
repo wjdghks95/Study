@@ -259,17 +259,18 @@ textarea::placeholder {
     background-color: var(--color-dark-white);
 }
 
-.thumbs-up-btn {
-    width: 1.5rem;
-    height: 1.5rem;
+.like-btn {
+    width: 1.7rem;
+    height: 1.7rem;
     background-image: url(../icon/heart-regular.svg);
     background-color: transparent;
+    background-repeat: no-repeat;
     border: none;
     outline: none;
     cursor: pointer;
 }
 
-.thumbs-up-btn.active {
+.like-btn.active {
     background-image: url(../icon/heart-solid.svg);
     filter: invert(12%) sepia(83%) saturate(7279%) hue-rotate(359deg) brightness(116%) contrast(120%);
 }

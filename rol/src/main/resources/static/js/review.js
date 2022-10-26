@@ -1,8 +1,8 @@
 // follow
-const followBtn = document.querySelector('.detail-review-content__author-follow-button');
+const followBtn = document.querySelector('.detail-review__author-follow-button');
 
 followBtn.addEventListener('click', () => {
-    const button = followBtn.children[0];
+    const button = followBtn.querySelector('button');
     button.classList.toggle('default-btn--white');
 
     if (button.classList.contains('default-btn--white')) {
@@ -12,9 +12,18 @@ followBtn.addEventListener('click', () => {
     }
 })
 
-// thumbs-up
-const thumbsUpBtn = document.querySelector('.thumbs-up-btn');
+// like
+let likeVal = document.querySelector('.like-check').value;
+let likeImg = document.querySelector('.like-btn');
 
-thumbsUpBtn.addEventListener('click', () => {
-    thumbsUpBtn.classList.toggle('active');
+if (likeVal > 0) {
+    likeImg.classList.add('active');
+} else {
+    likeImg.classList.remove('active');
+}
+
+const likeBtn = document.querySelector('.detail-review__like-button');
+likeBtn.addEventListener('click', () => {
+    const xhr = new XMLHttpRequest();
+    //xhr.open("GET", "/review/like", true);
 });

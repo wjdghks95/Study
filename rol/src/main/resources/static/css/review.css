@@ -16,7 +16,8 @@
     background-color: transparent;
 }
 
-.container {
+.detail-review__container,
+.comments__container {
     max-width: 1024px;
 }
 
@@ -96,11 +97,12 @@
     border: 1px solid var(--color-light-gray);
 }
 
-.detail-review__thumbs-up-button {
-    display: inline-block;
+.detail-review__like {
+    display: flex;
+    align-items: center;
 }
 
-.detail-review__thumbs-up-score {
+.detail-review__like-score {
     margin-left: .625rem;
     font-size: var(--font-medium-small);
     font-weight: bold;

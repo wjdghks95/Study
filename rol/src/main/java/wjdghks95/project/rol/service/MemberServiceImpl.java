@@ -29,7 +29,7 @@ public class MemberServiceImpl implements MemberService {
                 .address(memberDto.getAddress())
                 .detailAddress(memberDto.getDetailAddress())
                 .profileImage(null)
-                .role("USER")
+                .role("ROLE_USER")
                 .build();
 
         memberRepository.save(member);

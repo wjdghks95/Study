@@ -32,7 +32,7 @@ public class InitData {
                 .zipcode("")
                 .address("")
                 .detailAddress("")
-                .role("ADMIN")
+                .role("ROLE_ADMIN")
                 .profileImage(null)
                 .build();
 

@@ -66,7 +66,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
                     .address(address)
                     .detailAddress(detailAddress)
                     .profileImage(picture != null ? picture : null)
-                    .role("USER")
+                    .role("ROLE_USER")
                     .build();
             return memberRepository.save(newMember);
         });

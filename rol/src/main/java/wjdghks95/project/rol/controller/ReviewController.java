@@ -14,6 +14,7 @@ import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.domain.entity.Review;
 import wjdghks95.project.rol.repository.MemberRepository;
 import wjdghks95.project.rol.security.service.MemberContext;
+import wjdghks95.project.rol.service.PostLikeService;
 import wjdghks95.project.rol.service.ReviewService;
 import wjdghks95.project.rol.validator.FileValidator;
 
@@ -29,6 +30,7 @@ public class ReviewController {
     private final ReviewService reviewService;
     private final MemberRepository memberRepository;
     private final FileValidator fileValidator;
+    private final PostLikeService postLikeService;
 
     @InitBinder("reviewDto")
     public void reviewValidation(WebDataBinder dataBinder) {
@@ -58,11 +60,15 @@ public class ReviewController {
 
     @GetMapping("/{id}")
     public String review(@PathVariable Long id, Model model, @AuthenticationPrincipal MemberContext memberContext) {
-        Member member = memberContext.getMember();
         Review review = reviewService.findReview(id);
-
-        model.addAttribute("member", member);
         model.addAttribute("review", review);
+
+        if (memberContext != null) {
+            Member member = memberContext.getMember();
+            model.addAttribute("member", member);
+
+            postLikeService.findPostLike(member, review);
+        }
 
         return "/review/review";
     }

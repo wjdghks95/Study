@@ -45,6 +45,9 @@ public class Review extends BaseEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
+    private List<LikeEntity> likes = new ArrayList<>();
+
     @Builder
     public Review(String title, String description, Category category, int rating) {
         this.title = title;
@@ -72,6 +75,5 @@ public class Review extends BaseEntity {
         this.thumbnail = images.get(0);
     }
 
-//    private Like like;
 //    private Comment comment;
 }

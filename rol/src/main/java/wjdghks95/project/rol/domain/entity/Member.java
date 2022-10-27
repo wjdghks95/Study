@@ -44,7 +44,7 @@ public class Member extends BaseEntity {
     private List<Review> reviewList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<LikeEntity> likes = new ArrayList<>();
+    private List<LikeEntity> likeList = new ArrayList<>();
 
 //    private List<Follow> followList;
 //    private List<Comment> commentList;

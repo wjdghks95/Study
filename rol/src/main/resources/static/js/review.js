@@ -13,17 +13,13 @@ followBtn.addEventListener('click', () => {
 })
 
 // like
-let likeVal = document.querySelector('.like-check').value;
-let likeImg = document.querySelector('.like-btn');
-
-if (likeVal > 0) {
-    likeImg.classList.add('active');
-} else {
-    likeImg.classList.remove('active');
-}
-
 const likeBtn = document.querySelector('.detail-review__like-button');
 likeBtn.addEventListener('click', () => {
-    const xhr = new XMLHttpRequest();
-    //xhr.open("GET", "/review/like", true);
+    if(likeBtn.classList.contains('anonymous')) {
+        alert('좋아요는 로그인 후에 이용가능합니다.');
+    } else {
+        console.log("좋아요");
+        //const xhr = new XMLHttpRequest();
+        //xhr.open("GET", "/review/like", true);
+    }
 });

@@ -102,8 +102,14 @@
     align-items: center;
 }
 
-.detail-review__like-score {
+.detail-review__like-text {
     margin-left: .625rem;
+    font-size: var(--font-medium-small);
+    font-weight: bold;
+}
+
+.detail-review__like-score {
+    margin-left: .3rem;
     font-size: var(--font-medium-small);
     font-weight: bold;
 }

@@ -38,6 +38,8 @@ public class Review extends BaseEntity {
 
     private int countVisit;
 
+    private int likeCount;
+
     @OneToMany(mappedBy = "review")
     private List<ReviewTag> reviewTag = new ArrayList<>();
 
@@ -46,7 +48,7 @@ public class Review extends BaseEntity {
     private Member member;
 
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
-    private List<LikeEntity> likes = new ArrayList<>();
+    private List<LikeEntity> likeList = new ArrayList<>();
 
     @Builder
     public Review(String title, String description, Category category, int rating) {
@@ -73,6 +75,17 @@ public class Review extends BaseEntity {
 
     public void setThumbnail(List<Image> images) {
         this.thumbnail = images.get(0);
+    }
+
+    /**
+     * 편의 메서드
+     */
+    public void updateLikeCount() {
+        this.likeCount = this.likeList.size();
+    }
+
+    public void discountLike(LikeEntity likeEntity) {
+        this.likeList.remove(likeEntity);
     }
 
 //    private Comment comment;

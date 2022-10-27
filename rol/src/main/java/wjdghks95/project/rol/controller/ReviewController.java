@@ -89,10 +89,13 @@ public class ReviewController {
         Review review = reviewService.findById(id);
         Member member = memberRepository.findById(memberContext.getMember().getId()).orElseThrow();
 
+        boolean isLike = reviewService.isLike(member, review);
+
         commentService.add(commentDto, member, review);
         List<Comment> comments = commentService.findComments(id);
 
         model.addAttribute("comments", comments);
+        model.addAttribute("isLike", isLike);
         model.addAttribute(review);
         model.addAttribute(member);
 

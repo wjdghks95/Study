@@ -47,7 +47,6 @@ public class Member extends BaseEntity {
     private List<LikeEntity> likeList = new ArrayList<>();
 
 //    private List<Follow> followList;
-//    private List<Comment> commentList;
 
     @Builder
     public Member(String email, String password, String name, String nickname, String zipcode, String address, String detailAddress, String phone, String profileImage, String role) {

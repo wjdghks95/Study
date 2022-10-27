@@ -9,15 +9,19 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import wjdghks95.project.rol.domain.dto.CommentDto;
 import wjdghks95.project.rol.domain.dto.ReviewDto;
+import wjdghks95.project.rol.domain.entity.Comment;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.domain.entity.Review;
 import wjdghks95.project.rol.repository.MemberRepository;
 import wjdghks95.project.rol.security.service.MemberContext;
+import wjdghks95.project.rol.service.CommentService;
 import wjdghks95.project.rol.service.ReviewService;
 import wjdghks95.project.rol.validator.FileValidator;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Controller
@@ -29,6 +33,8 @@ public class ReviewController {
     private final ReviewService reviewService;
     private final MemberRepository memberRepository;
     private final FileValidator fileValidator;
+
+    private final CommentService commentService;
 
     @InitBinder("reviewDto")
     public void reviewValidation(WebDataBinder dataBinder) {
@@ -60,6 +66,7 @@ public class ReviewController {
     public String review(@PathVariable Long id, Model model, @AuthenticationPrincipal MemberContext memberContext) {
         Review review = reviewService.findById(id);
         model.addAttribute("review", review);
+        model.addAttribute("commentDto", new CommentDto());
 
         if (memberContext != null) {
             Member member = memberContext.getMember();
@@ -68,6 +75,26 @@ public class ReviewController {
             boolean isLike = reviewService.isLike(member, review);
             model.addAttribute("isLike", isLike);
         }
+
+        return "/review/review";
+    }
+
+    @PostMapping("/{id}")
+    public String addComment(@PathVariable Long id, @ModelAttribute CommentDto commentDto, BindingResult bindingResult,
+                             @AuthenticationPrincipal MemberContext memberContext, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "/review/review";
+        }
+
+        Review review = reviewService.findById(id);
+        Member member = memberRepository.findById(memberContext.getMember().getId()).orElseThrow();
+
+        commentService.add(commentDto, member, review);
+        List<Comment> comments = commentService.findComments(id);
+
+        model.addAttribute("comments", comments);
+        model.addAttribute(review);
+        model.addAttribute(member);
 
         return "/review/review";
     }

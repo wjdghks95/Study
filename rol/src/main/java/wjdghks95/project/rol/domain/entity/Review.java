@@ -50,6 +50,9 @@ public class Review extends BaseEntity {
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     private List<LikeEntity> likeList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "review")
+    private List<Comment> commentList = new ArrayList<>();
+
     @Builder
     public Review(String title, String description, Category category, int rating) {
         this.title = title;
@@ -88,6 +91,4 @@ public class Review extends BaseEntity {
     public void discountLike(LikeEntity likeEntity) {
         this.likeList.remove(likeEntity);
     }
-
-//    private Comment comment;
 }

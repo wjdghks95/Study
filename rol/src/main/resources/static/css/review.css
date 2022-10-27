@@ -162,7 +162,8 @@
 }
 
 .comments__author-nickname {
-    font-size: var(--font-small);
+    width: 6.25rem;
+    font-size: var(--font-micro);
     font-weight: bold;
 }
 

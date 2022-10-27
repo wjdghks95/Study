@@ -110,24 +110,16 @@
             <div class="comments__container container">
                 <article class="section__content">
                     <h2 class="section__heading comment">댓글</h2>
-                    <form action="#" method="post" class="comments__form">
+                    <form action="/review/1" th:action="@{/review/{id}(id=${review.id})}" method="post" class="comments__form" th:object="${member}" sec:authorize="isAuthenticated()">
                         <div class="comments__author-image">
-                            <img src="../img/sample1.jpg" alt="author">
+                            <img src="../img/sample1.jpg" th:src="*{profileImage}" alt="프로필이미지">
                         </div>
+                        <span class="comments__author-nickname" th:text="*{nickname}">nickname</span>
                         <div class="comments__input">
-                            <input type="text" placeholder="칭찬과 격려의 글을 남겨주세요 :)">
+                            <input type="text" th:field="${commentDto.content}" placeholder="칭찬과 격려의 글을 남겨주세요 :)">
                             <button type="submit" class="add-btn">입력</button>
                         </div>
                     </form>
-                    <div class="comments__comment">
-                        <a href="#" class="comments__comment-author">
-                            <div class="comments__author-image">
-                                <img src="../img/sample3.jpg">
-                            </div>
-                            <div class="comments__author-nickname">nickname</div>
-                        </a>
-                        <div class="comments__comment-text">댓글</div>
-                    </div>
                     <div class="comments__comment">
                         <a href="#" class="comments__comment-author">
                             <div class="comments__author-image">

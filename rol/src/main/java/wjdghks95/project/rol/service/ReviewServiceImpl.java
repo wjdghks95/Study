@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import wjdghks95.project.rol.domain.dto.ReviewDto;
 import wjdghks95.project.rol.domain.entity.*;
 import wjdghks95.project.rol.repository.LikeEntityRepository;
+import wjdghks95.project.rol.repository.MemberRepository;
 import wjdghks95.project.rol.repository.ReviewRepository;
 import wjdghks95.project.rol.repository.ReviewTagRepository;
 
@@ -17,6 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ReviewServiceImpl implements ReviewService{
+    private final MemberRepository memberRepository;
     private final ReviewRepository reviewRepository;
     private final CategoryService categoryService;
     private final TagService tagService;
@@ -63,33 +65,35 @@ public class ReviewServiceImpl implements ReviewService{
         return reviewRepository.findById(id).orElseThrow();
     }
 
+    @Transactional
     @Override
     public void like(Member member, Review review) {
-        Optional<LikeEntity> byMemberAndReview = likeEntityRepository.findByMemberAndReview(member, review);
-
+        Member findMember = memberRepository.findById(member.getId()).orElseThrow();
+        Optional<LikeEntity> byMemberAndReview = likeEntityRepository.findByMemberAndReview(findMember, review);
         byMemberAndReview.ifPresentOrElse(
                 // 좋아요가 있을 경우 삭제
-                reviewLike -> {
-                    likeEntityRepository.delete(reviewLike);
-                    review.discountLike(reviewLike);
+                likeEntity -> {
+                    review.discountLike(likeEntity);
+                    review.updateLikeCount();
+                    likeEntityRepository.delete(likeEntity);
                 },
 
                 // 좋아요가 없을 경우 좋아요 추가
                 () -> {
                     LikeEntity likeEntity = LikeEntity.builder()
                                     .review(review)
-                                    .member(member)
+                                    .member(findMember)
                                     .build();
 
                     likeEntity.setReview(review);
-                    likeEntity.setMember(member);
+                    likeEntity.setMember(findMember);
                     review.updateLikeCount();
-
                     likeEntityRepository.save(likeEntity);
                 }
         );
     }
 
+    // 로그인한 member와 현재 review를 가진 좋아요가 없을 경우 false
     @Override
     public boolean isLike(Member member, Review review) {
         return likeEntityRepository.findByMemberAndReview(member, review).isEmpty();

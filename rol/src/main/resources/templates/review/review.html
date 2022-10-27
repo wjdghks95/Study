@@ -99,7 +99,7 @@
                             <button class="like-btn" th:if="${isLike}"></button>
                         </div>
                         <span class="detail-review__like-text">좋아요</span>
-                        <span class="detail-review__like-score">10</span>
+                        <span class="detail-review__like-count" th:text="*{likeCount}">10</span>
                     </div>
                 </article>
             </div>

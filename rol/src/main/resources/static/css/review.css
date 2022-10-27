@@ -108,7 +108,7 @@
     font-weight: bold;
 }
 
-.detail-review__like-score {
+.detail-review__like-count {
     margin-left: .3rem;
     font-size: var(--font-medium-small);
     font-weight: bold;

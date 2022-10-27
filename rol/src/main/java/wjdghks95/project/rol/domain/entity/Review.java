@@ -58,6 +58,7 @@ public class Review extends BaseEntity {
         category.getReviewList().add(this);
         this.rating = rating;
         this.countVisit = 0;
+        this.likeCount = 0;
     }
 
     /**

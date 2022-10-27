@@ -18,8 +18,19 @@ likeBtn.addEventListener('click', () => {
     if(likeBtn.classList.contains('anonymous')) {
         alert('좋아요는 로그인 후에 이용가능합니다.');
     } else {
-        console.log("좋아요");
-        //const xhr = new XMLHttpRequest();
-        //xhr.open("GET", "/review/like", true);
+        const url = window.location.href;
+        const id = url.substring(url.length-1); // review id
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", `/review/${id}/like`, true);
+        xhr.send();
+        xhr.onload = (data) => {
+            const likeImg = likeBtn.querySelector('.like-btn');
+            likeImg.classList.toggle('active');
+
+            const count = data.target.response; // Like Api response
+            const likeCount = document.querySelector('.detail-review__like-count');
+            likeCount.innerHTML = count;
+        }
     }
 });

@@ -68,6 +68,9 @@ public class ReviewController {
         model.addAttribute("review", review);
         model.addAttribute("commentDto", new CommentDto());
 
+        List<Comment> comments = commentService.findComments(id);
+        model.addAttribute("comments", comments);
+
         if (memberContext != null) {
             Member member = memberContext.getMember();
             model.addAttribute("member", member);
@@ -80,24 +83,28 @@ public class ReviewController {
     }
 
     @PostMapping("/{id}")
-    public String addComment(@PathVariable Long id, @ModelAttribute CommentDto commentDto, BindingResult bindingResult,
+    public String addComment(@PathVariable Long id,@Validated @ModelAttribute CommentDto commentDto, BindingResult bindingResult,
                              @AuthenticationPrincipal MemberContext memberContext, Model model) {
+
+        Review review = reviewService.findById(id);
+        Member member = memberRepository.findById(memberContext.getMember().getId()).orElseThrow();
+        model.addAttribute(review);
+        model.addAttribute(member);
+
+        boolean isLike = reviewService.isLike(member, review);
+        model.addAttribute("isLike", isLike);
+
+        List<Comment> comments = commentService.findComments(id);
+        model.addAttribute("comments", comments);
+
         if (bindingResult.hasErrors()) {
             return "/review/review";
         }
 
-        Review review = reviewService.findById(id);
-        Member member = memberRepository.findById(memberContext.getMember().getId()).orElseThrow();
-
-        boolean isLike = reviewService.isLike(member, review);
-
         commentService.add(commentDto, member, review);
-        List<Comment> comments = commentService.findComments(id);
 
+        comments = commentService.findComments(id);
         model.addAttribute("comments", comments);
-        model.addAttribute("isLike", isLike);
-        model.addAttribute(review);
-        model.addAttribute(member);
 
         return "/review/review";
     }

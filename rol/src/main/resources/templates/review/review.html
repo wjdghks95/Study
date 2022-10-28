@@ -120,14 +120,17 @@
                             <button type="submit" class="add-btn">입력</button>
                         </div>
                     </form>
-                    <div class="comments__comment">
-                        <a href="#" class="comments__comment-author">
-                            <div class="comments__author-image">
-                                <img src="../img/sample3.jpg">
-                            </div>
-                            <div class="comments__author-nickname">nickname</div>
-                        </a>
-                        <div class="comments__comment-text">댓글</div>
+                    <div class="field-error" th:errors="${commentDto.content}" th:classappend="error-message">text</div>
+                    <div class="comments__comment" th:each="comment : ${comments}">
+                        <div class="comments__author">
+                            <a href="#" th:href="@{/myPage/profile/{id}(id=${comment.member.id})}" class="comments__author-link">
+                                <div class="comments__author-image">
+                                    <img src="../img/sample3.jpg" th:src="${comment.member.profileImage}">
+                                </div>
+                                <span class="comments__author-nickname" th:text="${comment.member.nickname}">nickname</span>
+                            </a>
+                        </div>
+                        <div class="comments__comment-content" th:text="${comment.content}">댓글</div>
                     </div>
                     <div class="pagination">
                         <a href="#" class="pagination-btn">1</a>

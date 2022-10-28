@@ -11,5 +11,5 @@ public interface CommentService {
 
     Comment add(CommentDto commentDto, Member member, Review review);
 
-    List<Comment> findComments(Long id);
+    List<Comment> findComments(Long reviewId);
 }

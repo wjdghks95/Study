@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class ReviewDto {
 
     private String categoryName;
 
-    @Length(min = 8, message = "리뷰를 최소 20자 이상 작성해주세요.")
+    @Length(min = 20, message = "리뷰를 최소 20자 이상 작성해주세요.")
     private String description;
 
     private int rating;

@@ -106,6 +106,6 @@ public class ReviewController {
         comments = commentService.findComments(id);
         model.addAttribute("comments", comments);
 
-        return "/review/review";
+        return "redirect:/review/" + id;
     }
 }

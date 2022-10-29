@@ -129,10 +129,31 @@
     padding-top: 0;
 }
 
-.comments__form {
+.comments__write {
+    margin-bottom: 1.6rem;
+}
+
+.comments__author {
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    width: 10%;
+}
+
+.comments__author-image {
+    margin-right: .625rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.comments__author-nickname {
+    font-size: var(--font-micro);
+    font-weight: bold;
+}
+
+.comments__form {
+    width: 90%;
 }
 
 .comments__input {
@@ -148,32 +169,18 @@
     font-size: var(--font-micro);
 }
 
+.field-error {
+    margin-left: 6.5rem;
+}
+
 .comments__comment {
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--color-light-gray);
 }
 
-.comments__author {
-    display: inline-block;
-}
-
 .comments__author-link {
     display: flex;
     align-items: center;
-}
-
-.comments__author-image {
-    margin-right: .625rem;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.comments__author-nickname {
-    display: inline-block;
-    font-size: var(--font-micro);
-    font-weight: bold;
 }
 
 .comments__comment-content {

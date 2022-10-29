@@ -47,6 +47,13 @@
                             <div class="detail-review__satisfaction-level">
                                 <span>만족도</span>
                                 <div class="rating" th:switch="*{rating}">
+                                    <div class="rating__star" th:case=0>
+                                        <img src="../icon/star-regular.svg" alt="star">
+                                        <img src="../icon/star-regular.svg" alt="star">
+                                        <img src="../icon/star-regular.svg" alt="star">
+                                        <img src="../icon/star-regular.svg" alt="star">
+                                        <img src="../icon/star-regular.svg" alt="star">
+                                    </div>
                                     <div class="rating__star" th:case=1>
                                         <img src="../icon/star-solid.svg" alt="star">
                                         <img src="../icon/star-regular.svg" alt="star">

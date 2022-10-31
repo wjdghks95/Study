@@ -100,6 +100,7 @@
     margin: 1rem 0;
     padding: 1.5rem;
     border: 1px solid var(--color-light-gray);
+    word-wrap: break-word;
 }
 
 .detail-review__like {
@@ -123,6 +124,11 @@
     margin-bottom: 1rem;
     font-size: var(--font-medium);
     font-weight: bold;
+}
+
+.section__subheading.comment {
+    color: var(--color-light-gray);
+    font-size: var(--font-micro);
 }
 
 .comments__container {
@@ -185,9 +191,5 @@
 
 .comments__comment-content {
     padding: 1rem .625rem;
-}
-
-.pagination-btn { 
-    border: 2px solid var(--color-gray);
-    margin: 0 .625rem;
+    word-wrap: break-word;
 }

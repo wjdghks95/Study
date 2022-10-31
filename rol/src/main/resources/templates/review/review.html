@@ -117,6 +117,7 @@
             <div class="comments__container container">
                 <article class="section__content">
                     <h2 class="section__heading comment">댓글</h2>
+                    <p class="section__subheading comment" sec:authorize="isAnonymous()">댓글 작성은 로그인후 이용할 수 있습니다.</p>
                     <div class="comments__write" th:object="${member}" sec:authorize="isAuthenticated()">
                         <div class="form__row-wrapper">
                             <div class="comments__author">
@@ -144,13 +145,6 @@
                             </a>
                         </div>
                         <div class="comments__comment-content" th:text="${comment.content}">댓글</div>
-                    </div>
-                    <div class="pagination">
-                        <a href="#" class="pagination-btn">1</a>
-                        <a href="#" class="pagination-btn">2</a>
-                        <a href="#" class="pagination-btn">3</a>
-                        <a href="#" class="pagination-btn">4</a>
-                        <a href="#" class="pagination-btn">5</a>
                     </div>
                 </article>
             </div>

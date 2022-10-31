@@ -290,6 +290,7 @@ textarea::placeholder {
 .section__heading {
     margin-bottom: 1.5rem;
     font-size: var(--font-large);
+    word-wrap: break-word;
 }
 
 .section__heading--white {
@@ -300,6 +301,7 @@ textarea::placeholder {
     margin-bottom: 1.5rem;
     font-size: var(--font-medium-small);
     color: var(--color-gray);
+    word-wrap: break-word;
 }
 
 /* banner */

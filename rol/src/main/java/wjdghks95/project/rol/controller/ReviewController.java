@@ -72,11 +72,14 @@ public class ReviewController {
         model.addAttribute("comments", comments);
 
         if (memberContext != null) {
-            Member member = memberContext.getMember();
+            Member member = memberRepository.findById(memberContext.getMember().getId()).orElseThrow();
             model.addAttribute("member", member);
 
             boolean isLike = reviewService.isLike(member, review);
             model.addAttribute("isLike", isLike);
+
+            boolean isFollow = reviewService.isFollow(member, review.getMember());
+            model.addAttribute("isFollow", isFollow);
         }
 
         return "/review/review";
@@ -88,22 +91,26 @@ public class ReviewController {
 
         Review review = reviewService.findById(id);
         Member member = memberRepository.findById(memberContext.getMember().getId()).orElseThrow();
-        model.addAttribute(review);
-        model.addAttribute(member);
-
-        boolean isLike = reviewService.isLike(member, review);
-        model.addAttribute("isLike", isLike);
-
-        List<Comment> comments = commentService.findComments(id);
-        model.addAttribute("comments", comments);
 
         if (bindingResult.hasErrors()) {
+            model.addAttribute(review);
+            model.addAttribute(member);
+
+            boolean isLike = reviewService.isLike(member, review);
+            model.addAttribute("isLike", isLike);
+
+            boolean isFollow = reviewService.isFollow(member, review.getMember());
+            model.addAttribute("isFollow", isFollow);
+
+            List<Comment> comments = commentService.findComments(id);
+            model.addAttribute("comments", comments);
+
             return "/review/review";
         }
 
         commentService.add(commentDto, member, review);
 
-        comments = commentService.findComments(id);
+        List<Comment> comments = commentService.findComments(id);
         model.addAttribute("comments", comments);
 
         return "redirect:/review/" + id;

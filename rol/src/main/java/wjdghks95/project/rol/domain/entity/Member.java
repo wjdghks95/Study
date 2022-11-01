@@ -46,7 +46,11 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<LikeEntity> likeList = new ArrayList<>();
 
-//    private List<Follow> followList;
+    @OneToMany(mappedBy = "following", cascade = CascadeType.ALL)
+    private List<Follow> followingList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "follower", cascade = CascadeType.ALL)
+    private List<Follow> followerList = new ArrayList<>();
 
     @Builder
     public Member(String email, String password, String name, String nickname, String zipcode, String address, String detailAddress, String phone, String profileImage, String role) {

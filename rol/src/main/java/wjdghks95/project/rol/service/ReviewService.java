@@ -7,9 +7,13 @@ import wjdghks95.project.rol.domain.entity.Review;
 import java.io.IOException;
 
 public interface ReviewService {
-    public Long write(ReviewDto reviewDto, Member member) throws IOException;
-    public Review findById(Long id);
-    public void like(Member member, Review review);
+    Long write(ReviewDto reviewDto, Member member) throws IOException;
+    Review findById(Long id);
+    void like(Member member, Review review);
 
-    public boolean isLike(Member member, Review review);
+    boolean isLike(Member member, Review review);
+
+    void follow(Member followingMember, Member followerMember);
+
+    boolean isFollow(Member followingMember, Member followerMember);
 }

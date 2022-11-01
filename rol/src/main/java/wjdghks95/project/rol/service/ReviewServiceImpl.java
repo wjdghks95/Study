@@ -68,8 +68,7 @@ public class ReviewServiceImpl implements ReviewService{
     @Transactional
     @Override
     public void like(Member member, Review review) {
-        Member findMember = memberRepository.findById(member.getId()).orElseThrow();
-        Optional<LikeEntity> byMemberAndReview = likeEntityRepository.findByMemberAndReview(findMember, review);
+        Optional<LikeEntity> byMemberAndReview = likeEntityRepository.findByMemberAndReview(member, review);
         byMemberAndReview.ifPresentOrElse(
                 // 좋아요가 있을 경우 삭제
                 likeEntity -> {
@@ -82,11 +81,11 @@ public class ReviewServiceImpl implements ReviewService{
                 () -> {
                     LikeEntity likeEntity = LikeEntity.builder()
                                     .review(review)
-                                    .member(findMember)
+                                    .member(member)
                                     .build();
 
                     likeEntity.setReview(review);
-                    likeEntity.setMember(findMember);
+                    likeEntity.setMember(member);
                     review.updateLikeCount();
                     likeEntityRepository.save(likeEntity);
                 }

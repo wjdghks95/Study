@@ -50,6 +50,7 @@ public class SecurityConfig {
                 .antMatchers("/", "/login", "/signUp", "/logout", "/check/sendSMS").permitAll()
                 .antMatchers("/review/new").hasAnyAuthority("ROLE_USER")
                 .antMatchers("/review/**").permitAll()
+                .antMatchers("/myPage/**").hasAnyAuthority("ROLE_USER")
                 .anyRequest().authenticated()
 
                 .and()

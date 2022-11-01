@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import wjdghks95.project.rol.domain.entity.Member;
+import wjdghks95.project.rol.domain.entity.Review;
 import wjdghks95.project.rol.repository.MemberRepository;
 import wjdghks95.project.rol.security.service.MemberContext;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Base64;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Controller
@@ -31,9 +33,11 @@ public class MyPageController {
 
     @GetMapping("/profile/{id}")
     public String profile(@PathVariable Long id, @AuthenticationPrincipal MemberContext memberContext, Model model) {
-        Member member = memberRepository.findById(id).orElseThrow(() -> {
-            throw new NoSuchElementException();
-        });
+        Member member = memberRepository.findById(id).orElseThrow();
+
+        if (member.getId() != memberContext.getMember().getId()) {
+            return "redirect:/";
+        }
 
         String defaultProfileImage = null;
         try (InputStream inputStream = new FileInputStream(resourceFile.getFile())){
@@ -45,6 +49,20 @@ public class MyPageController {
 
         model.addAttribute("member", member);
         model.addAttribute("defaultProfileImage", defaultProfileImage);
-        return "mypage/myPage_profile";
+        return "myPage/myPage_profile";
+    }
+
+    @GetMapping("/myReview/{id}")
+    public String myReview(@PathVariable Long id, @AuthenticationPrincipal MemberContext memberContext, Model model) {
+        Member member = memberRepository.findById(id).orElseThrow();
+
+        if (member.getId() != memberContext.getMember().getId()) {
+            return "redirect:/";
+        }
+
+        List<Review> reviewList = member.getReviewList();
+
+        model.addAttribute("reviewList", reviewList);
+        return "myPage/myPage_myReview";
     }
 }

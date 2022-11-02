@@ -34,7 +34,7 @@
                             <a href="#" class="myPage-side-menu__link">팔로우</a>
                         </li>
                         <li class="myPage-side-menu__item">
-                            <a href="../html/myPage-withdrawal.html" class="myPage-side-menu__link">회원 탈퇴</a>
+                            <a href="../html/myPage-withdrawal.html" th:href="@{'/myPage/withdrawal/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">회원 탈퇴</a>
                         </li>
                     </ul>
                 </aside>

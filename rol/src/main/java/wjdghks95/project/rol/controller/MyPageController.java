@@ -1,26 +1,20 @@
 package wjdghks95.project.rol.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.compress.utils.IOUtils;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import wjdghks95.project.rol.domain.dto.MemberWithdrawalDto;
 import wjdghks95.project.rol.domain.entity.LikeEntity;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.domain.entity.Review;
 import wjdghks95.project.rol.repository.MemberRepository;
 import wjdghks95.project.rol.security.service.MemberContext;
+import wjdghks95.project.rol.service.MemberService;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.Base64;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Controller
 @RequestMapping("/myPage")
@@ -28,6 +22,7 @@ import java.util.NoSuchElementException;
 public class MyPageController {
 
     private final MemberRepository memberRepository;
+    private final MemberService memberService;
 
 
     @GetMapping("/profile/{id}")
@@ -68,5 +63,30 @@ public class MyPageController {
 
         model.addAttribute("likeList", likeList);
         return "myPage/myPage_like";
+    }
+
+    @GetMapping("/withdrawal/{id}")
+    public String withdrawalForm(@PathVariable Long id, @AuthenticationPrincipal MemberContext memberContext, Model model) {
+        Member member = memberRepository.findById(id).orElseThrow();
+
+        if (member.getId() != memberContext.getMember().getId()) {
+            return "redirect:/";
+        }
+
+        model.addAttribute("member", member);
+        model.addAttribute("memberWithdrawalDto", new MemberWithdrawalDto());
+
+        return "myPage/myPage_withdrawal";
+    }
+
+    @PostMapping("/withdrawal/{id}")
+    public String withdrawal(@PathVariable Long id, @ModelAttribute MemberWithdrawalDto memberWithdrawalDto) {
+        if (memberWithdrawalDto.isCheck1() && memberWithdrawalDto.isCheck2()) {
+            memberService.withdrawal(id);
+            SecurityContextHolder.clearContext();
+            return "redirect:/";
+        }
+
+        return "redirect:/myPage/profile/" + id;
     }
 }

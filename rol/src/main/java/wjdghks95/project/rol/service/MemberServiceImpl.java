@@ -6,7 +6,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wjdghks95.project.rol.domain.dto.MemberDto;
 import wjdghks95.project.rol.domain.entity.Member;
+import wjdghks95.project.rol.domain.entity.Review;
 import wjdghks95.project.rol.repository.MemberRepository;
+import wjdghks95.project.rol.repository.ReviewRepository;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -34,5 +38,11 @@ public class MemberServiceImpl implements MemberService {
 
         memberRepository.save(member);
         return member.getId();
+    }
+
+    @Transactional
+    public void withdrawal(Long id) {
+        Member member = memberRepository.findById(id).orElseThrow();
+        memberRepository.delete(member);
     }
 }

@@ -24,7 +24,7 @@
                         <div class="detail-review__author">
                             <a href="#" th:href="@{/profile/{id}(id=*{member.id})}" class="detail-review__author-info">
                                 <div class="detail-review__author-image">
-                                    <img src="../img/sample1.jpg" th:src="*{member.profileImage}">
+                                    <img src="/img/profile.png" th:src="'data:image/png;base64,' + *{member.profileImage}" onerror="this.src='/images/profile'" alt="프로필">
                                 </div>
                                 <span class="detail-review__author-nickname" th:text="*{member.nickname}">nickname</span>
                             </a>
@@ -128,7 +128,7 @@
                         <div class="form__row-wrapper">
                             <div class="comments__author">
                                 <div class="comments__author-image">
-                                    <img src="../img/sample1.jpg" th:src="*{profileImage}" alt="프로필">
+                                    <img src="/img/profile.png" th:src="'data:image/png;base64,' + *{profileImage}" onerror="this.src='/images/profile'">
                                 </div>
                                 <span class="comments__author-nickname" th:text="*{nickname}">nickname</span>
                             </div>
@@ -145,7 +145,7 @@
                         <div class="comments__author">
                             <a href="#" th:href="@{/profile/{id}(id=${comment.member.id})}" class="comments__author-link">
                                 <div class="comments__author-image">
-                                    <img src="../img/sample3.jpg" th:src="${comment.member.profileImage}">
+                                    <img src="/img/profile.png" th:src="'data:image/png;base64,' + ${comment.member.profileImage}" onerror="this.src='/images/profile'">
                                 </div>
                                 <span class="comments__author-nickname" th:text="${comment.member.nickname}">nickname</span>
                             </a>

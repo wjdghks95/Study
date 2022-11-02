@@ -12,13 +12,31 @@
     <title>프로필</title>
 </head>
 <body>
-    <header th:insert="~{fragment/fragment-header :: header}"></header>
+    <header th:replace="~{fragment/fragment-header :: header}"></header>
 
     <main class="profile">
         <section class="profile-info">
             <div class="profile-info__container container">
 
-                <aside th:insert="~{fragment/fragment-myPage_menu :: menu}"></aside>
+                <aside class="myPage-side-menu">
+                    <ul class="myPage-side-menu__list">
+                        <li class="myPage-side-menu__item active">
+                            <a href="../html/myPage-profile.html" th:href="@{'/myPage/profile/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">프로필</a>
+                        </li>
+                        <li class="myPage-side-menu__item">
+                            <a href="../html/myPage-myReview.html" th:href="@{'/myPage/myReview/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">나의 리뷰</a>
+                        </li>
+                        <li class="myPage-side-menu__item">
+                            <a href="#" class="myPage-side-menu__link">좋아요</a>
+                        </li>
+                        <li class="myPage-side-menu__item">
+                            <a href="#" class="myPage-side-menu__link">팔로우</a>
+                        </li>
+                        <li class="myPage-side-menu__item">
+                            <a href="../html/myPage-withdrawal.html" class="myPage-side-menu__link">회원 탈퇴</a>
+                        </li>
+                    </ul>
+                </aside>
                 <!-- myPage-side-menu -->
 
                 <article class="section__content" th:object="${member}">
@@ -52,6 +70,6 @@
         <!-- myPage-profile -->
     </main>
 
-    <footer th:insert="~{fragment/fragment-footer :: footer}"></footer>
+    <footer th:replace="~{fragment/fragment-footer :: footer}"></footer>
 </body>
 </html>

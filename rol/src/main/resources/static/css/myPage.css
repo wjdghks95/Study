@@ -21,7 +21,7 @@
 section .section__content {
     margin: 0 auto 0 200px;
     max-width: 1024px;
-    min-height: 400px;
+    min-height: 453px;
 }
 
 .default-btn {
@@ -67,7 +67,6 @@ section .section__content {
 /* myReview */
 .myReview-content__list {
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
@@ -76,6 +75,7 @@ section .section__content {
     overflow: hidden;
     width: 30%;
     margin-bottom: 1.875rem;
+    margin-right: 1.875rem;
 }
 
 .myReview-content__item:hover .myReview-content__title {

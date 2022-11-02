@@ -28,8 +28,6 @@ public class MyPageController {
 
     private final MemberRepository memberRepository;
 
-    @Value("classpath:${resource.path.default-image}")
-    private Resource resourceFile;
 
     @GetMapping("/profile/{id}")
     public String profile(@PathVariable Long id, @AuthenticationPrincipal MemberContext memberContext, Model model) {
@@ -39,16 +37,7 @@ public class MyPageController {
             return "redirect:/";
         }
 
-        String defaultProfileImage = null;
-        try (InputStream inputStream = new FileInputStream(resourceFile.getFile())){
-            byte[] bytes = IOUtils.toByteArray(inputStream); // to byte array
-            defaultProfileImage = Base64.getEncoder().encodeToString(bytes);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
         model.addAttribute("member", member);
-        model.addAttribute("defaultProfileImage", defaultProfileImage);
         return "myPage/myPage_profile";
     }
 

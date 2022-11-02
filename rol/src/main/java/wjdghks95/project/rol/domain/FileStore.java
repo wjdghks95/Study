@@ -14,7 +14,7 @@ import java.util.UUID;
 @Component
 public class FileStore {
 
-    @Value("${file.dir}/")
+    @Value("${resource.path.file}/")
     private String fileDirPath;
 
     /** 확장자 추출 */

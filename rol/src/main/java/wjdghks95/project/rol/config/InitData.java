@@ -24,15 +24,15 @@ public class InitData {
     public void init() {
 
         Member member = Member.builder()
-                .phone("")
-                .email("admin@admin.com")
+                .phone("010-1234-5678")
+                .email("test@test.com")
                 .password(passwordEncoder.encode("asdf1234!"))
-                .name("admin")
-                .nickname("관리자")
-                .zipcode("")
-                .address("")
-                .detailAddress("")
-                .role("ROLE_ADMIN")
+                .name("test")
+                .nickname("테스터")
+                .zipcode("12345")
+                .address("테스트주소")
+                .detailAddress("테스트상세주소")
+                .role("ROLE_USER")
                 .profileImage(null)
                 .build();
 

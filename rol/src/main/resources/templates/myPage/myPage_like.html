@@ -9,25 +9,25 @@
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="../css/style.css" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="../css/myPage.css" th:href="@{/css/myPage.css}">
-    <title>나의 리뷰</title>
+    <title>좋아요</title>
 </head>
 <body>
     <header th:replace="~{fragment/fragment-header :: header}"></header>
     <!-- header -->
 
-    <main class="myReview">
-        <section class="myReview-content">
-            <div class="myReview-content__container container">
+    <main class="like">
+        <section class="like-content">
+            <div class="like-content__container container">
 
                 <aside class="myPage-side-menu" xmlns:th="http://www.thymeleaf.org" th:fragment="menu">
                     <ul class="myPage-side-menu__list">
                         <li class="myPage-side-menu__item">
-                            <a href="../html/myPage-profile.html" th:href="@{'/myPage/profile/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">프로필</a>
-                        </li>
-                        <li class="myPage-side-menu__item active">
-                            <a href="../html/myPage-myReview.html" th:href="@{'/myPage/myReview/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">나의 리뷰</a>
+                            <a href="../html/myPage_profile.html" th:href="@{'/myPage/profile/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">프로필</a>
                         </li>
                         <li class="myPage-side-menu__item">
+                            <a href="../html/myPage_myReview.html" th:href="@{'/myPage/myReview/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">나의 리뷰</a>
+                        </li>
+                        <li class="myPage-side-menu__item active">
                             <a href="../html/myPage_like.html" th:href="@{'/myPage/like/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">좋아요</a>
                         </li>
                         <li class="myPage-side-menu__item">
@@ -42,13 +42,13 @@
 
                 <article class="section__content">
                     <header class="section__headings">
-                        <h2 class="section__heading">나의 리뷰</h2>
+                        <h2 class="section__heading">좋아요</h2>
                     </header>
-                    <ul class="myReview-content__list">
-                        <li class="myReview-content__item" th:each="review : ${reviewList}">
-                            <a href="../review/review.html" th:href="@{/review/{id}(id=${review.id})}" class="myReview-content__link">
-                                <h4 class="myReview-content__title" th:text="${review.title}">리뷰입니다.</h4>
-                                <img src="../img/sample2.jpg" th:src="|/images/${review.thumbnail.getStoreFileName()}|">
+                    <ul class="like-content__list">
+                        <li class="like-content__item" th:each="like : ${likeList}">
+                            <a href="../review/review.html" th:href="@{/review/{id}(id=${like.review.id})}" class="like-content__link">
+                                <h4 class="like-content__title" th:text="${like.review.title}">리뷰입니다.</h4>
+                                <img src="../img/sample2.jpg" th:src="|/images/${like.review.thumbnail.getStoreFileName()}|">
                             </a>
                         </li>
                     </ul>            

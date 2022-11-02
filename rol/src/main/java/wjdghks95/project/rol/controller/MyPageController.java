@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import wjdghks95.project.rol.domain.entity.LikeEntity;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.domain.entity.Review;
 import wjdghks95.project.rol.repository.MemberRepository;
@@ -53,5 +54,19 @@ public class MyPageController {
 
         model.addAttribute("reviewList", reviewList);
         return "myPage/myPage_myReview";
+    }
+
+    @GetMapping("/like/{id}")
+    public String myLike(@PathVariable Long id, @AuthenticationPrincipal MemberContext memberContext, Model model) {
+        Member member = memberRepository.findById(id).orElseThrow();
+
+        if (member.getId() != memberContext.getMember().getId()) {
+            return "redirect:/";
+        }
+
+        List<LikeEntity> likeList = member.getLikeList();
+
+        model.addAttribute("likeList", likeList);
+        return "myPage/myPage_like";
     }
 }

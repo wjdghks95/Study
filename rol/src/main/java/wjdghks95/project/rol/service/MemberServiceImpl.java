@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wjdghks95.project.rol.domain.dto.MemberDto;
+import wjdghks95.project.rol.domain.entity.LikeEntity;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.domain.entity.Review;
 import wjdghks95.project.rol.repository.MemberRepository;
@@ -43,6 +44,11 @@ public class MemberServiceImpl implements MemberService {
     @Transactional
     public void withdrawal(Long id) {
         Member member = memberRepository.findById(id).orElseThrow();
+        List<LikeEntity> likeList = member.getLikeList();
+        likeList.forEach(likeEntity -> {
+            likeEntity.getReview().discountLike(likeEntity);
+            likeEntity.getReview().updateLikeCount();
+        });
         memberRepository.delete(member);
     }
 }

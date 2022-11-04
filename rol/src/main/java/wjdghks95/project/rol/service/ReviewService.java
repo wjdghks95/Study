@@ -12,8 +12,4 @@ public interface ReviewService {
     void like(Member member, Review review);
 
     boolean isLike(Member member, Review review);
-
-    void follow(Member followingMember, Member followerMember);
-
-    boolean isFollow(Member followingMember, Member followerMember);
 }

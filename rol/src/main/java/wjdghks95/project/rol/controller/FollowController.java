@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.repository.MemberRepository;
 import wjdghks95.project.rol.security.service.MemberContext;
+import wjdghks95.project.rol.service.MemberService;
 import wjdghks95.project.rol.service.ReviewService;
 
 @RestController
@@ -16,13 +17,20 @@ public class FollowController {
 
     private final ReviewService reviewService;
     private final MemberRepository memberRepository;
-
-    @GetMapping("/review/{id}/follow")
+    private final MemberService memberService;
+    @GetMapping("/review/follow/{id}")
     public String follow(@PathVariable Long id, @AuthenticationPrincipal MemberContext memberContext) {
         Member followingMember = memberRepository.findById(memberContext.getMember().getId()).orElseThrow();
         Member followerMember = reviewService.findById(id).getMember();
 
-        reviewService.follow(followingMember, followerMember);
+        memberService.follow(followingMember, followerMember);
+
+        return "";
+    }
+
+    @GetMapping("/myPage/follow/{id}")
+    public String myPageFollow(@PathVariable Long id, @AuthenticationPrincipal MemberContext memberContext) {
+        System.out.println("follow!!");
 
         return "";
     }

@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wjdghks95.project.rol.domain.dto.ReviewDto;
 import wjdghks95.project.rol.domain.entity.*;
-import wjdghks95.project.rol.repository.*;
+import wjdghks95.project.rol.repository.LikeEntityRepository;
+import wjdghks95.project.rol.repository.ReviewRepository;
+import wjdghks95.project.rol.repository.ReviewTagRepository;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,7 +23,6 @@ public class ReviewServiceImpl implements ReviewService{
     private final ReviewTagRepository reviewTagRepository;
     private final ImageService imageService;
     private final LikeEntityRepository likeEntityRepository;
-    private final FollowRepository followRepository;
 
     @Transactional
     @Override
@@ -94,36 +95,4 @@ public class ReviewServiceImpl implements ReviewService{
     public boolean isLike(Member member, Review review) {
         return likeEntityRepository.findByMemberAndReview(member, review).isEmpty();
     }
-
-    @Transactional
-    @Override
-    public void follow(Member followingMember, Member followerMember) {
-        Optional<Follow> byFollow = followRepository.findFollow(followingMember, followerMember);
-
-        byFollow.ifPresentOrElse(
-                // 팔로우 되어 있는 경우 삭제
-                follow -> {
-                    followRepository.delete(follow);
-                },
-                // 팔로우 하지 않은 경우 추가
-                () -> {
-                    Follow follow = Follow.builder()
-                            .following(followingMember)
-                            .follower(followerMember)
-                            .build();
-
-                    follow.setFollowing(followingMember);
-                    follow.setFollower(followerMember);
-                    followRepository.save(follow);
-                }
-        );
-    }
-
-    // 로그인한 member가 현재 page member를 팔로우하지 않은 경우 false
-    @Override
-    public boolean isFollow(Member followingMember, Member followerMember) {
-        return followRepository.findFollow(followingMember, followerMember).isEmpty();
-    }
-
-
 }

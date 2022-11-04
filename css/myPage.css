@@ -20,7 +20,8 @@
 
 section .section__content {
     margin: 0 auto 0 200px;
-    width: 1024px;
+    max-width: 1024px;
+    min-height: 453px;
 }
 
 .default-btn {
@@ -93,6 +94,45 @@ section .section__content {
     transform: translateY(70%);
     opacity: 0;
     transition: all .2s ease-out;
+}
+
+/* followinging */
+.following-content__followinging-iist {
+    margin: 0 auto;
+    max-width: 760px;
+}
+
+.following-content__followinging-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.following-content__followinging-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.following-content__followinging-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.following-content__followinging-image {
+    
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.following-content__followinging-nickname {
+    margin-left: 1rem;
+    font-size: var(--font-medium-small);
+    font-weight: bold;
 }
 
 /* withdrawal */

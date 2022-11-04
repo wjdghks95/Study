@@ -17,6 +17,7 @@ import wjdghks95.project.rol.domain.entity.Review;
 import wjdghks95.project.rol.repository.MemberRepository;
 import wjdghks95.project.rol.security.service.MemberContext;
 import wjdghks95.project.rol.service.CommentService;
+import wjdghks95.project.rol.service.MemberService;
 import wjdghks95.project.rol.service.ReviewService;
 import wjdghks95.project.rol.validator.FileValidator;
 
@@ -32,6 +33,7 @@ public class ReviewController {
 
     private final ReviewService reviewService;
     private final MemberRepository memberRepository;
+    private final MemberService memberService;
     private final FileValidator fileValidator;
 
     private final CommentService commentService;
@@ -78,7 +80,7 @@ public class ReviewController {
             boolean isLike = reviewService.isLike(member, review);
             model.addAttribute("isLike", isLike);
 
-            boolean isFollow = reviewService.isFollow(member, review.getMember());
+            boolean isFollow = memberService.isFollow(member, review.getMember());
             model.addAttribute("isFollow", isFollow);
         }
 
@@ -99,7 +101,7 @@ public class ReviewController {
             boolean isLike = reviewService.isLike(member, review);
             model.addAttribute("isLike", isLike);
 
-            boolean isFollow = reviewService.isFollow(member, review.getMember());
+            boolean isFollow = memberService.isFollow(member, review.getMember());
             model.addAttribute("isFollow", isFollow);
 
             List<Comment> comments = commentService.findComments(id);

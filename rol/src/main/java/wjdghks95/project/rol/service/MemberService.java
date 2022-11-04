@@ -7,4 +7,8 @@ public interface MemberService {
 
     Long join(MemberDto memberDto);
     void withdrawal(Long id);
+
+    void follow(Member followingMember, Member followerMember);
+
+    boolean isFollow(Member followingMember, Member followerMember);
 }

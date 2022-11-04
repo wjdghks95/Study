@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import wjdghks95.project.rol.domain.dto.MemberWithdrawalDto;
+import wjdghks95.project.rol.domain.entity.Follow;
 import wjdghks95.project.rol.domain.entity.LikeEntity;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.domain.entity.Review;
@@ -63,6 +64,20 @@ public class MyPageController {
 
         model.addAttribute("likeList", likeList);
         return "myPage/myPage_like";
+    }
+
+    @GetMapping("/following/{id}")
+    public String following(@PathVariable Long id, @AuthenticationPrincipal MemberContext memberContext, Model model) {
+        Member member = memberRepository.findById(id).orElseThrow();
+
+        if (member.getId() != memberContext.getMember().getId()) {
+            return "redirect:/";
+        }
+
+        List<Follow> followingList = member.getFollowingList();
+        model.addAttribute("followingList", followingList);
+
+        return "myPage/myPage_following";
     }
 
     @GetMapping("/withdrawal/{id}")

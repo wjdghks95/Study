@@ -28,10 +28,10 @@
                             <a href="../html/myPage-myReview.html" th:href="@{'/myPage/myReview/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">나의 리뷰</a>
                         </li>
                         <li class="myPage-side-menu__item">
-                            <a href="../html/myPage_like.html" th:href="@{'/myPage/like/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">좋아요</a>
+                            <a href="../html/myPage-like.html" th:href="@{'/myPage/like/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">좋아요</a>
                         </li>
                         <li class="myPage-side-menu__item">
-                            <a href="#" class="myPage-side-menu__link">팔로우</a>
+                            <a href="../html/myPage-following.html" th:href="@{'/myPage/following/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">팔로잉</a>
                         </li>
                         <li class="myPage-side-menu__item active">
                             <a href="../html/myPage-withdrawal.html" th:href="@{'/myPage/withdrawal/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">회원 탈퇴</a>

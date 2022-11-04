@@ -10,7 +10,7 @@ if(followBtn !== null) {
             const id = url.substring(url.length-1); // review id
 
             const xhr = new XMLHttpRequest();
-            xhr.open("GET", `/review/${id}/follow`, true);
+            xhr.open("GET", `/review/follow/${id}`, true);
             xhr.send();
             xhr.onload = (data) => {
                 const followImg = followBtn.querySelector('.follow-btn');

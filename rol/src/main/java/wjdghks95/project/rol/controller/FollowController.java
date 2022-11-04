@@ -15,22 +15,15 @@ import wjdghks95.project.rol.service.ReviewService;
 @RequiredArgsConstructor
 public class FollowController {
 
-    private final ReviewService reviewService;
     private final MemberRepository memberRepository;
     private final MemberService memberService;
-    @GetMapping("/review/follow/{id}")
+
+    @GetMapping("/member/follow/{id}")
     public String follow(@PathVariable Long id, @AuthenticationPrincipal MemberContext memberContext) {
         Member followingMember = memberRepository.findById(memberContext.getMember().getId()).orElseThrow();
-        Member followerMember = reviewService.findById(id).getMember();
+        Member followerMember = memberRepository.findById(id).orElseThrow();
 
         memberService.follow(followingMember, followerMember);
-
-        return "";
-    }
-
-    @GetMapping("/myPage/follow/{id}")
-    public String myPageFollow(@PathVariable Long id, @AuthenticationPrincipal MemberContext memberContext) {
-        System.out.println("follow!!");
 
         return "";
     }

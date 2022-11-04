@@ -6,11 +6,10 @@ if(followBtn !== null) {
         if(followBtn.classList.contains('anonymous')) {
             alert('팔로우는 로그인 후 이용가능합니다.');
         } else {
-            const url = window.location.href;
-            const id = url.substring(url.length-1); // review id
+            const id = followBtn.getAttribute("data-index"); // review id
 
             const xhr = new XMLHttpRequest();
-            xhr.open("GET", `/review/follow/${id}`, true);
+            xhr.open("GET", `/member/follow/${id}`, true);
             xhr.send();
             xhr.onload = (data) => {
                 const followImg = followBtn.querySelector('.follow-btn');

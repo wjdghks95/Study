@@ -24,7 +24,7 @@
                         <div class="detail-review__author">
                             <a href="#" th:href="@{/profile/{id}(id=*{member.id})}" class="detail-review__author-info">
                                 <div class="detail-review__author-image">
-                                    <img src="/img/profile.png" th:src="'data:image/png;base64,' + *{member.profileImage}" onerror="this.src='/images/profile'" alt="프로필">
+                                    <img src="../img/profile.png" th:src="'data:image/png;base64,' + *{member.profileImage}" onerror="this.src='/images/profile'" alt="프로필">
                                 </div>
                                 <span class="detail-review__author-nickname" th:text="*{member.nickname}">nickname</span>
                             </a>
@@ -39,14 +39,16 @@
                             </div>
                         </div>
                         <ul class="detail-review__tags">
-                            <li class="detail-review__tag" th:each="reviewTag : *{reviewTag}" th:text="'#' + ${reviewTag.tag.name}">#태그</li>
+                            <li class="detail-review__tag" th:each="reviewTag : *{reviewTag}">
+                                <a href="#" class="detail-review__tag-link" th:text="'#' + ${reviewTag.tag.name}">#태그</a>
+                            </li>
                         </ul>
                     </header>
                     <div class="detail-review__content">
                         <h2 class="section__heading" th:text="*{title}">제목</h2>
                         <ul class="detail-review__photo-list">
                             <li class="detail-review__photo" th:each="image : *{images}">
-                                <img th:src="|/images/${image.getStoreFileName()}|" alt="리뷰사진">
+                                <img src="../img/sample1.jpg" th:src="|/images/${image.getStoreFileName()}|" alt="썸네일">
                             </li>
                         </ul>
                         <div class="detail-review__metadata">
@@ -54,46 +56,46 @@
                                 <span>만족도</span>
                                 <div class="rating" th:switch="*{rating}">
                                     <div class="rating__star" th:case=0>
-                                        <img src="../icon/star-regular.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
                                     </div>
                                     <div class="rating__star" th:case=1>
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
                                     </div>
                                     <div class="rating__star" th:case=2>
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
                                     </div>
                                     <div class="rating__star" th:case=3>
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
                                     </div>
                                     <div class="rating__star" th:case=4>
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-regular.svg" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-regular.svg" th:src="@{/icon/star-regular.svg}" alt="star">
                                     </div>
                                     <div class="rating__star" th:case=5>
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-solid.svg" alt="star">
-                                        <img src="../icon/star-solid.svg" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
+                                        <img src="../icon/star-solid.svg" th:src="@{/icon/star-solid.svg}" alt="star">
                                     </div>
                                 </div>
                             </div>
@@ -128,11 +130,11 @@
                         <div class="form__row-wrapper">
                             <div class="comments__author">
                                 <div class="comments__author-image">
-                                    <img src="/img/profile.png" th:src="'data:image/png;base64,' + *{profileImage}" onerror="this.src='/images/profile'">
+                                    <img src="../img/profile.png" th:src="'data:image/png;base64,' + *{profileImage}" onerror="this.src='/images/profile'">
                                 </div>
                                 <span class="comments__author-nickname" th:text="*{nickname}">nickname</span>
                             </div>
-                            <form action="/review/1" th:action="@{/review/{id}(id=${review.id})}" method="post" class="comments__form">
+                            <form action="review.html" th:action="@{/review/{id}(id=${review.id})}" method="post" class="comments__form">
                                 <div class="comments__input">
                                     <input type="text" name="content" placeholder="칭찬과 격려의 글을 남겨주세요 :)">
                                     <button type="submit" class="add-btn">입력</button>
@@ -145,7 +147,7 @@
                         <div class="comments__author">
                             <a href="#" th:href="@{/profile/{id}(id=${comment.member.id})}" class="comments__author-link">
                                 <div class="comments__author-image">
-                                    <img src="/img/profile.png" th:src="'data:image/png;base64,' + ${comment.member.profileImage}" onerror="this.src='/images/profile'">
+                                    <img src="../img/profile.png" th:src="'data:image/png;base64,' + ${comment.member.profileImage}" onerror="this.src='/images/profile'">
                                 </div>
                                 <span class="comments__author-nickname" th:text="${comment.member.nickname}">nickname</span>
                             </a>

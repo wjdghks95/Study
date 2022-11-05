@@ -22,19 +22,19 @@
                 <aside class="myPage-side-menu">
                     <ul class="myPage-side-menu__list">
                         <li class="myPage-side-menu__item">
-                            <a href="../html/myPage-profile.html" th:href="@{'/myPage/profile/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">프로필</a>
+                            <a href="myPage_profile.html" th:href="@{'/myPage/profile/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">프로필</a>
                         </li>
                         <li class="myPage-side-menu__item active">
-                            <a href="../html/myPage-myReview.html" th:href="@{'/myPage/myReview/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">나의 리뷰</a>
+                            <a href="myPage_myReview.html" th:href="@{'/myPage/myReview/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">나의 리뷰</a>
                         </li>
                         <li class="myPage-side-menu__item">
-                            <a href="../html/myPage-like.html" th:href="@{'/myPage/like/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">좋아요</a>
+                            <a href="myPage_like.html" th:href="@{'/myPage/like/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">좋아요</a>
                         </li>
                         <li class="myPage-side-menu__item">
-                            <a href="../html/myPage-following.html" th:href="@{'/myPage/following/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">팔로잉</a>
+                            <a href="myPage_following.html" th:href="@{'/myPage/following/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">팔로잉</a>
                         </li>
                         <li class="myPage-side-menu__item">
-                            <a href="../html/myPage-withdrawal.html" th:href="@{'/myPage/withdrawal/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">회원 탈퇴</a>
+                            <a href="myPage_withdrawal.html" th:href="@{'/myPage/withdrawal/'+${#authentication.principal.member.id}}" class="myPage-side-menu__link">회원 탈퇴</a>
                         </li>
                     </ul>
                 </aside>
@@ -46,9 +46,9 @@
                     </header>
                     <ul class="myReview-content__list">
                         <li class="myReview-content__item" th:each="review : ${reviewList}">
-                            <a href="../review/review.html" th:href="@{/review/{id}(id=${review.id})}" class="myReview-content__link">
+                            <a href="review.html" th:href="@{/review/{id}(id=${review.id})}" class="myReview-content__link">
                                 <h4 class="myReview-content__title" th:text="${review.title}">리뷰입니다.</h4>
-                                <img src="../img/sample2.jpg" th:src="|/images/${review.thumbnail.getStoreFileName()}|">
+                                <img src="../img/sample1.jpg" th:src="|/images/${review.thumbnail.getStoreFileName()}|" alt="썸네일">
                             </a>
                         </li>
                     </ul>            

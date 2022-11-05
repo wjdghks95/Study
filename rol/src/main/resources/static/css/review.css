@@ -69,8 +69,15 @@
 
 .detail-review__tag {
     margin-right: .5rem;
+}
+
+.detail-review__tag-link {
     color: var(--color-blue);
     font-size: var(--font-medium);
+}
+
+.detail-review__tag-link:hover {
+    text-decoration: underline;
 }
 
 .detail-review__photo {

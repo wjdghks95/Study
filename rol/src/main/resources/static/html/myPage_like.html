@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,27 +9,27 @@
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/myPage.css">
-    <title>프로필</title>
+    <title>좋아요</title>
 </head>
 <body>
     <header>
         <div class="header__container container">
             <div class="header__wrapper">
                 <div class="header__logo-area">
-                    <a href="../html/index.html" class="header__logo">
+                    <a href="index.html" class="header__logo">
                         <img src="https://reviewshare.io/static/media/reviewshare_logo.057c3bd3.svg" alt="logo">
                     </a>
                 </div>
                 <nav class="header__nav">
                     <ul class="header__menu">
                         <li class="header__menu-item">
-                            <a href="../html/index.html" class="header__menu-link">Home</a>
+                            <a href="index.html" class="header__menu-link">Home</a>
                         </li>
                         <li class="header__menu-item">
-                            <a href="../html/contents.html" class="header__menu-link">Contents</a>
+                            <a href="contents.html" class="header__menu-link">Contents</a>
                         </li>
                         <li class="header__menu-item">
-                            <a href="../html/myPage-profile.html" class="header__menu-link">MyPage</a>
+                            <a href="myPage_profile.html" class="header__menu-link">MyPage</a>
                         </li>
                     </ul>
                     <ul class="header__util-buttons">
@@ -37,7 +37,7 @@
                             <button type="button" class="util-btn" onclick="location.href='/logout'">Logout</button>
                         </li>
                         <li class="header__util-button">
-                            <button type="button" class="util-btn" onclick="location.href='/review/new'">글쓰기</button>
+                            <button type="button" class="util-btn" onclick="location.href='reviewForm.html'">글쓰기</button>
                         </li>
                     </ul>
                 </nav>
@@ -46,26 +46,26 @@
     </header>
     <!-- header -->
 
-    <main class="profile">
-        <section class="profile-info">
-            <div class="profile-info__container container">
+    <main class="like">
+        <section class="like-content">
+            <div class="like-content__container container">
 
-                <aside class="mypage-side-menu">
-                    <ul class="mypage-side-menu__list">
-                        <li class="mypage-side-menu__item active">
-                            <a href="../html/myPage-profile.html" class="mypage-side-menu__link">프로필</a>
+                <aside class="myPage-side-menu">
+                    <ul class="myPage-side-menu__list">
+                        <li class="myPage-side-menu__item">
+                            <a href="myPage_profile.html" class="myPage-side-menu__link">프로필</a>
                         </li>
-                        <li class="mypage-side-menu__item">
-                            <a href="../html/myPage-myreview.html" class="mypage-side-menu__link">나의 리뷰</a>
+                        <li class="myPage-side-menu__item">
+                            <a href="myPage_myReview.html" class="myPage-side-menu__link">나의 리뷰</a>
                         </li>
-                        <li class="mypage-side-menu__item">
-                            <a href="#" class="mypage-side-menu__link">좋아요</a>
+                        <li class="myPage-side-menu__item active">
+                            <a href="myPage_like.html" class="myPage-side-menu__link">좋아요</a>
                         </li>
-                        <li class="mypage-side-menu__item">
-                            <a href="#" class="mypage-side-menu__link">팔로우</a>
+                        <li class="myPage-side-menu__item">
+                            <a href="myPage_following.html" class="myPage-side-menu__link">팔로잉</a>
                         </li>
-                        <li class="mypage-side-menu__item">
-                            <a href="../html/myPage-withdrawal.html" class="mypage-side-menu__link">회원 탈퇴</a>
+                        <li class="myPage-side-menu__item">
+                            <a href="myPage_withdrawal.html" class="myPage-side-menu__link">회원 탈퇴</a>
                         </li>
                     </ul>
                 </aside>
@@ -73,32 +73,20 @@
 
                 <article class="section__content">
                     <header class="section__headings">
-                        <h2 class="section__heading">프로필</h2>
+                        <h2 class="section__heading">좋아요</h2>
                     </header>
-                    <ul class="profile-info__list">
-                        <li class="profile-info__item">
-                            <div class="profile-info__field">사진</div>
-                            <div class="profile-info__field-text">사진을 등록하세요</div>
-                            <figure class="profile-info__field-image">
-                                <img src="../img/sample1.jpg">
-                            </figure>
+                    <ul class="like-content__list">
+                        <li class="like-content__item">
+                            <a href="review.html" class="like-content__link">
+                                <h4 class="like-content__title">리뷰입니다.</h4>
+                                <img src="../img/sample1.jpg" alt="썸네일">
+                            </a>
                         </li>
-                        <li class="profile-info__item">
-                            <div class="profile-info__field">이름</div>
-                            <div class="profile-info__field-text">NAME</div>
-                        </li>
-                        <li class="profile-info__item">
-                            <div class="profile-info__field">닉네임</div>
-                            <div class="profile-info__field-text">NICKNAME</div>
-                            <div class="profile-info__field-button">
-                                <button type="button" class="default-btn">변경</button>
-                            </div>
-                        </li>
-                    </ul>      
-                </article> 
+                    </ul>
+                </article>
             </div>
         </section>
-        <!-- myPage-profile -->
+        <!-- myPage-myReview -->
     </main>
 
     <footer class="footer">

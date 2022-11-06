@@ -70,37 +70,43 @@
                     <div class="category-swiper">
                         <ul class="category__list swiper-wrapper">
                             <li class="category__item swiper-slide">
-                                <button class="category-btn active">전체</button>
+                                <button class="category-btn active" value="all">전체</button>
                             </li>
                             <li class="category__item swiper-slide">
-                                <button class="category-btn">식품</button>
+                                <button class="category-btn" value="food">식품</button>
                             </li>
                             <li class="category__item swiper-slide">
-                                <button class="category-btn">미용/코스메틱</button>
+                                <button class="category-btn" value="cosmetic">미용/코스메틱</button>
                             </li>
                             <li class="category__item swiper-slide">
-                                <button class="category-btn">패션/잡화</button>
+                                <button class="category-btn" value="fashion">패션/잡화</button>
                             </li>
                             <li class="category__item swiper-slide">
-                                <button class="category-btn">출산/육아</button>
+                                <button class="category-btn" value="nursing">출산/육아</button>
                             </li>
                             <li class="category__item swiper-slide">
-                                <button class="category-btn">디지털/가전</button>
+                                <button class="category-btn" value="digital">디지털/가전</button>
                             </li>
                             <li class="category__item swiper-slide">
-                                <button class="category-btn">스포츠/건강</button>
+                                <button class="category-btn" value="sports">스포츠/건강</button>
                             </li>
                             <li class="category__item swiper-slide">
-                                <button class="category-btn">반려동물</button>
+                                <button class="category-btn" value="pet">반려동물</button>
                             </li>
                             <li class="category__item swiper-slide">
-                                <button href="#" class="category-btn">여행/숙박</button>
+                                <button class="category-btn" value="restaurant">맛집</button>
                             </li>
                             <li class="category__item swiper-slide">
-                                <button href="#" class="category-btn">인테리어</button>
+                                <button class="category-btn" value="travel">여행/숙박</button>
                             </li>
                             <li class="category__item swiper-slide">
-                                <button href="#" class="category-btn">기타</button>
+                                <button class="category-btn" value="culture">지역/문화</button>
+                            </li>
+                            <li class="category__item swiper-slide">
+                                <button class="category-btn" value="interior">지역/문화</button>
+                            </li>
+                            <li class="category__item swiper-slide">
+                                <button class="category-btn" value="etc">기타</button>
                             </li>
                         </ul>
                         <div class="swiper-button-next"></div>
@@ -120,7 +126,7 @@
                     </li>
                 </ul>
 
-                <article class="section__content">
+                <article class="section__content" id="category-article">
                     <ul class="category__content category__content--gallery">
                         <li class="category__content-item">
                             <a href="review.html" class="category__content-link">
@@ -130,11 +136,13 @@
                                 <div class="category__content-body">
                                     <h4 class="category__content-title">리뷰입니다.</h4>
                                     <div class="rating">
-                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
-                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
-                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
-                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
-                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star">
+                                            <img src="../icon/star-regular.svg" alt="star">
+                                            <img src="../icon/star-regular.svg" alt="star">
+                                            <img src="../icon/star-regular.svg" alt="star">
+                                            <img src="../icon/star-regular.svg" alt="star">
+                                            <img src="../icon/star-regular.svg" alt="star">
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -164,11 +172,13 @@
                                 </td>
                                 <td>
                                     <div class="rating">
-                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
-                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
-                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
-                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
-                                        <div class="rating__star"><img src="../icon/star-solid.svg" alt="star"></div>
+                                        <div class="rating__star">
+                                            <img src="../icon/star-regular.svg" alt="star">
+                                            <img src="../icon/star-regular.svg" alt="star">
+                                            <img src="../icon/star-regular.svg" alt="star">
+                                            <img src="../icon/star-regular.svg" alt="star">
+                                            <img src="../icon/star-regular.svg" alt="star">
+                                        </div>
                                     </div>
                                 </td>
                                 <td>2022.09.20</td>
@@ -182,7 +192,7 @@
                         <li class="category__content-item">
                             <a href="review.html" class="category__content-link">
                                 <div class="category__content-img-container">
-                                    <img src="../img/sample1.jpg" alt="review-thumbnail">
+                                    <img src="../img/sample1.jpg" alt="썸네일">
                                 </div>
                             </a>
                             <div class="category__content-title">

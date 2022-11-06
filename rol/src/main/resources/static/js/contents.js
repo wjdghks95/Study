@@ -1,6 +1,6 @@
 // viewerButton
-const viewerBtns = document.querySelectorAll('.viewer-btn');
-const contents = document.querySelectorAll('.category__content');
+let viewerBtns = document.querySelectorAll('.viewer-btn');
+let contents = document.querySelectorAll('.category__content');
 
 viewerBtns.forEach(viewerBtn => {
     viewerBtn.addEventListener('click', () => {
@@ -27,4 +27,32 @@ viewerBtns.forEach(viewerBtn => {
             contents[2].style.display = 'none';
         }
     })
+})
+
+// category
+const category = document.querySelector(".category__list");
+const categoryBtns = document.querySelectorAll(".category-btn");
+
+category.addEventListener("click", (e) => {
+    const target = e.target.tagName === "BUTTON" ? e.target : null;
+
+    categoryBtns.forEach(categoryBtn => {
+        categoryBtn.classList.remove("active");
+    });
+
+    target.classList.add("active");
+
+    if(target !== null) {
+        const categoryVal = target.value = target.value;
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", `/contents?category=${categoryVal}`, true);
+        xhr.send();
+        xhr.onload = (data) => {
+            const content = document.querySelector("#category-article");
+            content.innerHTML = data.target.response;
+
+            viewerBtns = document.querySelectorAll('.viewer-btn');
+            contents = document.querySelectorAll('.category__content');
+        }
+    }
 })

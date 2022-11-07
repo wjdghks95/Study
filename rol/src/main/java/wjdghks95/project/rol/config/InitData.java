@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import wjdghks95.project.rol.domain.entity.Category;
+import wjdghks95.project.rol.domain.entity.CategoryName;
 import wjdghks95.project.rol.domain.entity.Member;
+import wjdghks95.project.rol.repository.CategoryRepository;
 import wjdghks95.project.rol.repository.MemberRepository;
 
 import javax.annotation.PostConstruct;
@@ -19,6 +22,7 @@ public class InitData {
 
     @Autowired MemberRepository memberRepository;
     @Autowired PasswordEncoder passwordEncoder;
+    @Autowired CategoryRepository categoryRepository;
 
     @PostConstruct
     public void init() {
@@ -37,5 +41,14 @@ public class InitData {
                 .build();
 
         memberRepository.save(member);
+
+        CategoryName[] categoryNames = CategoryName.values();
+        for (CategoryName categoryName : categoryNames) {
+            Category category = Category.builder()
+                    .categoryName(categoryName)
+                    .build();
+
+            categoryRepository.save(category);
+        }
     }
 }

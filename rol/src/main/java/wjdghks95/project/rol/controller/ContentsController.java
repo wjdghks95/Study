@@ -29,11 +29,11 @@ public class ContentsController {
             return "/contents/contents";
         }
 
-        if (categoryVal != "all") {
+        if (!categoryVal.equals("all")) {
             Category category = categoryRepository.findByCategoryName(CategoryName.valueOf(categoryVal.toUpperCase())).orElseThrow();
             reviewList = category.getReviewList();
-            model.addAttribute(reviewList);
+            model.addAttribute("reviewList", reviewList);
         }
-        return "/contents/content_res";
+        return "/contents/category-content";
     }
 }

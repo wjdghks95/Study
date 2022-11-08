@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wjdghks95.project.rol.domain.dto.ReviewDto;
 import wjdghks95.project.rol.domain.entity.*;
+import wjdghks95.project.rol.repository.CategoryRepository;
 import wjdghks95.project.rol.repository.LikeEntityRepository;
 import wjdghks95.project.rol.repository.ReviewRepository;
 import wjdghks95.project.rol.repository.ReviewTagRepository;
@@ -18,7 +19,7 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class ReviewServiceImpl implements ReviewService{
     private final ReviewRepository reviewRepository;
-    private final CategoryService categoryService;
+    private final CategoryRepository categoryRepository;
     private final TagService tagService;
     private final ReviewTagRepository reviewTagRepository;
     private final ImageService imageService;
@@ -28,9 +29,9 @@ public class ReviewServiceImpl implements ReviewService{
     @Override
     public Long write(ReviewDto reviewDto, Member member) throws IOException {
         List<Image> images = imageService.saveImages(reviewDto.getMultipartFiles());
-
-        Category category = categoryService.saveCategory(reviewDto.getCategoryName());
         List<Tag> tagList = tagService.saveTag(reviewDto.getTagNames());
+
+        Category category = categoryRepository.findByCategoryName(CategoryName.valueOf(reviewDto.getCategoryName().toUpperCase())).orElseThrow();
 
         Review review = Review.builder()
                 .title(reviewDto.getTitle())
@@ -58,10 +59,6 @@ public class ReviewServiceImpl implements ReviewService{
         return savedReview.getId();
     }
 
-    @Override
-    public Review findById(Long id) {
-        return reviewRepository.findById(id).orElseThrow();
-    }
 
     @Transactional
     @Override

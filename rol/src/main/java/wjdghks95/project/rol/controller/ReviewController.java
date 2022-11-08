@@ -15,6 +15,7 @@ import wjdghks95.project.rol.domain.entity.Comment;
 import wjdghks95.project.rol.domain.entity.Member;
 import wjdghks95.project.rol.domain.entity.Review;
 import wjdghks95.project.rol.repository.MemberRepository;
+import wjdghks95.project.rol.repository.ReviewRepository;
 import wjdghks95.project.rol.security.service.MemberContext;
 import wjdghks95.project.rol.service.CommentService;
 import wjdghks95.project.rol.service.MemberService;
@@ -32,6 +33,7 @@ import java.util.NoSuchElementException;
 public class ReviewController {
 
     private final ReviewService reviewService;
+    private final ReviewRepository reviewRepository;
     private final MemberRepository memberRepository;
     private final MemberService memberService;
     private final FileValidator fileValidator;
@@ -66,7 +68,7 @@ public class ReviewController {
 
     @GetMapping("/{id}")
     public String review(@PathVariable Long id, Model model, @AuthenticationPrincipal MemberContext memberContext) {
-        Review review = reviewService.findById(id);
+        Review review = reviewRepository.findById(id).orElseThrow();
         reviewService.visit(id);
         model.addAttribute("review", review);
 
@@ -93,7 +95,7 @@ public class ReviewController {
     public String addComment(@PathVariable Long id,@Validated @ModelAttribute CommentDto commentDto, BindingResult bindingResult,
                              @AuthenticationPrincipal MemberContext memberContext, Model model) {
 
-        Review review = reviewService.findById(id);
+        Review review = reviewRepository.findById(id).orElseThrow();
         Member member = memberRepository.findById(memberContext.getMember().getId()).orElseThrow();
 
         if (bindingResult.hasErrors()) {

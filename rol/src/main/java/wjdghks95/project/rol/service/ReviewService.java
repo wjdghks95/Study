@@ -8,10 +8,12 @@ import java.io.IOException;
 
 public interface ReviewService {
     Long write(ReviewDto reviewDto, Member member) throws IOException;
-    Review findById(Long id);
+
     void like(Member member, Review review);
 
     boolean isLike(Member member, Review review);
 
     void visit(Long id);
 }
+
+

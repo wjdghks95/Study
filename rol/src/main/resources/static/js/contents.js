@@ -51,7 +51,7 @@ category.addEventListener("click", (e) => {
         xhr.open("GET", `/contents?category=${categoryVal}`, true);
         xhr.send();
         xhr.onload = (data) => {
-            const content = document.querySelector("#category-article");
+            const content = document.querySelector("#content");
             content.innerHTML = data.target.response;
 
             viewerBtns = document.querySelectorAll('.viewer-btn');

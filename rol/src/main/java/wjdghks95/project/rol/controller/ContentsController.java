@@ -1,39 +1,45 @@
 package wjdghks95.project.rol.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import wjdghks95.project.rol.domain.dto.PageDto;
 import wjdghks95.project.rol.domain.entity.Category;
 import wjdghks95.project.rol.domain.entity.CategoryName;
 import wjdghks95.project.rol.domain.entity.Review;
 import wjdghks95.project.rol.repository.CategoryRepository;
-import wjdghks95.project.rol.repository.ReviewRepository;
-
-import java.util.List;
+import wjdghks95.project.rol.repository.ReviewQueryRepository;
 
 @Controller
 @RequiredArgsConstructor
 public class ContentsController {
-
+    private final ReviewQueryRepository reviewQueryRepository;
     private final CategoryRepository categoryRepository;
-    private final ReviewRepository reviewRepository;
 
     @GetMapping("/contents")
-    public String contents(@RequestParam(value = "category", required = false) String categoryVal, Model model) {
-        List<Review> reviewList = reviewRepository.findAll();
+    public String contents(@RequestParam(value = "category", required = false) String categoryVal, Model model,
+                           @PageableDefault(size = 12) Pageable pageable) {
+
+        Page<Review> reviewList = reviewQueryRepository.findReviewList(pageable, null);
         model.addAttribute("reviewList", reviewList);
+        model.addAttribute("page", new PageDto(reviewList.getTotalElements(), pageable));
 
-        if (categoryVal == null) {
-            return "/contents/contents";
+        if (!(categoryVal == null)) {
+            if (!categoryVal.equals("all")) {
+                Category category = categoryRepository.findByCategoryName(CategoryName.valueOf(categoryVal.toUpperCase())).orElseThrow();
+                reviewList = reviewQueryRepository.findReviewList(pageable, category.getId());
+                model.addAttribute("reviewList", reviewList);
+                model.addAttribute("page", new PageDto(reviewList.getTotalElements(), pageable));
+            }
+
+            return "/contents/res_contents";
         }
 
-        if (!categoryVal.equals("all")) {
-            Category category = categoryRepository.findByCategoryName(CategoryName.valueOf(categoryVal.toUpperCase())).orElseThrow();
-            reviewList = category.getReviewList();
-            model.addAttribute("reviewList", reviewList);
-        }
-        return "/contents/category-content";
+        return "/contents/contents";
     }
 }

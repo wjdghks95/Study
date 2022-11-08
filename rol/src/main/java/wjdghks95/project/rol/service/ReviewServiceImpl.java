@@ -95,4 +95,11 @@ public class ReviewServiceImpl implements ReviewService{
     public boolean isLike(Member member, Review review) {
         return likeEntityRepository.findByMemberAndReview(member, review).isEmpty();
     }
+
+    @Override
+    @Transactional
+    public void visit(Long id) {
+        Review review = reviewRepository.findById(id).orElseThrow();
+        review.updateVisit();
+    }
 }

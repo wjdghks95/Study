@@ -91,4 +91,8 @@ public class Review extends BaseEntity {
     public void discountLike(LikeEntity likeEntity) {
         this.likeList.remove(likeEntity);
     }
+
+    public void updateVisit() {
+        ++this.countVisit;
+    }
 }

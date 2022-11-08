@@ -12,4 +12,6 @@ public interface ReviewService {
     void like(Member member, Review review);
 
     boolean isLike(Member member, Review review);
+
+    void visit(Long id);
 }

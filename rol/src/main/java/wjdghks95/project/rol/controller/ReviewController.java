@@ -67,7 +67,9 @@ public class ReviewController {
     @GetMapping("/{id}")
     public String review(@PathVariable Long id, Model model, @AuthenticationPrincipal MemberContext memberContext) {
         Review review = reviewService.findById(id);
+        reviewService.visit(id);
         model.addAttribute("review", review);
+
         model.addAttribute("commentDto", new CommentDto());
 
         List<Comment> comments = commentService.findComments(id);

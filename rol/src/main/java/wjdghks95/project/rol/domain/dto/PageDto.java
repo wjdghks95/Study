@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.parameters.P;
 
 @Getter @Setter
 @NoArgsConstructor
@@ -21,13 +22,13 @@ public class PageDto {
         this.curPage = pageable.getPageNumber();
         this.pageSize = pageable.getPageSize();
 
-        this.endPage = (int) (Math.ceil((curPage+1) / 5.0)) * 5; // 일단 endPage를 5단위로 세팅, view는 1부터 시작이므로 curPage+1
-        this.startPage = this.endPage - (PAGENUM - 1); // 5단위 endPage에서 4를 빼면 시작페이지 구할 수 있음
+        this.endPage = (int) (Math.ceil((curPage+1) / (double) PAGENUM)) * PAGENUM; // 일단 endPage를 5단위로 세팅, view는 1부터 시작이므로 curPage+1
+        this.startPage = endPage - (PAGENUM - 1); // 5단위 endPage에서 4를 빼면 시작페이지 구할 수 있음
 
         int realEnd = (int) (Math.ceil((total * 1.0) / pageSize));
 
-        if (realEnd < this.endPage) { // 페이지가 5단위로 나누어 떨어지지 않을때 real endPage
-            this.endPage = realEnd;
+        if (realEnd < endPage) { // 페이지가 5단위로 나누어 떨어지지 않을때 real endPage
+            this.endPage = realEnd == 0 ? 1 : realEnd;
         }
 
         this.prev = (curPage+1) > 1; // view에서는 1부터 시작이므로

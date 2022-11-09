@@ -61,7 +61,7 @@ public class InitData {
             categoryRepository.save(category);
         }
 
-        for (int i=0; i < 10; i++) {
+        for (int i=0; i < 20; i++) {
             writeReview(member, "식품", 5, "food", "내용1");
             writeReview(member, "코스메틱", 4, "cosmetic", "내용2");
             writeReview(member, "패션", 3, "fashion", "내용3");

@@ -573,14 +573,19 @@ textarea::placeholder {
     display: block;
     width: 40px;
     height: 100%;
+    border: 1px solid var(--color-gray);
     line-height: 40px;
     font-size: var(--font-micro);
     font-weight: bold;
     text-align: center;
 }
 
-.pagination-btn {
-    border: 1px solid var(--color-gray);
+.pagination-btn.active {
+    border: 2px solid var(--color-gray);
+}
+
+.pagination-btn:hover {
+    border: 2px solid var(--color-gray);
 }
 
 .pagination-btn.pagination-next-btn,

@@ -30,7 +30,7 @@ const sectionIds = [
     '#about',
     '#skills',
     '#work',
-    '#testimonials',
+    '#archiving',
     '#contact',
 ];
 const sections = sectionIds.map(id => document.querySelector(id));
@@ -112,35 +112,90 @@ arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
 });
 
-// 카테고리 버튼 클릭 시 해당 카테고리에 맞는 프로젝트 필터링
-const workBtnContainer = document.querySelector('.work__categories');
-const projectContainer = document.querySelector('.work__projects');
-const projects = document.querySelectorAll('.project');
-workBtnContainer.addEventListener('click', (event) => {
-    const filter = event.target.dataset.filter || event.target.parentNode.dataset.filter;
-    if (filter == null) {
-        return;
-    };
+// Projects 이미지 슬라이드
+class Slide {
+    constructor(slideBox) {
+        this.slideList = document.querySelector(slideBox + ' .project__slide-list');
+        this.slideContents = document.querySelectorAll(slideBox + ' .project__slide-content');
+        this.slideBtnPrev = document.querySelector(slideBox + ' .project__slide-btn--prev');
+        this.slideBtnNext = document.querySelector(slideBox + ' .project__slide-btn--next');
+        this.pagination = document.querySelector(slideBox + ' .project__slide-pagination');
+        this.slideTotalNum = document.querySelector(slideBox + ' .project__slide-totalNum');
+        this.slideNum = document.querySelector(slideBox + ' .project__slide-num');
 
-    // 카테고리 버튼 클릭 시 해당 버튼 Active
-    const active = document.querySelector('.category__btn.active');
-    active.classList.remove('active');
-    const addActive = event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
-    addActive.classList.add('active');
+        this.slideLen = this.slideContents.length;  // slide length
+        this.slideWidth = this.slideContents[0].clientWidth; // slide width
+        this.slideSpeed = 300; // slide speed
+        this.startNum = 0; // initial slide index (0 ~ 4)
+        this.slideTotalNum.innerHTML = this.slideLen; // slide total number
 
-    projectContainer.classList.add('anim-out');
-    setTimeout(() => {
-        projects.forEach((project) => {
-        if (filter === '*' || filter === project.dataset.type) {
-            project.classList.remove('invisible');
-        } else {
-            project.classList.add('invisible');
-        };
-    });
-    projectContainer.classList.remove('anim-out');
-    }, 300);
-});
+        // Copy first and last slide
+        this.firstChild = this.slideList.firstElementChild;
+        this.lastChild = this.slideList.lastElementChild;
+        this.clonedFirst = this.firstChild.cloneNode(true);
+        this.clonedLast = this.lastChild.cloneNode(true);
 
+        // Add copied Slides
+        this.slideList.appendChild(this.clonedFirst);
+        this.slideList.insertBefore(this.clonedLast, this.slideList.firstElementChild);
+
+        this.slideList.style.transform = "translate3d(-" + (this.slideWidth * (this.startNum + 1)) + "px, 0px, 0px)";
+
+        this.curIndex = this.startNum; // current slide index
+
+        // Next Button Event
+        this.slideBtnNext.addEventListener('click', () => {
+            this.next();
+        });
+
+        // Prev Button Event
+        this.slideBtnPrev.addEventListener('click', () => {
+            this.prev();
+        });
+    }
+
+    next() {
+        this.curIndex++;
+        this.slideList.style.transition = this.slideSpeed + "ms";
+        this.slideList.style.transform = "translate3d(-" + this.slideWidth * (this.curIndex + 1) + "px, 0px, 0px)";
+
+        if (this.curIndex === this.slideLen) {
+            const slideList = this.slideList;
+            const slideWidth = this.slideWidth;
+            this.curIndex = this.startNum;
+
+            setTimeout(function() {
+                slideList.style.transition = "0ms";
+                slideList.style.transform = "translate3d(-" + slideWidth + "px, 0px, 0px)";
+            }, this.slideSpeed);
+        }
+        this.slideNum.innerHTML = this.curIndex + 1;
+    }
+
+    prev() {
+        this.curIndex--;
+        this.slideList.style.transition = this.slideSpeed + "ms";
+        this.slideList.style.transform = "translate3d(-" + this.slideWidth * (this.curIndex + 1) + "px, 0px, 0px)";
+
+        if (this.curIndex === this.startNum - 1) {
+            const slideList = this.slideList;
+            const slideWidth = this.slideWidth;
+            const slideLen = this.slideLen;
+            this.curIndex = this.slideLen - 1;
+
+            setTimeout(function() {
+                slideList.style.transition = "0ms";
+                slideList.style.transform = "translate3d(-" + slideWidth * slideLen + "px, 0px, 0px)";
+            }, this.slideSpeed);
+        }
+        this.slideNum.innerHTML = this.curIndex + 1;
+    }
+}
+
+new Slide(".project1-slide");
+new Slide(".project2-slide");
+new Slide(".project3-slide");
+new Slide(".project4-slide");
 
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);

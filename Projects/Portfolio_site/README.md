@@ -1,7 +1,7 @@
-# 리뷰오브레전드
+# 포트폴리오 웹사이트
 
 ### 🔗URL
-[[https://wjdghks95.github.io/Study/Projects/Portfolio_site/index.html]]
+https://wjdghks95.github.io/Study/Projects/Portfolio_site/index.html
 
 ### 🚩목표
 포트폴리오 웹사이트 제작
@@ -28,9 +28,11 @@
 
 
 ### 🔨사용기술
+<div>
 <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white" style="display: inline-block; margin-right: 6px;">
 <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=CSS3&logoColor=white" style="display: inline-block; margin-right: 6px;">
 <img src="https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" style="display: inline-block; margin-right: 6px;">
+</div>
 
 ### ⚡Advanced Feature
 IntersectionObserver API를 이용하여 스크롤시 메뉴 활성화

@@ -1,14 +1,38 @@
-# Portfolio_site
+# 리뷰오브레전드
 
-### [[Demo]](https://wjdghks95.github.io/Study/Projects/Portfolio_site/index.html)
+### 🔗URL
+[[https://wjdghks95.github.io/Study/Projects/Portfolio_site/index.html]]
 
-## 개발목표
+### 🚩목표
 포트폴리오 웹사이트 제작
 
-## 사용기술
-HTML, CSS, JavaScript
+### ✏️요구사항
+- 싱글 페이지로
+- 클릭을 작게 할 수 있게
+- 깔끔하지만 나의 개성을 살려서
+- 전문가, 전문 지식, 개발 관련
+- 개발에 대한 나의 열정
+- 나의 기술 스택
+- 내가 가지고 있는 기술, 언어, 툴
+- 프로젝트들 (우선순위)
+- 추천사
+- 연락처
+- 링크:  깃허브, 노션, 인스타그램
 
-## Advanced Feature
+### 💡주요 기능
+- ✅ 간단한 자기소개
+- ✅ 인적 사항
+- ✅ 기술 스택
+- ✅ 프로젝트 경험
+- ✅ GitHub 및 노션 링크
+
+
+### 🔨사용기술
+<img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white" style="display: inline-block; margin-right: 6px;">
+<img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=CSS3&logoColor=white" style="display: inline-block; margin-right: 6px;">
+<img src="https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" style="display: inline-block; margin-right: 6px;">
+
+### ⚡Advanced Feature
 IntersectionObserver API를 이용하여 스크롤시 메뉴 활성화
 ```
 //  스크롤 시 섹션에 해당하는 Navbar 메뉴 활성화
@@ -65,4 +89,5 @@ window.addEventListener('wheel', () => {
 });
 ```
 
-## 개선사항
+### 🔥개선사항
+CAREER 섹션 추가

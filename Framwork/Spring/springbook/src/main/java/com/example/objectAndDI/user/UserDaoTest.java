@@ -1,7 +1,6 @@
 package com.example.objectAndDI.user;
 
-import com.example.objectAndDI.user.dao.DConnectionMaker;
-import com.example.objectAndDI.user.dao.NConnectionMaker;
+import com.example.objectAndDI.user.dao.DaoFactory;
 import com.example.objectAndDI.user.dao.UserDao;
 import com.example.objectAndDI.user.domain.User;
 
@@ -9,10 +8,7 @@ import java.sql.SQLException;
 
 public class UserDaoTest {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        DConnectionMaker connectionMaker = new DConnectionMaker();
-//        NConnectionMaker connectionMaker = new NConnectionMaker();
-
-        UserDao dao = new UserDao(connectionMaker);
+        UserDao dao = new DaoFactory().userDao();
 
         User user = new User();
         user.setId("julee");

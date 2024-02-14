@@ -2,12 +2,14 @@ package com.example.objectAndDI.user.dao;
 
 import com.example.objectAndDI.user.domain.User;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class UserDao {
+public abstract class UserDao {
     public void add(User user) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection c = DriverManager.getConnection("jdbc:mysql://localhost/springbook", "root", "1234");
+        Connection c = getConnection();
 
         PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values (?, ?, ?)");
         ps.setString(1, user.getId());
@@ -21,8 +23,7 @@ public class UserDao {
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection c = DriverManager.getConnection("jdbc:mysql://localhost/springbook", "root", "1234");
+        Connection c = getConnection();
 
         PreparedStatement ps = c.prepareStatement("select * from users where id = ?");
         ps.setString(1, id);
@@ -41,8 +42,16 @@ public class UserDao {
         return user;
     }
 
+    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
+
+//    private Connection getConnection() throws ClassNotFoundException, SQLException {
+//        Class.forName("com.mysql.jdbc.Driver");
+//        Connection c = DriverManager.getConnection("jdbc:mysql://localhost/springbook", "root", "1234");
+//        return c;
+//    }
+
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao dao = new UserDao();
+        UserDao dao = new DUserDao();
 
         User user = new User();
         user.setId("julee");

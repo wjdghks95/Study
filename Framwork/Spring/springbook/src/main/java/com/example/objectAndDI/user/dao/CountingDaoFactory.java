@@ -4,15 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DaoFactory {
-
-    /*
-    @Bean
-    public UserDao userDao() {
-        UserDao userDao = new UserDao(connectionMaker());
-        return userDao;
-    }
-     */
+public class CountingDaoFactory {
 
     @Bean
     public UserDao userDao() {
@@ -22,7 +14,12 @@ public class DaoFactory {
     }
 
     @Bean
-    public DConnectionMaker connectionMaker() {
+    public ConnectionMaker connectionMaker() {
+        return new CountingConnectionMaker(realConnectionMaker());
+    }
+
+    @Bean
+    public ConnectionMaker realConnectionMaker() {
         DConnectionMaker connectionMaker = new DConnectionMaker();
         return connectionMaker;
     }

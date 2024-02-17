@@ -1,6 +1,7 @@
 package com.example.objectAndDI.user.dao;
 
 import com.example.objectAndDI.user.domain.User;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +18,23 @@ public class UserDao {
 //        connectionMaker = new DConnectionMaker();
 //    }
 
+    // 의존관계 주입
+    /*
     public UserDao(ConnectionMaker connectionMaker) {
+        this.connectionMaker = connectionMaker;
+    }
+     */
+
+    // 의존관계 검색
+    /*
+    public UserDao() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+        this.connectionMaker = context.getBean("connectionMaker", ConnectionMaker.class);
+    }
+     */
+
+    // 수정자 메소드를 이용한 의존관계 주입
+    public void setConnectionMaker(ConnectionMaker connectionMaker) {
         this.connectionMaker = connectionMaker;
     }
 

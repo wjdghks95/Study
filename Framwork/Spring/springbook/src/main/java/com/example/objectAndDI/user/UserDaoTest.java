@@ -3,12 +3,14 @@ package com.example.objectAndDI.user;
 import com.example.objectAndDI.user.dao.DaoFactory;
 import com.example.objectAndDI.user.dao.UserDao;
 import com.example.objectAndDI.user.domain.User;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
 
 public class UserDaoTest {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao dao = new DaoFactory().userDao();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+        UserDao dao = context.getBean("userDao", UserDao.class);
 
         User user = new User();
         user.setId("julee");

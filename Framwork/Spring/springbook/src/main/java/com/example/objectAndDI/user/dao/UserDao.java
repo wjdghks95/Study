@@ -3,6 +3,7 @@ package com.example.objectAndDI.user.dao;
 import com.example.objectAndDI.user.domain.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,37 +11,15 @@ import java.sql.SQLException;
 
 public class UserDao {
 
-//    private SimpleConnectionMaker simpleConnectionMaker;
-    private ConnectionMaker connectionMaker;
+    private DataSource dataSource;
 
-//    public UserDao() {
-//        simpleConnectionMaker = new SimpleConnectionMaker();
-//        connectionMaker = new DConnectionMaker();
-//    }
-
-    // 의존관계 주입
-    /*
-    public UserDao(ConnectionMaker connectionMaker) {
-        this.connectionMaker = connectionMaker;
-    }
-     */
-
-    // 의존관계 검색
-    /*
-    public UserDao() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
-        this.connectionMaker = context.getBean("connectionMaker", ConnectionMaker.class);
-    }
-     */
-
-    // 수정자 메소드를 이용한 의존관계 주입
-    public void setConnectionMaker(ConnectionMaker connectionMaker) {
-        this.connectionMaker = connectionMaker;
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
     public void add(User user) throws ClassNotFoundException, SQLException {
 //        Connection c = simpleConnectionMaker.makeNewConnection();
-        Connection c = connectionMaker.makeConnection();
+        Connection c = dataSource.getConnection();
 
         PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values (?, ?, ?)");
         ps.setString(1, user.getId());
@@ -55,7 +34,7 @@ public class UserDao {
 
     public User get(String id) throws ClassNotFoundException, SQLException {
 //        Connection c = simpleConnectionMaker.makeNewConnection();
-        Connection c = connectionMaker.makeConnection();
+        Connection c = dataSource.getConnection();
 
         PreparedStatement ps = c.prepareStatement("select * from users where id = ?");
         ps.setString(1, id);

@@ -16,6 +16,7 @@ public class UserDao {
         this.dataSource = dataSource;
     }
 
+    /*
     public void add(User user) throws SQLException {
         Connection c = dataSource.getConnection();
 
@@ -28,6 +29,82 @@ public class UserDao {
 
         ps.close();
         c.close();
+    }
+    */
+
+    /**
+     * DI 적용을 위한 클라이언트/컨텍스트 분리
+     */
+    /*
+    public void add(User user) throws SQLException {
+        AddStatement st = new AddStatement(user);
+        jdbcContextWithStatementStrategy(st);
+    }
+     */
+
+    /**
+     * 내부 클래스 정의
+     */
+    /*
+    public void add(final User user) throws SQLException {
+        class AddStatement implements StatementStrategy {
+//            User user;
+//
+//            public AddStatement(User user) {
+//                this.user = user;
+//            }
+
+            public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
+                PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values (?, ?, ?)");
+                ps.setString(1, user.getId());
+                ps.setString(2, user.getName());
+                ps.setString(3, user.getPassword());
+
+                return ps;
+            }
+        }
+
+        AddStatement st = new AddStatement();
+        jdbcContextWithStatementStrategy(st);
+    }
+     */
+
+    /**
+     * 익명 내부 클래스 정의
+     */
+    /*
+    public void add(final User user) throws SQLException {
+        StatementStrategy st = new StatementStrategy() {
+            @Override
+            public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
+                PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values (?, ?, ?)");
+                ps.setString(1, user.getId());
+                ps.setString(2, user.getName());
+                ps.setString(3, user.getPassword());
+
+                return ps;
+            }
+        };
+
+        jdbcContextWithStatementStrategy(st);
+    }
+    */
+
+    /**
+     * 메소드 파라미터로 이전한 익명 내부 클래스
+     */
+    public void add(final User user) throws SQLException {
+        jdbcContextWithStatementStrategy(new StatementStrategy() {
+            @Override
+            public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
+                PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values (?, ?, ?)");
+                ps.setString(1, user.getId());
+                ps.setString(2, user.getName());
+                ps.setString(3, user.getPassword());
+
+                return ps;
+            }
+        });
     }
 
     public User get(String id) throws SQLException {
@@ -92,9 +169,28 @@ public class UserDao {
     }
      */
 
+    /*
+    private PreparedStatement makeStatement(Connection c) throws SQLException {
+        PreparedStatement ps;
+        ps = c.prepareStatement("delete from users");
+        return ps;
+    }
+     */
+
+    /*
     public void deleteAll() throws SQLException {
         StatementStrategy st = new DeleteAllStatement();
         jdbcContextWithStatementStrategy(st);
+    }
+    */
+
+    public void deleteAll() throws SQLException {
+        jdbcContextWithStatementStrategy(new StatementStrategy() {
+            @Override
+            public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
+                return c.prepareStatement("delete from users");
+            }
+        });
     }
 
     public int getCount() throws SQLException {
@@ -134,12 +230,6 @@ public class UserDao {
                 }
             }
         }
-    }
-
-    private PreparedStatement makeStatement(Connection c) throws SQLException {
-        PreparedStatement ps;
-        ps = c.prepareStatement("delete from users");
-        return ps;
     }
 
     public void jdbcContextWithStatementStrategy(StatementStrategy stmt) throws SQLException {

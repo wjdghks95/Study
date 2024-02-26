@@ -63,6 +63,7 @@ public class UserDao {
         return user;
     }
 
+    /*
     public void deleteAll() throws SQLException {
         this.jdbcContext.workWithStatementStrategy(new StatementStrategy() {
             @Override
@@ -70,6 +71,15 @@ public class UserDao {
                 return c.prepareStatement("delete from users");
             }
         });
+    }
+     */
+    /*
+    public void deleteAll() throws SQLException {
+        executeSql("delete from uses");
+    }
+     */
+    public void deleteAll() throws SQLException {
+        this.jdbcContext.executeSql("delete from users");
     }
 
     public int getCount() throws SQLException {
@@ -110,4 +120,15 @@ public class UserDao {
             }
         }
     }
+
+    /*
+    private void executeSql(final String query) throws SQLException {
+        this.jdbcContext.workWithStatementStrategy(new StatementStrategy() {
+            @Override
+            public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
+                return c.prepareStatement(query);
+            }
+        });
+    }
+     */
 }

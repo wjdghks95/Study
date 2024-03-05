@@ -6,7 +6,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.PlatformTransactionManager;
 
+import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import static com.example.serviceabstraction.UserService.MIN_LOGCOUNT_FOR_SILVER
 import static com.example.serviceabstraction.UserService.MIN_RECOMMEND_FOR_GOLD;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/test-applicationContext.xml")
@@ -21,6 +24,8 @@ public class UserServiceTest {
 
     @Autowired UserService userService;
     @Autowired UserDao userDao;
+    @Autowired DataSource dataSource;
+    @Autowired PlatformTransactionManager transactionManager;
 
     List<User> users;
 
@@ -36,7 +41,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void upgradeLevels() {
+    public void upgradeLevels() throws Exception {
         userDao.deleteAll();
         for (User user : users) {
             userDao.add(user);
@@ -89,5 +94,27 @@ public class UserServiceTest {
         } else {
             assertThat(userUpdate.getLevel(), is(user.getLevel()));
         }
+    }
+
+    @Test
+    public void upgradeAllOrNothing() throws Exception {
+        UserService.TestUserService testUserService = new UserService.TestUserService(users.get(3).getId());
+        testUserService.setUserDao(this.userDao);
+//        testUserService.setDataSource(this.dataSource);
+        testUserService.setTransactionManager(transactionManager);
+
+        userDao.deleteAll();
+        for (User user : users) {
+            userDao.add(user);
+        }
+
+        try {
+            testUserService.upgradeLevels();
+            fail("TestUserServiceException expected");
+        } catch (UserService.TestUserServiceException e) {
+
+        }
+
+        checkLevelUpgraded(users.get(1), false);
     }
 }

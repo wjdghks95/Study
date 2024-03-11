@@ -18,14 +18,18 @@
 <!--        <property name="dataSource" ref="dataSource"/>-->
 <!--    </bean>-->
 
-    <bean id="userDao" class="com.example.serviceabstraction.UserDaoJdbc">
+    <bean id="userDao" class="com.example.aop.UserDaoJdbc">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="userService" class="com.example.serviceabstraction.UserService">
-        <property name="userDao" ref="userDao"/>
-<!--        <property name="dataSource" ref="dataSource"/>-->
+    <bean id="userService" class="com.example.aop.UserServiceTx">
         <property name="transactionManager" ref="transactionManager"/>
+        <property name="userService" ref="userServiceImpl"/>
+    </bean>
+
+    <bean id="userServiceImpl" class="com.example.aop.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+<!--        <property name="transactionManager" ref="transactionManager"/>-->
         <property name="mailSender" ref="mailSender"/>
     </bean>
 
@@ -33,7 +37,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="mailSender" class="com.example.serviceabstraction.DummyMailSender">
+    <bean id="mailSender" class="com.example.aop.DummyMailSender">
 <!--        <property name="host" value="mail.server.host"/>-->
     </bean>
 </beans>

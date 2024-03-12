@@ -22,10 +22,10 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="userService" class="com.example.aop.UserServiceTx">
-        <property name="transactionManager" ref="transactionManager"/>
-        <property name="userService" ref="userServiceImpl"/>
-    </bean>
+<!--    <bean id="userService" class="com.example.aop.UserServiceTx">-->
+<!--        <property name="transactionManager" ref="transactionManager"/>-->
+<!--        <property name="userService" ref="userServiceImpl"/>-->
+<!--    </bean>-->
 
     <bean id="userServiceImpl" class="com.example.aop.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
@@ -39,5 +39,16 @@
 
     <bean id="mailSender" class="com.example.aop.DummyMailSender">
 <!--        <property name="host" value="mail.server.host"/>-->
+    </bean>
+
+    <bean id="message" class="com.example.aop.MessageFactoryBean">
+        <property name="text" value="Factory Bean"/>
+    </bean>
+
+    <bean id="userService" class="com.example.aop.TxProxyFactoryBean">
+        <property name="target" ref="userServiceImpl"/>
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="pattern" value="upgradeLevels"/>
+        <property name="serviceInterface" value="com.example.aop.UserService"/>
     </bean>
 </beans>

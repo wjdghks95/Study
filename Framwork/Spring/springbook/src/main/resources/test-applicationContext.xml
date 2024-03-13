@@ -45,10 +45,32 @@
         <property name="text" value="Factory Bean"/>
     </bean>
 
-    <bean id="userService" class="com.example.aop.TxProxyFactoryBean">
-        <property name="target" ref="userServiceImpl"/>
+<!--    <bean id="userService" class="com.example.aop.TxProxyFactoryBean">-->
+<!--        <property name="target" ref="userServiceImpl"/>-->
+<!--        <property name="transactionManager" ref="transactionManager"/>-->
+<!--        <property name="pattern" value="upgradeLevels"/>-->
+<!--        <property name="serviceInterface" value="com.example.aop.UserService"/>-->
+<!--    </bean>-->
+
+    <bean id="transactionAdvice" class="com.example.aop.TransactionAdvice">
         <property name="transactionManager" ref="transactionManager"/>
-        <property name="pattern" value="upgradeLevels"/>
-        <property name="serviceInterface" value="com.example.aop.UserService"/>
+    </bean>
+
+    <bean id="transactionPointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedName" value="upgrade*"/>
+    </bean>
+
+    <bean id="transactionAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="advice" ref="transactionAdvice"/>
+        <property name="pointcut" ref="transactionPointcut"/>
+    </bean>
+
+    <bean id="userService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="userServiceImpl"/>
+        <property name="interceptorNames"> <!-- 어드바이스와 어드바이저를 동시에 설정해줄 수 있는 프로퍼티. -->
+            <list>
+                <value>transactionAdvisor</value>
+            </list>
+        </property>
     </bean>
 </beans>

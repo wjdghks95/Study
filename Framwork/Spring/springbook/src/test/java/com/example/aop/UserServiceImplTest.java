@@ -37,9 +37,10 @@ public class UserServiceImplTest {
     @Autowired UserDao userDao;
     @Autowired DataSource dataSource;
     @Autowired PlatformTransactionManager transactionManager;
-    @Autowired UserServiceImpl userServiceImpl;
+//    @Autowired UserServiceImpl userServiceImpl;
     @Autowired MailSender mailSender;
     @Autowired ApplicationContext context;
+    @Autowired UserService testUserService;
 
     List<User> users;
 
@@ -110,11 +111,11 @@ public class UserServiceImplTest {
     }
 
     @Test
-    @DirtiesContext
+//    @DirtiesContext
     public void upgradeAllOrNothing() throws Exception {
-        TestUserService testUserService = new TestUserService(users.get(3).getId());
-        testUserService.setUserDao(userDao);
-        testUserService.setMailSender(mailSender);
+//        TestUserService testUserService = new TestUserService(users.get(3).getId());
+//        testUserService.setUserDao(userDao);
+//        testUserService.setMailSender(mailSender);
 
 //        UserServiceTx txUserService = new UserServiceTx();
 //        txUserService.setTransactionManager(transactionManager);
@@ -132,9 +133,9 @@ public class UserServiceImplTest {
 //        txProxyFactoryBean.setTarget(testUserService);
 //        UserService txUserService = (UserService) txProxyFactoryBean.getObject();
 
-        ProxyFactoryBean txProxyFactoryBean = context.getBean("&userService", ProxyFactoryBean.class);
-        txProxyFactoryBean.setTarget(testUserService);
-        UserService txUserService = (UserService) txProxyFactoryBean.getObject();
+//        ProxyFactoryBean txProxyFactoryBean = context.getBean("&userService", ProxyFactoryBean.class);
+//        txProxyFactoryBean.setTarget(testUserService);
+//        UserService txUserService = (UserService) txProxyFactoryBean.getObject();
 
         userDao.deleteAll();
         for (User user : users) {
@@ -142,7 +143,8 @@ public class UserServiceImplTest {
         }
 
         try {
-            txUserService.upgradeLevels();
+//            txUserService.upgradeLevels();
+            this.testUserService.upgradeLevels();
             fail("TestUserServiceException expected");
         } catch (TestUserServiceException e) {
 
@@ -197,11 +199,11 @@ public class UserServiceImplTest {
     }
 
     static class TestUserService extends UserServiceImpl {
-        private String id;
+        private String id = "user4";
 
-        public TestUserService(String id) {
-            this.id = id;
-        }
+//        public TestUserService(String id) {
+//            this.id = id;
+//        }
 
         @Override
         protected void upgradeLevel(User user) {
@@ -255,4 +257,10 @@ public class UserServiceImplTest {
             updated.add(user);
         }
     }
+
+    @Test
+    public void advisorAutoProxyCreator() {
+//        assertThat(testUserService, is(java.lang.reflect.Proxy.class));
+    }
+
 }

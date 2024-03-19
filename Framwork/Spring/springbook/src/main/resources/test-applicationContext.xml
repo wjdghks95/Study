@@ -2,14 +2,35 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
     <aop:config>
 <!--        <aop:pointcut id="transactionPointcut" expression="execution(* *..*ServiceImpl.upgrade*(..))"/>-->
 <!--        <aop:advisor advice-ref="transactionAdvice" pointcut-ref="transactionPointcut"/>-->
-        <aop:advisor advice-ref="transactionAdvice" pointcut="execution(* *..*ServiceImpl.upgrade*(..))"/>
+<!--        <aop:advisor advice-ref="transactionAdvice" pointcut="execution(* *..*ServiceImpl.upgrade*(..))"/>-->
+        <aop:advisor advice-ref="transactionAdvice" pointcut="bean(*Service)"/>
+        <aop:advisor advice-ref="batchTxAdvice" pointcut="execution(* *..*BatchJob.*(..))"/>
     </aop:config>
+
+    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" propagation="REQUIRED" read-only="true" timeout="30"/>
+            <tx:method name="upgrade*" propagation="REQUIRES_NEW" isolation="SERIALIZABLE"/>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <tx:advice id="batchTxAdvice">
+        <!-- ... -->
+    </tx:advice>
+
+    <tx:annotation-driven/>
 
     <!--    <bean id="connectionMaker" class="com.example.objectAndDI.user.dao.DConnectionMaker" />-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
@@ -78,19 +99,30 @@
         <property name="mailSender" ref="mailSender"/>
     </bean>
 
-    <bean id="transactionAdvice" class="com.example.aop.TransactionAdvice">
-        <property name="transactionManager" ref="transactionManager"/>
-    </bean>
+<!--    <bean id="transactionAdvice" class="com.example.aop.TransactionAdvice">-->
+<!--        <property name="transactionManager" ref="transactionManager"/>-->
+<!--    </bean>-->
 
-    <bean id="transactionPointcut" class="com.example.aop.NameMatchClassMethodPointcut">
-        <property name="mappedClassName" value="*ServiceImpl"/>
-        <property name="mappedName" value="upgrade*"/>
-    </bean>
+<!--    <bean  id="transactionAdvice" class="org.springframework.transaction.interceptor.TransactionInterceptor">-->
+<!--        <property name="transactionManager" ref="transactionManager"/>-->
+<!--        <property name="transactionAttributes">-->
+<!--            <props>-->
+<!--                <prop key="get*">PROPAGATION_REQUIRED, readOnly, timeout_30</prop>-->
+<!--                <prop key="upgrade*">PROPAGATION_REQUIRED_NEW, ISOLATION_SERIALIZABLE</prop>-->
+<!--                <prop key="*">PROPAGATION_REQUIRED</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
 
-    <bean id="transactionAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
-        <property name="advice" ref="transactionAdvice"/>
-        <property name="pointcut" ref="transactionPointcut"/>
-    </bean>
+<!--    <bean id="transactionPointcut" class="com.example.aop.NameMatchClassMethodPointcut">-->
+<!--        <property name="mappedClassName" value="*ServiceImpl"/>-->
+<!--        <property name="mappedName" value="upgrade*"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="transactionAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">-->
+<!--        <property name="advice" ref="transactionAdvice"/>-->
+<!--        <property name="pointcut" ref="transactionPointcut"/>-->
+<!--    </bean>-->
 
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
 

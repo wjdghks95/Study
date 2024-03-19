@@ -1,35 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
-    <!--    <bean id="connectionMaker" class="com.example.objectAndDI.user.dao.DConnectionMaker" />-->
+    <aop:config>
+        <aop:advisor advice-ref="transactionAdvice" pointcut="bean(*Service)"/>
+        <aop:advisor advice-ref="batchTxAdvice" pointcut="execution(* *..*BatchJob.*(..))"/>
+    </aop:config>
+
+    <tx:advice id="transactionAdvice">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <tx:advice id="batchTxAdvice">
+        <!-- ... -->
+    </tx:advice>
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost/testdb"/>
         <property name="username" value="root"/>
         <property name="password" value="1234"/>
     </bean>
-<!--    <bean id="userDao" class="com.example.test.UserDao">-->
-<!--        <property name="dataSource" ref="dataSource"/>-->
-<!--    </bean>-->
-
-<!--    <bean id="userDao" class="com.example.exception.UserDaoJdbc">-->
-<!--        <property name="dataSource" ref="dataSource"/>-->
-<!--    </bean>-->
 
     <bean id="userDao" class="com.example.aop.UserDaoJdbc">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-<!--    <bean id="userService" class="com.example.aop.UserServiceTx">-->
-<!--        <property name="transactionManager" ref="transactionManager"/>-->
-<!--        <property name="userService" ref="userServiceImpl"/>-->
-<!--    </bean>-->
+    <bean id="mailSender" class="com.example.aop.DummyMailSender">
+    </bean>
+
+    <bean id="userService" class="com.example.aop.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+        <property name="mailSender" ref="mailSender"/>
+    </bean>
 
     <bean id="userServiceImpl" class="com.example.aop.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
-<!--        <property name="transactionManager" ref="transactionManager"/>-->
         <property name="mailSender" ref="mailSender"/>
     </bean>
 
@@ -37,58 +54,11 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="mailSender" class="com.example.aop.DummyMailSender">
-<!--        <property name="host" value="mail.server.host"/>-->
-    </bean>
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
 
     <bean id="message" class="com.example.aop.MessageFactoryBean">
         <property name="text" value="Factory Bean"/>
     </bean>
-
-<!--    <bean id="userService" class="com.example.aop.TxProxyFactoryBean">-->
-<!--        <property name="target" ref="userServiceImpl"/>-->
-<!--        <property name="transactionManager" ref="transactionManager"/>-->
-<!--        <property name="pattern" value="upgradeLevels"/>-->
-<!--        <property name="serviceInterface" value="com.example.aop.UserService"/>-->
-<!--    </bean>-->
-
-<!--    <bean id="userService" class="org.springframework.aop.framework.ProxyFactoryBean">-->
-<!--        <property name="target" ref="userServiceImpl"/>-->
-<!--        <property name="interceptorNames"> &lt;!&ndash; 어드바이스와 어드바이저를 동시에 설정해줄 수 있는 프로퍼티. &ndash;&gt;-->
-<!--            <list>-->
-<!--                <value>transactionAdvisor</value>-->
-<!--            </list>-->
-<!--        </property>-->
-<!--    </bean>-->
-
-<!--    <bean id="transactionPointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">-->
-<!--        <property name="mappedName" value="upgrade*"/>-->
-<!--    </bean>-->
-
-    <bean id="userService" class="com.example.aop.UserServiceImpl">
-        <property name="userDao" ref="userDao"/>
-        <property name="mailSender" ref="mailSender"/>
-    </bean>
-
-    <bean id="transactionAdvice" class="com.example.aop.TransactionAdvice">
-        <property name="transactionManager" ref="transactionManager"/>
-    </bean>
-
-<!--    <bean id="transactionPointcut" class="com.example.aop.NameMatchClassMethodPointcut">-->
-<!--        <property name="mappedClassName" value="*ServiceImpl"/>-->
-<!--        <property name="mappedName" value="upgrade*"/>-->
-<!--    </bean>-->
-
-    <bean id="transactionPointcut" class="org.springframework.aop.aspectj.AspectJExpressionPointcut">
-        <property name="expression" value="execution(* *..*ServiceImpl.upgrade*(..))"/>
-    </bean>
-
-    <bean id="transactionAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
-        <property name="advice" ref="transactionAdvice"/>
-        <property name="pointcut" ref="transactionPointcut"/>
-    </bean>
-
-    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
 
     <bean id="testUserService" class="com.example.aop.UserServiceImplTest$TestUserService" parent="userService"/>
 </beans>

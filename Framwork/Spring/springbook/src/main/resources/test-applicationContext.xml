@@ -14,21 +14,21 @@
 <!--        <aop:pointcut id="transactionPointcut" expression="execution(* *..*ServiceImpl.upgrade*(..))"/>-->
 <!--        <aop:advisor advice-ref="transactionAdvice" pointcut-ref="transactionPointcut"/>-->
 <!--        <aop:advisor advice-ref="transactionAdvice" pointcut="execution(* *..*ServiceImpl.upgrade*(..))"/>-->
-        <aop:advisor advice-ref="transactionAdvice" pointcut="bean(*Service)"/>
-        <aop:advisor advice-ref="batchTxAdvice" pointcut="execution(* *..*BatchJob.*(..))"/>
+<!--        <aop:advisor advice-ref="transactionAdvice" pointcut="bean(*Service)"/>-->
+<!--        <aop:advisor advice-ref="batchTxAdvice" pointcut="execution(* *..*BatchJob.*(..))"/>-->
     </aop:config>
 
-    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="get*" propagation="REQUIRED" read-only="true" timeout="30"/>
-            <tx:method name="upgrade*" propagation="REQUIRES_NEW" isolation="SERIALIZABLE"/>
-            <tx:method name="*" propagation="REQUIRED"/>
-        </tx:attributes>
-    </tx:advice>
+<!--    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">-->
+<!--        <tx:attributes>-->
+<!--            <tx:method name="get*" propagation="REQUIRED" read-only="true" timeout="30"/>-->
+<!--            <tx:method name="upgrade*" propagation="REQUIRES_NEW" isolation="SERIALIZABLE"/>-->
+<!--            <tx:method name="*" propagation="REQUIRED"/>-->
+<!--        </tx:attributes>-->
+<!--    </tx:advice>-->
 
-    <tx:advice id="batchTxAdvice">
+<!--    <tx:advice id="batchTxAdvice">-->
         <!-- ... -->
-    </tx:advice>
+<!--    </tx:advice>-->
 
     <tx:annotation-driven/>
 

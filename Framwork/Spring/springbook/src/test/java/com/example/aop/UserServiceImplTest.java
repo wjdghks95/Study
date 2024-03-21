@@ -13,9 +13,14 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import javax.sql.DataSource;
 import java.lang.reflect.Proxy;
@@ -32,6 +37,8 @@ import static org.mockito.Mockito.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/test-applicationContext.xml")
+@Rollback(value = false)
+//@TransactionConfiguration(defaultRollback=false) // 롤백 여부에 대한 기본 설정과 트랜잭션 매니저 빈을 지정하는 데 사용할 수 있다. * Deprecated : Rollback 사용
 public class UserServiceImplTest {
 
     @Autowired UserService userService;
@@ -277,4 +284,63 @@ public class UserServiceImplTest {
 //        assertThat(testUserService, is(java.lang.reflect.Proxy.class));
     }
 
+    @Test
+    public void transactionSync() {
+        DefaultTransactionDefinition txDefinition = new DefaultTransactionDefinition(); // 트랜잭션 정의는 기본 값을 사용한다.
+        txDefinition.setReadOnly(true); // 읽기 전용 트랜잭션으로 정의한다.
+
+        // 트랜잭션 매니저에게 트랜잭션을 요청한다. 기존에 시작된 트랜재션이 없으니 새로운 트랜잭션을 시작시키고 트랜잭션 정보를 돌려준다.
+        // 동시에 만들어진 트랜잭션을 다른 곳에서도 사용할 수 있도록 동기화 한다.
+        TransactionStatus txStatus = transactionManager.getTransaction(txDefinition);
+
+        // 앞에서 만들어진 트랜잭션에 모두 참여한다.
+        userService.deleteAll();
+
+        userService.add(users.get(0));
+        userService.add(users.get(1));
+
+        transactionManager.commit(txStatus); // 앞에서 시작한 트랜잭션을 커밋한다.
+    }
+
+    @Test
+    public void transactionSync2() {
+        userDao.deleteAll();
+        assertThat(userDao.getCount(), is(0));
+
+        DefaultTransactionDefinition txDefinition = new DefaultTransactionDefinition();
+        TransactionStatus txStatus = transactionManager.getTransaction(txDefinition);
+
+        userService.add(users.get(0));
+        userService.add(users.get(1));
+        assertThat(userDao.getCount(), is(2));
+
+        transactionManager.rollback(txStatus);
+
+        assertThat(userDao.getCount(), is(0));
+    }
+
+    @Test
+    public void transactionSync3() {
+        DefaultTransactionDefinition txDefinition = new DefaultTransactionDefinition();
+        TransactionStatus txStatus = transactionManager.getTransaction(txDefinition);
+
+        try {
+            userDao.deleteAll();
+            userService.add(users.get(0));
+            userService.add(users.get(1));
+        } finally {
+            transactionManager.rollback(txStatus);
+
+        }
+    }
+
+    @Test
+    @Transactional
+//    @Rollback(value = false)
+//    @NotTransactional * Deprecated : 별도의(비트랜잭션) 테스트 클래스나 @BeforeTransaction @AfterTransaction 메서드로 이동. 또는, @Transactional(propagation = Propagation.NEVER)
+    public void transactionSync4() {
+        userService.deleteAll();
+        userService.add(users.get(0));
+        userService.add(users.get(1));
+    }
 }

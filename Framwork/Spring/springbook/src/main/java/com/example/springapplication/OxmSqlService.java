@@ -12,8 +12,8 @@ import java.io.IOException;
 public class OxmSqlService implements SqlService{
 
     private final BaseSqlService baseSqlService = new BaseSqlService(); // SqlService의 실제 구현 부분을 위임할 대상인 BaseSqlService를 인스턴스 변수로 정의해둔다.
-    private SqlRegistry sqlRegistry = new HashMapSqlRegistry();
-
+//    private SqlRegistry sqlRegistry = new HashMapSqlRegistry();
+    private SqlRegistry sqlRegistry;
     public void setSqlRegistry(SqlRegistry sqlRegistry) {
         this.sqlRegistry = sqlRegistry;
     }
@@ -61,7 +61,7 @@ public class OxmSqlService implements SqlService{
         private Unmarshaller unmarshaller;
 //        private final static String DEFAULT_SQLMAP_FILE = "sqlmap.xml";
 //        private String sqlmapFile = DEFAULT_SQLMAP_FILE;
-        private Resource sqlmap = new ClassPathResource("sqlmap.xml", UserDao.class);
+        private Resource sqlmap = new ClassPathResource("sqlmap.xml");
 
         public void setUnmarshaller(Unmarshaller unmarshaller) {
             this.unmarshaller = unmarshaller;

@@ -24,7 +24,7 @@ public class OxmSqlService implements SqlService{
 
     // OxmlSqlService의 공개된 프로퍼티를 통해 DI 받은 것을 그대로 멤버 클래스의 오브젝트에 전달한다. 이 setter들은 단일 빈 설정구조를 위한 창구 역할을 할 뿐이다.
     public void setUnmarshaller(Unmarshaller unmarshaller) {
-        this.oxmSqlReader.unmarshaller = unmarshaller;
+        this.oxmSqlReader.setUnmarshaller(unmarshaller);
     }
 //    public void setSqlmapFile(String sqlmapFile) {
 //        this.oxmSqlReader.sqlmapFile = sqlmapFile;

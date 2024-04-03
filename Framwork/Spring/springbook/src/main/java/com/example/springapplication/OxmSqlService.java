@@ -61,7 +61,7 @@ public class OxmSqlService implements SqlService{
         private Unmarshaller unmarshaller;
 //        private final static String DEFAULT_SQLMAP_FILE = "sqlmap.xml";
 //        private String sqlmapFile = DEFAULT_SQLMAP_FILE;
-        private Resource sqlmap = new ClassPathResource("sqlmap.xml");
+        private Resource sqlmap = new ClassPathResource("/sqlmap.xml");
 
         public void setUnmarshaller(Unmarshaller unmarshaller) {
             this.unmarshaller = unmarshaller;

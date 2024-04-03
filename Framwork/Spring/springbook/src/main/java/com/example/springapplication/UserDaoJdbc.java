@@ -1,27 +1,21 @@
 package com.example.springapplication;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
+//@Component
+@Repository
 public class UserDaoJdbc implements UserDao {
-//    private String sqlAdd;
 
-//    public void setSqlAdd(String sqlAdd) {
-//        this.sqlAdd = sqlAdd;
-//    }
-
-//    private Map<String, String> sqlMap;
-
-//    public void setSqlMap(Map<String, String> sqlMap) {
-//        this.sqlMap = sqlMap;
-//    }
-
+    @Autowired
     private SqlService sqlService;
 
     public void setSqlService(SqlService sqlService) {
@@ -30,6 +24,7 @@ public class UserDaoJdbc implements UserDao {
 
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public void setDataSource(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -52,8 +47,6 @@ public class UserDaoJdbc implements UserDao {
 
     @Override
     public void add(final User user)  {
-//        this.jdbcTemplate.update(this.sqlAdd, user.getId(), user.getName(), user.getPassword(), user.getEmail(), user.getLevel().intValue(), user.getLogin(), user.getRecommend());
-//        this.jdbcTemplate.update(this.sqlMap.get("add"), user.getId(), user.getName(), user.getPassword(), user.getEmail(), user.getLevel().intValue(), user.getLogin(), user.getRecommend());
         this.jdbcTemplate.update(this.sqlService.getSql("userAdd"), user.getId(), user.getName(), user.getPassword(), user.getEmail(), user.getLevel().intValue(), user.getLogin(), user.getRecommend());
     }
 

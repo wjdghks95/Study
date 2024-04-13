@@ -1,13 +1,131 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xis="http://www.w3.org/2001/XMLSchema-instance"
-       xis:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xis:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="hello" class="com.example.ioccontaineranddi.Hello">
-        <property name="name" value="Spring"/>
-        <property name="printer" ref="printer"/>
-    </bean>
+    <context:annotation-config /> <!--  XML로 등록된 빈의 의존관계 정보 애노테이션을 이용해서 의존관계 메타정보를 추가해주는 빈 후처리기가 등록된다.  -->
+    <context:component-scan base-package="com.example.ioccontaineranddi"/> <!--  빈 등록도 자동으로 이루어지기 때문에 <bean>을 모두 제거해도 된다. 대신 빈 스캐닝을 위해 클래스에 @Component를 붙어줘야 한다. -->
 
     <bean id="printer" class="com.example.ioccontaineranddi.StringPrinter"/>
 
+    <!--  수정자 주입  -->
+    <bean id="hello" class="com.example.ioccontaineranddi.Hello">
+        <property name="name" value="Spring"/>
+        <property name="printer" ref="printer"/>
+        <property name="namesList">
+            <list>
+                <value>Spring</value>
+                <value>IoC</value>
+                <value>DI</value>
+<!--                <ref bean="..."/>--> <!--  다른 빈의 레퍼런스에 대한 컬렉션을 정의할 수 있다.  -->
+            </list>
+        </property>
+        <property name="namesSet">
+            <list>
+                <value>Spring</value>
+                <value>IoC</value>
+                <value>DI</value>
+            </list>
+        </property>
+        <property name="ages">
+            <map>
+                <entry key="Kim" value="30"/>
+                <entry key="LEE" value="35"/>
+                <entry key="Ahn" value="40"/>
+            </map>
+        </property>
+        <property name="settings">
+            <props>
+                <prop key="username">Spring</prop>
+                <prop key="password">Book</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--  util 스키마 전용 태그  -->
+    <util:list id="namesList" list-class="java.util.LinkedList">
+        <value>Spring</value>
+        <value>IoC</value>
+        <value>DI</value>
+    </util:list>
+
+    <util:set id="namesSet" set-class="java.util.LinkedHashSet">
+        <value>Spring</value>
+        <value>IoC</value>
+        <value>DI</value>
+    </util:set>
+
+    <util:map id="ages" map-class="java.util.TreeMap">
+        <entry key="Kim" value="30"/>
+        <entry key="LEE" value="35"/>
+        <entry key="Ahn" value="40"/>
+    </util:map>
+
+    <util:properties id="settings" location="classpath:settings.properties">
+        <prop key="username">Spring</prop>
+        <prop key="password">Book</prop>
+    </util:properties>
+
+    <!--  생성자 주입 : index -->
+    <bean id="hello2" class="com.example.ioccontaineranddi.Hello">
+        <constructor-arg index="0" value="Spring"/>
+        <constructor-arg index="1" value="printer"/>
+    </bean>
+
+    <!--  생성자 주입 : type -->
+    <bean id="hello3" class="com.example.ioccontaineranddi.Hello">
+        <constructor-arg type="java.lang.String" value="Spring"/>
+        <constructor-arg type="com.example.ioccontaineranddi.Printer" value="printer"/>
+    </bean>
+
+    <!--  생성자 주입 : name -->
+    <bean id="hello4" class="com.example.ioccontaineranddi.Hello">
+        <constructor-arg name="name" value="Spring"/>
+        <constructor-arg name="printer" ref="printer"/>
+    </bean>
+
+    <!--  자동와이어링 : byName  -->
+    <bean id="hello5" class="com.example.ioccontaineranddi.Hello" autowire="byName">
+        <property name="name"><null/></property>
+    </bean>
+
+    <!--  자동와이어링 : byType  -->
+    <bean id="hello6" class="com.example.ioccontaineranddi.Hello" autowire="byType">
+        <property name="name" value="Spring"/>
+        <!--  같은 타입이 2개이상 존재하는 경우 명시적으로 등록해줘야 한다.  -->
+        <property name="printer" ref="printer"/>
+        <property name="settings" ref="settings"/>
+    </bean>
+
+    <bean id="oracleDataSource" class="com.example.ioccontaineranddi.OracleDataSource">
+        <qualifier value="mainDB"/>
+    </bean>
+
+    <context:property-placeholder location="classpath:database.properties"/>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="driverClass" value="${db.driverClass}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
+
+    <!--  능동 변환: SpEL  -->
+    <bean id="names">
+        <property name="helloname" value="#{hello.name}"/>
+    </bean>
+
+    <util:properties id="dbprops" location="classpath:database.properties"/>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="driverClass" value="#{dbprops['db.driverClass']}"/>
+        <property name="url" value="#{dbprops['db.url']}"/>
+        <property name="username" value="#{dbprops['db.username']}"/>
+        <property name="password" value="#{dbprops['db.password']}"/>
+    </bean>
 </beans>

@@ -2,11 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xis="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
        xis:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:annotation-config /> <!--  XML로 등록된 빈의 의존관계 정보 애노테이션을 이용해서 의존관계 메타정보를 추가해주는 빈 후처리기가 등록된다.  -->
     <context:component-scan base-package="com.example.ioccontaineranddi"/> <!--  빈 등록도 자동으로 이루어지기 때문에 <bean>을 모두 제거해도 된다. 대신 빈 스캐닝을 위해 클래스에 @Component를 붙어줘야 한다. -->
@@ -127,5 +127,22 @@
         <property name="url" value="#{dbprops['db.url']}"/>
         <property name="username" value="#{dbprops['db.username']}"/>
         <property name="password" value="#{dbprops['db.password']}"/>
+    </bean>
+
+    <!--  스코프  -->
+    <bean id="serviceRequestFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName" value="serviceRequest" />
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean">
+        <property name="serviceLocatorInterface" value="com.example.ioccontaineranddi.ServiceRequestFactory" />
+    </bean>
+
+    <bean id="serviceRequestController" class="com.example.ioccontaineranddi.PrototypeScopeServiceRequest.ServiceRequestController" abstract="true">
+        <lookup-method name="getServiceRequest" bean="serviceRequest" />
+    </bean>
+
+    <bean id="loginUser" class="com.example.ioccontaineranddi.SessionScopeLoginUser.LoginUser" scope="session">
+        <aop:scoped-proxy proxy-target-class="true"/>
     </bean>
 </beans>

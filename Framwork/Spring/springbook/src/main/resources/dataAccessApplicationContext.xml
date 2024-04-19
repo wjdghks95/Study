@@ -11,11 +11,13 @@
 
         <jee:jndi-lookup id="dataSource" jndi-name="jdbc/DefaultDS"/>
 
+        <!--   iBastis     -->
         <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
                 <property name="dataSource" ref="dataSource"/>
                 <property name="configLocation" value="com/example/dataaccess/ibatis/SqlMapConfig.xml"/>
         </bean>
 
+        <!--   JPA     -->
         <!--   LocalEntityManagerFactoryBean     -->
         <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"/>
 
@@ -45,4 +47,29 @@
 
         <!--   @Repository 애노테이션 예외 변환 후처리기     -->
         <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+        <!--   Hibernate     -->
+        <!--   SessionFactory     -->
+        <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+                <property name="dataSource" ref="dataSource"/>
+                <property name="configLocation" value="com/example/dataaccess/hibernate/hibernate.cfg.xml"/>
+                <property name="mappingLocations">
+                        <list>
+                                <value>com/example/dataaccess/hibernate/Member.hbm.xml</value>
+                        </list>
+                </property>
+                <property name="hibernateProperties">
+                        <props>
+                                <prop key="dialect">org.hibernate.dialect.MySQLDialect</prop>
+                                <prop key="cache.provider_class">org.hibernate.cache.NoCacheRegionFactoryAvailableException</prop>
+                                <prop key="show_sql">true</prop>
+                                <prop key="hbm2ddl.auto">update</prop>
+                        </props>
+                </property>
+        </bean>
+
+        <!--   하이버네이트 트랜잭션 매니저     -->
+        <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+                <property name="sessionFactory" ref="sessionFactory"/>
+        </bean>
 </beans>

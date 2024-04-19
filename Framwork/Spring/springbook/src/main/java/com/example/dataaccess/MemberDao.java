@@ -131,21 +131,4 @@ public class MemberDao {
     public void simpleJdbcCall(int id) {
         String ret = this.simpleJdbcCall.executeFunction(String.class, id); // 저장 펑션을 실행
     }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    // iBatis
-    private SqlMapClientTemplate sqlMapClientTemplate;
-
-    public void setSqlMapClient(SqlMapClient sqlMapClient) {
-        this.sqlMapClientTemplate = new SqlMapClientTemplate(sqlMapClient);
-    }
-
-    public void insert(Member member) {
-        sqlMapClientTemplate.insert("insertMember", member);
-    }
-
-    public void deleteAll() {
-        sqlMapClientTemplate.delete("deleteAll");
-    }
 }

@@ -15,4 +15,34 @@
                 <property name="dataSource" ref="dataSource"/>
                 <property name="configLocation" value="com/example/dataaccess/ibatis/SqlMapConfig.xml"/>
         </bean>
+
+        <!--   LocalEntityManagerFactoryBean     -->
+        <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"/>
+
+        <!--   JavaEE 5 서버가 제공하는 EntityManagerFactory     -->
+        <jee:jndi-lookup id="emf" jndi-name="persistence/myPersistenceUnit"/>
+
+        <!--   LocalContainerEntityManagerFactoryBean     -->
+        <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+                <property name="dataSource" ref="dataSource"/>
+                <property name="jpaVendorAdapter">
+                        <bean class="org.springframework.orm.jpa.vendor.TopLinkJpaVendorAdapter">
+                                <property name="showSql" value="true"/>
+                        </bean>
+                </property>
+                <property name="loadTimeWeaver">
+                        <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
+                </property>
+        </bean>
+
+        <!--   JPA용 트랜잭션 매니저     -->
+        <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+                <property name="entityManagerFactory" ref="emf"/>
+        </bean>
+
+        <!--    @PersistenceUnit 사용시 필요    -->
+        <context:annotation-config/>
+
+        <!--   @Repository 애노테이션 예외 변환 후처리기     -->
+        <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 </beans>

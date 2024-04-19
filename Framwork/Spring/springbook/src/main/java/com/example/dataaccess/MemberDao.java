@@ -1,5 +1,6 @@
 package com.example.dataaccess;
 
+import com.ibatis.sqlmap.client.SqlMapClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -9,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -128,5 +130,22 @@ public class MemberDao {
     // SimpleJdbcCall
     public void simpleJdbcCall(int id) {
         String ret = this.simpleJdbcCall.executeFunction(String.class, id); // 저장 펑션을 실행
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // iBatis
+    private SqlMapClientTemplate sqlMapClientTemplate;
+
+    public void setSqlMapClient(SqlMapClient sqlMapClient) {
+        this.sqlMapClientTemplate = new SqlMapClientTemplate(sqlMapClient);
+    }
+
+    public void insert(Member member) {
+        sqlMapClientTemplate.insert("insertMember", member);
+    }
+
+    public void deleteAll() {
+        sqlMapClientTemplate.delete("deleteAll");
     }
 }

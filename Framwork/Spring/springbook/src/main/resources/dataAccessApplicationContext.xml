@@ -10,4 +10,9 @@
        http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
 
         <jee:jndi-lookup id="dataSource" jndi-name="jdbc/DefaultDS"/>
+
+        <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+                <property name="dataSource" ref="dataSource"/>
+                <property name="configLocation" value="com/example/dataaccess/ibatis/SqlMapConfig.xml"/>
+        </bean>
 </beans>

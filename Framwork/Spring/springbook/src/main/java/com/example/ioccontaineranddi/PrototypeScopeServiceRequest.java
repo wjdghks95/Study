@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import javax.inject.Provider;
+//import javax.inject.Provider;
 import javax.servlet.http.HttpServletRequest;
 
 public class PrototypeScopeServiceRequest {
@@ -70,8 +70,8 @@ public class PrototypeScopeServiceRequest {
 
 //        abstract public ServiceRequest getServiceRequest();
 
-        @Autowired
-        Provider<ServiceRequest> serviceRequestProvider;
+//        @Autowired
+//        Provider<ServiceRequest> serviceRequestProvider;
 
         public void serviceRequestFormSubmit(HttpServletRequest request) {
             // ServiceRequest serviceRequest = new ServiceRequest(); // 매 요청마다 새로운 ServiceRequest 오브젝트를 생성한다.
@@ -92,10 +92,10 @@ public class PrototypeScopeServiceRequest {
 //            ServiceRequest serviceRequest = this.getServiceRequest();
 
             // Provider<T>
-            ServiceRequest serviceRequest = serviceRequestProvider.get();
+//            ServiceRequest serviceRequest = serviceRequestProvider.get();
 
-            serviceRequest.setCustomerNo(request.getParameter("custno"));
-            this.serviceRequestService.addNewServiceRequest(serviceRequest);
+//            serviceRequest.setCustomerNo(request.getParameter("custno"));
+//            this.serviceRequestService.addNewServiceRequest(serviceRequest);
         }
     }
 

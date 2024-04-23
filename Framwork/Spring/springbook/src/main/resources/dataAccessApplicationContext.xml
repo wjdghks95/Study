@@ -2,12 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xis="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:jee="http://www.springframework.org/schema/jee"
        xis:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/jee
+       http://www.springframework.org/schema/jee/spring-jee.xsd">
 
         <jee:jndi-lookup id="dataSource" jndi-name="jdbc/DefaultDS"/>
 
@@ -71,5 +78,26 @@
         <!--   하이버네이트 트랜잭션 매니저     -->
         <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
                 <property name="sessionFactory" ref="sessionFactory"/>
+        </bean>
+
+        <!--  JTA를 이용한 글로벌/분산 트랜잭션  -->
+        <jee:jndi-lookup id="dataSource1" jndi-name="jdbc/xaDS1"/> <!--  첫 번째 DB에 대한 DataSource를 서버에 설정해두고 JNDI로 가져와 빈으로 등록한다.  -->
+        <bean id="memberDao" class="com.example.dataaccess.MemberDao">
+                <property name="dataSource" ref="dataSource1"/> <!--  dataSource1을 지정했으므로 첫 번째 DB 연결을 사용하는 DAO가 된다.  -->
+        </bean>
+
+        <jee:jndi-lookup id="dataSource2" jndi-name="jdbc/xaDS1"/> <!--  두 번째 DB에 연결된 DataSource와 이를 사용하는 DAO를 정의한다.  -->
+        <bean id="usageDao" class="com.example.dataaccess.UsageDao">
+                <property name="dataSource" ref="dataSource2"/>
+        </bean>
+
+        <bean id="txManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>
+
+        <bean id="memberJdbcDao" class="com.example.dataaccess.transaction.MemberJdbcDao">
+                <property name="dataSource" ref="dataSource"/>
+        </bean>
+
+        <bean id="memberJpaDao" class="com.example.dataaccess.transaction.MemberJdbcDao">
+                <property name="dataSource" ref="dataSource"/>
         </bean>
 </beans>

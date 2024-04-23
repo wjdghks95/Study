@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 
-import javax.inject.Provider;
+//import javax.inject.Provider;
 import java.util.Date;
 
 public class SessionScopeLoginUser {

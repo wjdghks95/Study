@@ -6,4 +6,43 @@
 
     <context:annotation-config/>
     <bean name="/hello" class="com.example.springbook2.temp.HelloController"/>
+
+    <!--  핸들러 매핑  -->
+    <!-- BeanNameUrlHandlerMapping : 디폴트 핸들러 매핑 -->
+    <!-- <bean name="/s*" class="com.example.springbook2...Controller"/> -->
+
+    <!-- ControllerBeanNameHandlerMapping -->
+    <!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerBeanNameHandlerMapping"/> -->
+    <!-- <bean id="hello" class="com.example.springbook2...Controller"/> -->
+
+    <!-- ControllerClassNameHandlerMapping -->
+    <!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/> -->
+
+    <!-- SimpleUrlHandlerMapping -->
+    <!--
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/hello">helloController</prop>
+                <prop key="/sub/*">myController</prop>
+                <prop key="/deep/**/sub">subController</prop>
+            </props>
+        </property>
+    </bean>
+    -->
+
+    <!-- DefaultAnnotationHandlerMapping : 디폴트 핸들러 매핑 -->
+
+
+    <!--  핸들러 인터셉터 적용  -->
+    <!--
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <ref bean="simpleInterceptor" />
+                <ref bean="eventInterceptor" />
+            </list>
+        </property>
+    </bean>
+    -->
 </beans>

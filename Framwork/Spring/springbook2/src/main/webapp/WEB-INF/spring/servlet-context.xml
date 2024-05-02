@@ -45,6 +45,7 @@
         </property>
     </bean>
     -->
+
     <!--  view  -->
     <bean id="marshaller" class="org.springframework.oxm.castor.CastorMarshaller"/>
     <bean id="helloMarshallingView" class="org.springframework.web.servlet.view.xml.MarshallingView">
@@ -95,5 +96,22 @@
                 <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
             </list>
         </property>
+    </bean>
+
+    <!-- handlerExceptionResolver   -->
+    <!--  SimpleMappingExceptionResolver  -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="mappedHandlers">
+            <props>
+                <prop key="DataAccessException">error/dao</prop>
+                <prop key="BusinessLogicException">error/login</prop>
+            </props>
+        </property>
+        <property name="defaultErrorView" value="error/default"/>
+    </bean>
+
+    <!--  MultipartResolver  -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="100000"/>
     </bean>
 </beans>

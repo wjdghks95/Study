@@ -1,5 +1,7 @@
 package com.example.springbook2.mvc.requestMapping;
 
+import com.example.springbook2.mvc.User;
+import com.example.springbook2.mvc.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/user")

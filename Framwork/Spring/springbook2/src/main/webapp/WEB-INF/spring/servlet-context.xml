@@ -114,4 +114,35 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="100000"/>
     </bean>
+
+    <!--  Binding  -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="webBindingInitializer">
+            <bean class="com.example.springbook2.mvc.binding.propertyEditor.MyWebBindingInitializer"/>
+        </property>
+    </bean>
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters"> <!--  GenericConversionService에 추가할 컨버터를 지정한다.  -->
+            <set>
+                <bean class="com.example.springbook2.mvc.binding.converterAndFormatter.LevelToStringConverter" />
+                <bean class="com.example.springbook2.mvc.binding.converterAndFormatter.StringToLevelConverter" />
+            </set>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+<!--        <property name="conversionService" ref="conversionService"/>-->
+        <property name="conversionService" ref="formattingConversionService"/>
+    </bean>
+
+    <bean id="formattingConversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
+
+    <!--  Validator  -->
+    <bean id="localValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+    <!--  MessageSource  -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages" />
+    </bean>
 </beans>

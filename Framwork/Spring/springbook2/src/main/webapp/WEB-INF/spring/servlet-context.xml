@@ -166,4 +166,6 @@
         </mvc:interceptor>
     </mvc:interceptors>
     <mvc:view-controller path="/" view-name="/index"/>
+    <mvc:default-servlet-handler/>
+    <mvc:resources mapping="/ui/**" location="classpath:/META-INF/webresources/"/>
 </beans>

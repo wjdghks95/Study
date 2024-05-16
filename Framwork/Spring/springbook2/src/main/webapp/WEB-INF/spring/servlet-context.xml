@@ -171,4 +171,16 @@
 
     <!--  @AspectJ  -->
     <aop:aspectj-autoproxy/>
+
+    <!--  AspectJ  -->
+    <bean id="userPolicyDao" class="com.example.springbook2.aopAndLtw.aspectj.UserPolicyDao"/>
+    <bean id="emailService" class="com.example.springbook2.aopAndLtw.aspectj.EmailService"/>
+
+    <bean class="com.example.springbook2.aopAndLtw.aspectj.User" abstract="true">
+        <property name="userPolicyDao" ref="userPolicyDao"/>
+        <property name="emailService" ref="emailService"/>
+    </bean>
+
+    <context:load-time-weaver aspectj-weaving="on"/>
+    <context:spring-configured/>
 </beans>

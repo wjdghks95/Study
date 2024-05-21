@@ -3,7 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+       xmlns:task="http://www.springframework.org/schema/task" xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
     <context:annotation-config/>
     <bean name="/hello" class="com.example.springbook2.temp.HelloController"/>
@@ -183,4 +184,54 @@
 
     <context:load-time-weaver aspectj-weaving="on"/>
     <context:spring-configured/>
+
+    <!--  Spring  -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+        <property name="targetDataSource" ref="realDataSource"/>
+    </bean>
+    <bean id="realDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+    </bean>
+
+    <bean id="dataSourceRouter" class="com.example.springbook2.etc.ReadOnlyRoutingDataSource">
+        <property name="targetDataSources">
+            <map>
+                <entry key="READWRITE" value-ref="masterDataSource"/>
+                <entry key="READONLY" value-ref="readOnlyDataSource"/>
+            </map>
+        </property>
+        <property name="defaultTargetDataSource" ref="masterDataSource"/>
+    </bean>
+
+    <bean id="masterDataSource" class=""></bean>
+    <bean id="readOnlyDataSource" class=""></bean>
+
+    <bean name="/remoting/userservice" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+        <property name="service" ref="userService"/>
+        <property name="serviceInterface" value="com.example.springbook2.etc.UserService" />
+    </bean>
+
+    <bean id="memberWebService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface" value="com.example.springbook2.etc.MemberService"/>
+        <property name="wsdlDocumentUrl" value="http://ws.remotecompany.com/MemberServiceEndPoint?WSDL"/>
+        <property name="namespaceUri" value="http://remote/"/>
+        <property name="serviceName" value="MemberService"/>
+        <property name="portName" value="MemberServiceServiceEndponintPort"/>
+    </bean>
+
+    <bean id="myBean" class="">
+        <property name="memberService" ref="memberWebService"/>
+    </bean>
+
+    <!--  task  -->
+    <task:executor id="myExecutor" pool-size="5"/>
+    <task:scheduler id="myScheduler"/>
+    <task:scheduled-tasks>
+        <task:scheduled ref="systemAdminService" method="checkSystem" fixed-rate="5000"/>
+        <task:scheduled ref="resourceService" method="clearAll" cron="0 30 6 * * *"/>
+    </task:scheduled-tasks>
+    <task:annotation-driven executor="myExecutor" scheduler="myScheduler"/>
+
+    <!--  cache  -->
+    <cache:annotation-driven/>
+    <bean id="cacheManager" class="org.springframework.cache.concurrent.ConcurrentMapCacheManager"/>
 </beans>

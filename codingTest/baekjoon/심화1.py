@@ -56,3 +56,63 @@ for i in range(1, N+1):
 for i in range(N-1, 0, -1):
     print(' ' * (N-i), end='')
     print('*' * (i*2-1))
+
+
+
+# 팰린드롬인지 확인하기
+""" 
+문제
+알파벳 소문자로만 이루어진 단어가 주어진다. 이때, 이 단어가 팰린드롬인지 아닌지 확인하는 프로그램을 작성하시오.
+팰린드롬이란 앞으로 읽을 때와 거꾸로 읽을 때 똑같은 단어를 말한다. 
+level, noon은 팰린드롬이고, baekjoon, online, judge는 팰린드롬이 아니다.
+
+입력
+첫째 줄에 단어가 주어진다. 단어의 길이는 1보다 크거나 같고, 100보다 작거나 같으며, 알파벳 소문자로만 이루어져 있다.
+
+출력
+첫째 줄에 팰린드롬이면 1, 아니면 0을 출력한다.
+"""
+str = input()
+"""
+a = list(str)
+b = a.copy()
+b.reverse()
+if ("".join(a) == "".join(b)):
+    print(1)
+else:
+    print(0)
+"""
+if text == text[::-1]:
+    print(1)
+else:
+    print(0)
+
+
+
+# 단어 공부
+""" 
+문제
+알파벳 대소문자로 된 단어가 주어지면, 이 단어에서 가장 많이 사용된 알파벳이 무엇인지 알아내는 프로그램을 작성하시오. 단, 대문자와 소문자를 구분하지 않는다.
+
+입력
+첫째 줄에 알파벳 대소문자로 이루어진 단어가 주어진다. 주어지는 단어의 길이는 1,000,000을 넘지 않는다.
+
+출력
+첫째 줄에 이 단어에서 가장 많이 사용된 알파벳을 대문자로 출력한다. 단, 가장 많이 사용된 알파벳이 여러 개 존재하는 경우에는 ?를 출력한다.
+"""
+text = input().upper()
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+arr = []
+for a in alphabet:
+    arr.append(text.count(a))
+max = max(arr)
+maxIndex = arr.index(max)
+result = alphabet[maxIndex]
+
+arr.remove(max)
+for i in arr:
+    if (max == i):
+        result = '?'
+        break
+
+print(result)

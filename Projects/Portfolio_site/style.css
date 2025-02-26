@@ -82,6 +82,8 @@
 
   /* About */
   .about__title { display: inline-block; padding-bottom: 16px; border-bottom: 3px solid var(--color-light-white); }
+  .about__introduce { margin: 40px auto 20px; }
+  .introduce__description { text-align: start; color: var(--color-dark-grey); font-size: var(--font-regular); }
   .about__majors { display: flex; flex-wrap: wrap;  margin: 40px auto 20px; }
   .major { width: 33.3333%; margin: 20px auto; }
   .major__wrap { display: flex; flex-flow: row nowrap; width: 100%; max-width: 258px; margin: 0 auto; }
@@ -94,7 +96,7 @@
   .education,
   .certificate { display: flex; align-items: center; margin-bottom: 20px; }
   .education__title,
-  .certificate__title { text-align: start; width: 55px; font-size: var(--font-regular); font-weight: bold; }
+  .certificate__title { text-align: start; width: 55px; font-size: var(--font-regular); font-weight: bold; color: var(--color-dark-grey); }
   .education__description,
   .certificate__name { display:inline-block; margin: 0 16px; text-align: left; }
   .certificate__name { color: var(--color-light-grey); font-size: var(--font-small); }

@@ -216,6 +216,10 @@
     }
     .major { width: 100%; }
     .about__activity { margin: 0; }
-    .education, .certificate { justify-content: center;  }
     .education__title, .certificate__title { text-align: end; }
+    .skillset__contents .skillset__content {width: 50%;}
+    .project__right {margin: 0;}
+    .project__left {margin: 10px 0 0;}
+    .project__content {margin: 0;}
+    .archiving__container a {width: 100%;}
   }
